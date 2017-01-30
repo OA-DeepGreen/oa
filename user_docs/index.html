@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Anleitung zur Benutzung von DeepGreen &#8212; DeepGreen 1.0.0 Dokumentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="author" title="Über dieses Dokument" href="../about.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="Einleitung" href="intro.html" />
+    <link rel="prev" title="DeepGreen: Programmier- und Nutzungshandbuch" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Stichwortverzeichnis"
+             accesskey="I">Index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="Einleitung"
+             accesskey="N">weiter</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="DeepGreen: Programmier- und Nutzungshandbuch"
+             accesskey="P">zurück</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">DeepGreen 1.0.0 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/deepgreen_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Anleitung zur Benutzung von DeepGreen</a><ul>
+<li><a class="reference internal" href="#inhaltsverzeichnis">Inhaltsverzeichnis</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Vorheriges Thema</h4>
+  <p class="topless"><a href="../index.html"
+                        title="vorheriges Kapitel">DeepGreen: Programmier- und Nutzungshandbuch</a></p>
+  <h4>Nächstes Thema</h4>
+  <p class="topless"><a href="intro.html"
+                        title="nächstes Kapitel">Einleitung</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Diese Seite</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_docs/index.rst.txt"
+            rel="nofollow">Quellcode anzeigen</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="anleitung-zur-benutzung-von-deepgreen">
+<h1>Anleitung zur Benutzung von DeepGreen<a class="headerlink" href="#anleitung-zur-benutzung-von-deepgreen" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Dies Handbuch führt in die Benutzung des DeepGreen
+Web-Servers (<code class="docutils literal"><span class="pre">DeepGreen</span> <span class="pre">Protoyp</span></code>) aus Sicht der Verlage
+und der Repositorienbetreiber ein, indem zunächst die
+verfügbaren Schnittstellen des Web-Servers und deren
+Benutzung allgemein beschrieben werden.  Im Anschluß
+daran wird dann speziell auf die Besonderheiten der
+beiden genannten Sichten eingegangen.</p>
+<div class="section" id="inhaltsverzeichnis">
+<h2>Inhaltsverzeichnis<a class="headerlink" href="#inhaltsverzeichnis" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Einleitung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Benutzung der Schnittstellen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html#web-api">Web-API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html#sword">SWORD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html#sftp">sFTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html#oai-pmh">OAI-PMH</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publisher.html">Anleitung und Hinweise für Verlage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository.html">Anleitung und Hinweise für Repositorienbetreiber</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Stichwortverzeichnis"
+             >Index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="Einleitung"
+             >weiter</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="DeepGreen: Programmier- und Nutzungshandbuch"
+             >zurück</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">DeepGreen 1.0.0 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, DeepGreen Konsortium.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+    </div>
+  </body>
+</html>
