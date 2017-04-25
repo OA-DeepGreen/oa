@@ -2,3 +2,6 @@
 OAI-PMH
 =======
 
+
+Artikeldaten von DeepGreen erhalten
+-----------------------------------

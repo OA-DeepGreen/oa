@@ -2,3 +2,10 @@
 SWORD
 =====
 
+
+Artikeldaten an DeepGreen liefern
+---------------------------------
+
+
+Artikeldaten von DeepGreen erhalten
+-----------------------------------
