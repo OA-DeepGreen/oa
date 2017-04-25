@@ -34,8 +34,8 @@ der Datendrehscheibe überprüft werden. Es sind also zwei REST-Resourcen des We
 Für ganz ungeduldige Leser hier zwei (funktionierende!) ``bash``-Beispielskripte, die 
 ``zip``-Pakete mit einem ``api_key`` an DeepGreen liefert bzw. validiert.  Die Skripte
 analysieren zunächst jeweils die angegeben ``zip``-Datei, welches Metadatenschema im
-Datenpaket vorliegt.  Momentan werden von DeepGreen zwei Schemata verarbeitet, 
-``DTD JATS`` und ``DTD RSC``.
+Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, ``DTD JATS``, 
+``DTD Journal`` (dies ist eine Variante des ``DTD JATS``-Schema) und ``DTD RSC``.
 
 .. code-block:: bash
    :caption: bash-Skript zur Validierung
@@ -60,9 +60,12 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen zwei Schemata verarbeitet,
    has_xml=`${zipgrep} "DOCTYPE article" ${zip_file} | ${wc} -l`
 
    if [ ${has_xml} -eq 1 ]; then
+     is_jrnl=`${zipgrep} "//NLM//DTD Journal " ${zip_file} | ${wc} -l`
      is_jats=`${zipgrep} "//NLM//DTD JATS " ${zip_file} | ${wc} -l`
      is_rsc=`${zipgrep} "//RSC//DTD RSC " ${zip_file} | ${wc} -l`
-     if [ ${is_jats} -eq 1 ]; then
+     if [ ${is_jrnl} -eq 1 ]; then
+       pkg_fmt="https://datahub.deepgreen.org/FilesAndJATS"
+     elif [ ${is_jats} -eq 1 ]; then
        pkg_fmt="https://datahub.deepgreen.org/FilesAndJATS"
      elif [ ${is_rsc} -eq 1 ]; then
        pkg_fmt="https://datahub.deepgreen.org/FilesAndRSC"
@@ -78,7 +81,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen zwei Schemata verarbeitet,
    echo "`basename $0`: packaging format in zip archive found:"
    echo "`basename $0`: ${pkg_fmt}"
 
-   ${curl} -i -k -s -X POST  "${host_url}/api/v1/validate?api_key=${api_key}" -F "content=@${zip_file};type=application/zip" -F "metadata=@-;type=application/json" <<EOF
+   ${curl} -i -k -s -XPOST  "${host_url}/api/v1/validate?api_key=${api_key}" -F "content=@${zip_file};type=application/zip" -F "metadata=@-;type=application/json" <<EOF
    {
      "content" : {
         "packaging_format" : "${pkg_fmt}"
@@ -111,9 +114,12 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen zwei Schemata verarbeitet,
    has_xml=`${zipgrep} "DOCTYPE article" ${zip_file} | ${wc} -l`
 
    if [ ${has_xml} -eq 1 ]; then
+     is_jrnl=`${zipgrep} "//NLM//DTD Journal " ${zip_file} | ${wc} -l`
      is_jats=`${zipgrep} "//NLM//DTD JATS " ${zip_file} | ${wc} -l`
      is_rsc=`${zipgrep} "//RSC//DTD RSC " ${zip_file} | ${wc} -l`
-     if [ ${is_jats} -eq 1 ]; then
+     if [ ${is_jrnl} -eq 1 ]; then
+       pkg_fmt="https://datahub.deepgreen.org/FilesAndJATS"
+     elif [ ${is_jats} -eq 1 ]; then
        pkg_fmt="https://datahub.deepgreen.org/FilesAndJATS"
      elif [ ${is_rsc} -eq 1 ]; then
        pkg_fmt="https://datahub.deepgreen.org/FilesAndRSC"
@@ -129,7 +135,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen zwei Schemata verarbeitet,
    echo "`basename $0`: packaging format in zip archive found:"
    echo "`basename $0`: ${pkg_fmt}"
 
-   ${curl} -i -k -s -X POST  "${host_url}/api/v1/notification?api_key=${api_key}" -F "content=@${zip_file};type=application/zip" -F "metadata=@-;type=application/json" <<EOF
+   ${curl} -i -k -s -XPOST  "${host_url}/api/v1/notification?api_key=${api_key}" -F "content=@${zip_file};type=application/zip" -F "metadata=@-;type=application/json" <<EOF
    {
        "content" : {
            "packaging_format" : "${pkg_fmt}"
