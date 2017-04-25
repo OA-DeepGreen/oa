@@ -1,6 +1,6 @@
 
-SWORD
-=====
+SWORD(v2)
+=========
 
 
 Artikeldaten an DeepGreen liefern
