@@ -377,7 +377,7 @@ Parameter für die http-Adressen sind vorgesehen:
 
    GET [http-Adresse/...]?api_key=<api_key>
 
-Mehrere Parameterangaben hintereinander werden mit dem ``&``-Zeichen verbunden.
+Mehrere Parameterangaben hintereinander können mit dem ``&``-Zeichen verbunden werden.
 
 
 Liste aller erfolgreich zugestellten Artikel 
@@ -461,8 +461,11 @@ Liste der einer Einrichtung zugestellten Artikel
    +----------------------+-------------------------------------------------------------------+
 
 
+Abfrage einer bestimmten Notifikation
+`````````````````````````````````````
+
 .. code-block:: rest
-   :caption: Eine bestimmte Notification, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
+   :caption: Abfrage einer bestimmten Notifikation, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
   
    GET /notification/<notification_id>
 

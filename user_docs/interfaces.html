@@ -65,6 +65,7 @@
 <li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a><ul>
 <li><a class="reference internal" href="#liste-aller-erfolgreich-zugestellten-artikel">Liste aller erfolgreich zugestellten Artikel</a></li>
 <li><a class="reference internal" href="#liste-der-einer-einrichtung-zugestellten-artikel">Liste der einer Einrichtung zugestellten Artikel</a></li>
+<li><a class="reference internal" href="#abfrage-einer-bestimmten-notifikation">Abfrage einer bestimmten Notifikation</a></li>
 </ul>
 </li>
 </ul>
@@ -514,7 +515,7 @@ GET [http-Adresse/...]?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
 </div>
-<p>Mehrere Parameterangaben hintereinander werden mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen verbunden.</p>
+<p>Mehrere Parameterangaben hintereinander können mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen verbunden werden.</p>
 <div class="section" id="liste-aller-erfolgreich-zugestellten-artikel">
 <h4>Liste aller erfolgreich zugestellten Artikel<a class="headerlink" href="#liste-aller-erfolgreich-zugestellten-artikel" title="Link zu dieser Überschrift">¶</a></h4>
 <div class="literal-block-wrapper docutils container" id="id12">
@@ -636,8 +637,11 @@ Content-Type: application/json
 </div></blockquote>
 </li>
 </ul>
+</div>
+<div class="section" id="abfrage-einer-bestimmten-notifikation">
+<h4>Abfrage einer bestimmten Notifikation<a class="headerlink" href="#abfrage-einer-bestimmten-notifikation" title="Link zu dieser Überschrift">¶</a></h4>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">Eine bestimmte Notification, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id14" title="Link zu diesem Quellcode">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">Abfrage einer bestimmten Notifikation, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id14" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
 </pre></div>
 </div>
