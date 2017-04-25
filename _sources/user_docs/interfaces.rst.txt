@@ -367,7 +367,7 @@ Aufrufe, aber auch durch bestimmte Parameter festgelegt und gesteuert.  Als
 Parameter für die http-Adressen sind vorgesehen:
 
 .. code-block:: rest
-   :caption: Mögliche Parameter bei GET-Funktionen von DeepGreen
+   :caption: Mögliche **Parameter** bei GET-Funktionen von DeepGreen
 
    GET [http-Adresse/...]?since=<YYYY-MM-DD>
 
