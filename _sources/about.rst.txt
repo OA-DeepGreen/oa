@@ -2,7 +2,7 @@
 Über das Projekt
 ----------------
 
-.. image:: _images/logos_projektbeteiligte.jpg
+.. image:: _static/logos_projektbeteiligte.jpg
    :scale: 60 %
    :align: center
 
