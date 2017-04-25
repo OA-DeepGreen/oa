@@ -200,6 +200,8 @@ Beispiel ``notification`` unten angegeben.
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
 
+Soweit der Fall ``validation``.  Jetzt kommt die Beschreibung der Rückgabewerte bei
+``notification``.
 
 
 Rückgabewerte bei ``notification`` (am Beispiel: Metadaten samt Volltext(e) abliefern)
