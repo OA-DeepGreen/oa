@@ -9,10 +9,13 @@ Im folgenden werden die in DeepGreen realisierten Schnittstellen ``REST Web-API`
    ~~~~~~~~~~~~~~~
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    Web-API (nativ) <interfaces/webapi>
+
    SWORD <interfaces/sword>
+
    sFTP <interfaces/sftp>
+
    OAI-PMH <interfaces/oai_pmh>
 
