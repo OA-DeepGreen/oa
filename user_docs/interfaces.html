@@ -62,7 +62,11 @@
 <li><a class="reference internal" href="#ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern">Rückgabewerte bei <code class="docutils literal"><span class="pre">notification</span></code> (am Beispiel: Metadaten samt Volltext(e) abliefern)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a></li>
+<li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a><ul>
+<li><a class="reference internal" href="#liste-aller-erfolgreich-zugestellten-artikel">Liste aller erfolgreich zugestellten Artikel</a></li>
+<li><a class="reference internal" href="#liste-der-einer-einrichtung-zugestellten-artikel">Liste der einer Einrichtung zugestellten Artikel</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#sword">SWORD</a></li>
@@ -121,7 +125,7 @@ Die aktuelle Version der DeepGreen REST API ist <code class="docutils literal"><
 REST-Resourcen <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notification</span></code> und <code class="docutils literal"><span class="pre">routed</span></code> der Web-API-Schnittstelle.
 Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">POST</span> <span class="pre">validate</span></code></li>
+<li><code class="docutils literal"><span class="pre">POST</span> <span class="pre">/validate</span></code></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
@@ -133,7 +137,7 @@ Content-Type: application/json
 </div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">POST</span> <span class="pre">notification</span></code></li>
+<li><code class="docutils literal"><span class="pre">POST</span> <span class="pre">/notification</span></code></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch &#8220;<code class="docutils literal"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>&#8220;</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
@@ -159,7 +163,7 @@ Content-Type: application/zip
 </div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">GET</span> <span class="pre">routed</span></code> und <code class="docutils literal"><span class="pre">GET</span> <span class="pre">notification</span></code></li>
+<li><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/routed</span></code></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Liste aller erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
@@ -173,6 +177,9 @@ Content-Type: application/zip
 </pre></div>
 </div>
 </div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/notification</span></code></li>
+</ul>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">Eine bestimmte Notification, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
@@ -497,32 +504,143 @@ Aufrufe, aber auch durch bestimmte Parameter festgelegt und gesteuert.  Als
 Parameter für die http-Adressen sind vorgesehen:</p>
 <div class="literal-block-wrapper docutils container" id="id11">
 <div class="code-block-caption"><span class="caption-text">Mögliche Parameter bei GET-Funktionen von DeepGreen</span><a class="headerlink" href="#id11" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>[http-Adresse/...]?since=&lt;yyyy-mm-dd&gt;
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET [http-Adresse/...]?since=&lt;YYYY-MM-DD&gt;
 
-[http-Adresse/...]?pageSize=&lt;number&gt;
+GET [http-Adresse/...]?pageSize=&lt;number&gt;
 
-[http-Adresse/...]?page=&lt;number&gt;
+GET [http-Adresse/...]?page=&lt;number&gt;
 
-[http-Adresse/...]?api_key=&lt;api_key&gt;
+GET [http-Adresse/...]?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
 </div>
+<p>Mehrere Parameterangaben hintereinander werden mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen verbunden.</p>
+<div class="section" id="liste-aller-erfolgreich-zugestellten-artikel">
+<h4>Liste aller erfolgreich zugestellten Artikel<a class="headerlink" href="#liste-aller-erfolgreich-zugestellten-artikel" title="Link zu dieser Überschrift">¶</a></h4>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">Liste <strong>aller</strong> erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id12" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed[?&lt;params&gt;]
+<div class="code-block-caption"><span class="caption-text">Liste aller erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id12" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed?since=&lt;YYYY-MM-DD&gt;[&amp;&lt;other params&gt;]
 </pre></div>
 </div>
 </div>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>200</strong> OK</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+Content-Type: application/json
+
+{
+  &quot;since&quot; : &quot;&lt;Datumsangabe der Form YYYY-MM-DDThh:mm:ssZ&gt;&quot;,
+  &quot;page&quot; : &quot;&lt;Seitenzahl dieser Trefferausgabe&gt;&quot;,
+  &quot;pageSize&quot; : &quot;&lt;Anzahl der Trefferausgabe pro Seite&gt;&quot;,
+  &quot;timestamp&quot; : &quot;&lt;Zeitstempel der Anfrage&gt;&quot;,
+  &quot;total&quot; : &quot;&lt;Anzahl der Treffer zu dieser Zeit&gt;&quot;,
+  &quot;notifications&quot; : [
+     &quot;&lt;Liste der &#39;Outgoing Notification&#39;-JSON-Objekte&gt;&quot;
+  ]
+}
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>400</strong> Bad Request</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
+Content-Type: application/json
+
+{
+  &quot;error&quot; : &quot;&lt;verständliche(!) Fehlermeldung (auf englisch)&gt;&quot;
+}
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="liste-der-einer-einrichtung-zugestellten-artikel">
+<h4>Liste der einer Einrichtung zugestellten Artikel<a class="headerlink" href="#liste-der-einer-einrichtung-zugestellten-artikel" title="Link zu dieser Überschrift">¶</a></h4>
 <div class="literal-block-wrapper docutils container" id="id13">
 <div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id13" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;[?&lt;params&gt;]
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;?since=&lt;YYYY-MM-DD&gt;[&amp;&lt;other params&gt;]
 </pre></div>
 </div>
 </div>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>200</strong> OK</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+Content-Type: application/json
+
+{
+  &quot;since&quot; : &quot;&lt;Datumsangabe der Form YYYY-MM-DDThh:mm:ssZ&gt;&quot;,
+  &quot;page&quot; : &quot;&lt;Seitenzahl dieser Trefferausgabe&gt;&quot;,
+  &quot;pageSize&quot; : &quot;&lt;Anzahl der Trefferausgabe pro Seite&gt;&quot;,
+  &quot;timestamp&quot; : &quot;&lt;Zeitstempel der Anfrage&gt;&quot;,
+  &quot;total&quot; : &quot;&lt;Anzahl der Treffer zu dieser Zeit&gt;&quot;,
+  &quot;notifications&quot; : [
+     &quot;&lt;Liste der &#39;Outgoing Notification&#39;-JSON-Objekte&gt;&quot;
+  ]
+}
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>400</strong> Bad Request</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
+Content-Type: application/json
+
+{
+  &quot;error&quot; : &quot;&lt;verständliche(!) Fehlermeldung (auf englisch)&gt;&quot;
+}
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
 <div class="literal-block-wrapper docutils container" id="id14">
 <div class="code-block-caption"><span class="caption-text">Eine bestimmte Notification, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id14" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
 </pre></div>
+</div>
 </div>
 </div>
 </div>

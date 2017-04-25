@@ -23,7 +23,7 @@ Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die ko
 REST-Resourcen ``validate``, ``notification`` und ``routed`` der Web-API-Schnittstelle.
 Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
 
-* ``POST validate``
+* ``POST /validate``
 
 .. code-block:: rest
    :caption: Angabe von Metadaten durch "``Incoming Notification JSON``" (internes DeepGreen-Format)
@@ -34,7 +34,7 @@ Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
    [Incoming Notification JSON]
 
 
-* ``POST notification``
+* ``POST /notification``
 
 .. code-block:: rest
    :caption: http-POST: Bündelung durch "``Content-Type: multipart/form-data; ...``"
@@ -59,7 +59,7 @@ Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
    --FulltextBoundary--
 
 
-* ``GET routed`` und ``GET notification``
+* ``GET /routed`` 
 
 .. code-block:: rest
    :caption: Liste aller erfolgreich zugestellten Notifikationen
@@ -70,6 +70,9 @@ Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
    :caption: Liste der zugestellten Notifikationen **einer** Einrichtung
 
    GET /routed/<repo_id>[?<params>]
+
+
+* ``GET /notification``
 
 .. code-block:: rest
    :caption: Eine bestimmte Notification, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
@@ -366,24 +369,97 @@ Parameter für die http-Adressen sind vorgesehen:
 .. code-block:: rest
    :caption: Mögliche Parameter bei GET-Funktionen von DeepGreen
 
-   [http-Adresse/...]?since=<yyyy-mm-dd>
+   GET [http-Adresse/...]?since=<YYYY-MM-DD>
 
-   [http-Adresse/...]?pageSize=<number>
+   GET [http-Adresse/...]?pageSize=<number>
 
-   [http-Adresse/...]?page=<number>
+   GET [http-Adresse/...]?page=<number>
 
-   [http-Adresse/...]?api_key=<api_key>
+   GET [http-Adresse/...]?api_key=<api_key>
 
+Mehrere Parameterangaben hintereinander werden mit dem ``&``-Zeichen verbunden.
+
+
+Liste aller erfolgreich zugestellten Artikel 
+````````````````````````````````````````````
 
 .. code-block:: rest
-   :caption: Liste **aller** erfolgreich zugestellten Notifikationen
+   :caption: Liste aller erfolgreich zugestellten Notifikationen
 
-   GET /routed[?<params>]
+   GET /routed?since=<YYYY-MM-DD>[&<other params>]
+
+* **http-Header Rückgabewerte**
+
+   +----------------------+-------------------------------------------------------------------+
+   | Code                 | Beschreibung                                                      |
+   +======================+===================================================================+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **200** OK           |    HTTP 1.1  200 OK                                               |
+   |                      |    Content-Type: application/json                                 |
+   |                      |                                                                   |
+   |                      |    {                                                              |
+   |                      |      "since" : "<Datumsangabe der Form YYYY-MM-DDThh:mm:ssZ>",    |
+   |                      |      "page" : "<Seitenzahl dieser Trefferausgabe>",               |
+   |                      |      "pageSize" : "<Anzahl der Trefferausgabe pro Seite>",        |
+   |                      |      "timestamp" : "<Zeitstempel der Anfrage>",                   |
+   |                      |      "total" : "<Anzahl der Treffer zu dieser Zeit>",             |
+   |                      |      "notifications" : [                                          |
+   |                      |         "<Liste der 'Outgoing Notification'-JSON-Objekte>"        |
+   |                      |      ]                                                            |
+   |                      |    }                                                              |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **400** Bad Request  |    HTTP 1.1  400 Bad Request                                      |
+   |                      |    Content-Type: application/json                                 |
+   |                      |                                                                   |
+   |                      |    {                                                              |
+   |                      |      "error" : "<verständliche(!) Fehlermeldung (auf englisch)>"  |
+   |                      |    }                                                              |
+   +----------------------+-------------------------------------------------------------------+
+
+ 
+
+Liste der einer Einrichtung zugestellten Artikel 
+````````````````````````````````````````````````
 
 .. code-block:: rest
    :caption: Liste der zugestellten Notifikationen **einer** Einrichtung
 
-   GET /routed/<repo_id>[?<params>]
+   GET /routed/<repo_id>?since=<YYYY-MM-DD>[&<other params>]
+
+* **http-Header Rückgabewerte**
+
+   +----------------------+-------------------------------------------------------------------+
+   | Code                 | Beschreibung                                                      |
+   +======================+===================================================================+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **200** OK           |    HTTP 1.1  200 OK                                               |
+   |                      |    Content-Type: application/json                                 |
+   |                      |                                                                   |
+   |                      |    {                                                              |
+   |                      |      "since" : "<Datumsangabe der Form YYYY-MM-DDThh:mm:ssZ>",    |
+   |                      |      "page" : "<Seitenzahl dieser Trefferausgabe>",               |
+   |                      |      "pageSize" : "<Anzahl der Trefferausgabe pro Seite>",        |
+   |                      |      "timestamp" : "<Zeitstempel der Anfrage>",                   |
+   |                      |      "total" : "<Anzahl der Treffer zu dieser Zeit>",             |
+   |                      |      "notifications" : [                                          |
+   |                      |         "<Liste der 'Outgoing Notification'-JSON-Objekte>"        |
+   |                      |      ]                                                            |
+   |                      |    }                                                              |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **400** Bad Request  |    HTTP 1.1  400 Bad Request                                      |
+   |                      |    Content-Type: application/json                                 |
+   |                      |                                                                   |
+   |                      |    {                                                              |
+   |                      |      "error" : "<verständliche(!) Fehlermeldung (auf englisch)>"  |
+   |                      |    }                                                              |
+   +----------------------+-------------------------------------------------------------------+
+
 
 .. code-block:: rest
    :caption: Eine bestimmte Notification, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
