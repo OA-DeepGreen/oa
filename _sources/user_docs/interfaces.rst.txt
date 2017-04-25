@@ -11,7 +11,7 @@ Web-API
 
 .. highlight:: bash
 
-DeepGreen bietet eine (*rudimentäre?*)
+DeepGreen bietet eine (*rudimentäre*)
 `REST-Schnittstelle <https://de.wikipedia.org/wiki/Representational_State_Transfer>`_ an.
 Die aktuelle Version der DeepGreen REST API ist ``v1``. Diese kann über die Web-Adresse 
 ``https://oa-deepgreen.kobv.de/api/v1`` angesprochen werden, z.B. mit dem Kommando
@@ -22,8 +22,8 @@ Die aktuelle Version der DeepGreen REST API ist ``v1``. Diese kann über die Web
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
 REST-Resourcen ``validate``, ``notification`` und ``routed`` der Web-API-Schnittstelle.
 
-Datenannahme
-~~~~~~~~~~~~
+Artikeldaten an DeepGreen liefern
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Vor der Übertragung eines Datenpakets einer Publikation zu DeepGreen kann das Paket von 
 der Datendrehscheibe überprüft werden. Es sind also zwei REST-Resourcen des Web-APIs verfügbar,
@@ -146,9 +146,18 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, `
    echo
 
 
+Es können somit unterschiedliche Rückgabeantworten von DeepGreen erscheinen, je 
+nachdem, ob eine Verifikation oder eine tatsächliche Datenablieferung vorgenommen 
+wird.  Der Einfachheit halber werden hier die beiden Funktionen auch nur mit den 
+für sie typischen Anwendungsfälle dokumentiert.   Selbstverständlich ist es auch
+möglich, ein komplettes Datenpaket mit Metadaten samt Volltext(e) validieren zu 
+lassen, ebenso nur Metadaten abzuliefern.  Zu beachten bleibt dabei, dass jeweils 
+immer nur **ein Artikel** (!) pro Datenpaket verwendet wird.  Nun die Erklärung 
+der Rückgabewerte im Einzelnen:
 
-Nur Metadaten (Beispiel ``validation``)
-```````````````````````````````````````
+  
+Rückgabewerte bei ``validation`` (hier am Beispiel: Nur Metadaten abliefern)
+````````````````````````````````````````````````````````````````````````````
 
 Für die Verifikation einer Datenlieferung macht es durchaus Sinn, nur die Metadaten der 
 Lieferung zu schicken.  Dazu wird das ``json``-Format "``Incoming Notification JSON``" 
@@ -182,7 +191,7 @@ Beispiel ``notification`` unten angegeben.
    |                      |    Content-Type: application/json                                 |
    |                      |                                                                   |
    |                      |    {                                                              |
-   |                      |      "error" : "<verständliche(?) Fehlermeldung (auf englisch)>"  |
+   |                      |      "error" : "<verständliche(!) Fehlermeldung (auf englisch)>"  |
    |                      |    }                                                              |
    +----------------------+-------------------------------------------------------------------+
    | \                    | \                                                                 |
@@ -193,8 +202,8 @@ Beispiel ``notification`` unten angegeben.
 
 
 
-Metadaten und Paket (Beispiel ``notification``)
-```````````````````````````````````````````````
+Rückgabewerte bei ``notification`` (am Beispiel: Metadaten samt Volltext(e) abliefern)
+``````````````````````````````````````````````````````````````````````````````````````
 
 Artikellieferungen, die binären Inhalt enthalten sollen (z.B. der Volltext als ``pdf``), 
 werden durch die Kennzeichnung "``multipart/form-data``" im http-Header gebündelt.  Dabei 
@@ -274,7 +283,7 @@ werden durch die Kennzeichnung "``multipart/form-data``" im http-Header gebünde
    |                      |    Content-Type: application/json                                 |
    |                      |                                                                   |
    |                      |    {                                                              |
-   |                      |      "error" : "<verständliche(?) Fehlermeldung (auf englisch)>"  |
+   |                      |      "error" : "<verständliche(!) Fehlermeldung (auf englisch)>"  |
    |                      |    }                                                              |
    +----------------------+-------------------------------------------------------------------+
    | \                    | \                                                                 |
@@ -286,8 +295,8 @@ werden durch die Kennzeichnung "``multipart/form-data``" im http-Header gebünde
 
 
 
-Datenabgabe
-~~~~~~~~~~~
+Artikeldaten von DeepGreen erhalten
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: rest
    :caption: Liste aller erfolgreich zugestellten Notifikationen

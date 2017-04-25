@@ -57,12 +57,12 @@
   <ul>
 <li><a class="reference internal" href="#">Benutzung der Schnittstellen</a><ul>
 <li><a class="reference internal" href="#web-api">Web-API</a><ul>
-<li><a class="reference internal" href="#datenannahme">Datenannahme</a><ul>
-<li><a class="reference internal" href="#nur-metadaten-beispiel-validation">Nur Metadaten (Beispiel <code class="docutils literal"><span class="pre">validation</span></code>)</a></li>
-<li><a class="reference internal" href="#metadaten-und-paket-beispiel-notification">Metadaten und Paket (Beispiel <code class="docutils literal"><span class="pre">notification</span></code>)</a></li>
+<li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a><ul>
+<li><a class="reference internal" href="#ruckgabewerte-bei-validation-hier-am-beispiel-nur-metadaten-abliefern">Rückgabewerte bei <code class="docutils literal"><span class="pre">validation</span></code> (hier am Beispiel: Nur Metadaten abliefern)</a></li>
+<li><a class="reference internal" href="#ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern">Rückgabewerte bei <code class="docutils literal"><span class="pre">notification</span></code> (am Beispiel: Metadaten samt Volltext(e) abliefern)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#datenabgabe">Datenabgabe</a></li>
+<li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#sword">SWORD</a></li>
@@ -109,7 +109,7 @@
 <code class="docutils literal"><span class="pre">SWORDv2</span></code>, <code class="docutils literal"><span class="pre">sFTP</span></code> und <code class="docutils literal"><span class="pre">OAI-PMH</span></code> zur Datenannahme bzw. -abgabe genauer erklärt.</p>
 <div class="section" id="web-api">
 <h2>Web-API<a class="headerlink" href="#web-api" title="Link zu dieser Überschrift">¶</a></h2>
-<p>DeepGreen bietet eine (<em>rudimentäre?</em>)
+<p>DeepGreen bietet eine (<em>rudimentäre</em>)
 <a class="reference external" href="https://de.wikipedia.org/wiki/Representational_State_Transfer">REST-Schnittstelle</a> an.
 Die aktuelle Version der DeepGreen REST API ist <code class="docutils literal"><span class="pre">v1</span></code>. Diese kann über die Web-Adresse
 <code class="docutils literal"><span class="pre">https://oa-deepgreen.kobv.de/api/v1</span></code> angesprochen werden, z.B. mit dem Kommando
@@ -119,8 +119,8 @@ Die aktuelle Version der DeepGreen REST API ist <code class="docutils literal"><
 </div>
 <p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
 REST-Resourcen <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notification</span></code> und <code class="docutils literal"><span class="pre">routed</span></code> der Web-API-Schnittstelle.</p>
-<div class="section" id="datenannahme">
-<h3>Datenannahme<a class="headerlink" href="#datenannahme" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="artikeldaten-an-deepgreen-liefern">
+<h3>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Vor der Übertragung eines Datenpakets einer Publikation zu DeepGreen kann das Paket von
 der Datendrehscheibe überprüft werden. Es sind also zwei REST-Resourcen des Web-APIs verfügbar,</p>
 <ol class="arabic simple">
@@ -242,8 +242,16 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <
 </pre></div>
 </div>
 </div>
-<div class="section" id="nur-metadaten-beispiel-validation">
-<h4>Nur Metadaten (Beispiel <code class="docutils literal"><span class="pre">validation</span></code>)<a class="headerlink" href="#nur-metadaten-beispiel-validation" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Es können somit unterschiedliche Rückgabeantworten von DeepGreen erscheinen, je
+nachdem, ob eine Verifikation oder eine tatsächliche Datenablieferung vorgenommen
+wird.  Der Einfachheit halber werden hier die beiden Funktionen auch nur mit den
+für sie typischen Anwendungsfälle dokumentiert.   Selbstverständlich ist es auch
+möglich, ein komplettes Datenpaket mit Metadaten samt Volltext(e) validieren zu
+lassen, ebenso nur Metadaten abzuliefern.  Zu beachten bleibt dabei, dass jeweils
+immer nur <strong>ein Artikel</strong> (!) pro Datenpaket verwendet wird.  Nun die Erklärung
+der Rückgabewerte im Einzelnen:</p>
+<div class="section" id="ruckgabewerte-bei-validation-hier-am-beispiel-nur-metadaten-abliefern">
+<h4>Rückgabewerte bei <code class="docutils literal"><span class="pre">validation</span></code> (hier am Beispiel: Nur Metadaten abliefern)<a class="headerlink" href="#ruckgabewerte-bei-validation-hier-am-beispiel-nur-metadaten-abliefern" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Für die Verifikation einer Datenlieferung macht es durchaus Sinn, nur die Metadaten der
 Lieferung zu schicken.  Dazu wird das <code class="docutils literal"><span class="pre">json</span></code>-Format &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221;
 zur Beschreibung der zu überprüfenden Metadaten verwendet.  Mit Binärdaten gebündelte
@@ -286,7 +294,7 @@ Content-Type: application/json
 Content-Type: application/json
 
 {
-  &quot;error&quot; : &quot;&lt;verständliche(?) Fehlermeldung (auf englisch)&gt;&quot;
+  &quot;error&quot; : &quot;&lt;verständliche(!) Fehlermeldung (auf englisch)&gt;&quot;
 }
 </pre></div>
 </div>
@@ -305,8 +313,8 @@ Content-Type: application/json
 </li>
 </ul>
 </div>
-<div class="section" id="metadaten-und-paket-beispiel-notification">
-<h4>Metadaten und Paket (Beispiel <code class="docutils literal"><span class="pre">notification</span></code>)<a class="headerlink" href="#metadaten-und-paket-beispiel-notification" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern">
+<h4>Rückgabewerte bei <code class="docutils literal"><span class="pre">notification</span></code> (am Beispiel: Metadaten samt Volltext(e) abliefern)<a class="headerlink" href="#ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Artikellieferungen, die binären Inhalt enthalten sollen (z.B. der Volltext als <code class="docutils literal"><span class="pre">pdf</span></code>),
 werden durch die Kennzeichnung &#8220;<code class="docutils literal"><span class="pre">multipart/form-data</span></code>&#8221; im http-Header gebündelt.  Dabei
 <strong>muss</strong> im <code class="docutils literal"><span class="pre">json</span></code> des Metadatenteil (&#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notifikation</span> <span class="pre">JSON</span></code>&#8221;) das Feld
@@ -398,7 +406,7 @@ Location: &lt;URL des api-Endpunkts der akzeptierten Lieferung&gt;
 Content-Type: application/json
 
 {
-  &quot;error&quot; : &quot;&lt;verständliche(?) Fehlermeldung (auf englisch)&gt;&quot;
+  &quot;error&quot; : &quot;&lt;verständliche(!) Fehlermeldung (auf englisch)&gt;&quot;
 }
 </pre></div>
 </div>
@@ -418,8 +426,8 @@ Content-Type: application/json
 </ul>
 </div>
 </div>
-<div class="section" id="datenabgabe">
-<h3>Datenabgabe<a class="headerlink" href="#datenabgabe" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="artikeldaten-von-deepgreen-erhalten">
+<h3>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h3>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">Liste aller erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed[?&lt;params&gt;]
