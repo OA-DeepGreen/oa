@@ -6,8 +6,8 @@ Im folgenden werden die in DeepGreen realisierten Schnittstellen ``REST Web-API`
 ``SWORDv2``, ``sFTP`` und ``OAI-PMH`` zur Datenannahme bzw. -abgabe genauer erklärt.
 
 
-Web-API
--------
+Web-API (nativ)
+---------------
 
 .. highlight:: bash
 
