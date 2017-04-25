@@ -118,7 +118,68 @@ Die aktuelle Version der DeepGreen REST API ist <code class="docutils literal"><
 </pre></div>
 </div>
 <p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
-REST-Resourcen <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notification</span></code> und <code class="docutils literal"><span class="pre">routed</span></code> der Web-API-Schnittstelle.</p>
+REST-Resourcen <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notification</span></code> und <code class="docutils literal"><span class="pre">routed</span></code> der Web-API-Schnittstelle.
+Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">POST</span> <span class="pre">validate</span></code></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /validate?api_key=&lt;api_key&gt;
+Content-Type: application/json
+
+[Incoming Notification JSON]
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">POST</span> <span class="pre">notification</span></code></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch &#8220;<code class="docutils literal"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>&#8220;</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
+Content-Type: multipart/form-data; boundary=FulltextBoundary
+
+--FulltextBoundary
+
+Content-Disposition: form-data; name=&quot;metadata&quot;
+Content-Type: application/json
+
+[Incoming Notification JSON]
+
+--FulltextBoundary
+
+Content-Disposition: form-data; name=&quot;content&quot;
+Content-Type: application/zip
+
+[Package]
+
+--FulltextBoundary--
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">GET</span> <span class="pre">routed</span></code> und <code class="docutils literal"><span class="pre">GET</span> <span class="pre">notification</span></code></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Liste aller erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed[?&lt;params&gt;]
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;[?&lt;params&gt;]
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Eine bestimmte Notification, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
+</pre></div>
+</div>
+</div>
+<p>All diese Aufrufmöglichkeiten der <code class="docutils literal"><span class="pre">Web-API</span></code> sollen nun im Folgenden näher erläutert werden.</p>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h3>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Vor der Übertragung eines Datenpakets einer Publikation zu DeepGreen kann das Paket von
@@ -132,8 +193,8 @@ der Datendrehscheibe überprüft werden. Es sind also zwei REST-Resourcen des We
 analysieren zunächst jeweils die angegeben <code class="docutils literal"><span class="pre">zip</span></code>-Datei, welches Metadatenschema im
 Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">JATS</span></code>,
 <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">Journal</span></code> (dies ist eine Variante des <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">JATS</span></code>-Schema) und <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">RSC</span></code>.</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">bash-Skript zur Validierung</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">bash-Skript zur Validierung</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
 <span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://oa-deepgreen.kobv.de&quot;</span>
@@ -187,8 +248,8 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">bash-Skript zur Datenpaketübertragung</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">bash-Skript zur Datenpaketübertragung</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
 <span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://oa-deepgreen.kobv.de&quot;</span>
@@ -257,8 +318,8 @@ Lieferung zu schicken.  Dazu wird das <code class="docutils literal"><span class
 zur Beschreibung der zu überprüfenden Metadaten verwendet.  Mit Binärdaten gebündelte
 Lieferungen können natürlich ebenso geprüft werden.  Dies funktioniert genau wie im
 Beispiel <code class="docutils literal"><span class="pre">notification</span></code> unten angegeben.</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id8" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /validate?api_key=&lt;api_key&gt;
 Content-Type: application/json
 
@@ -321,8 +382,8 @@ Beschreibung der Rückgabewerte bei der Verwendung der Funktion <code class="doc
 werden durch die Kennzeichnung &#8220;<code class="docutils literal"><span class="pre">multipart/form-data</span></code>&#8221; im http-Header gebündelt.  Dabei
 <strong>muss</strong> im <code class="docutils literal"><span class="pre">json</span></code> des Metadatenteil (&#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notifikation</span> <span class="pre">JSON</span></code>&#8221;) das Feld
 <strong>content.packaging_format</strong> zwingend vorhanden sein.</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch &#8220;<code class="docutils literal"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>&#8220;</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch &#8220;<code class="docutils literal"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>&#8220;</span><a class="headerlink" href="#id9" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
 Content-Type: multipart/form-data; boundary=FulltextBoundary
 
@@ -344,8 +405,8 @@ Content-Type: application/zip
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Minimale Angabe der Metadaten durch &#8220;<code class="docutils literal"><span class="pre">packaging_format</span></code>&#8220;</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Minimale Angabe der Metadaten durch &#8220;<code class="docutils literal"><span class="pre">packaging_format</span></code>&#8220;</span><a class="headerlink" href="#id10" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
 Content-Type: multipart/form-data; boundary=FulltextBoundary
 
@@ -430,20 +491,36 @@ Content-Type: application/json
 </div>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h3>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h3>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Liste aller erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
+<p>Naturgemäß gibt es mehrere Optionen, die Datensammlungen von DeepGreen abzufragen
+und zu listen.  Diese verschiedenen Möglichkeiten werden durch unterschiedliche
+Aufrufe, aber auch durch bestimmte Parameter festgelegt und gesteuert.  Als
+Parameter für die http-Adressen sind vorgesehen:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Mögliche Parameter bei GET-Funktionen von DeepGreen</span><a class="headerlink" href="#id11" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>[http-Adresse/...]?since=&lt;yyyy-mm-dd&gt;
+
+[http-Adresse/...]?pageSize=&lt;number&gt;
+
+[http-Adresse/...]?page=&lt;number&gt;
+
+[http-Adresse/...]?api_key=&lt;api_key&gt;
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Liste <strong>aller</strong> erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id12" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed[?&lt;params&gt;]
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id13" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;[?&lt;params&gt;]
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Eine bestimmte Notification, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id8" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Eine bestimmte Notification, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id14" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
 </pre></div>
 </div>

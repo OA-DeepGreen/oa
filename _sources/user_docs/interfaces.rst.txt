@@ -21,6 +21,64 @@ Die aktuelle Version der DeepGreen REST API ist ``v1``. Diese kann über die Web
 
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
 REST-Resourcen ``validate``, ``notification`` und ``routed`` der Web-API-Schnittstelle.
+Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
+
+* ``POST validate``
+
+.. code-block:: rest
+   :caption: Angabe von Metadaten durch "``Incoming Notification JSON``" (internes DeepGreen-Format)
+
+   POST /validate?api_key=<api_key>
+   Content-Type: application/json
+
+   [Incoming Notification JSON]
+
+
+* ``POST notification``
+
+.. code-block:: rest
+   :caption: http-POST: Bündelung durch "``Content-Type: multipart/form-data; ...``"
+
+   POST /notification?api_key=<api_key>
+   Content-Type: multipart/form-data; boundary=FulltextBoundary
+
+   --FulltextBoundary
+
+   Content-Disposition: form-data; name="metadata"
+   Content-Type: application/json
+
+   [Incoming Notification JSON]
+
+   --FulltextBoundary
+
+   Content-Disposition: form-data; name="content"
+   Content-Type: application/zip
+
+   [Package]
+
+   --FulltextBoundary--
+
+
+* ``GET routed`` und ``GET notification``
+
+.. code-block:: rest
+   :caption: Liste aller erfolgreich zugestellten Notifikationen
+
+   GET /routed[?<params>]
+
+.. code-block:: rest
+   :caption: Liste der zugestellten Notifikationen **einer** Einrichtung
+
+   GET /routed/<repo_id>[?<params>]
+
+.. code-block:: rest
+   :caption: Eine bestimmte Notification, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
+  
+   GET /notification/<notification_id>
+
+
+All diese Aufrufmöglichkeiten der ``Web-API`` sollen nun im Folgenden näher erläutert werden.
+
 
 Artikeldaten an DeepGreen liefern
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -300,8 +358,25 @@ werden durch die Kennzeichnung "``multipart/form-data``" im http-Header gebünde
 Artikeldaten von DeepGreen erhalten
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Naturgemäß gibt es mehrere Optionen, die Datensammlungen von DeepGreen abzufragen
+und zu listen.  Diese verschiedenen Möglichkeiten werden durch unterschiedliche 
+Aufrufe, aber auch durch bestimmte Parameter festgelegt und gesteuert.  Als 
+Parameter für die http-Adressen sind vorgesehen:
+
 .. code-block:: rest
-   :caption: Liste aller erfolgreich zugestellten Notifikationen
+   :caption: Mögliche Parameter bei GET-Funktionen von DeepGreen
+
+   [http-Adresse/...]?since=<yyyy-mm-dd>
+
+   [http-Adresse/...]?pageSize=<number>
+
+   [http-Adresse/...]?page=<number>
+
+   [http-Adresse/...]?api_key=<api_key>
+
+
+.. code-block:: rest
+   :caption: Liste **aller** erfolgreich zugestellten Notifikationen
 
    GET /routed[?<params>]
 
