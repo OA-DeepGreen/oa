@@ -81,7 +81,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, `
    echo "`basename $0`: packaging format in zip archive found:"
    echo "`basename $0`: ${pkg_fmt}"
 
-   ${curl} -i -k -s -XPOST  "${host_url}/api/v1/validate?api_key=${api_key}" -F "content=@${zip_file};type=application/zip" -F "metadata=@-;type=application/json" <<EOF
+   ${curl} -i -k -s -XPOST "${host_url}/api/v1/validate?api_key=${api_key}" -F "content=@${zip_file};type=application/zip" -F "metadata=@-;type=application/json" <<EOF
    {
      "content" : {
         "packaging_format" : "${pkg_fmt}"
@@ -135,7 +135,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, `
    echo "`basename $0`: packaging format in zip archive found:"
    echo "`basename $0`: ${pkg_fmt}"
 
-   ${curl} -i -k -s -XPOST  "${host_url}/api/v1/notification?api_key=${api_key}" -F "content=@${zip_file};type=application/zip" -F "metadata=@-;type=application/json" <<EOF
+   ${curl} -i -k -s -XPOST "${host_url}/api/v1/notification?api_key=${api_key}" -F "content=@${zip_file};type=application/zip" -F "metadata=@-;type=application/json" <<EOF
    {
        "content" : {
            "packaging_format" : "${pkg_fmt}"
