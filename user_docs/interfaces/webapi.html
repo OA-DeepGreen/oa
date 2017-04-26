@@ -497,12 +497,24 @@ Parameter für die http-Adressen sind vorgesehen:</p>
 <div class="literal-block-wrapper docutils container" id="id11">
 <div class="code-block-caption"><span class="caption-text">Mögliche <strong>Parameter</strong> bei GET-Funktionen von DeepGreen</span><a class="headerlink" href="#id11" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET [http-Adresse/...]?since=&lt;YYYY-MM-DD&gt;
+<span class="gh">#</span>
+<span class="gh"># Angabe erforderlich; bestimmt, von wann ab Notifikationen gelistet werden</span>
+<span class="gh">#</span>
 
 GET [http-Adresse/...]?pageSize=&lt;number&gt;
+<span class="gh">#</span>
+<span class="gh"># Angabe optional, voreingestellt auf 25, maximal 100; bestimmt, wieviele Datensätze auf einmal ausgegeben werden</span>
+<span class="gh">#</span>
 
 GET [http-Adresse/...]?page=&lt;number&gt;
+<span class="gh">#</span>
+<span class="gh"># Angabe optional, voreingestellt auf 1; bestimmt, welche Seite der Resultate ausgegeben wird</span>
+<span class="gh">#</span>
 
 GET [http-Adresse/...]?api_key=&lt;api_key&gt;
+<span class="gh">#</span>
+<span class="gh"># Angabe optional;  mit der Angabe wird die Anfrage authentifiziert (z.B. für den Bezug von Volltexten)</span>
+<span class="gh">#</span>
 </pre></div>
 </div>
 </div>
@@ -661,7 +673,7 @@ erhält man den individuellen <code class="docutils literal"><span class="pre">J
 <td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
 Content-Type: application/json
 
-[&#39;Outgoing Notification&#39; JSON]
+[Outgoing Notification JSON]
 </pre></div>
 </div>
 </td>

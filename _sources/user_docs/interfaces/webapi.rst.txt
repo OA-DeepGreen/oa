@@ -363,12 +363,25 @@ Parameter für die http-Adressen sind vorgesehen:
    :caption: Mögliche **Parameter** bei GET-Funktionen von DeepGreen
 
    GET [http-Adresse/...]?since=<YYYY-MM-DD>
+   #
+   # Angabe erforderlich; bestimmt, von wann ab Notifikationen gelistet werden
+   # 
 
    GET [http-Adresse/...]?pageSize=<number>
+   #
+   # Angabe optional, voreingestellt auf 25, maximal 100; bestimmt, wieviele Datensätze auf einmal ausgegeben werden
+   #
 
    GET [http-Adresse/...]?page=<number>
+   #
+   # Angabe optional, voreingestellt auf 1; bestimmt, welche Seite der Resultate ausgegeben wird
+   #
 
    GET [http-Adresse/...]?api_key=<api_key>
+   #
+   # Angabe optional;  mit der Angabe wird die Anfrage authentifiziert (z.B. für den Bezug von Volltexten) 
+   #
+
 
 Mehrere Parameterangaben hintereinander können mit dem ``&``-Zeichen verbunden werden.
 
@@ -477,7 +490,7 @@ erhält man den individuellen ``JSON`` Datensatz einer bestimmten Notifikations-
    | **200** OK           |    HTTP 1.1  200 OK                                               |
    |                      |    Content-Type: application/json                                 |
    |                      |                                                                   |
-   |                      |    ['Outgoing Notification' JSON]                                 |
+   |                      |    [Outgoing Notification JSON]                                   |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
    | \                    | \                                                                 |
