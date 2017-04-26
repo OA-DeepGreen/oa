@@ -65,7 +65,10 @@
 <li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a><ul>
 <li><a class="reference internal" href="#liste-aller-erfolgreich-zugestellten-artikel">Liste aller erfolgreich zugestellten Artikel</a></li>
 <li><a class="reference internal" href="#liste-der-einer-einrichtung-zugestellten-artikel">Liste der einer Einrichtung zugestellten Artikel</a></li>
-<li><a class="reference internal" href="#abfrage-eines-bestimmten-artikels">Abfrage eines bestimmten Artikels</a></li>
+<li><a class="reference internal" href="#abfrage-eines-bestimmten-artikels">Abfrage eines bestimmten Artikels</a><ul>
+<li><a class="reference internal" href="#abfrage-der-binardaten-einer-notifikation">Abfrage der Binärdaten einer Notifikation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -685,7 +688,7 @@ Content-Type: application/json
 <p class="last">z.B. die <code class="docutils literal"><span class="pre">notification_id</span></code> existiert nicht, oder die
 Notifikation konnte (noch) nicht zugestellt werden und
 man ist nicht der Verfasser (d.h. Verlag) der Notifikation
-(authentifiziert via <code class="docutils literal"><span class="pre">api_key</span></code>).</p>
+(authentifiziert via <code class="docutils literal"><span class="pre">api_key</span></code>)</p>
 </td>
 </tr>
 </tbody>
@@ -693,6 +696,81 @@ man ist nicht der Verfasser (d.h. Verlag) der Notifikation
 </div></blockquote>
 </li>
 </ul>
+<div class="section" id="abfrage-der-binardaten-einer-notifikation">
+<h4>Abfrage der Binärdaten einer Notifikation<a class="headerlink" href="#abfrage-der-binardaten-einer-notifikation" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Über ein spezielles <code class="docutils literal"><span class="pre">link</span></code>-Feld im <code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>, wenn es gesetzt ist,
+kann dann der entsprechende Volltext bezogen werden, sofern man dazu berechtigt ist.
+Angenommen, die Notifikation enthielte den JSON-Abschnitt</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;links&quot; : [
+   {
+     &quot;type&quot; : &quot;package&quot;,
+     &quot;format&quot; : &quot;application/zip&quot;,
+     &quot;url&quot; : &quot;https://oa-deepgreen.kobv.de/api/v1/notification/123456789/content&quot;,
+     &quot;packaging&quot; : &quot;https://datahub.deepgreen.org/FilesAndJATS&quot;
+   },
+   {
+     &quot;type&quot; : &quot;package&quot;,
+     &quot;format&quot; : &quot;application/zip&quot;,
+     &quot;url&quot; : &quot;https://oa-deepgreen.kobv.de/api/v1/notification/123456789/content/SimpleZip&quot;,
+     &quot;packaging&quot; : &quot;http://purl.org/net/sword/package/SimpleZip&quot;
+   }
+ ]
+</pre></div>
+</div>
+<p>dann lautete der Abruf des Volltextes wie folgt:</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Abfrage der Binärdaten eines Datenpakets, i.d.R. eine .zip-Datei mit dem/den Volltext(en)</span><a class="headerlink" href="#id15" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;package url&gt;?api_key=&lt;api_key&gt;
+</pre></div>
+</div>
+</div>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>200</strong> OK</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+Content-Type: application/zip
+
+[(binäres) Paket]
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>401</strong> Unauthorised</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falsche Benutzertyp oder die
+entsprechende Notifikation wurde (noch) nicht zugestellt</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>404</strong> Not Found</p>
+</td>
+<td><p class="first"></p>
+<p class="last">unter der angegebenen URL gibt es keinen Inhalt bzw.
+die URL ist nicht existent</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>

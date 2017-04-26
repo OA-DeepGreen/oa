@@ -498,8 +498,65 @@ erhält man den individuellen ``JSON`` Datensatz einer bestimmten Notifikations-
    | **404** Not Found    | z.B. die ``notification_id`` existiert nicht, oder die            |
    |                      | Notifikation konnte (noch) nicht zugestellt werden und            |
    |                      | man ist nicht der Verfasser (d.h. Verlag) der Notifikation        |
-   |                      | (authentifiziert via ``api_key``).                                |
+   |                      | (authentifiziert via ``api_key``)                                 |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
 
+
+Abfrage der Binärdaten einer Notifikation
+`````````````````````````````````````````
+
+Über ein spezielles ``link``-Feld im ``Outgoing Notification JSON``, wenn es gesetzt ist, 
+kann dann der entsprechende Volltext bezogen werden, sofern man dazu berechtigt ist.
+Angenommen, die Notifikation enthielte den JSON-Abschnitt
+
+.. code-block:: json
+
+   "links" : [
+      {
+        "type" : "package",
+        "format" : "application/zip",
+        "url" : "https://oa-deepgreen.kobv.de/api/v1/notification/123456789/content",
+        "packaging" : "https://datahub.deepgreen.org/FilesAndJATS"
+      },
+      {
+        "type" : "package",
+        "format" : "application/zip",
+        "url" : "https://oa-deepgreen.kobv.de/api/v1/notification/123456789/content/SimpleZip",
+        "packaging" : "http://purl.org/net/sword/package/SimpleZip"
+      }
+    ]
+
+dann lautete der Abruf des Volltextes wie folgt:
+
+.. code-block:: rest
+   :caption: Abfrage der Binärdaten eines Datenpakets, i.d.R. eine .zip-Datei mit dem/den Volltext(en)
+  
+   GET <package url>?api_key=<api_key>
+
+* **http-Header Rückgabewerte**
+
+   +----------------------+-------------------------------------------------------------------+
+   | Code                 | Beschreibung                                                      |
+   +======================+===================================================================+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **200** OK           |    HTTP 1.1  200 OK                                               |
+   |                      |    Content-Type: application/zip                                  |
+   |                      |                                                                   |
+   |                      |    [(binäres) Paket]                                              |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **401** Unauthorised | z.B. ungültiger ``api_key``, falsche Benutzertyp oder die         |
+   |                      | entsprechende Notifikation wurde (noch) nicht zugestellt          |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **404** Not Found    | unter der angegebenen URL gibt es keinen Inhalt bzw.              |
+   |                      | die URL ist nicht existent                                        |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
 
