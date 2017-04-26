@@ -364,7 +364,7 @@ Parameter für die http-Adressen sind vorgesehen:
 
    GET [http-Adresse/...]?since=<YYYY-MM-DD>
    #
-   # Angabe erforderlich; bestimmt, von wann ab Notifikationen gelistet werden
+   # Angabe erforderlich; bestimmt, von wann ab die Notifikationen gelistet werden
    # 
 
    GET [http-Adresse/...]?pageSize=<number>
