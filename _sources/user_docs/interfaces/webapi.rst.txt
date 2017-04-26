@@ -506,7 +506,7 @@ erhält man den individuellen ``JSON`` Datensatz einer bestimmten Notifikations-
 Abfrage der Binärdaten einer Notifikation
 `````````````````````````````````````````
 
-Über ein spezielles ``link``-Feld im ``Outgoing Notification JSON``, wenn es gesetzt ist, 
+Über ein spezielles ``links``-Feld im ``Outgoing Notification JSON``, wenn es gesetzt ist, 
 kann dann der entsprechende Volltext bezogen werden, sofern man dazu berechtigt ist.
 Angenommen, die Notifikation enthielte den JSON-Abschnitt
 
