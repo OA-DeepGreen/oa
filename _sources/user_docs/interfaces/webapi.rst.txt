@@ -362,22 +362,22 @@ Parameter für die http-Adressen sind vorgesehen:
 .. code-block:: rest
    :caption: Mögliche **Parameter** bei GET-Funktionen von DeepGreen
 
-   GET [http-Adresse/...]?since=<YYYY-MM-DD>
+   GET <http-Adresse/...>?since=<YYYY-MM-DD>
    #
    # Angabe erforderlich; bestimmt, von wann ab die Notifikationen gelistet werden
    # 
 
-   GET [http-Adresse/...]?pageSize=<number>
+   GET <http-Adresse/...>?pageSize=<number>
    #
    # Angabe optional, voreingestellt auf 25, maximal 100; bestimmt, wieviele Datensätze auf einmal ausgegeben werden
    #
 
-   GET [http-Adresse/...]?page=<number>
+   GET <http-Adresse/...>?page=<number>
    #
    # Angabe optional, voreingestellt auf 1; bestimmt, welche Seite der Resultate ausgegeben wird
    #
 
-   GET [http-Adresse/...]?api_key=<api_key>
+   GET <http-Adresse/...>?api_key=<api_key>
    #
    # Angabe optional; mit der Angabe wird die Anfrage authentifiziert (z.B. für den Bezug von Volltexten) 
    #

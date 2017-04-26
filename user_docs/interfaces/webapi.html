@@ -499,22 +499,22 @@ Aufrufe, aber auch durch bestimmte Parameter festgelegt und gesteuert.  Als
 Parameter für die http-Adressen sind vorgesehen:</p>
 <div class="literal-block-wrapper docutils container" id="id11">
 <div class="code-block-caption"><span class="caption-text">Mögliche <strong>Parameter</strong> bei GET-Funktionen von DeepGreen</span><a class="headerlink" href="#id11" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET [http-Adresse/...]?since=&lt;YYYY-MM-DD&gt;
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;http-Adresse/...&gt;?since=&lt;YYYY-MM-DD&gt;
 <span class="gh">#</span>
 <span class="gh"># Angabe erforderlich; bestimmt, von wann ab die Notifikationen gelistet werden</span>
 <span class="gh">#</span>
 
-GET [http-Adresse/...]?pageSize=&lt;number&gt;
+GET &lt;http-Adresse/...&gt;?pageSize=&lt;number&gt;
 <span class="gh">#</span>
 <span class="gh"># Angabe optional, voreingestellt auf 25, maximal 100; bestimmt, wieviele Datensätze auf einmal ausgegeben werden</span>
 <span class="gh">#</span>
 
-GET [http-Adresse/...]?page=&lt;number&gt;
+GET &lt;http-Adresse/...&gt;?page=&lt;number&gt;
 <span class="gh">#</span>
 <span class="gh"># Angabe optional, voreingestellt auf 1; bestimmt, welche Seite der Resultate ausgegeben wird</span>
 <span class="gh">#</span>
 
-GET [http-Adresse/...]?api_key=&lt;api_key&gt;
+GET &lt;http-Adresse/...&gt;?api_key=&lt;api_key&gt;
 <span class="gh">#</span>
 <span class="gh"># Angabe optional; mit der Angabe wird die Anfrage authentifiziert (z.B. für den Bezug von Volltexten)</span>
 <span class="gh">#</span>
