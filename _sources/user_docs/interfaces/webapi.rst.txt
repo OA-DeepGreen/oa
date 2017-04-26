@@ -485,7 +485,7 @@ erhält man den individuellen ``JSON`` Datensatz einer bestimmten Notifikations-
    | **404** Not Found    | z.B. die ``notification_id`` existiert nicht, oder die            |
    |                      | Notifikation konnte (noch) nicht zugestellt werden und            |
    |                      | man ist nicht der Verfasser (d.h. Verlag) der Notifikation        |
-   |                      | (via ``api_key``).                                                |
+   |                      | (authentifiziert via ``api_key``).                                |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
 
