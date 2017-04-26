@@ -379,7 +379,7 @@ Parameter für die http-Adressen sind vorgesehen:
 
    GET [http-Adresse/...]?api_key=<api_key>
    #
-   # Angabe optional;  mit der Angabe wird die Anfrage authentifiziert (z.B. für den Bezug von Volltexten) 
+   # Angabe optional; mit der Angabe wird die Anfrage authentifiziert (z.B. für den Bezug von Volltexten) 
    #
 
 
