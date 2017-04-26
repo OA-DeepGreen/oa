@@ -532,7 +532,7 @@ dann lautete der Abruf des Volltextes wie folgt:
 .. code-block:: rest
    :caption: Abfrage der Binärdaten eines Datenpakets, i.d.R. eine .zip-Datei mit dem/den Volltext(en)
   
-   GET <package url>?api_key=<api_key>
+   GET <links url>?api_key=<api_key>
 
 * **http-Header Rückgabewerte**
 
