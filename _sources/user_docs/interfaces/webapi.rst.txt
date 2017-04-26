@@ -560,7 +560,7 @@ dann lautete der Abruf des Volltextes wie folgt:
    | \                    | \                                                                 |
    |                      |                                                                   |
    | **404** Not Found    | unter der angegebenen URL gibt es keinen Inhalt bzw.              |
-   |                      | die URL ist nicht existent                                        |
+   |                      | die URL ist schlicht nicht existent                               |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
 
