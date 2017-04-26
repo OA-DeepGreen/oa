@@ -503,8 +503,8 @@ erhält man den individuellen ``JSON`` Datensatz einer bestimmten Notifikations-
    +----------------------+-------------------------------------------------------------------+
 
 
-Abfrage der Binärdaten einer Notifikation
-`````````````````````````````````````````
+Abruf der Binärdaten einer Notifikation
+```````````````````````````````````````
 
 Über ein spezielles ``links``-Feld im ``Outgoing Notification JSON``, wenn es gesetzt ist, 
 kann dann der entsprechende Volltext bezogen werden, sofern man dazu berechtigt ist.
