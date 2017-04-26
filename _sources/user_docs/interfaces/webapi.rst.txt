@@ -16,7 +16,7 @@ Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die ko
 REST-Resourcen ``validate``, ``notification`` und ``routed`` der Web-API-Schnittstelle.
 Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
 
-* **Aufruf**  ``POST /validate``
+* **Aufruf** :  ``POST /validate``
 
 .. code-block:: rest
    :caption: Angabe von Metadaten durch "``Incoming Notification JSON``" (internes DeepGreen-Format)
@@ -27,7 +27,7 @@ Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
    [Incoming Notification JSON]
 
 
-* **Aufruf**  ``POST /notification``
+* **Aufruf** :  ``POST /notification``
 
 .. code-block:: rest
    :caption: http-POST: Bündelung durch "``Content-Type: multipart/form-data; ...``"
@@ -52,7 +52,7 @@ Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
    --FulltextBoundary--
 
 
-* **Aufruf**  ``GET /routed`` 
+* **Aufruf** :  ``GET /routed`` 
 
 .. code-block:: rest
    :caption: Liste aller erfolgreich zugestellten Notifikationen
@@ -65,7 +65,7 @@ Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
    GET /routed/<repo_id>[?<params>]
 
 
-* **Aufruf**  ``GET /notification``
+* **Aufruf** :  ``GET /notification``
 
 .. code-block:: rest
    :caption: Eine bestimmte Notification, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
