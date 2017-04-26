@@ -14,63 +14,67 @@ Die aktuelle Version der DeepGreen REST API ist ``v1``. Diese kann über die Web
 
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
 REST-Resourcen ``validate``, ``notification`` und ``routed`` der Web-API-Schnittstelle.
-Hier ein kleiner Überblick der möglichen Aufrufe in Kurzform:
+Im Folgenden soll der Übersichtlichkeit halber ``GET``, ``POST``, usw. für die gesamte,
+wie oben angegebene ``curl``-Zeile geschrieben werden.  Hier ein kleiner Überblick der 
+möglichen Aufrufe in dieser Kurzform:
 
 * **Aufruf** :  ``POST /validate``
 
-.. code-block:: rest
-   :caption: Angabe von Metadaten durch "``Incoming Notification JSON``" (internes DeepGreen-Format)
+  .. code-block:: rest
+     :caption: Angabe von Metadaten durch "``Incoming Notification JSON``" (internes DeepGreen-Format)
 
-   POST /validate?api_key=<api_key>
-   Content-Type: application/json
+     POST /validate?api_key=<api_key>
+     Content-Type: application/json
 
-   [Incoming Notification JSON]
+     [Incoming Notification JSON]
 
 
 * **Aufruf** :  ``POST /notification``
 
-.. code-block:: rest
-   :caption: http-POST: Bündelung durch "``Content-Type: multipart/form-data; ...``"
+  .. code-block:: rest
+     :caption: http-POST: Bündelung durch "``Content-Type: multipart/form-data; ...``"
 
-   POST /notification?api_key=<api_key>
-   Content-Type: multipart/form-data; boundary=FulltextBoundary
+     POST /notification?api_key=<api_key>
+     Content-Type: multipart/form-data; boundary=FulltextBoundary
 
-   --FulltextBoundary
+     --FulltextBoundary
 
-   Content-Disposition: form-data; name="metadata"
-   Content-Type: application/json
+     Content-Disposition: form-data; name="metadata"
+     Content-Type: application/json
 
-   [Incoming Notification JSON]
+     [Incoming Notification JSON]
 
-   --FulltextBoundary
+     --FulltextBoundary
 
-   Content-Disposition: form-data; name="content"
-   Content-Type: application/zip
+     Content-Disposition: form-data; name="content"
+     Content-Type: application/zip
 
-   [Package]
+     [Package]
 
-   --FulltextBoundary--
+     --FulltextBoundary--
 
 
 * **Aufruf** :  ``GET /routed`` 
 
-.. code-block:: rest
-   :caption: Liste aller erfolgreich zugestellten Notifikationen
+  a)
+    .. code-block:: rest
+       :caption: Liste **aller** erfolgreich zugestellten Notifikationen
 
-   GET /routed[?<params>]
+       GET /routed[?<params>]
 
-.. code-block:: rest
-   :caption: Liste der zugestellten Notifikationen **einer** Einrichtung
+  b)
+    .. code-block:: rest
+       :caption: Liste der zugestellten Notifikationen **einer** Einrichtung
 
-   GET /routed/<repo_id>[?<params>]
+       GET /routed/<repo_id>[?<params>]
 
 
 * **Aufruf** :  ``GET /notification``
 
-.. code-block:: rest
-   :caption: Eine bestimmte Notification, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
+  .. code-block:: rest
+     :caption: Eine bestimmte Notification, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
   
-   GET /notification/<notification_id>
+     GET /notification/<notification_id>
 
 
 All diese Aufrufmöglichkeiten der ``Web-API`` sollen nun im Folgenden näher erläutert werden.
