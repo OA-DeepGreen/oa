@@ -454,12 +454,39 @@ Liste der einer Einrichtung zugestellten Artikel
    +----------------------+-------------------------------------------------------------------+
 
 
-Abfrage einer bestimmten Notifikation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Abfrage eines bestimmten Artikels
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Jede Notifikation zu einem Artikel, der von DeepGreen erfolgreich zugestellt werden konnte, 
+ist mit einer eindeutigen ID, der sogenannten Notifikations-ID, gekennzeichnet.  Diese ID 
+ist in den Ausgabelisten der vorherigen Abfragen zu finden.  Mit der folgenden Anfarge 
+erhält man den individuellen ``JSON`` Datensatz einer bestimmten Notifikations-ID.
 
 .. code-block:: rest
    :caption: Abfrage einer bestimmten Notifikation, geliefert im Format "``Outgoing Notification JSON``" (internes DeepGreen-Format)
   
    GET /notification/<notification_id>
+
+* **http-Header Rückgabewerte**
+
+   +----------------------+-------------------------------------------------------------------+
+   | Code                 | Beschreibung                                                      |
+   +======================+===================================================================+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **200** OK           |    HTTP 1.1  200 OK                                               |
+   |                      |    Content-Type: application/json                                 |
+   |                      |                                                                   |
+   |                      |    ['Outgoing Notification' JSON]                                 |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **404** Not Found    | z.B. die ``notification_id`` existiert nicht, oder die            |
+   |                      | Notifikation konnte (noch) nicht zugestllt werden und man ist     |
+   |                      | ist nicht der Verfasser (d.h. Verlag) der Notifikation            |
+   |                      | (via ``api_key``).                                                |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
 
 
