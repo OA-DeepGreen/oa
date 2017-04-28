@@ -34,7 +34,7 @@ dieser Kurzform:
 * **Aufruf** :  ``POST /collection/validate``
 
   .. code-block:: rest
-     :caption: Validierung
+     :caption: Validierung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler
 
      POST /collection/validate
      Content-Disposition: filename=article.zip
