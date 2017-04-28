@@ -13,7 +13,7 @@ genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse,
   $ curl -k -s -u "<dg_username>:<api_key>" [-X GET|POST] https://oa-deepgreen.kobv.de/sword/...
 
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
-Endpunkte ``validate``, ``notification`` und ``collection`` der SWORD-Schnittstelle.
+Endpunkte ``validate``, ``notification``, ``collection`` und ``entry`` der SWORD-Schnittstelle.
 Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung ist dabei 
 die Angabe eines gültigen DeepGreen-Kontonamens ``dg_username`` samt dessen API-Schlüssels 
 ``api_key``.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
