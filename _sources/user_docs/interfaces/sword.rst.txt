@@ -18,7 +18,7 @@ Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung is
 die Angabe eines gültigen DeepGreen-Kontonamens ``dg_username`` samt dessen API-Schlüssels 
 ``api_key``.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
 und man erhält keinen Zugang.  Im Folgenden soll der Übersichtlichkeit halber ``GET`` 
-und ``POST`` für die gesamte, mit einer wie oben angegebene gültigen Kennung versehenen 
+und ``POST`` für die gesamte, mit einer wie oben angegeben gültigen Kennung versehenen 
 ``curl``-Zeile geschrieben werden.  Hier ein kleiner Überblick der möglichen Aufrufe in 
 dieser Kurzform:
 
