@@ -96,6 +96,25 @@
             
   <div class="section" id="sword-v2">
 <h1>SWORD(v2)<a class="headerlink" href="#sword-v2" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Die Datendrehscheibe bietet auch die Möglichkeit, Artikeldaten über die sogenannte
+<a class="reference external" href="https://en.wikipedia.org/wiki/SWORD_(protocol)">SWORD-Schnittstelle</a> zu verarbeiten.
+Es wird die aktuelle Version <code class="docutils literal"><span class="pre">v2</span></code> angeboten.  Mehrfache Tests haben gezeigt, dass <code class="docutils literal"><span class="pre">v2</span></code>
+abwärtskombatible zu der älteren Fassung <code class="docutils literal"><span class="pre">v1</span></code> ist.  Das <code class="docutils literal"><span class="pre">SWORD</span></code>-Protokoll wird,
+genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse,
+<code class="docutils literal"><span class="pre">https://oa-deepgreen.kobv.de/sword</span></code> angesprochen, z.B. mit dem Kommando
+<a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -u &quot;&lt;dg_username&gt;:&lt;api_key&gt;&quot; [-X GET|POST] https://oa-deepgreen.kobv.de/sword/...
+</pre></div>
+</div>
+<p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
+Endpunkte <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notification</span></code> und <code class="docutils literal"><span class="pre">collection</span></code> der SWORD-Schnittstelle.
+Zwingend notwendig für eine erfolgreichen Verbindungsaufbau und -abwicklung ist dabei
+die Angabe eines gültigen DeepGreen-Kontonamens <code class="docutils literal"><span class="pre">dg_username</span></code> samt dessen API-Schlüssels
+<code class="docutils literal"><span class="pre">api_key</span></code>.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
+und man erhält keinen Zugang.  Im Folgenden soll der Übersichtlichkeit halber <code class="docutils literal"><span class="pre">GET</span></code>
+und <code class="docutils literal"><span class="pre">POST</span></code> für die gesamte, mit einer wie oben angegebene gültigen Kennung versehenen
+<code class="docutils literal"><span class="pre">curl</span></code>-Zeile geschrieben werden.  Hier ein kleiner Überblick der möglichen Aufrufe in
+dieser Kurzform:</p>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
 </div>

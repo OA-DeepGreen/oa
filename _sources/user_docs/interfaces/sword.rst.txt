@@ -2,6 +2,29 @@
 SWORD(v2)
 =========
 
+Die Datendrehscheibe bietet auch die Möglichkeit, Artikeldaten über die sogenannte
+`SWORD-Schnittstelle <https://en.wikipedia.org/wiki/SWORD_(protocol)>`_ zu verarbeiten.
+Es wird die aktuelle Version ``v2`` angeboten.  Mehrfache Tests haben gezeigt, dass ``v2``
+abwärtskombatible zu der älteren Fassung ``v1`` ist.  Das ``SWORD``-Protokoll wird,
+genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse, 
+``https://oa-deepgreen.kobv.de/sword`` angesprochen, z.B. mit dem Kommando
+`curl <https://curl.haxx.se>`_ in einer Shell (``bash``, ``tcsh``, etc.)::
+ 
+  $ curl -k -s -u "<dg_username>:<api_key>" [-X GET|POST] https://oa-deepgreen.kobv.de/sword/...
+
+Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
+Endpunkte ``validate``, ``notification`` und ``collection`` der SWORD-Schnittstelle.
+Zwingend notwendig für eine erfolgreichen Verbindungsaufbau und -abwicklung ist dabei 
+die Angabe eines gültigen DeepGreen-Kontonamens ``dg_username`` samt dessen API-Schlüssels 
+``api_key``.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
+und man erhält keinen Zugang.  Im Folgenden soll der Übersichtlichkeit halber ``GET`` 
+und ``POST`` für die gesamte, mit einer wie oben angegebene gültigen Kennung versehenen 
+``curl``-Zeile geschrieben werden.  Hier ein kleiner Überblick der möglichen Aufrufe in 
+dieser Kurzform:
+
+
+
+
 
 Artikeldaten an DeepGreen liefern
 ---------------------------------
