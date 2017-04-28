@@ -57,6 +57,30 @@ dieser Kurzform:
      [binäre .zip-Datei]
 
 
+* **Aufruf** :  ``GET /entry/<notification_id>``
+
+  .. code-block:: rest
+     :caption: Details einer (eigenen!) Notifikation abfragen
+
+     GET /entry/<notification_id>
+
+
+* **Aufruf** :  ``GET /entry/<notification_id>/content``
+
+  .. code-block:: rest
+     :caption: Den binären Inhalt (i.d.R. den Volltext als .pdf) einer (eigenen!) Notifikation abfragen (zur Überprüfung?!)
+
+     GET /entry/<notification_id>/content
+
+
+* **Aufruf** :  ``GET /entry/<notification_id>/statement/atom``
+
+  .. code-block:: rest
+     :caption: Statusabfrage für eine (eigenen!) Notifikation
+
+     GET /entry/<notification_id>/statement/atom
+
+
 
 
 Artikeldaten an DeepGreen liefern
