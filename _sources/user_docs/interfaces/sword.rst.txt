@@ -36,7 +36,7 @@ dieser Kurzform:
   **Bemerkung** : Hierbei findet **kein(!)** Doublettencheck statt.
 
   .. code-block:: rest
-     :caption: Überprüfung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler
+     :caption: Überprüfung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler ( *ohne* Doublettencheck!)
 
      POST /collection/validate
      Content-Disposition: filename=article.zip
