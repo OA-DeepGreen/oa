@@ -13,7 +13,7 @@ genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse,
   $ curl -k -s -u "<dg_username>:<api_key>" [-X GET|POST] https://oa-deepgreen.kobv.de/sword/...
 
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
-Endpunkte ``validate``, ``notification``, ``collection`` und ``entry`` der SWORD-Schnittstelle.
+Endpunkte ``validate``, ``notify``, ``collection`` und ``entry`` der SWORD-Schnittstelle.
 Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung ist dabei 
 die Angabe eines gültigen DeepGreen-Kontonamens ``dg_username`` samt dessen API-Schlüssels 
 ``api_key``.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
@@ -22,6 +22,39 @@ und ``POST`` für die gesamte, mit einer wie oben angegebene gültigen Kennung v
 ``curl``-Zeile geschrieben werden.  Hier ein kleiner Überblick der möglichen Aufrufe in 
 dieser Kurzform:
 
+
+* **Aufruf** :  ``GET /service-document``
+
+  .. code-block:: rest
+     :caption: Abfrage des SWORD-Servicedokuments, einer konkreten Beschreibung aller von DeepGreen angebotenen SWORD-Funktionalitäten
+
+     GET /service-document
+
+
+* **Aufruf** :  ``POST /collection/validate``
+
+  .. code-block:: rest
+     :caption: Validierung
+
+     POST /collection/validate
+     Content-Disposition: filename=article.zip
+     Content-Type: application/zip
+     Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+     [binäre .zip-Datei]
+
+
+* **Aufruf** :  ``POST /collection/notify``
+
+  .. code-block:: rest
+     :caption: Neue Artikeldaten an DeepGreen senden
+
+     POST /collection/notify
+     Content-Disposition: filename=article.zip
+     Content-Type: application/zip
+     Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+     [binäre .zip-Datei]
 
 
 

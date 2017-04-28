@@ -107,7 +107,7 @@ genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse,
 </pre></div>
 </div>
 <p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
-Endpunkte <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notification</span></code>, <code class="docutils literal"><span class="pre">collection</span></code> und <code class="docutils literal"><span class="pre">entry</span></code> der SWORD-Schnittstelle.
+Endpunkte <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notify</span></code>, <code class="docutils literal"><span class="pre">collection</span></code> und <code class="docutils literal"><span class="pre">entry</span></code> der SWORD-Schnittstelle.
 Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung ist dabei
 die Angabe eines gültigen DeepGreen-Kontonamens <code class="docutils literal"><span class="pre">dg_username</span></code> samt dessen API-Schlüssels
 <code class="docutils literal"><span class="pre">api_key</span></code>.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
@@ -115,6 +115,42 @@ und man erhält keinen Zugang.  Im Folgenden soll der Übersichtlichkeit halber 
 und <code class="docutils literal"><span class="pre">POST</span></code> für die gesamte, mit einer wie oben angegebene gültigen Kennung versehenen
 <code class="docutils literal"><span class="pre">curl</span></code>-Zeile geschrieben werden.  Hier ein kleiner Überblick der möglichen Aufrufe in
 dieser Kurzform:</p>
+<ul>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/service-document</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Abfrage des SWORD-Servicedokuments, einer konkreten Beschreibung aller von DeepGreen angebotenen SWORD-Funktionalitäten</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /service-document
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/collection/validate</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Validierung</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/validate
+Content-Disposition: filename=article.zip
+Content-Type: application/zip
+Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+[binäre .zip-Datei]
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/collection/notify</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Neue Artikeldaten an DeepGreen senden</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/notify
+Content-Disposition: filename=article.zip
+Content-Type: application/zip
+Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+[binäre .zip-Datei]
+</pre></div>
+</div>
+</div>
+</li>
+</ul>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
 </div>
