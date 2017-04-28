@@ -76,7 +76,7 @@ dieser Kurzform:
 * **Aufruf** :  ``GET /entry/<notification_id>/statement/atom``
 
   .. code-block:: rest
-     :caption: Statusabfrage für eine (eigenen!) Notifikation
+     :caption: Statusabfrage für eine (eigenen!) Notifikation (hier als Atom-Feed)
 
      GET /entry/<notification_id>/statement/atom
 
