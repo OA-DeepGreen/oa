@@ -50,3 +50,15 @@ Eingabe des API-Schlüssels auch verzichtet werden::
 
 In beiden Beispielen wird angenommen, dass sich die zu übertragene ``.zip``-Datei 
 ``artikel.zip`` im aktuellen Verzeichnis des lokalen Systems befindet.
+
+Die Variante mit ``sshpass`` ist u.U. in einem Skript sehr nützlich, wenn mehrere 
+``.zip``-Dateien, wie hier im Pfad ``some/path/*.zip``, auf einmal gesendet werden 
+sollen::
+
+  #! /usr/bin/env bash
+  export SSHPASS="API-Key" 
+  for f in some/path/*.zip ; do 
+    echo put "$f"
+  done | sshpass -e sftp Account-ID@sl61.kobv.de
+  unset SSHPASS
+
