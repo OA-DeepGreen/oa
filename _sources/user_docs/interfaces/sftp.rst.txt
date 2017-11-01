@@ -6,8 +6,8 @@ Aus technischen Gründen wird die Datenablieferung via ``sFTP`` **nicht** über 
 gewohnte Basis-Adresse, sondern über ``sl61.kobv.de`` abgewickelt.  Der allgemeine
 Zugang, z.B. in einer Unix-Shell (``bash``, ``tcsh``, etc.), lautet wie folgt::
 
-  $ sftp [account-id]@sl61.kobv.de
-  $ [account-id]@sl61.kobv.de's password: [api-key]
+  $ sftp [Account-ID]@sl61.kobv.de
+  $ [Account-ID]@sl61.kobv.de's password: [API-Key]
   sftp> pwd
   Remote working directory: /xfer
   sftp> quit
@@ -15,11 +15,11 @@ Zugang, z.B. in einer Unix-Shell (``bash``, ``tcsh``, etc.), lautet wie folgt::
 
 In diesem Beispiel liefert der ``sFTP``-Befehl ``pwd`` das aktuelle Verzeichnis auf
 dem entfernten Rechner ``sl61.kobv.de`` nach dem Einloggen.  Das Verzeichnis ist 
-das Standard-Verzeichnis für jeden sFTP-Benutzer von DeepGreen und darf unter keinen
-Umständen verändert werden!  
+das Standard-Verzeichnis für jeden ``sFTP``-Benutzer von DeepGreen und darf unter keinen
+Umständen verändert werden!  Als Konto-Name 
 
-**Bermerkung** :  Der sFTP-Zugang ist ausschließlich **nur** für Verlagskonten freigeschaltet.
-Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.   
+**Bermerkung** :  Der ``sFTP``-Zugang ist ausschließlich **nur** für Verlagskonten 
+freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.   
 
 
 Artikeldaten an DeepGreen liefern
