@@ -12,7 +12,6 @@ lautet wie folgt::
   sftp> pwd
   Remote working directory: /xfer
   sftp> quit
-  $
 
 In diesem Beispiel liefert der ``sFTP``-Befehl ``pwd`` das aktuelle Verzeichnis 
 auf dem entfernten Rechner ``sl61.kobv.de`` nach dem Einloggen.  Das Verzeichnis 
@@ -42,14 +41,12 @@ sieht folgendermaßen aus::
   $ echo "put artikel.zip" | sftp [Account-ID]@sl61.kobv.de
   [Accout-ID]@sl61.kobv.de's password: [API-Key]
   sftp> put article.zip
-  $ 
 
 Falls auf dem lokalen Unix-System ``sshpass`` installiert ist, kann auf die interaktive
 Eingabe des API-Schlüssels auch verzichtet werden::
 
   $ echo "put artikel.zip" | sshpass -p [API-Key] sftp [Accout-ID]@sl61.kobv.de
   sftp> put artikel.zip
-  $
 
 In beiden Beispielen wird angenommen, dass sich die zu übertragene ``.zip``-Datei 
 ``artikel.zip`` im aktuellen Verzeichnis des lokalen Systems befindet.
