@@ -83,8 +83,8 @@ Dabei sollte die ``.xml``-Datei im ``NISO JATS``
 Format vorliegen.  Darüberhinaus könnten noch weitere Binärdateien (Grafiken, 
 Tabellen, usw.) im ``.zip``-Archiv enthalten sein.  Die Dateinamen im Einzelnen sind 
 dabei unwichtig. Im Wesentlichen kommt es auf die Endkürzel ``.xml``, ``.pdf``, usw. an 
-und die Verzeichnisstruktur im Archiv **muss flach** sein (d.h. keine Unterverzeichnisse in der 
-``.zip``-Datei).
+und die Verzeichnisstruktur im Archiv **muss flach** sein, d.h. es dürfen keine 
+Unterverzeichnisse in der ``.zip``-Datei enthalten sein.
 
 **Bemerkung** : Genau(!) eine Datei in einer DeepGreen-``.zip``-Datei **muss** die Endung ``.xml`` tragen.
 
