@@ -95,6 +95,23 @@
             
   <div class="section" id="sftp">
 <h1>sFTP<a class="headerlink" href="#sftp" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Aus technischen Gründen wird die Datenablieferung via <code class="docutils literal"><span class="pre">sFTP</span></code> <strong>nicht</strong> über die
+gewohnte Basis-Adresse, sondern über <code class="docutils literal"><span class="pre">sl61.kobv.de</span></code> abgewickelt.  Der allgemeine
+Zugang, z.B. in einer Unix-Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.), lautet wie folgt:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sftp [account-id]@sl61.kobv.de
+$ [account-id]@sl61.kobv.de&#39;s password: [api-key]
+sftp&gt; pwd
+Remote working directory: /xfer
+sftp&gt; quit
+$
+</pre></div>
+</div>
+<p>In diesem Beispiel liefert der <code class="docutils literal"><span class="pre">sFTP</span></code>-Befehl <code class="docutils literal"><span class="pre">pwd</span></code> das aktuelle Verzeichnis auf
+dem entfernten Rechner <code class="docutils literal"><span class="pre">sl61.kobv.de</span></code> nach dem Einloggen.  Das Verzeichnis ist
+das Standard-Verzeichnis für jeden sFTP-Benutzer von DeepGreen und darf unter keinen
+Umständen verändert werden!</p>
+<p><strong>Bermerkung</strong> :  Der sFTP-Zugang ist ausschließlich <strong>nur</strong> für Verlagskonten freigeschaltet.
+Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.</p>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
 </div>
