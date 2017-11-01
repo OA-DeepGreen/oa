@@ -64,6 +64,9 @@ einmal gesendet werden sollen:
      done | sshpass -e sftp "Account-ID@sl61.kobv.de"
      unset SSHPASS
 
+Aufbau der ``.zip``-Dateien der Artikeldaten
+--------------------------------------------
+
 Die ``.zip``-Dateien, die DeepGreen verarbeiten kann, sollten folgenden Aufbau haben::
 
   Archive: pfad/artikel.zip
