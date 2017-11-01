@@ -28,7 +28,7 @@ Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verw
 zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel 
 (``API-Key``) als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.
 
-**Bermerkung**:  Der ``sFTP``-Zugang ist ausschließlich **nur** für Verlagskonten 
+**Bermerkung** :  Der ``sFTP``-Zugang ist ausschließlich **nur** für Verlagskonten 
 freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.   
 
 
@@ -80,6 +80,6 @@ oder ``RSC DTD`` (`Guidelines on the capture of RSC journal articles (engl.) <ht
 Tabellen, usw.) im ``.zip``-Archive enthalten sein.  Die Dateinamen im Einzelnen sind 
 dabei unwichtig, es kommt im Wesentlichen auf die Endkürzel ``.xml``, ``.pdf``, usw. an.
 
-**Bemerkung**: Genau(!) eine Datei in einer DeepGreen-``.zip``-Datei **muss** die Endung ``.xml`` tragen.
+**Bemerkung** : Genau(!) eine Datei in einer DeepGreen-``.zip``-Datei **muss** die Endung ``.xml`` tragen.
 
 
