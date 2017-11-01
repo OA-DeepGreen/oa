@@ -140,15 +140,9 @@ sftp&gt; put artikel.zip
 <code class="docutils literal"><span class="pre">artikel.zip</span></code> im aktuellen Verzeichnis des lokalen Systems befindet.</p>
 <p>Die Variante mit <code class="docutils literal"><span class="pre">sshpass</span></code> ist u.U. in einem Skript sehr nützlich, wenn mehrere
 <code class="docutils literal"><span class="pre">.zip</span></code>-Dateien, wie hier im Pfad <code class="docutils literal"><span class="pre">some/path/*.zip</span></code>, auf einmal gesendet werden
-sollen:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
-<span class="n">export</span> <span class="n">SSHPASS</span><span class="o">=</span><span class="s2">&quot;API-Key&quot;</span>
-<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">some</span><span class="o">/</span><span class="n">path</span><span class="o">/*.</span><span class="n">zip</span> <span class="p">;</span> <span class="n">do</span>
-  <span class="n">echo</span> <span class="n">put</span> <span class="s2">&quot;$f&quot;</span>
-<span class="n">done</span> <span class="o">|</span> <span class="n">sshpass</span> <span class="o">-</span><span class="n">e</span> <span class="n">sftp</span> <span class="n">Account</span><span class="o">-</span><span class="n">ID</span><span class="nd">@sl61</span><span class="o">.</span><span class="n">kobv</span><span class="o">.</span><span class="n">de</span>
-<span class="n">unset</span> <span class="n">SSHPASS</span>
-</pre></div>
-</div>
+sollen.</p>
+<blockquote>
+<div></div></blockquote>
 </div>
 </div>
 
