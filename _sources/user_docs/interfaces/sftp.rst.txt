@@ -61,7 +61,7 @@ sollen.
      export SSHPASS="API-Key" 
      for f in some/path/\*.zip ; do 
        echo put "$f"
-     done | sshpass -e sftp Account-ID@sl61.kobv.de
+     done | sshpass -e sftp "Account-ID@sl61.kobv.de"
      unset SSHPASS
 
 
