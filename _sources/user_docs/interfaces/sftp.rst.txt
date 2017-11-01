@@ -64,4 +64,18 @@ einmal gesendet werden sollen:
      done | sshpass -e sftp "Account-ID@sl61.kobv.de"
      unset SSHPASS
 
+Die ``.zip``-Dateien, die DeepGreen verarbeiten kann, sollten folgenden Aufbau haben::
 
+  Archive: pfad/artikel.zip
+    Length      Date    Time    Name
+  ---------  ---------- -----   ----
+      62225  2016-01-08 15:58   art123456789.xml
+     223902  2016-01-08 15:58   art123456789.pdf
+  ---------                     -------
+     286127                     2 files
+  
+Dabei sollte die ``.xml``-Datei im ``NISO JATS`` oder ``RSC``-Format vorliegen.  
+Darüberhinaus könnten noch weitere Binärdateien (Grafiken, Tabellen, etc.) im
+``.zip``-Archive enthalten sein.
+
+ 
