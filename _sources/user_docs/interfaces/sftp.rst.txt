@@ -2,9 +2,10 @@
 sFTP
 ====
 
-Aus technischen Gründen wird die Datenablieferung via ``sFTP`` **nicht** über die 
-gewohnte Basis-Adresse, sondern über ``sl61.kobv.de`` abgewickelt.  Der allgemeine
-Zugang, z.B. in einer Unix-Shell (``bash``, ``tcsh``, etc.), lautet wie folgt::
+Aus technischen Gründen wird die Datenablieferung via ``sFTP`` **nicht** über 
+die gewohnte Basis-Adresse, sondern vielmehr über ``sl61.kobv.de`` abgewickelt.
+Der allgemeine Zugang, z.B. in einer Unix-Shell (``bash``, ``tcsh``, etc.), 
+lautet wie folgt::
 
   $ sftp [Account-ID]@sl61.kobv.de
   $ [Account-ID]@sl61.kobv.de's password: [API-Key]
@@ -25,8 +26,8 @@ mit **flacher** Hierarchie verwendet werden, d.h. es dürfen keine verschachtelt
 Verzeichnisstrukturen in der ``.zip``-Datei enthalten sein.
 
 Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verwenden,
-zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel (API-Key) 
-als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.
+zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel 
+(``API-Key``) als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.
 
 **Bermerkung** :  Der ``sFTP``-Zugang ist ausschließlich **nur** für Verlagskonten 
 freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.   

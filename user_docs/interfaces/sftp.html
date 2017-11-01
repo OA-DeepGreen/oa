@@ -95,9 +95,10 @@
             
   <div class="section" id="sftp">
 <h1>sFTP<a class="headerlink" href="#sftp" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Aus technischen Gründen wird die Datenablieferung via <code class="docutils literal"><span class="pre">sFTP</span></code> <strong>nicht</strong> über die
-gewohnte Basis-Adresse, sondern über <code class="docutils literal"><span class="pre">sl61.kobv.de</span></code> abgewickelt.  Der allgemeine
-Zugang, z.B. in einer Unix-Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.), lautet wie folgt:</p>
+<p>Aus technischen Gründen wird die Datenablieferung via <code class="docutils literal"><span class="pre">sFTP</span></code> <strong>nicht</strong> über
+die gewohnte Basis-Adresse, sondern vielmehr über <code class="docutils literal"><span class="pre">sl61.kobv.de</span></code> abgewickelt.
+Der allgemeine Zugang, z.B. in einer Unix-Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.),
+lautet wie folgt:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ sftp [Account-ID]@sl61.kobv.de
 $ [Account-ID]@sl61.kobv.de&#39;s password: [API-Key]
 sftp&gt; pwd
@@ -117,8 +118,8 @@ einzuspielen.  Wichtig ist in beiden Fällen, dass pro Artikel nur eine <code cl
 mit <strong>flacher</strong> Hierarchie verwendet werden, d.h. es dürfen keine verschachtelten
 Verzeichnisstrukturen in der <code class="docutils literal"><span class="pre">.zip</span></code>-Datei enthalten sein.</p>
 <p>Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verwenden,
-zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel (API-Key)
-als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.</p>
+zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel
+(<code class="docutils literal"><span class="pre">API-Key</span></code>) als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.</p>
 <p><strong>Bermerkung</strong> :  Der <code class="docutils literal"><span class="pre">sFTP</span></code>-Zugang ist ausschließlich <strong>nur</strong> für Verlagskonten
 freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.</p>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
