@@ -7,10 +7,10 @@ Web-API (nativ)
 DeepGreen bietet eine (*rudimentäre*)
 `REST-Schnittstelle <https://de.wikipedia.org/wiki/Representational_State_Transfer>`_ an.
 Die aktuelle Version der DeepGreen REST API ist ``v1``. Diese kann über die Web-Adresse 
-``https://oa-deepgreen.kobv.de/api/v1`` angesprochen werden, z.B. mit dem Kommando
+``https://www.oa-deepgreen.de/api/v1`` angesprochen werden, z.B. mit dem Kommando
 `curl <https://curl.haxx.se>`_ in einer Shell (``bash``, ``tcsh``, etc.)::
  
-  $ curl -k -s [-X GET|POST|PUT|HEADER] https://oa-deepgreen.kobv.de/api/v1/...
+  $ curl -k -s [-X GET|POST|PUT|HEADER] https://www.oa-deepgreen.de/api/v1/...
 
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
 REST-Resourcen ``validate``, ``notification`` und ``routed`` der Web-API-Schnittstelle.
@@ -100,7 +100,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, `
 
    #! /usr/bin/env bash
 
-   host_url="https://oa-deepgreen.kobv.de"
+   host_url="https://www.oa-deepgreen.de"
 
    if [ $# -ge 2 ]; then
      api_key=$1
@@ -154,7 +154,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, `
 
    #! /usr/bin/env bash
 
-   host_url="https://oa-deepgreen.kobv.de"
+   host_url="https://www.oa-deepgreen.de"
 
    if [ $# -ge 2 ]; then
      api_key=$1
@@ -520,13 +520,13 @@ Angenommen, die Notifikation enthielte den JSON-Abschnitt
       {
         "type" : "package",
         "format" : "application/zip",
-        "url" : "https://oa-deepgreen.kobv.de/api/v1/notification/123456789/content",
+        "url" : "https://www.oa-deepgreen.de/api/v1/notification/123456789/content",
         "packaging" : "https://datahub.deepgreen.org/FilesAndJATS"
       },
       {
         "type" : "package",
         "format" : "application/zip",
-        "url" : "https://oa-deepgreen.kobv.de/api/v1/notification/123456789/content/SimpleZip",
+        "url" : "https://www.oa-deepgreen.de/api/v1/notification/123456789/content/SimpleZip",
         "packaging" : "http://purl.org/net/sword/package/SimpleZip"
       }
     ]

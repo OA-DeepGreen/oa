@@ -113,21 +113,21 @@ erklärt:</p>
 </tbody>
 </table>
 <p>Die Daten-Übernahme erfolgt primär über die Web-API-Schnittstelle:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span> $ curl -i -k -s -XPOST <span class="s2">&quot;https://oa-deepgreen.kobv.de/api/v1/notification?api_key=***&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span> $ curl -i -k -s -XPOST <span class="s2">&quot;https://www.oa-deepgreen.de/api/v1/notification?api_key=***&quot;</span> <span class="se">\</span>
         -F <span class="s2">&quot;content=article.zip; type=application/zip&quot;</span> <span class="se">\</span>
         -F <span class="s2">&quot;metadata=metafile.json; type=application/json&quot;</span>
  HTTP/1.1 <span class="m">202</span> ACCEPTED
  Server: nginx/1.10.2
- Date: Thu, <span class="m">27</span> Oct <span class="m">2016</span> 08:38:35 GMT
+ Date: Thu, <span class="m">27</span> Oct <span class="m">2017</span> 08:38:35 GMT
  Content-Type: application/json
  Content-Length: 160
  Connection: keep-alive
- Location: http://oa-deepgreen.kobv.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7
+ Location: http://www.oa-deepgreen.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7
  Set-Cookie: <span class="nv">session</span><span class="o">=</span><span class="s2">&quot;470tQ50scr8QvJrSGlBggSetNr4=?_fresh=STAxCi4=&amp;_id=UydkNTA3Y2Y4YzZjMjM3ZWNhZWVhNDFlNGI5Y2Q4Y2M0NicKcDEKLg==\</span>
 <span class="s2">                                               &amp;user_id=VjkyNDY4MjAzOWNjZjRlNzBhNTcwN2JjZTQxYTFmZGRlCnAxCi4=&quot;</span><span class="p">;</span> <span class="nv">Path</span><span class="o">=</span>/<span class="p">;</span> HttpOnly
 
 <span class="o">{</span><span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;accepted&quot;</span>, <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;a2121f6647534dd19e91479838b5a5e7&quot;</span>, <span class="se">\</span>
-<span class="s2">&quot;location&quot;</span>: <span class="s2">&quot;http://oa-deepgreen.kobv.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7&quot;</span><span class="o">}</span>
+<span class="s2">&quot;location&quot;</span>: <span class="s2">&quot;http://www.oa-deepgreen.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7&quot;</span><span class="o">}</span>
 </pre></div>
 </div>
 <p>In diesem Beispiel ist die Übertragung der <code class="docutils literal"><span class="pre">zip</span></code>-Datei und der <code class="docutils literal"><span class="pre">json</span></code>-Datei

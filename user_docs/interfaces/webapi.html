@@ -111,9 +111,9 @@
 <p>DeepGreen bietet eine (<em>rudimentäre</em>)
 <a class="reference external" href="https://de.wikipedia.org/wiki/Representational_State_Transfer">REST-Schnittstelle</a> an.
 Die aktuelle Version der DeepGreen REST API ist <code class="docutils literal"><span class="pre">v1</span></code>. Diese kann über die Web-Adresse
-<code class="docutils literal"><span class="pre">https://oa-deepgreen.kobv.de/api/v1</span></code> angesprochen werden, z.B. mit dem Kommando
+<code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/api/v1</span></code> angesprochen werden, z.B. mit dem Kommando
 <a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.):</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -k -s <span class="o">[</span>-X GET<span class="p">|</span>POST<span class="p">|</span>PUT<span class="p">|</span>HEADER<span class="o">]</span> https://oa-deepgreen.kobv.de/api/v1/...
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -k -s <span class="o">[</span>-X GET<span class="p">|</span>POST<span class="p">|</span>PUT<span class="p">|</span>HEADER<span class="o">]</span> https://www.oa-deepgreen.de/api/v1/...
 </pre></div>
 </div>
 <p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
@@ -203,7 +203,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <
 <div class="code-block-caption"><span class="caption-text">bash-Skript zur Validierung</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
-<span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://oa-deepgreen.kobv.de&quot;</span>
+<span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://www.oa-deepgreen.de&quot;</span>
 
 <span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ge <span class="m">2</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nv">api_key</span><span class="o">=</span><span class="nv">$1</span>
@@ -258,7 +258,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <
 <div class="code-block-caption"><span class="caption-text">bash-Skript zur Datenpaketübertragung</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
-<span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://oa-deepgreen.kobv.de&quot;</span>
+<span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://www.oa-deepgreen.de&quot;</span>
 
 <span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ge <span class="m">2</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nv">api_key</span><span class="o">=</span><span class="nv">$1</span>
@@ -709,13 +709,13 @@ Angenommen, die Notifikation enthielte den JSON-Abschnitt</p>
    {
      &quot;type&quot; : &quot;package&quot;,
      &quot;format&quot; : &quot;application/zip&quot;,
-     &quot;url&quot; : &quot;https://oa-deepgreen.kobv.de/api/v1/notification/123456789/content&quot;,
+     &quot;url&quot; : &quot;https://www.oa-deepgreen.de/api/v1/notification/123456789/content&quot;,
      &quot;packaging&quot; : &quot;https://datahub.deepgreen.org/FilesAndJATS&quot;
    },
    {
      &quot;type&quot; : &quot;package&quot;,
      &quot;format&quot; : &quot;application/zip&quot;,
-     &quot;url&quot; : &quot;https://oa-deepgreen.kobv.de/api/v1/notification/123456789/content/SimpleZip&quot;,
+     &quot;url&quot; : &quot;https://www.oa-deepgreen.de/api/v1/notification/123456789/content/SimpleZip&quot;,
      &quot;packaging&quot; : &quot;http://purl.org/net/sword/package/SimpleZip&quot;
    }
  ]

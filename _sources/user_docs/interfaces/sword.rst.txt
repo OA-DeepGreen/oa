@@ -7,10 +7,10 @@ Die Datendrehscheibe bietet auch die Möglichkeit, Artikeldaten über die sogena
 Es wird die aktuelle Version ``v2`` angeboten.  Mehrfache Tests haben gezeigt, dass ``v2``
 abwärtskombatible zu der älteren Fassung ``v1`` ist.  Das ``SWORD``-Protokoll wird,
 genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse, 
-``https://oa-deepgreen.kobv.de/sword`` angesprochen, z.B. mit dem Kommando
+``https://www.oa-deepgreen.de/sword`` angesprochen, z.B. mit dem Kommando
 `curl <https://curl.haxx.se>`_ in einer Shell (``bash``, ``tcsh``, etc.)::
  
-  $ curl -k -s -u "<dg_username>:<api_key>" [-X GET|POST] https://oa-deepgreen.kobv.de/sword/...
+  $ curl -k -s -u "<dg_username>:<api_key>" [-X GET|POST] https://www.oa-deepgreen.de/sword/...
 
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
 Endpunkte ``validate``, ``notify``, ``collection`` und ``entry`` der SWORD-Schnittstelle.

@@ -19,21 +19,21 @@ Die Daten-Übernahme erfolgt primär über die Web-API-Schnittstelle:
 
 .. code-block:: bash
 
-   $ curl -i -k -s -XPOST "https://oa-deepgreen.kobv.de/api/v1/notification?api_key=***" \
+   $ curl -i -k -s -XPOST "https://www.oa-deepgreen.de/api/v1/notification?api_key=***" \
           -F "content=article.zip; type=application/zip" \
           -F "metadata=metafile.json; type=application/json"
    HTTP/1.1 202 ACCEPTED
    Server: nginx/1.10.2
-   Date: Thu, 27 Oct 2016 08:38:35 GMT
+   Date: Thu, 27 Oct 2017 08:38:35 GMT
    Content-Type: application/json
    Content-Length: 160
    Connection: keep-alive
-   Location: http://oa-deepgreen.kobv.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7
+   Location: http://www.oa-deepgreen.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7
    Set-Cookie: session="470tQ50scr8QvJrSGlBggSetNr4=?_fresh=STAxCi4=&_id=UydkNTA3Y2Y4YzZjMjM3ZWNhZWVhNDFlNGI5Y2Q4Y2M0NicKcDEKLg==\
                                                  &user_id=VjkyNDY4MjAzOWNjZjRlNzBhNTcwN2JjZTQxYTFmZGRlCnAxCi4="; Path=/; HttpOnly
 
   {"status": "accepted", "id": "a2121f6647534dd19e91479838b5a5e7", \
-  "location": "http://oa-deepgreen.kobv.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7"}
+  "location": "http://www.oa-deepgreen.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7"}
 
 In diesem Beispiel ist die Übertragung der ``zip``-Datei und der ``json``-Datei 
 (mit einer Format-Angabe über das ``xml`` in der ``zip``-Datei) an DeepGreen 
