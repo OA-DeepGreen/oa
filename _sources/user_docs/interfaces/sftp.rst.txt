@@ -13,10 +13,16 @@ Zugang, z.B. in einer Unix-Shell (``bash``, ``tcsh``, etc.), lautet wie folgt::
   sftp> quit
   $
 
-In diesem Beispiel liefert der ``sFTP``-Befehl ``pwd`` das aktuelle Verzeichnis auf
-dem entfernten Rechner ``sl61.kobv.de`` nach dem Einloggen.  Das Verzeichnis ist 
-das Standard-Verzeichnis für jeden ``sFTP``-Benutzer von DeepGreen und darf unter keinen
-Umständen verändert werden!  Als Konto-Name 
+In diesem Beispiel liefert der ``sFTP``-Befehl ``pwd`` das aktuelle Verzeichnis 
+auf dem entfernten Rechner ``sl61.kobv.de`` nach dem Einloggen.  Das Verzeichnis 
+ist das Standard-Verzeichnis für jeden ``sFTP``-Benutzer von DeepGreen und darf 
+unter keinen Umständen verändert werden!  Alle anderen, interaktiven ``sFTP``-Befehle 
+stehen ebenfalls dann zur Verfügung (s. dazu z.B. die entsprechenden ``man-pages`` 
+auf Unix-Systemen).
+
+Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verwenden. 
+Der zugehörige API-Schlüssel (API-Key) als Passwort ist im Benutzerprofil der 
+DeepGreen-Kontowebseite zu finden.
 
 **Bermerkung** :  Der ``sFTP``-Zugang ist ausschließlich **nur** für Verlagskonten 
 freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.   
