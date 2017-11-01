@@ -18,7 +18,7 @@ auf dem entfernten Rechner ``sl61.kobv.de`` nach dem Einloggen.  Das Verzeichnis
 ist das Standard-Verzeichnis für jeden ``sFTP``-Benutzer von DeepGreen und darf 
 unter *keinen Umständen* verändert werden!  Alle anderen, interaktiven ``sFTP``-Befehle 
 stehen ebenfalls zur Verfügung (s. dazu z.B. die entsprechenden ``man-pages`` auf 
-Unix-Systemen: ``man stfp``).  Darüberhinaus ist es natürlich möglich, mit den 
+Unix-Systemen: ``man sftp``).  Darüberhinaus ist es natürlich möglich, mit den 
 entsprechenden Zugangsangaben direkt (``.zip``-)Dateien über das ``sFTP``-Protokoll 
 einzuspielen.  Wichtig ist in beiden Fällen, dass pro Artikel nur eine ``.zip``-Datei 
 mit **flacher** Hierarchie verwendet werden, d.h. es dürfen keine verschachtelten 
