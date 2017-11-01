@@ -80,6 +80,6 @@ oder ``RSC DTD`` (`Guidelines on the capture of RSC journal articles (engl.) <ht
 Tabellen, usw.) im ``.zip``-Archive enthalten sein.  Die Dateinamen im Einzelnen sind 
 dabei unwichtig, es kommt im Wesentlichen auf die Endkürzel ``.xml``, ``.pdf``, usw. an.
 
-**Bemerkung** : Genau(!) eine Datei **muss** die Endung ``.xml`` tragen.
+**Bemerkung** : Genau(!) eine Datei in einer DeepGreen-``.zip``-Datei **muss** die Endung ``.xml`` tragen.
 
 
