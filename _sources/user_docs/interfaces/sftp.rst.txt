@@ -52,8 +52,8 @@ In beiden Beispielen wird angenommen, dass sich die zu übertragene ``.zip``-Dat
 ``artikel.zip`` im aktuellen Verzeichnis des lokalen Systems befindet.
 
 Die Variante mit ``sshpass`` ist u.U. in einem Skript sehr nützlich, wenn mehrere 
-``.zip``-Dateien, wie hier im Pfad ``some/path/*.zip``, auf einmal gesendet werden 
-sollen.
+``.zip``-Dateien, wie hier in einer Schleife über den Pfad ``some/path/*.zip``, auf 
+einmal gesendet werden sollen:
 
   .. code-block:: bash
 

@@ -139,8 +139,8 @@ sftp&gt; put artikel.zip
 <p>In beiden Beispielen wird angenommen, dass sich die zu übertragene <code class="docutils literal"><span class="pre">.zip</span></code>-Datei
 <code class="docutils literal"><span class="pre">artikel.zip</span></code> im aktuellen Verzeichnis des lokalen Systems befindet.</p>
 <p>Die Variante mit <code class="docutils literal"><span class="pre">sshpass</span></code> ist u.U. in einem Skript sehr nützlich, wenn mehrere
-<code class="docutils literal"><span class="pre">.zip</span></code>-Dateien, wie hier im Pfad <code class="docutils literal"><span class="pre">some/path/*.zip</span></code>, auf einmal gesendet werden
-sollen.</p>
+<code class="docutils literal"><span class="pre">.zip</span></code>-Dateien, wie hier in einer Schleife über den Pfad <code class="docutils literal"><span class="pre">some/path/*.zip</span></code>, auf
+einmal gesendet werden sollen:</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 <span class="nb">export</span> <span class="nv">SSHPASS</span><span class="o">=</span><span class="s2">&quot;API-Key&quot;</span>
