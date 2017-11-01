@@ -78,8 +78,9 @@ Die ``.zip``-Dateien, die DeepGreen verarbeiten kann, sollten folgenden Aufbau h
      286127                     2 files
   
 Dabei sollte die ``.xml``-Datei im ``NISO JATS`` 
-(`Journal Publishing-Variante (engl.) <https://en.wikipedia.org/wiki/Journal_Article_Tag_Suite>`_) 
-oder ``RSC DTD`` (`Guidelines on the capture of RSC journal articles (engl.) <http://www.rsc.org/dtds/desc36.htm>`_)-Format vorliegen.  Darüberhinaus könnten noch weitere Binärdateien (Grafiken, 
+(`Journal Publishing-Variante (engl.) <https://en.wikipedia.org/wiki/Journal_Article_Tag_Suite>`_)- oder ``RSC DTD`` 
+(`Guidelines on the capture of RSC journal articles (engl.) <http://www.rsc.org/dtds/desc36.htm>`_)-
+Format vorliegen.  Darüberhinaus könnten noch weitere Binärdateien (Grafiken, 
 Tabellen, usw.) im ``.zip``-Archive enthalten sein.  Die Dateinamen im Einzelnen sind 
 dabei unwichtig, es kommt im Wesentlichen auf die Endkürzel ``.xml``, ``.pdf``, usw. an.
 
