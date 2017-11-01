@@ -142,7 +142,15 @@ sftp&gt; put artikel.zip
 <code class="docutils literal"><span class="pre">.zip</span></code>-Dateien, wie hier im Pfad <code class="docutils literal"><span class="pre">some/path/*.zip</span></code>, auf einmal gesendet werden
 sollen.</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
+<span class="nb">export</span> <span class="nv">SSHPASS</span><span class="o">=</span><span class="s2">&quot;API-Key&quot;</span>
+<span class="k">for</span> f in some/path/<span class="se">\*</span>.zip <span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> put <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="k">done</span> <span class="p">|</span> sshpass -e sftp Account-ID@sl61.kobv.de
+<span class="nb">unset</span> SSHPASS
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 </div>
 

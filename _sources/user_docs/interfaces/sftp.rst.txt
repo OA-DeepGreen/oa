@@ -55,7 +55,7 @@ Die Variante mit ``sshpass`` ist u.U. in einem Skript sehr nützlich, wenn mehre
 ``.zip``-Dateien, wie hier im Pfad ``some/path/*.zip``, auf einmal gesendet werden 
 sollen.
 
-  .. codeblock:: bash
+  .. code-block:: bash
 
      #! /usr/bin/env bash
      export SSHPASS="API-Key" 
