@@ -126,10 +126,21 @@ freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Eine typische <code class="docutils literal"><span class="pre">sFTP</span></code>-Session zur Abliefieferung von Metadaten (und evtl. Volltext)
 sieht folgendermaßen aus:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ cat artikel.zip | sftp [Account-ID]@sl61.kobv.de
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ echo &quot;put artikel.zip&quot; | sftp [Account-ID]@sl61.kobv.de
+[Accout-ID]@sl61.kobv.de&#39;s password: [API-Key]
+sftp&gt; put article.zip
 $
 </pre></div>
 </div>
+<p>Falls auf dem lokalen Unix-System <code class="docutils literal"><span class="pre">sshpass</span></code> installiert ist, kann auf die interaktive
+Eingabe des API-Schlüssels auch verzichtet werden:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ echo &quot;put artikel.zip&quot; | sshpass -p [API-Key] sftp [Accout-ID]@sl61.kobv.de
+sftp&gt; put artikel.zip
+$
+</pre></div>
+</div>
+<p>In beiden Beispielen wird angenommen, dass sich die zu übertragene <code class="docutils literal"><span class="pre">.zip</span></code>-Datei
+<code class="docutils literal"><span class="pre">artikel.zip</span></code> im aktuellen Verzeichnis des lokalen Systems befindet.</p>
 </div>
 </div>
 
