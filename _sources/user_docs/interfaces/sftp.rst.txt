@@ -35,3 +35,11 @@ freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn
 
 Artikeldaten an DeepGreen liefern
 ---------------------------------
+
+Eine typische ``sFTP``-Session zur Abliefieferung von Metadaten (und evtl. Volltext) 
+sieht folgendermaßen aus::
+
+  $ cat artikel.zip | sftp [Account-ID]@sl61.kobv.de
+  $ 
+
+
