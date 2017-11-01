@@ -24,9 +24,9 @@ einzuspielen.  Wichtig ist in beiden Fällen, dass pro Artikel nur eine ``.zip``
 mit **flacher** Hierarchie verwendet werden, d.h. es dürfen keine verschachtelten 
 Verzeichnisstrukturen in der ``.zip``-Datei enthalten sein.
 
-Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verwenden. 
-Der zugehörige API-Schlüssel (API-Key) als Passwort ist im Benutzerprofil der 
-DeepGreen-Kontowebseite zu finden.
+Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verwenden,
+zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel (API-Key) 
+als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.
 
 **Bermerkung** :  Der ``sFTP``-Zugang ist ausschließlich **nur** für Verlagskonten 
 freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.   
