@@ -12,9 +12,9 @@ Das DFG-geförderte Projekt startete am 1. Januar 2016 mit den Projektpartner:
 
 * Universitätsbibliothek der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
 
-* Helmholtz Open Science Koordinationsbüro des Deutschen GeoForschungsZentrums Potsdam (GFZ)
+* Helmholtz Open Science Koordinationsbüro am Deutschen GeoForschungsZentrum Potsdam (GFZ)
 
 * Universitätsbibliothek der Technischen Universität Berlin (TUB)
 
-* Kooperativer Bibliotheksverbund Berlin-Brandenburg (KOBV, ansässig im Zuse Institut Berlin ZIB)
+* Kooperativer Bibliotheksverbund Berlin-Brandenburg (KOBV, ansässig im Zuse-Institut Berlin ZIB)
 
