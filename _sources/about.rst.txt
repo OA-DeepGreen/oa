@@ -8,7 +8,9 @@
 
 Das DFG-geförderte Projekt startete am 1. Januar 2016 mit den Projektpartner:
 
-* Bayerische Staatsbibliothek München (BSB), Bibliotheksverbund Bayern (BVB)
+* Bayerische Staatsbibliothek München (BSB)
+
+* Bibliotheksverbund Bayern (BVB)
 
 * Universitätsbibliothek der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
 
