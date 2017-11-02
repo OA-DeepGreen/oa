@@ -179,6 +179,46 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 </ul>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten Sword-Servers
+liefert folgende Antwort:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -u &quot;[Account-Name]&quot; https://www.oa-deepgreen.de/sword/service-document
+Enter host password for user &#39;Account-Name&#39;:
+&lt;service xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:sword=&quot;http://purl.org/net/sword/terms/&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot; xmlns=&quot;http://www.w3.org/2007/app&quot;&gt;
+  &lt;sword:version&gt;2.0&lt;/sword:version&gt;
+  &lt;sword:maxUploadSize&gt;16777216&lt;/sword:maxUploadSize&gt;
+  &lt;workspace&gt;
+    &lt;atom:title&gt;DeepGreen Prototype&lt;/atom:title&gt;
+    &lt;collection href=&quot;http://www.oa-deepgreen.de/sword/collection/validate&quot;&gt;
+      &lt;atom:title&gt;Validate&lt;/atom:title&gt;
+      &lt;accept&gt;*/*&lt;/accept&gt;
+      &lt;sword:collectionPolicy&gt;This collection will take any deposit package intended for the DeepGreen service&lt;/sword:collectionPolicy&gt;
+      &lt;dcterms:abstract&gt;Deposit here to validate the format of your notification files&lt;/dcterms:abstract&gt;
+      &lt;sword:mediation&gt;true&lt;/sword:mediation&gt;
+      &lt;sword:treatment&gt;Packages sent here will be validated, and you will receive an error document or a deposit receipt.  The deposit will not subsequently be stored, so you will not be able to retrieve it again afterwards.&lt;/sword:treatment&gt;
+      &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndJATS&lt;/sword:acceptPackaging&gt;
+      &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndRSC&lt;/sword:acceptPackaging&gt;
+    &lt;/collection&gt;
+    &lt;collection href=&quot;http://www.oa-deepgreen.de/sword/collection/notify&quot;&gt;
+      &lt;atom:title&gt;Notify&lt;/atom:title&gt;
+      &lt;accept&gt;*/*&lt;/accept&gt;
+      &lt;sword:collectionPolicy&gt;This collection will take any deposit package intended for the DeepGreen service&lt;/sword:collectionPolicy&gt;
+      &lt;dcterms:abstract&gt;Deposit here to deliver a publication event notification&lt;/dcterms:abstract&gt;
+      &lt;sword:mediation&gt;true&lt;/sword:mediation&gt;
+      &lt;sword:treatment&gt;Packages sent here will be analysed for metadata suitable for routing to appropriate repository systems, and then delivered onward.&lt;/sword:treatment&gt;
+      &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndJATS&lt;/sword:acceptPackaging&gt;
+      &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndRSC&lt;/sword:acceptPackaging&gt;
+    &lt;/collection&gt;
+  &lt;/workspace&gt;
+&lt;/service&gt;
+</pre></div>
+</div>
+<p>Demzufolge gibt es zwei Einstiegspunkte, um über die <code class="docutils literal"><span class="pre">SWORD</span></code>-Schnittstelle Artikeldaten
+an die Datendrehscheibe zu schicken, einmal über den Endpunkt <code class="docutils literal"><span class="pre">.../collection/validate</span></code>
+und einmal über den Endpunkt <code class="docutils literal"><span class="pre">.../collection/notify</span></code>.  Der Unterschied in diesen beiden
+Empfangsadressen besteht darin, dass nur bei der Benutzung der zweiten Adresse die gesendeten
+Daten tatsächlich in die Drehscheibe aufgenommen, analysiert und ggf. Benachrichtigungen
+ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien für
+Open Access-Zweitveröffentlichungen gibt.</p>
 </div>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>

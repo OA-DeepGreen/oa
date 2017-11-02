@@ -88,9 +88,49 @@ dieser Kurzform:
 
 
 
-
 Artikeldaten an DeepGreen liefern
 ---------------------------------
+
+Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten Sword-Servers
+liefert folgende Antwort::
+
+   $ curl -k -s -u "[Account-Name]" https://www.oa-deepgreen.de/sword/service-document
+   Enter host password for user 'Account-Name':
+   <service xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sword="http://purl.org/net/sword/terms/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.w3.org/2007/app">
+     <sword:version>2.0</sword:version>
+     <sword:maxUploadSize>16777216</sword:maxUploadSize>
+     <workspace>
+       <atom:title>DeepGreen Prototype</atom:title>
+       <collection href="http://www.oa-deepgreen.de/sword/collection/validate">
+         <atom:title>Validate</atom:title>
+         <accept>*/*</accept>
+         <sword:collectionPolicy>This collection will take any deposit package intended for the DeepGreen service</sword:collectionPolicy>
+         <dcterms:abstract>Deposit here to validate the format of your notification files</dcterms:abstract>
+         <sword:mediation>true</sword:mediation>
+         <sword:treatment>Packages sent here will be validated, and you will receive an error document or a deposit receipt.  The deposit will not subsequently be stored, so you will not be able to retrieve it again afterwards.</sword:treatment>
+         <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndJATS</sword:acceptPackaging>
+         <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndRSC</sword:acceptPackaging>
+       </collection>
+       <collection href="http://www.oa-deepgreen.de/sword/collection/notify">
+         <atom:title>Notify</atom:title>
+         <accept>*/*</accept>
+         <sword:collectionPolicy>This collection will take any deposit package intended for the DeepGreen service</sword:collectionPolicy>
+         <dcterms:abstract>Deposit here to deliver a publication event notification</dcterms:abstract>
+         <sword:mediation>true</sword:mediation>
+         <sword:treatment>Packages sent here will be analysed for metadata suitable for routing to appropriate repository systems, and then delivered onward.</sword:treatment>
+         <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndJATS</sword:acceptPackaging>
+         <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndRSC</sword:acceptPackaging>
+       </collection>
+     </workspace>
+   </service>
+ 
+Demzufolge gibt es zwei Einstiegspunkte, um über die ``SWORD``-Schnittstelle Artikeldaten 
+an die Datendrehscheibe zu schicken, einmal über den Endpunkt ``.../collection/validate`` 
+und einmal über den Endpunkt ``.../collection/notify``.  Der Unterschied in diesen beiden 
+Empfangsadressen besteht darin, dass nur bei der Benutzung der zweiten Adresse die gesendeten 
+Daten tatsächlich in die Drehscheibe aufgenommen, analysiert und ggf. Benachrichtigungen 
+ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien für 
+Open Access-Zweitveröffentlichungen gibt.
 
 
 Artikeldaten von DeepGreen erhalten
