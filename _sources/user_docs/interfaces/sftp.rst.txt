@@ -8,7 +8,7 @@ Der allgemeine Zugang, z.B. in einer Unix-Shell (``bash``, ``tcsh``, etc.),
 lautet wie folgt::
 
   $ sftp [Account-ID]@sl61.kobv.de
-  $ [Account-ID]@sl61.kobv.de's password: [API-Key]
+  [Account-ID]@sl61.kobv.de's password: [API-Key]
   sftp> pwd
   Remote working directory: /xfer
   sftp> quit
