@@ -91,11 +91,10 @@ dieser Kurzform:
 Artikeldaten an DeepGreen liefern
 ---------------------------------
 
-Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten Sword-Servers
-liefert folgende Antwort::
+Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten 
+``SWORD``-Servers liefert folgende Antwort::
 
-   $ curl -k -s -u "[Account-Name]" https://www.oa-deepgreen.de/sword/service-document
-   Enter host password for user 'Account-Name':
+   $ curl -k -s https://[Account-Name]@www.oa-deepgreen.de/sword/service-document
    <service xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sword="http://purl.org/net/sword/terms/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.w3.org/2007/app">
      <sword:version>2.0</sword:version>
      <sword:maxUploadSize>16777216</sword:maxUploadSize>
@@ -133,5 +132,51 @@ ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien f�
 Open Access-Zweitveröffentlichungen gibt.
 
 
+Rückgabewerte bei ``validation`` 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Für die Verifikation einer Datenlieferung 
+
+.. code-block:: rest
+
+   POST /collection/validate
+   Content-Disposition: filenname=test.zip
+   Content-Type: application/zip
+   Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+   [Binäre .zip-Datei]
+
+
+
+* **http-Header Rückgabewerte**
+
+   +----------------------+-------------------------------------------------------------------+
+   | Code                 | Beschreibung                                                      |
+   +======================+===================================================================+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **202** Accepted     | Datenpaket ok!                                                    |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **400** Bad Request  |    HTTP 1.1  400 Bad Request                                      |
+   |                      |    Content-Type: application/json                                 |
+   |                      |                                                                   |
+   |                      |    {                                                              |
+   |                      |      "error" : "<verständliche(!) Fehlermeldung (auf englisch)>"  |
+   |                      |    }                                                              |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **401** Unauthorised | z.B. ungültiger ``api_key``, falsche Benutzertyp                  |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+
+
+
+
 Artikeldaten von DeepGreen erhalten
 -----------------------------------
+
+

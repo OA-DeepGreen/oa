@@ -57,7 +57,10 @@
   <h3><a href="../../index.html">Inhalt</a></h3>
   <ul>
 <li><a class="reference internal" href="#">SWORD(v2)</a><ul>
-<li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a></li>
+<li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a><ul>
+<li><a class="reference internal" href="#ruckgabewerte-bei-validation">Rückgabewerte bei <code class="docutils literal"><span class="pre">validation</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a></li>
 </ul>
 </li>
@@ -179,10 +182,9 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 </ul>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten Sword-Servers
-liefert folgende Antwort:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -u &quot;[Account-Name]&quot; https://www.oa-deepgreen.de/sword/service-document
-Enter host password for user &#39;Account-Name&#39;:
+<p>Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten
+<code class="docutils literal"><span class="pre">SWORD</span></code>-Servers liefert folgende Antwort:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s https://[Account-Name]@www.oa-deepgreen.de/sword/service-document
 &lt;service xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:sword=&quot;http://purl.org/net/sword/terms/&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot; xmlns=&quot;http://www.w3.org/2007/app&quot;&gt;
   &lt;sword:version&gt;2.0&lt;/sword:version&gt;
   &lt;sword:maxUploadSize&gt;16777216&lt;/sword:maxUploadSize&gt;
@@ -219,6 +221,64 @@ Empfangsadressen besteht darin, dass nur bei der Benutzung der zweiten Adresse d
 Daten tatsächlich in die Drehscheibe aufgenommen, analysiert und ggf. Benachrichtigungen
 ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien für
 Open Access-Zweitveröffentlichungen gibt.</p>
+<div class="section" id="ruckgabewerte-bei-validation">
+<h3>Rückgabewerte bei <code class="docutils literal"><span class="pre">validation</span></code><a class="headerlink" href="#ruckgabewerte-bei-validation" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Für die Verifikation einer Datenlieferung</p>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/validate
+Content-Disposition: filenname=test.zip
+Content-Type: application/zip
+Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+[Binäre .zip-Datei]
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>202</strong> Accepted</p>
+</td>
+<td><p class="first"></p>
+<p class="last">Datenpaket ok!</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>400</strong> Bad Request</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
+Content-Type: application/json
+
+{
+  &quot;error&quot; : &quot;&lt;verständliche(!) Fehlermeldung (auf englisch)&gt;&quot;
+}
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>401</strong> Unauthorised</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falsche Benutzertyp</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
