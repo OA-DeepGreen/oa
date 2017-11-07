@@ -140,7 +140,7 @@ die folgende Kommando-Zeile verwendet werden::
 
   $ curl -k -s -i -u "<dg_username>:<api_key>" -X POST https://www.oa-deepgreen.de/sword/collection/validate -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" --data-binary "@test.zip"
 
-Hierbei ist unter ``@test.zip`` die zu überprüfende ``zip``-Datei anzugeben.  Die 
+Hierbei ist unter ``@test.zip`` die zu überprüfende ``zip``-Datei angegeben.  Die 
 ``header``-Angabe ``Packaging: https://datahub.deepgreen.org/FilesAndJATS`` ist 
 unbedingt erforderlich, da sonst die ``zip``-Datei nicht von der Datendrehscheibe 
 analysiert werden kann.
@@ -188,6 +188,70 @@ zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
    |                                |                                                         |
    +--------------------------------+---------------------------------------------------------+
 
+
+
+
+Rückgabewerte bei ``.../collection/notify`` 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Für die reale Datenablieferung einer ``zip``-Datei, kann (ensprechend der gerade beschriebenen
+Verifikation) die folgende Kommando-Zeile verwendet werden::
+
+  $ curl -k -s -i -u "<dg_username>:<api_key>" -X POST https://www.oa-deepgreen.de/sword/collection/notify -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" --data-binary "@article.zip"
+
+Hierbei ist unter ``@article.zip`` die an DeepGreen zu übertragene ``zip``-Datei angegeben.  
+Die ``header``-Angabe ``Packaging: https://datahub.deepgreen.org/FilesAndJATS`` ist 
+unbedingt erforderlich, da sonst die ``zip``-Datei nicht von der Datendrehscheibe 
+analysiert und angenommen werden kann.
+
+Der generelle ``header``-Aufbau ist in der folgenden, formalen Syntaxbeschreibung,
+zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
+
+.. code-block:: rest
+
+   POST /collection/notify
+   Content-Disposition: filenname=article.zip
+   Content-Type: application/zip
+   Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+   [Binäre .zip-Datei]
+
+
+
+* **http-Header Rückgabewerte**
+
+   +--------------------------------+---------------------------------------------------------+
+   | Code                           | Beschreibung                                            |
+   +================================+=========================================================+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **202** Accepted               | Datenpaket angenommen!                                  |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **401** Unauthorised           | z.B. ungültiger ``api_key``, falsche Benutzertyp        |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | .. code-block:: rest                                    |
+   |                                |                                                         |
+   | **404** Not Found              |    HTTP/1.1 404 Not Found                               |
+   |                                |    Server: nginx/1.12.2                                 |
+   |                                |    Content-Type: text/xml; charset=utf-8                |
+   |                                |    Content-Length: 0                                    |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **500** Internal Server Error  | z.B. ungültige Datei oder Header-Angabe (Packaging)     |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+
+
+
+
+Artikeldaten von DeepGreen erhalten
+-----------------------------------
 
 
 
