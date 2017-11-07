@@ -63,7 +63,6 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a></li>
-<li><a class="reference internal" href="#id1">Artikeldaten von DeepGreen erhalten</a></li>
 </ul>
 </li>
 </ul>
@@ -122,8 +121,8 @@ und <code class="docutils literal"><span class="pre">POST</span></code> für die
 dieser Kurzform:</p>
 <ul>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/service-document</span></code></p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Abfrage des SWORD-Servicedokuments, einer konkreten Beschreibung aller von DeepGreen angebotenen SWORD-Funktionalitäten</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Abfrage des SWORD-Servicedokuments, einer konkreten Beschreibung aller von DeepGreen angebotenen SWORD-Funktionalitäten</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /service-document
 </pre></div>
 </div>
@@ -131,8 +130,8 @@ dieser Kurzform:</p>
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/collection/validate</span></code></p>
 <p><strong>Bemerkung</strong> : Hierbei findet <strong>kein(!)</strong> Doublettencheck statt.</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Überprüfung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler ( <em>ohne</em> Doublettencheck! )</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Überprüfung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler ( <em>ohne</em> Doublettencheck! )</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/validate
 Content-Disposition: filename=article.zip
 Content-Type: application/zip
@@ -145,8 +144,8 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/collection/notify</span></code></p>
 <p><strong>Bemerkung</strong> : Hierbei findet <strong>kein(!)</strong> Doublettencheck statt.</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Neue Artikeldaten an DeepGreen senden</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Neue Artikeldaten an DeepGreen senden</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/notify
 Content-Disposition: filename=article.zip
 Content-Type: application/zip
@@ -158,24 +157,24 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 </div>
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;</span></code></p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Details einer (eigenen!) Notifikation abfragen</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Details einer (eigenen!) Notifikation abfragen</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;
 </pre></div>
 </div>
 </div>
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;/content</span></code></p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Den binären Inhalt (i.d.R. den Volltext als .pdf) einer (eigenen!) Notifikation abfragen (zur Überprüfung?!)</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Den binären Inhalt (i.d.R. den Volltext als .pdf) einer (eigenen!) Notifikation abfragen (zur Überprüfung?!)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;/content
 </pre></div>
 </div>
 </div>
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;/statement/atom</span></code></p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Statusabfrage für eine (eigenen!) Notifikation (hier als Atom-Feed)</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Statusabfrage für eine (eigenen!) Notifikation (hier als Atom-Feed)</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;/statement/atom
 </pre></div>
 </div>
@@ -372,9 +371,6 @@ Content-Length: 0
 </div>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
-</div>
-<div class="section" id="id1">
-<h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h2>
 </div>
 </div>
 

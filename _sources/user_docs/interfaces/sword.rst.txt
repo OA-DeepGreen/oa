@@ -253,9 +253,3 @@ zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
 Artikeldaten von DeepGreen erhalten
 -----------------------------------
 
-
-
-Artikeldaten von DeepGreen erhalten
------------------------------------
-
-
