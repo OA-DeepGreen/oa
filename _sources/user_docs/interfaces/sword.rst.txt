@@ -254,7 +254,6 @@ Im Erfolgsfall (``201 Created``) wird zusätzlich noch eine ``SWORD``-Empfangsbe
 Form einer ``ATOM``-Meldung zurückgeliefert::
 
    $ curl -k -s -u "<dg_username:<api_key>" -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" https://www.oa-deepgreen.de/sword/collection/notify --data-binary "@article.zip"
-
    <entry xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sword="http://purl.org/net/sword/terms/" xmlns="http://www.w3.org/2005/Atom">
      <title>DeepGreen Notification</title>
      <id>tag:container@deepgreen/b776b7ec1bec4ac18c4dfdc277696f51</id>

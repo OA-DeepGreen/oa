@@ -373,7 +373,6 @@ Content-Length: 0
 <p>Im Erfolgsfall (<code class="docutils literal"><span class="pre">201</span> <span class="pre">Created</span></code>) wird zusätzlich noch eine <code class="docutils literal"><span class="pre">SWORD</span></code>-Empfangsbestätigung in
 Form einer <code class="docutils literal"><span class="pre">ATOM</span></code>-Meldung zurückgeliefert:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -u &quot;&lt;dg_username:&lt;api_key&gt;&quot; -H &quot;Packaging: https://datahub.deepgreen.org/FilesAndJATS&quot; -H &quot;Content-Type: application/zip&quot; https://www.oa-deepgreen.de/sword/collection/notify --data-binary &quot;@article.zip&quot;
-
 &lt;entry xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:sword=&quot;http://purl.org/net/sword/terms/&quot; xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;
   &lt;title&gt;DeepGreen Notification&lt;/title&gt;
   &lt;id&gt;tag:container@deepgreen/b776b7ec1bec4ac18c4dfdc277696f51&lt;/id&gt;
