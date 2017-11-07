@@ -58,7 +58,7 @@
   <ul>
 <li><a class="reference internal" href="#">SWORD(v2)</a><ul>
 <li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a><ul>
-<li><a class="reference internal" href="#ruckgabewerte-bei-validation">Rückgabewerte bei <code class="docutils literal"><span class="pre">validation</span></code></a></li>
+<li><a class="reference internal" href="#ruckgabewerte-bei-collection-validate">Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/validate</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a></li>
@@ -190,7 +190,7 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
   &lt;sword:maxUploadSize&gt;16777216&lt;/sword:maxUploadSize&gt;
   &lt;workspace&gt;
     &lt;atom:title&gt;DeepGreen Prototype&lt;/atom:title&gt;
-    &lt;collection href=&quot;http://www.oa-deepgreen.de/sword/collection/validate&quot;&gt;
+    &lt;collection href=&quot;https://www.oa-deepgreen.de/sword/collection/validate&quot;&gt;
       &lt;atom:title&gt;Validate&lt;/atom:title&gt;
       &lt;accept&gt;*/*&lt;/accept&gt;
       &lt;sword:collectionPolicy&gt;This collection will take any deposit package intended for the DeepGreen service&lt;/sword:collectionPolicy&gt;
@@ -200,7 +200,7 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
       &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndJATS&lt;/sword:acceptPackaging&gt;
       &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndRSC&lt;/sword:acceptPackaging&gt;
     &lt;/collection&gt;
-    &lt;collection href=&quot;http://www.oa-deepgreen.de/sword/collection/notify&quot;&gt;
+    &lt;collection href=&quot;https://www.oa-deepgreen.de/sword/collection/notify&quot;&gt;
       &lt;atom:title&gt;Notify&lt;/atom:title&gt;
       &lt;accept&gt;*/*&lt;/accept&gt;
       &lt;sword:collectionPolicy&gt;This collection will take any deposit package intended for the DeepGreen service&lt;/sword:collectionPolicy&gt;
@@ -221,9 +221,9 @@ Empfangsadressen besteht darin, dass nur bei der Benutzung der zweiten Adresse d
 Daten tatsächlich in die Drehscheibe aufgenommen, analysiert und ggf. Benachrichtigungen
 ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien für
 Open Access-Zweitveröffentlichungen gibt.</p>
-<div class="section" id="ruckgabewerte-bei-validation">
-<h3>Rückgabewerte bei <code class="docutils literal"><span class="pre">validation</span></code><a class="headerlink" href="#ruckgabewerte-bei-validation" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Für die Verifikation einer Datenlieferung</p>
+<div class="section" id="ruckgabewerte-bei-collection-validate">
+<h3>Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/validate</span></code><a class="headerlink" href="#ruckgabewerte-bei-collection-validate" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Für die Verifikation einer <code class="docutils literal"><span class="pre">.zip</span></code>-Datei Datenlieferung</p>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/validate
 Content-Disposition: filenname=test.zip
 Content-Type: application/zip
@@ -237,8 +237,8 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col width="36%" />
+<col width="64%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Code</th>
@@ -254,23 +254,28 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 </td>
 </tr>
 <tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>400</strong> Bad Request</p>
-</td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
-Content-Type: application/json
-
-{
-  &quot;error&quot; : &quot;&lt;verständliche(!) Fehlermeldung (auf englisch)&gt;&quot;
-}
-</pre></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p class="first"></p>
 <p class="last"><strong>401</strong> Unauthorised</p>
 </td>
 <td><p class="first"></p>
 <p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falsche Benutzertyp</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>404</strong> Not Found</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP/1.1 404 Not Found
+Server: nginx/1.12.2
+Content-Type: text/xml; charset=utf-8
+Content-Length: 0
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>500</strong> Internal Server Error</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültige Datei oder Header-Angabe (Packaging)</p>
 </td>
 </tr>
 </tbody>

@@ -100,7 +100,7 @@ Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten
      <sword:maxUploadSize>16777216</sword:maxUploadSize>
      <workspace>
        <atom:title>DeepGreen Prototype</atom:title>
-       <collection href="http://www.oa-deepgreen.de/sword/collection/validate">
+       <collection href="https://www.oa-deepgreen.de/sword/collection/validate">
          <atom:title>Validate</atom:title>
          <accept>*/*</accept>
          <sword:collectionPolicy>This collection will take any deposit package intended for the DeepGreen service</sword:collectionPolicy>
@@ -110,7 +110,7 @@ Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten
          <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndJATS</sword:acceptPackaging>
          <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndRSC</sword:acceptPackaging>
        </collection>
-       <collection href="http://www.oa-deepgreen.de/sword/collection/notify">
+       <collection href="https://www.oa-deepgreen.de/sword/collection/notify">
          <atom:title>Notify</atom:title>
          <accept>*/*</accept>
          <sword:collectionPolicy>This collection will take any deposit package intended for the DeepGreen service</sword:collectionPolicy>
@@ -132,10 +132,10 @@ ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien f�
 Open Access-Zweitveröffentlichungen gibt.
 
 
-Rückgabewerte bei ``validation`` 
+Rückgabewerte bei ``.../collection/validate`` 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Für die Verifikation einer Datenlieferung 
+Für die Verifikation einer ``.zip``-Datei Datenlieferung 
 
 .. code-block:: rest
 
@@ -150,28 +150,32 @@ Für die Verifikation einer Datenlieferung
 
 * **http-Header Rückgabewerte**
 
-   +----------------------+-------------------------------------------------------------------+
-   | Code                 | Beschreibung                                                      |
-   +======================+===================================================================+
-   | \                    | \                                                                 |
-   |                      |                                                                   |
-   | **202** Accepted     | Datenpaket ok!                                                    |
-   |                      |                                                                   |
-   +----------------------+-------------------------------------------------------------------+
-   | \                    | .. code-block:: rest                                              |
-   |                      |                                                                   |
-   | **400** Bad Request  |    HTTP 1.1  400 Bad Request                                      |
-   |                      |    Content-Type: application/json                                 |
-   |                      |                                                                   |
-   |                      |    {                                                              |
-   |                      |      "error" : "<verständliche(!) Fehlermeldung (auf englisch)>"  |
-   |                      |    }                                                              |
-   +----------------------+-------------------------------------------------------------------+
-   | \                    | \                                                                 |
-   |                      |                                                                   |
-   | **401** Unauthorised | z.B. ungültiger ``api_key``, falsche Benutzertyp                  |
-   |                      |                                                                   |
-   +----------------------+-------------------------------------------------------------------+
+   +--------------------------------+---------------------------------------------------------+
+   | Code                           | Beschreibung                                            |
+   +================================+=========================================================+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **202** Accepted               | Datenpaket ok!                                          |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **401** Unauthorised           | z.B. ungültiger ``api_key``, falsche Benutzertyp        |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | .. code-block:: rest                                    |
+   |                                |                                                         |
+   | **404** Not Found              |    HTTP/1.1 404 Not Found                               |
+   |                                |    Server: nginx/1.12.2                                 |
+   |                                |    Content-Type: text/xml; charset=utf-8                |
+   |                                |    Content-Length: 0                                    |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **500** Internal Server Error  | z.B. ungültige Datei oder Header-Angabe (Packaging)     |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
 
 
 
