@@ -188,7 +188,9 @@ zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
    |                                |                                                         |
    +--------------------------------+---------------------------------------------------------+
 
-
+Als nächstes kommt nun eine Beschreibung des völlig analogen Falls der Datenablieferung, 
+bei dem ein intaktes Artikeldatenpaket tatsächlich an DeepGreen zur weiteren Verarbeitung 
+übertragen wird.
 
 
 Rückgabewerte bei ``.../collection/notify`` 
