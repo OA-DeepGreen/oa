@@ -250,8 +250,10 @@ zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
    +--------------------------------+---------------------------------------------------------+
 
 
-Im Erfolgsfall (``201 Created``) wird zusätzlich noch eine ``SWORD``-Empfangsbestätigung in 
-Form einer ``ATOM``-Meldung zurückgeliefert::
+Im Erfolgsfall [``201 Created``] wird zusätzlich noch eine ``SWORD``-Empfangsbestätigung in 
+Form einer ``ATOM``-Meldung zurückgeliefert (siehe hierzu die Spezifikationen der
+`SWORD-Schnittstelle (engl.) <https://en.wikipedia.org/wiki/SWORD_(protocol)>`_ 
+für weitere Einzelheiten)::
 
    $ curl -k -s -u "<dg_username:<api_key>" -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" https://www.oa-deepgreen.de/sword/collection/notify --data-binary "@article.zip"
    <entry xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sword="http://purl.org/net/sword/terms/" xmlns="http://www.w3.org/2005/Atom">
