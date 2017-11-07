@@ -145,8 +145,8 @@ Hierbei ist unter ``@test.zip`` die zu überprüfende ``zip``-Datei anzugeben.  
 unbedingt erforderlich, da sonst die ``zip``-Datei nicht von der Datendrehscheibe 
 analysiert werden kann.
 
-Der generelle ``header``-Aufbau ist in der folgenden, formalen Syntaxbeschreiben
-ersichtlich.
+Der generelle ``header``-Aufbau ist in der folgenden, formalen Syntaxbeschreibung,
+zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
 
 .. code-block:: rest
 
