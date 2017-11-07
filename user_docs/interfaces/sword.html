@@ -121,8 +121,8 @@ und <code class="docutils literal"><span class="pre">POST</span></code> für die
 dieser Kurzform:</p>
 <ul>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/service-document</span></code></p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Abfrage des SWORD-Servicedokuments, einer konkreten Beschreibung aller von DeepGreen angebotenen SWORD-Funktionalitäten</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Abfrage des SWORD-Servicedokuments, einer konkreten Beschreibung aller von DeepGreen angebotenen SWORD-Funktionalitäten</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /service-document
 </pre></div>
 </div>
@@ -130,8 +130,8 @@ dieser Kurzform:</p>
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/collection/validate</span></code></p>
 <p><strong>Bemerkung</strong> : Hierbei findet <strong>kein(!)</strong> Doublettencheck statt.</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Überprüfung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler ( <em>ohne</em> Doublettencheck! )</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Überprüfung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler ( <em>ohne</em> Doublettencheck! )</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/validate
 Content-Disposition: filename=article.zip
 Content-Type: application/zip
@@ -144,8 +144,8 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/collection/notify</span></code></p>
 <p><strong>Bemerkung</strong> : Hierbei findet <strong>kein(!)</strong> Doublettencheck statt.</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Neue Artikeldaten an DeepGreen senden</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Neue Artikeldaten an DeepGreen senden</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/notify
 Content-Disposition: filename=article.zip
 Content-Type: application/zip
@@ -157,24 +157,24 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 </div>
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;</span></code></p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Details einer (eigenen!) Notifikation abfragen</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Details einer (eigenen!) Notifikation abfragen</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;
 </pre></div>
 </div>
 </div>
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;/content</span></code></p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Den binären Inhalt (i.d.R. den Volltext als .pdf) einer (eigenen!) Notifikation abfragen (zur Überprüfung?!)</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Den binären Inhalt (i.d.R. den Volltext als .pdf) einer (eigenen!) Notifikation abfragen (zur Überprüfung?!)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;/content
 </pre></div>
 </div>
 </div>
 </li>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;/statement/atom</span></code></p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Statusabfrage für eine (eigenen!) Notifikation (hier als Atom-Feed)</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Statusabfrage für eine (eigenen!) Notifikation (hier als Atom-Feed)</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;/statement/atom
 </pre></div>
 </div>
@@ -371,8 +371,9 @@ Content-Length: 0
 </li>
 </ul>
 <p>Im Erfolgsfall [<code class="docutils literal"><span class="pre">201</span> <span class="pre">Created</span></code>] wird zusätzlich noch eine <code class="docutils literal"><span class="pre">SWORD</span></code>-Empfangsbestätigung in
-Form einer <code class="docutils literal"><span class="pre">ATOM</span></code>-Meldung zurückgeliefert (siehe für die Einzelheiten auch die Spezifikation
-der <a class="reference external" href="https://en.wikipedia.org/wiki/SWORD_(protocol)">SWORD-Schnittstelle (engl.)</a> ):</p>
+Form einer <code class="docutils literal"><span class="pre">ATOM</span></code>-Meldung zurückgeliefert (siehe für die Einzelheiten auch die
+<a class="reference external" href="https://en.wikipedia.org/wiki/SWORD_(protocol)">Spezifikation der SWORD-Schnittstelle (engl.)</a>
+):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -u &quot;&lt;dg_username:&lt;api_key&gt;&quot; -H &quot;Packaging: https://datahub.deepgreen.org/FilesAndJATS&quot; -H &quot;Content-Type: application/zip&quot; https://www.oa-deepgreen.de/sword/collection/notify --data-binary &quot;@article.zip&quot;
 &lt;entry xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:sword=&quot;http://purl.org/net/sword/terms/&quot; xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;
   &lt;title&gt;DeepGreen Notification&lt;/title&gt;
