@@ -223,7 +223,17 @@ ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien f�
 Open Access-Zweitveröffentlichungen gibt.</p>
 <div class="section" id="ruckgabewerte-bei-collection-validate">
 <h3>Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/validate</span></code><a class="headerlink" href="#ruckgabewerte-bei-collection-validate" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Für die Verifikation einer <code class="docutils literal"><span class="pre">.zip</span></code>-Datei Datenlieferung</p>
+<p>Für die Verifikation einer <code class="docutils literal"><span class="pre">zip</span></code>-Datei, ob sie als Datenlieferung geeignet ist, kann
+die folgende Kommando-Zeile verwendet werden:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;&lt;dg_username&gt;:&lt;api_key&gt;&quot; -X POST https://www.oa-deepgreen.de/sword/collection/validate -H &quot;Packaging: https://datahub.deepgreen.org/FilesAndJATS&quot; -H &quot;Content-Type: application/zip&quot; --data-binary &quot;@test.zip&quot;
+</pre></div>
+</div>
+<p>Hierbei ist unter <code class="docutils literal"><span class="pre">&#64;test.zip</span></code> die zu überprüfende <code class="docutils literal"><span class="pre">zip</span></code>-Datei anzugeben.  Die
+<code class="docutils literal"><span class="pre">header</span></code>-Angabe <code class="docutils literal"><span class="pre">Packaging:</span> <span class="pre">https://datahub.deepgreen.org/FilesAndJATS</span></code> ist
+unbedingt erforderlich, da sonst die <code class="docutils literal"><span class="pre">zip</span></code>-Datei nicht von der Datendrehscheibe
+analysiert werden kann.</p>
+<p>Der generelle <code class="docutils literal"><span class="pre">header</span></code>-Aufbau ist in der folgenden, formalen Syntaxbeschreiben
+ersichtlich.</p>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/validate
 Content-Disposition: filenname=test.zip
 Content-Type: application/zip

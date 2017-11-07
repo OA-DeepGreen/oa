@@ -133,9 +133,20 @@ Open Access-Zweitveröffentlichungen gibt.
 
 
 Rückgabewerte bei ``.../collection/validate`` 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Für die Verifikation einer ``.zip``-Datei Datenlieferung 
+Für die Verifikation einer ``zip``-Datei, ob sie als Datenlieferung geeignet ist, kann
+die folgende Kommando-Zeile verwendet werden::
+
+  $ curl -k -s -i -u "<dg_username>:<api_key>" -X POST https://www.oa-deepgreen.de/sword/collection/validate -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" --data-binary "@test.zip"
+
+Hierbei ist unter ``@test.zip`` die zu überprüfende ``zip``-Datei anzugeben.  Die 
+``header``-Angabe ``Packaging: https://datahub.deepgreen.org/FilesAndJATS`` ist 
+unbedingt erforderlich, da sonst die ``zip``-Datei nicht von der Datendrehscheibe 
+analysiert werden kann.
+
+Der generelle ``header``-Aufbau ist in der folgenden, formalen Syntaxbeschreiben
+ersichtlich.
 
 .. code-block:: rest
 
