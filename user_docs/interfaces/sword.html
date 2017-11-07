@@ -334,7 +334,7 @@ Packaging: https://datahub.deepgreen.org/FilesAndJATS
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>202</strong> Accepted</p>
+<p class="last"><strong>201</strong> Created</p>
 </td>
 <td><p class="first"></p>
 <p class="last">Datenpaket zur weiteren Verarbeitung angenommen!</p>
@@ -370,6 +370,32 @@ Content-Length: 0
 </div></blockquote>
 </li>
 </ul>
+<p>Im Erfolgsfall (<code class="docutils literal"><span class="pre">201</span> <span class="pre">Created</span></code>) wird zusätzlich noch eine <code class="docutils literal"><span class="pre">SWORD</span></code>-Empfangsbestätigung in
+Form einer <code class="docutils literal"><span class="pre">ATOM</span></code>-Meldung zurückgeliefert:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -u &quot;&lt;dg_username:&lt;api_key&gt;&quot; -H &quot;Packaging: https://datahub.deepgreen.org/FilesAndJATS&quot; -H &quot;Content-Type: application/zip&quot; https://www.oa-deepgreen.de/sword/collection/notify --data-binary &quot;@article.zip&quot;
+
+&lt;entry xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:sword=&quot;http://purl.org/net/sword/terms/&quot; xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+  &lt;title&gt;DeepGreen Notification&lt;/title&gt;
+  &lt;id&gt;tag:container@deepgreen/b776b7ec1bec4ac18c4dfdc277696f51&lt;/id&gt;
+  &lt;updated&gt;2017-11-07T17:05:37Z&lt;/updated&gt;
+  &lt;author&gt;
+    &lt;name&gt;DeepGreen Prototyp&lt;/name&gt;
+  &lt;/author&gt;
+  &lt;summary type=&quot;text&quot;&gt;&lt;/summary&gt;
+  &lt;generator uri=&quot;https://www.oa-deepgreen.de&quot; version=&quot;2.0&quot;/&gt;
+  &lt;dcterms:creator&gt;DeepGreen Prototyp&lt;/dcterms:creator&gt;
+  &lt;dcterms:title&gt;DeepGreen Notification&lt;/dcterms:title&gt;
+  &lt;sword:treatment&gt;Notification has been accepted for routing&lt;/sword:treatment&gt;
+  &lt;content type=&quot;application/zip&quot; src=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content&quot;/&gt;
+  &lt;link rel=&quot;edit&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51&quot;/&gt;
+  &lt;link rel=&quot;edit-media&quot; type=&quot;application/zip&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content&quot;/&gt;
+  &lt;sword:packaging&gt;https://datahub.deepgreen.org/FilesAndJATS&lt;/sword:packaging&gt;
+  &lt;link rel=&quot;http://purl.org/net/sword/terms/statement&quot; type=&quot;application/atom+xml;type=feed&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom&quot;/&gt;
+  &lt;link rel=&quot;http://purl.org/net/sword/terms/statement&quot; type=&quot;application/rdf+xml&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/rdf&quot;/&gt;
+  &lt;link rel=&quot;http://purl.org/net/sword/terms/originalDeposit&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content&quot;/&gt;
+&lt;/entry&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">

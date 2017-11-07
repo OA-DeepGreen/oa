@@ -227,7 +227,7 @@ zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
    +================================+=========================================================+
    | \                              | \                                                       |
    |                                |                                                         |
-   | **202** Accepted               | Datenpaket zur weiteren Verarbeitung angenommen!        |
+   | **201** Created                | Datenpaket zur weiteren Verarbeitung angenommen!        |
    |                                |                                                         |
    +--------------------------------+---------------------------------------------------------+
    | \                              | \                                                       |
@@ -250,6 +250,31 @@ zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
    +--------------------------------+---------------------------------------------------------+
 
 
+Im Erfolgsfall (``201 Created``) wird zusätzlich noch eine ``SWORD``-Empfangsbestätigung in 
+Form einer ``ATOM``-Meldung zurückgeliefert::
+
+   $ curl -k -s -u "<dg_username:<api_key>" -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" https://www.oa-deepgreen.de/sword/collection/notify --data-binary "@article.zip"
+
+   <entry xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sword="http://purl.org/net/sword/terms/" xmlns="http://www.w3.org/2005/Atom">
+     <title>DeepGreen Notification</title>
+     <id>tag:container@deepgreen/b776b7ec1bec4ac18c4dfdc277696f51</id>
+     <updated>2017-11-07T17:05:37Z</updated>
+     <author>
+       <name>DeepGreen Prototyp</name>
+     </author>
+     <summary type="text"></summary>
+     <generator uri="https://www.oa-deepgreen.de" version="2.0"/>
+     <dcterms:creator>DeepGreen Prototyp</dcterms:creator>
+     <dcterms:title>DeepGreen Notification</dcterms:title>
+     <sword:treatment>Notification has been accepted for routing</sword:treatment>
+     <content type="application/zip" src="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content"/>
+     <link rel="edit" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51"/>
+     <link rel="edit-media" type="application/zip" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content"/>
+     <sword:packaging>https://datahub.deepgreen.org/FilesAndJATS</sword:packaging>
+     <link rel="http://purl.org/net/sword/terms/statement" type="application/atom+xml;type=feed" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom"/>
+     <link rel="http://purl.org/net/sword/terms/statement" type="application/rdf+xml" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/rdf"/>
+     <link rel="http://purl.org/net/sword/terms/originalDeposit" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content"/>
+   </entry>
 
 
 Artikeldaten von DeepGreen erhalten
