@@ -113,7 +113,9 @@ genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse,
 </div>
 <p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
 Endpunkte <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notify</span></code>, <code class="docutils literal"><span class="pre">collection</span></code> und <code class="docutils literal"><span class="pre">entry</span></code> der SWORD-Schnittstelle.
-Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung ist dabei
+Diese Endpunkte sind nur für <em>Verlagskonten</em> freigeschaltet und zugänglich, Repositorienkonten
+dagegen haben keinerlei Zugriff auf diese Endpunkte.</p>
+<p>Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung ist dabei
 die Angabe eines gültigen DeepGreen-Kontonamens <code class="docutils literal"><span class="pre">dg_username</span></code> samt dessen API-Schlüssels
 <code class="docutils literal"><span class="pre">api_key</span></code>.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
 und man erhält keinen Zugang.  Im Folgenden soll der Übersichtlichkeit halber <code class="docutils literal"><span class="pre">GET</span></code>
