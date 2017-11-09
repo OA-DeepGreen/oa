@@ -289,10 +289,18 @@ Weitere Überprüfung von gesendeten Artikeldaten
 Mit der ``<id>`` aus dem ``edit``-Feld der Empfangsbestätigung kann der Sender des 
 Datenpakets (und sonst *niemand*!)
 
-1. eine Kopie der Empfangsbestätigung erhalten,
-2. eine Kopie des geschickten Binärdatenpakets (``ZIP``-Datei) erhalten, oder
+1. eine Kopie der Empfangsbestätigung erhalten::
+
+     $ curl -k -s -i -u "dg_username>:<api_key>" https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51
+
+2. eine Kopie des geschickten Binärdatenpakets (``ZIP``-Datei) erhalten::
+
+     $ curl -k -s -i -u "dg_username>:<api_key>" https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content
+
 3. eine Statusmeldung über den Bearbeitungsstand nachfragen, ob das Paket zugestellt 
-   wurde oder nicht.
+   wurde oder nicht::
+
+     $ curl -k -s -i -u "dg_username>:<api_key>" https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom
 
 
 

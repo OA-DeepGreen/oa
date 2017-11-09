@@ -407,11 +407,23 @@ unter <code class="docutils literal"><span class="pre">&lt;link</span> <span cla
 <h3>Weitere Überprüfung von gesendeten Artikeldaten<a class="headerlink" href="#weitere-uberprufung-von-gesendeten-artikeldaten" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Mit der <code class="docutils literal"><span class="pre">&lt;id&gt;</span></code> aus dem <code class="docutils literal"><span class="pre">edit</span></code>-Feld der Empfangsbestätigung kann der Sender des
 Datenpakets (und sonst <em>niemand</em>!)</p>
-<ol class="arabic simple">
-<li>eine Kopie der Empfangsbestätigung erhalten,</li>
-<li>eine Kopie des geschickten Binärdatenpakets (<code class="docutils literal"><span class="pre">ZIP</span></code>-Datei) erhalten, oder</li>
-<li>eine Statusmeldung über den Bearbeitungsstand nachfragen, ob das Paket zugestellt
-wurde oder nicht.</li>
+<ol class="arabic">
+<li><p class="first">eine Kopie der Empfangsbestätigung erhalten:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;dg_username&gt;:&lt;api_key&gt;&quot; https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51
+</pre></div>
+</div>
+</li>
+<li><p class="first">eine Kopie des geschickten Binärdatenpakets (<code class="docutils literal"><span class="pre">ZIP</span></code>-Datei) erhalten:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;dg_username&gt;:&lt;api_key&gt;&quot; https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content
+</pre></div>
+</div>
+</li>
+<li><p class="first">eine Statusmeldung über den Bearbeitungsstand nachfragen, ob das Paket zugestellt
+wurde oder nicht:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;dg_username&gt;:&lt;api_key&gt;&quot; https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom
+</pre></div>
+</div>
+</li>
 </ol>
 </div>
 </div>
