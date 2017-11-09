@@ -20,7 +20,7 @@ Checkliste Verlage
 
 0. Übernahmevereinbarung zwischen DeepGreen-Betrieb und Verlag (Rahmenvertrag?). 
 1. Metadatenformat NISO JATS (oder RSC), angereichert mit genügend Affiliationsangaben 
-   für **jeden** Autor.
+   für **jeden/jede** Autor/Autorin.
 2. Installieren einer geeigneten Ablieferungsschleife (etwa täglich oder wöchentlich, 
    monatlich, ...) für eine der Schnittstellen (API, SWORD, sFTP), die von DeepGreen 
    unterstützt wird.
@@ -36,5 +36,10 @@ Checkliste Repositorien
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 0. Übernahmevereinbarung zwischen DeepGreen-Betrieb und wissenschaftlicher Einrichtung (Rahmenvertrag?).
-1. Einrichtung eines Testsystems.
+1. Einrichtung eines Testsystems mit den gewünschten Schnittstellen.
+2. Erstellen und/oder Anpassung der *matching*-Kriterien.
+3. Probelauf (mit geeigneten, evtl. ausgedachten Testdaten).
+4. Freischaltung für den Empfang von OA-fähigen Publikationen im operativen Betrieb.
+5. (optional) Begleitende, regelmäßige Überprüfung der zugestellten Benachrichtigungen.
+
 
