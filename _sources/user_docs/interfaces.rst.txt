@@ -11,11 +11,11 @@ Im folgenden werden die in DeepGreen realisierten Schnittstellen ``REST Web-API`
 .. toctree::
    :maxdepth: 1
 
-   Web-API...(nativ) <interfaces/webapi>
+   Web-API....(nativ) <interfaces/webapi>
 
-   SWORD...(für Verlage) <interfaces/sword>
+   SWORD....(für Verlage) <interfaces/sword>
 
-   sFTP........(für Verlage) <interfaces/sftp>
+   sFTP..........(für Verlage) <interfaces/sftp>
 
-   OAI-PMH..(für Repositorien) <interfaces/oai_pmh>
+   OAI-PMH...(für Repositorien) <interfaces/oai_pmh>
 
