@@ -25,8 +25,8 @@ Checkliste Verlage
    monatlich, ...) für eine der Schnittstellen (API, SWORD, sFTP), die von DeepGreen 
    unterstützt wird.
 3. Probelauf dieser Schleife für x Tage im ``validation``-Modus: Dieser prüft nur das 
-    geschickte Metadatenformat, verwirft danach das Datenpaket und verarbeitet somit 
-    **keine** Volltexte.
+   geschickte Metadatenformat, verwirft danach das Datenpaket und verarbeitet somit 
+   **keine** Volltexte.
 4. Freischaltung für den regelmäßigen, operativen Betrieb im ``notification``-Modus:
    Datenverarbeitung von Metadaten & Volltexten.
 5. (optional) Begleitende, regelmäßige Überprüfung der Send- und Empfangslisten.
