@@ -60,6 +60,7 @@
 <li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a><ul>
 <li><a class="reference internal" href="#ruckgabewerte-bei-collection-validate">Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/validate</span></code></a></li>
 <li><a class="reference internal" href="#ruckgabewerte-bei-collection-notify">Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/notify</span></code></a></li>
+<li><a class="reference internal" href="#weitere-uberprufung-von-gesendeten-artikeldaten">Weitere Überprüfung von gesendeten Artikeldaten</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a></li>
@@ -397,10 +398,28 @@ Form einer <code class="docutils literal"><span class="pre">ATOM</span></code>-M
 &lt;/entry&gt;
 </pre></div>
 </div>
+<p>Nach der erfolgreichen Datenlieferung gibt es darüberhinus noch Abfragemöglichkeiten
+zu den gesendeten Datenpaketen.  Dies geschieht durch die in der Empfangsquittung
+unter <code class="docutils literal"><span class="pre">&lt;link</span> <span class="pre">rel=&quot;edit&quot;</span> <span class="pre">...&gt;</span></code> angegebene <code class="docutils literal"><span class="pre">http</span></code>-Adresse.</p>
+</div>
+<div class="section" id="weitere-uberprufung-von-gesendeten-artikeldaten">
+<h3>Weitere Überprüfung von gesendeten Artikeldaten<a class="headerlink" href="#weitere-uberprufung-von-gesendeten-artikeldaten" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Mit der</p>
 </div>
 </div>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In <code class="docutils literal"><span class="pre">DeepGreen</span></code> besteht auch die Möglichkeit, dass über eine <code class="docutils literal"><span class="pre">SWORD</span></code>-Schnittstelle
+die Benachrichtigungen und Volltexte <em>automatisiert</em> in dafür vorgesehene <code class="docutils literal"><span class="pre">collections</span></code>
+der empfangenden Repositorien gespielt werden.</p>
+<p>Die dafür nötigen Einstellungen in den Repositorien hängen sehr stark von den Zielsystemen
+ab, und bedürfen u.U. sehr sorgfältige Vorbereitungen.  Diese können hier &#8211; aus rein
+praktikablen Gründen &#8211; nicht in aller Ausführlichkeit beschrieben werden, zumal diese
+Beschreibungen nach einem Versionswechsel des Repositorium mit einiger Sicherheit schnell
+veraltet wären.  Daher ist es ratsamer, das aktuelle Repositorien-Handbuch zu konsultieren
+oder die jeweilige lokale IT-Administration mit diesen Fragen zu malträtieren.</p>
+<p>Rudimentär unterstützt <code class="docutils literal"><span class="pre">DeepGreen</span></code> die Repositorien <code class="docutils literal"><span class="pre">EPrints</span></code>, <code class="docutils literal"><span class="pre">OPUS4</span></code>, <code class="docutils literal"><span class="pre">ESciDoc</span></code>
+und <code class="docutils literal"><span class="pre">DSpace</span></code> (in zwei Varianten: <code class="docutils literal"><span class="pre">METSDSpaceSIP</span></code> und <code class="docutils literal"><span class="pre">METSMODS</span></code>).</p>
 </div>
 </div>
 

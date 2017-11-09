@@ -277,7 +277,32 @@ Form einer ``ATOM``-Meldung zurückgeliefert (siehe für die Einzelheiten auch d
      <link rel="http://purl.org/net/sword/terms/originalDeposit" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content"/>
    </entry>
 
+Nach der erfolgreichen Datenlieferung gibt es darüberhinus noch Abfragemöglichkeiten
+zu den gesendeten Datenpaketen.  Dies geschieht durch die in der Empfangsquittung 
+unter ``<link rel="edit" ...>`` angegebene ``http``-Adresse.
+
+
+Weitere Überprüfung von gesendeten Artikeldaten
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Mit der  
+
+
 
 Artikeldaten von DeepGreen erhalten
 -----------------------------------
+
+In ``DeepGreen`` besteht auch die Möglichkeit, dass über eine ``SWORD``-Schnittstelle 
+die Benachrichtigungen und Volltexte *automatisiert* in dafür vorgesehene ``collections`` 
+der empfangenden Repositorien gespielt werden.
+
+Die dafür nötigen Einstellungen in den Repositorien hängen sehr stark von den Zielsystemen
+ab, und bedürfen u.U. sehr sorgfältige Vorbereitungen.  Diese können hier -- aus rein 
+praktikablen Gründen -- nicht in aller Ausführlichkeit beschrieben werden, zumal diese
+Beschreibungen nach einem Versionswechsel des Repositorium mit einiger Sicherheit schnell
+veraltet wären.  Daher ist es ratsamer, das aktuelle Repositorien-Handbuch zu konsultieren
+oder die jeweilige lokale IT-Administration mit diesen Fragen zu malträtieren.
+
+Rudimentär unterstützt ``DeepGreen`` die Repositorien ``EPrints``, ``OPUS4``, ``ESciDoc``
+und ``DSpace`` (in zwei Varianten: ``METSDSpaceSIP`` und ``METSMODS``).
 
