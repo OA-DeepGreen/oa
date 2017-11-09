@@ -13,9 +13,9 @@ Im folgenden werden die in DeepGreen realisierten Schnittstellen ``REST Web-API`
 
    Web-API (nativ) <interfaces/webapi>
 
-   SWORD <interfaces/sword>
+   SWORD (Verlage) <interfaces/sword>
 
-   sFTP <interfaces/sftp>
+   sFTP (Verlage) <interfaces/sftp>
 
-   OAI-PMH <interfaces/oai_pmh>
+   OAI-PMH (Repositorien) <interfaces/oai_pmh>
 
