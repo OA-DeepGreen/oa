@@ -53,6 +53,15 @@
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
+  <h3><a href="../index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Einleitung</a><ul>
+<li><a class="reference internal" href="#checkliste-verlage">Checkliste Verlage</a></li>
+<li><a class="reference internal" href="#checkliste-repositorien">Checkliste Repositorien</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Vorheriges Thema</h4>
   <p class="topless"><a href="index.html"
                         title="vorheriges Kapitel">Anleitung zur Benutzung von DeepGreen</a></p>
@@ -86,7 +95,43 @@
             
   <div class="section" id="einleitung">
 <h1>Einleitung<a class="headerlink" href="#einleitung" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Dies soll eine kleine Einführung in die Benutzung von DeepGreen werden.</p>
+<p>Der Grundgedanke, der hinter dem Web-Service des <code class="docutils literal"><span class="pre">DeepGreen</span> <span class="pre">Prototyps</span></code> steht, ist die
+Verwaltung und Verteilung von Benachrichtigungen über grün-OA-fähige Publikationen.  Dies
+sind i.d.R. wissenschaftliche Artikel geschrieben zur Veröffentlichung in entsprechenden
+Fachzeitschriften, die über Lizenzmodelle (z.B. Allianz-Lizenzen der DFG) den AutorInnen
+bzw. den zugehörigen Einrichtungen/Instituten ein sogenanntes Zweitveröffentlichungsrecht
+einräumen.</p>
+<p>Der <code class="docutils literal"><span class="pre">DeepGreen</span> <span class="pre">Prototyp</span></code>, oder auch häufig die <em>DeepGreen-Datendrehscheibe</em> im Folgenden,
+empfängt &#8211; idealerweise &#8211; Datenpakete mit Metadaten und Volltexten, analysiert diese
+Informationen, um danach <em>automatisiert</em> berechtigten Abnehmern eine Benachrichtigung
+über das vorliegen von OA-fähigen Publikationen zukommen zu lassen.</p>
+<div class="section" id="checkliste-verlage">
+<h2>Checkliste Verlage<a class="headerlink" href="#checkliste-verlage" title="Link zu dieser Überschrift">¶</a></h2>
+<ol class="arabic simple" start="0">
+<li>Übernahmevereinbarung zwischen DeepGreen-Betrieb und Verlag (Rahmenvertrag?).</li>
+<li>Metadatenformat NISO JATS (oder RSC), angereichert mit genügend Affiliationsangaben
+für <strong>jeden</strong> Autor.</li>
+<li>Installieren einer geeigneten Ablieferungsschleife (etwa täglich oder wöchentlich,
+monatlich, ...) für eine der Schnittstellen (API, SWORD, sFTP), die von DeepGreen
+unterstützt wird.</li>
+<li><dl class="first docutils">
+<dt>Probelauf dieser Schleife für x Tage im <code class="docutils literal"><span class="pre">validation</span></code>-Modus: Dieser prüft nur das</dt>
+<dd>geschickte Metadatenformat, verwirft danach das Datenpaket und verarbeitet somit
+<strong>keine</strong> Volltexte.</dd>
+</dl>
+</li>
+<li>Freischaltung für den regelmäßigen, operativen Betrieb im <code class="docutils literal"><span class="pre">notification</span></code>-Modus:
+Datenverarbeitung von Metadaten &amp; Volltexten.</li>
+<li>(optional) Begleitende, regelmäßige Überprüfung der Send- und Empfangslisten.</li>
+</ol>
+</div>
+<div class="section" id="checkliste-repositorien">
+<h2>Checkliste Repositorien<a class="headerlink" href="#checkliste-repositorien" title="Link zu dieser Überschrift">¶</a></h2>
+<ol class="arabic simple" start="0">
+<li>Übernahmevereinbarung zwischen DeepGreen-Betrieb und wissenschaftlicher Einrichtung (Rahmenvertrag?).</li>
+<li>Einrichtung eines Testsystems.</li>
+</ol>
+</div>
 </div>
 
 

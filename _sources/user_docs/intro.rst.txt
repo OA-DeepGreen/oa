@@ -2,4 +2,39 @@
 Einleitung
 ==========
 
-Dies soll eine kleine Einführung in die Benutzung von DeepGreen werden.
+Der Grundgedanke, der hinter dem Web-Service des ``DeepGreen Prototyps`` steht, ist die 
+Verwaltung und Verteilung von Benachrichtigungen über grün-OA-fähige Publikationen.  Dies 
+sind i.d.R. wissenschaftliche Artikel geschrieben zur Veröffentlichung in entsprechenden 
+Fachzeitschriften, die über Lizenzmodelle (z.B. Allianz-Lizenzen der DFG) den AutorInnen
+bzw. den zugehörigen Einrichtungen/Instituten ein sogenanntes Zweitveröffentlichungsrecht 
+einräumen.
+
+Der ``DeepGreen Prototyp``, oder auch häufig die *DeepGreen-Datendrehscheibe* im Folgenden,
+empfängt -- idealerweise -- Datenpakete mit Metadaten und Volltexten, analysiert diese
+Informationen, um danach *automatisiert* berechtigten Abnehmern eine Benachrichtigung 
+über das vorliegen von OA-fähigen Publikationen zukommen zu lassen.
+
+
+Checkliste Verlage
+~~~~~~~~~~~~~~~~~~
+
+0. Übernahmevereinbarung zwischen DeepGreen-Betrieb und Verlag (Rahmenvertrag?). 
+1. Metadatenformat NISO JATS (oder RSC), angereichert mit genügend Affiliationsangaben 
+   für **jeden** Autor.
+2. Installieren einer geeigneten Ablieferungsschleife (etwa täglich oder wöchentlich, 
+   monatlich, ...) für eine der Schnittstellen (API, SWORD, sFTP), die von DeepGreen 
+   unterstützt wird.
+3. Probelauf dieser Schleife für x Tage im ``validation``-Modus: Dieser prüft nur das 
+    geschickte Metadatenformat, verwirft danach das Datenpaket und verarbeitet somit 
+    **keine** Volltexte.
+4. Freischaltung für den regelmäßigen, operativen Betrieb im ``notification``-Modus:
+   Datenverarbeitung von Metadaten & Volltexten.
+5. (optional) Begleitende, regelmäßige Überprüfung der Send- und Empfangslisten.
+
+
+Checkliste Repositorien
+~~~~~~~~~~~~~~~~~~~~~~~
+
+0. Übernahmevereinbarung zwischen DeepGreen-Betrieb und wissenschaftlicher Einrichtung (Rahmenvertrag?).
+1. Einrichtung eines Testsystems.
+
