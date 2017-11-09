@@ -303,8 +303,9 @@ Datenpakets (und sonst *niemand*!)
      $ curl -k -s -i -u "dg_username>:<api_key>" https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom
 
 Bei der letztgenannten Abfrage des Bearbeitungszustands kann optional noch mit zusätzlichen
-Headern das Rückgabeformat bestimmt werden: ``-H "Accept: application/atom+xml;type=feed"``
-bzw. ``-H "Accept: application/rdf+xml"``.
+Headern das Rückgabeformat bestimmt werden: 
+
+``-H "Accept: application/atom+xml;type=feed"`` bzw. ``-H "Accept: application/rdf+xml"``.
 
 
 Artikeldaten von DeepGreen erhalten
