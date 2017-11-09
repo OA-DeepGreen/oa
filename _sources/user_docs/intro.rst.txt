@@ -16,7 +16,7 @@ Informationen, um danach *automatisiert* berechtigten Abnehmern eine Benachricht
 
 
 Checkliste Verlage
-~~~~~~~~~~~~~~~~~~
+------------------
 
 0. Übernahmevereinbarung zwischen DeepGreen-Betrieb und Verlag (Rahmenvertrag?). 
 1. Metadatenformat NISO JATS (oder RSC), angereichert mit genügend Affiliationsangaben 
@@ -33,7 +33,7 @@ Checkliste Verlage
 
 
 Checkliste Repositorien
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 0. Übernahmevereinbarung zwischen DeepGreen-Betrieb und wissenschaftlicher Einrichtung (Rahmenvertrag?).
 1. Einrichtung eines Testsystems mit den gewünschten Schnittstellen.
