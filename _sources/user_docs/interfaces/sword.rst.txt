@@ -286,13 +286,13 @@ unter ``<link rel="edit"...>`` angegebene ``http``-Adresse:
 Weitere Überprüfung von gesendeten Artikeldaten
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mit der ``<id>`` aus der Empfangsbestätigung kann der Sender des Datenpakets 
-(und sonst *niemand*!)
+Mit der ``<id>`` aus dem ``edit``-Feld der Empfangsbestätigung kann der Sender des 
+Datenpakets (und sonst *niemand*!)
 
 1. eine Kopie der Empfangsbestätigung erhalten,
 2. eine Kopie des geschickten Binärdatenpakets (``ZIP``-Datei) erhalten, oder
-3. eine Statusmeldung über den Bearbeitungsstand nachfragen, ob das Paket zugestellt wurde 
-   oder nicht.
+3. eine Statusmeldung über den Bearbeitungsstand nachfragen, ob das Paket zugestellt 
+   wurde oder nicht.
 
 
 
