@@ -279,7 +279,7 @@ Form einer ``ATOM``-Meldung zurückgeliefert (siehe für die Einzelheiten auch d
 
 Nach der erfolgreichen Datenlieferung gibt es darüberhinus noch Abfragemöglichkeiten
 zu den gesendeten Datenpaketen.  Dies geschieht durch die in der Empfangsquittung 
-unter ``<link rel="edit" ...>`` angegebene ``http``-Adresse: 
+unter ``<link rel="edit"...>`` angegebene ``http``-Adresse: 
 ``https://www.oa-deepgreen.de/sword/entry/<id>`` .
 
 
