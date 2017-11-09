@@ -320,7 +320,7 @@ ab, und bedürfen u.U. sehr sorgfältige Vorbereitungen.  Diese können hier -- 
 praktikablen Gründen -- nicht in aller Ausführlichkeit beschrieben werden, zumal diese
 Beschreibungen nach einem Versionswechsel des Repositorium mit einiger Sicherheit schnell
 veraltet wären.  Daher ist es ratsamer, das aktuelle Repositorien-Handbuch zu konsultieren
-oder die jeweilige lokale IT-Administration mit diesen Fragen zu malträtieren.
+oder die jeweilige lokale IT-Administration mit diesen Fragen zu behelligen.
 
 Rudimentär unterstützt ``DeepGreen`` die Repositorien ``EPrints``, ``OPUS4``, ``ESciDoc``
 und ``DSpace`` (in zwei Varianten: ``METSDSpaceSIP`` und ``METSMODS``).
