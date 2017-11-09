@@ -279,13 +279,20 @@ Form einer ``ATOM``-Meldung zurückgeliefert (siehe für die Einzelheiten auch d
 
 Nach der erfolgreichen Datenlieferung gibt es darüberhinus noch Abfragemöglichkeiten
 zu den gesendeten Datenpaketen.  Dies geschieht durch die in der Empfangsquittung 
-unter ``<link rel="edit" ...>`` angegebene ``http``-Adresse.
+unter ``<link rel="edit" ...>`` angegebene ``http``-Adresse: 
+``https://www.oa-deepgreen.de/sword/entry/<id>`` .
 
 
 Weitere Überprüfung von gesendeten Artikeldaten
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mit der  
+Mit der ``<id>`` aus der Empfangsbestätigung kann der Sender des Datenpakets (und **nur** der!)
+
+1. eine Kopie der Empfangsbestätigung erhalten,
+2. eine Kopie des geschickten Binärdatenpakets (``ZIP``-Datei) erhalten, oder
+3. eine Statusmeldung über den Bearbeitungsstand nachfragen, ob das Paket zugestellt wurde 
+   oder nicht.
+
 
 
 
