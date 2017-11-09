@@ -14,8 +14,8 @@ genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse,
 
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
 Endpunkte ``validate``, ``notify``, ``collection`` und ``entry`` der SWORD-Schnittstelle.
-Diese Endpunkte sind nur für *Verlagskonten* freigeschaltet und zugänglich, Repositorienkonten
-dagegen haben keinerlei Zugriff auf diese Endpunkte.
+Diese Endpunkte sind **nur für Verlagskonten** freigeschaltet und zugänglich, Repositorienkonten
+dagegen haben keinerlei Zugriff auf diese!
 
 Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung ist dabei 
 die Angabe eines gültigen DeepGreen-Kontonamens ``dg_username`` samt dessen API-Schlüssels 
