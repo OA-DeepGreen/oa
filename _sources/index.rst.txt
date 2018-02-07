@@ -14,7 +14,7 @@ DeepGreen: Programmier- und Nutzungshandbuch
 Nutzungshandbuch
 ----------------
 
- Für DeepGreen-Benutzer dienen die folgenden Kapitel zur Orientierung,
+Für DeepGreen-Benutzer dienen die folgenden Kapitel zur Orientierung,
 
 .. toctree::
    :maxdepth: 1
