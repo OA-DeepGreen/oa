@@ -34,6 +34,27 @@ seien im Folgenden mit ``GET`` stets die oben angegebene, komplette ``curl``-Zei
      GET /repo/<repo_id>[?<params (i.e. oai_verb + params)>]
 
 
+Als illustratives Beispiel sei die Identifikation der ``OAI-PMH``-Schnittstelle wiedergegeben::
+
+  $ curl -k -s https://www.oa-deepgreen.de/oaipmh/all?verb=Identify | xml_pp
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>2018-08-17T10:47:33Z</responseDate>
+    <request verb="Identify">http://www.oa-deepgreen.de/oaipmh/all</request>
+    <Identify>
+      <repositoryName>DeepGreen Prototype OAI-PMH Endpoint</repositoryName>
+      <baseURL>http://www.oa-deepgreen.de/oaipmh/all</baseURL>
+      <protocolVersion>2.0</protocolVersion>
+      <adminEmail>***</adminEmail>
+      <earliestDatestamp>2018-05-19T08:47:33Z</earliestDatestamp>
+      <deletedRecord>transient</deletedRecord>
+      <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>
+    </Identify>
+  </OAI-PMH>
+
+Zu beachten ist hierbei, dass der fühestmögliche Zeitstempel immer "-3 Monate" vom Aufrufdatum
+beträgt, da DeepGreen nur solange die Artikeldaten aktuell und somit vorrätig hält.
+
 
 Artikeldaten von DeepGreen erhalten
 -----------------------------------
@@ -73,8 +94,8 @@ Bei allen OAI-Verben, die einen oder mehrere Datensätze zurückliefern, **muss*
 der Parameter ``...&metadataPrefix=oai_dc`` angehängt werden. Sofern es also für ein OAI-Verb 
 sinnvoll (oder vorgeschrieben) ist, werden mit dem ``&``-Zeichen mehrere Parameter verbunden.
 
-Der ``http-Header`` Rückgabewert ist bei allen OAI-Anfragen gemäß der ``OAI-PMH``-Spezifikation
-stets ``200 OK``
+Der ``http-Header`` Rückgabewert ist bei allen OAI-Anfragen (gemäß der ``OAI-PMH``-Spezifikation)
+stets ``200 OK``:
 
 * **http-Header Rückgabewert**
 
@@ -89,4 +110,5 @@ stets ``200 OK``
    |                      |    [XML response to OAI-PMH request;                              |
    |                      |     either content (e.g. list of records) or error message]       |
    +----------------------+-------------------------------------------------------------------+
+
 

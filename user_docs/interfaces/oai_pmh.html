@@ -125,6 +125,26 @@ seien im Folgenden mit <code class="docutils literal"><span class="pre">GET</spa
 </div>
 </li>
 </ul>
+<p>Als illustratives Beispiel sei die Identifikation der <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Schnittstelle wiedergegeben:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -k -s https://www.oa-deepgreen.de/oaipmh/all?verb<span class="o">=</span>Identify <span class="p">|</span> xml_pp
+&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>?&gt;
+&lt;OAI-PMH <span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/&quot;</span> xmlns:xsi<span class="o">=</span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> xsi:schemaLocation<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd&quot;</span>&gt;
+  &lt;responseDate&gt;2018-08-17T10:47:33Z&lt;/responseDate&gt;
+  &lt;request <span class="nv">verb</span><span class="o">=</span><span class="s2">&quot;Identify&quot;</span>&gt;http://www.oa-deepgreen.de/oaipmh/all&lt;/request&gt;
+  &lt;Identify&gt;
+    &lt;repositoryName&gt;DeepGreen Prototype OAI-PMH Endpoint&lt;/repositoryName&gt;
+    &lt;baseURL&gt;http://www.oa-deepgreen.de/oaipmh/all&lt;/baseURL&gt;
+    &lt;protocolVersion&gt;2.0&lt;/protocolVersion&gt;
+    &lt;adminEmail&gt;***&lt;/adminEmail&gt;
+    &lt;earliestDatestamp&gt;2018-05-19T08:47:33Z&lt;/earliestDatestamp&gt;
+    &lt;deletedRecord&gt;transient&lt;/deletedRecord&gt;
+    &lt;granularity&gt;YYYY-MM-DDThh:mm:ssZ&lt;/granularity&gt;
+  &lt;/Identify&gt;
+&lt;/OAI-PMH&gt;
+</pre></div>
+</div>
+<p>Zu beachten ist hierbei, dass der fühestmögliche Zeitstempel immer &#8220;-3 Monate&#8221; vom Aufrufdatum
+beträgt, da DeepGreen nur solange die Artikeldaten aktuell und somit vorrätig hält.</p>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Es sei hier noch einmal ausdrücklich darauf hingewiesen, dass die <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Schnittstelle
@@ -159,8 +179,8 @@ GET &lt;http-Adresse/...&gt;?verb=GetRecord?identifier=&lt;oai_id&gt;
 <p>Bei allen OAI-Verben, die einen oder mehrere Datensätze zurückliefern, <strong>muss</strong> zusätzlich
 der Parameter <code class="docutils literal"><span class="pre">...&amp;metadataPrefix=oai_dc</span></code> angehängt werden. Sofern es also für ein OAI-Verb
 sinnvoll (oder vorgeschrieben) ist, werden mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen mehrere Parameter verbunden.</p>
-<p>Der <code class="docutils literal"><span class="pre">http-Header</span></code> Rückgabewert ist bei allen OAI-Anfragen gemäß der <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Spezifikation
-stets <code class="docutils literal"><span class="pre">200</span> <span class="pre">OK</span></code></p>
+<p>Der <code class="docutils literal"><span class="pre">http-Header</span></code> Rückgabewert ist bei allen OAI-Anfragen (gemäß der <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Spezifikation)
+stets <code class="docutils literal"><span class="pre">200</span> <span class="pre">OK</span></code>:</p>
 <ul>
 <li><p class="first"><strong>http-Header Rückgabewert</strong></p>
 <blockquote>
