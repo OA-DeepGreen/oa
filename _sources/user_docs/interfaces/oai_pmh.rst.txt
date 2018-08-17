@@ -5,9 +5,15 @@ OAI-PMH
 .. highlight:: bash
 
 Eine weitere Schnittstelle, die insbesondere für *metadata harvesting*-Prozesse geeignet ist,
-stellt DeepGreen mit einer ``OAI-PMH``-konformen Schnittstelle zur Verfügung (s. 
+stellt DeepGreen mit einer ``OAI-PMH``-konformen An-/Abfragemöglichkeit zur Verfügung (siehe
 `Open Archives Initiative (dt.) <https://de.wikipedia.org/wiki/Open_Archives_Initiative>`_).  
-Diese kann über die Web-Adresse ``https://www.oa-deepgreen.de/oaipmh/...`` angesprochen werden.
+Diese kann über die Web-Adresse ``https://www.oa-deepgreen.de/oaipmh/`` angesprochen werden,
+z.B. mit dem Kommando `curl <https://curl.haxx.se>`_ in einer Shell (``bash``, ``tcsh``, etc.)::
+ 
+  $ curl -k -s https://www.oa-deepgreen.de/oaipmh/...
+
+Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
+
 
 
 Artikeldaten von DeepGreen erhalten

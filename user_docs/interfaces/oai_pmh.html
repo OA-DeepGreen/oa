@@ -96,9 +96,14 @@
   <div class="section" id="oai-pmh">
 <h1>OAI-PMH<a class="headerlink" href="#oai-pmh" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Eine weitere Schnittstelle, die insbesondere für <em>metadata harvesting</em>-Prozesse geeignet ist,
-stellt DeepGreen mit einer <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-konformen Schnittstelle zur Verfügung (s.
+stellt DeepGreen mit einer <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-konformen An-/Abfragemöglichkeit zur Verfügung (siehe
 <a class="reference external" href="https://de.wikipedia.org/wiki/Open_Archives_Initiative">Open Archives Initiative (dt.)</a>).
-Diese kann über die Web-Adresse <code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/oaipmh/...</span></code> angesprochen werden.</p>
+Diese kann über die Web-Adresse <code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/oaipmh/</span></code> angesprochen werden,
+z.B. mit dem Kommando <a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -k -s https://www.oa-deepgreen.de/oaipmh/...
+</pre></div>
+</div>
+<p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten</p>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
 </div>
