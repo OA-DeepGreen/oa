@@ -21,7 +21,7 @@ Dabei können (*müssen*!) die ``...`` noch ersetzt werden durch die zwei mögli
   .. code-block:: rest
      :caption: Liste **aller** erfolgreich zugestellten Notifikationen
 
-     GET /all[?<params (i.e. oai verbs)>]
+     GET /all[?<params (i.e. oai_verb + params)>]
 
 
 * **Aufruf**:  ``GET /repo``
@@ -29,7 +29,7 @@ Dabei können (*müssen*!) die ``...`` noch ersetzt werden durch die zwei mögli
   .. code-block:: rest
      :caption: Liste der zugestellten Notifikationen **einer** Einrichtung
 
-     GET /repo/<repo_id>[?<params (i.e. oai verbs)>]
+     GET /repo/<repo_id>[?<params (i.e. oai_verb + params)>]
 
 
 
