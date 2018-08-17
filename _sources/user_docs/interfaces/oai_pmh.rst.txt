@@ -60,9 +60,8 @@ von DeepGreen unterstützt werden, gelistet:
    #
 
 
-Bei allen OAI-Verben, die eine Datensatzliste zurückliefern, **muss** zusätzlichen der 
-Parameter ``...&metadataPrefix=oai_dc`` angehängt werden. Sofern es für ein OAI-Verb 
-sinnvoll (oder vorgeschrieben) ist, können mit dem ``&``-Zeichen mehrere Parameter 
-verbunden werden.
+Bei allen OAI-Verben, die einen oder mehrere Datensätze zurückliefern, **muss** zusätzlich
+der Parameter ``...&metadataPrefix=oai_dc`` angehängt werden. Sofern es also für ein OAI-Verb 
+sinnvoll (oder vorgeschrieben) ist, werden mit dem ``&``-Zeichen mehrere Parameter verbunden.
 
 
