@@ -54,8 +54,8 @@ wiedergegeben::
   </OAI-PMH>
 
 Hierbei ist zu beachten, dass der frühstmögliche Zeitstempel (``earlierstDatestamp``) immer 
-"-3 Monate" vom Aufrufdatum (``responseDate``) beträgt, da DeepGreen Artikeldaten nur solange 
-aktuell und somit vorrätig hält (*moving wall*-Prinzip).
+in etwa "-3 Monate" vom Aufrufdatum (``responseDate``) beträgt, da DeepGreen Artikeldaten 
+stets nur solange aktuell und somit vorrätig hält (*moving wall*-Prinzip).
 
 
 Artikeldaten von DeepGreen erhalten
