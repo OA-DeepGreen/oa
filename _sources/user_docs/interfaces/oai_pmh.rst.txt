@@ -4,8 +4,10 @@ OAI-PMH
 
 .. highlight:: bash
 
-Eine weitere Schnittstelle, die insbesondere für *harvesting*-Prozesse geeignet ist,
-stellt DeepGreen mit einer ``OAI-PMH``-konformen Schnittstelle zur Verfügung.
+Eine weitere Schnittstelle, die insbesondere für *metadata harvesting*-Prozesse geeignet ist,
+stellt DeepGreen mit einer ``OAI-PMH``-konformen Schnittstelle zur Verfügung (s. 
+`Open Archives Initiative (dt.) <https://de.wikipedia.org/wiki/Open_Archives_Initiative>`_).  
+Diese kann über die Web-Adresse ``https://www.oa-deepgreen.de/oaipmh/...`` angesprochen werden.
 
 
 Artikeldaten von DeepGreen erhalten
