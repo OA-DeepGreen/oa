@@ -52,9 +52,9 @@ Als illustratives Beispiel sei die Identifikation der ``OAI-PMH``-Schnittstelle 
     </Identify>
   </OAI-PMH>
 
-Zu beachten ist hierbei, dass der frühstmögliche Zeitstempel immer "-3 Monate" vom 
-Aufrufdatum (``responseDate``) beträgt, da DeepGreen nur solange die Artikeldaten 
-aktuell und somit vorrätig hält (*moving wall* Prinzip).
+Hierbei ist zu beachten, dass der frühstmögliche Zeitstempel (``earlierstDatestamp``) immer 
+"-3 Monate" vom Aufrufdatum (``responseDate``) beträgt, da DeepGreen Artikeldaten nur solange 
+aktuell und somit vorrätig hält (*moving wall*-Prinzip).
 
 
 Artikeldaten von DeepGreen erhalten
