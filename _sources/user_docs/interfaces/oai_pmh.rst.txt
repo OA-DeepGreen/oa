@@ -2,6 +2,11 @@
 OAI-PMH
 =======
 
+.. highlight:: bash
+
+Eine weitere Schnittstelle, die insbesondere für *harvesting*-Prozesse geeignet ist,
+stellt DeepGreen mit einer ``OAI-PMH``-konformen Schnittstelle zur Verfügung.
+
 
 Artikeldaten von DeepGreen erhalten
 -----------------------------------
