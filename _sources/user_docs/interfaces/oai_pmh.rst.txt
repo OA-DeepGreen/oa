@@ -34,7 +34,8 @@ seien im Folgenden mit ``GET`` stets die oben angegebene, komplette ``curl``-Zei
      GET /repo/<repo_id>[?<params (i.e. oai_verb + params)>]
 
 
-Als illustratives Beispiel sei die Identifikation der ``OAI-PMH``-Schnittstelle wiedergegeben::
+Als illustratives Beispiel sei die Identifikation der DeepGreen-``OAI-PMH``-Schnittstelle 
+wiedergegeben::
 
   $ curl -k -s https://www.oa-deepgreen.de/oaipmh/all?verb=Identify | xml_pp
   <?xml version="1.0" encoding="UTF-8"?>
