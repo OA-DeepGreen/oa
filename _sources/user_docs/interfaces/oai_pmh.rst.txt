@@ -13,7 +13,9 @@ angesprochen werden, z.B. mit dem Kommando `curl <https://curl.haxx.se>`_ in ein
  
   $ curl -k -s https://www.oa-deepgreen.de/oaipmh/...
 
-Dabei können (*müssen*!) die ``...`` noch ersetzt werden durch die zwei möglichen Aufrufvarianten:
+Dabei können (*müssen*!) die ``...`` noch ersetzt werden durch die zwei möglichen 
+Aufrufvarianten ``all`` oder ``repo`` der DeepGreen OAI-PMH-Schnittstelle. Wie üblich,
+seien im Folgenden mit ``GET`` stets die oben angegebene, komplette ``curl``-Zeile gemeint:
 
 
 * **Aufruf** :  ``GET /all`` 
@@ -33,7 +35,34 @@ Dabei können (*müssen*!) die ``...`` noch ersetzt werden durch die zwei mögli
 
 
 
-
-
 Artikeldaten von DeepGreen erhalten
 -----------------------------------
+
+Der übersichlichkeithalber seien hier kurz die gebäuchlichsten OAI-Verben, die 
+von DeepGreen unterstützt werden, gelistet:
+
+.. code-block:: rest
+   :caption: Mögliche **Parameter** bei OAI-Verben von DeepGreen
+
+   GET <http-Adresse/...>?verb=[ListIdentifiers|ListRecords]&from=<YYYY-MM-DD>
+   #
+   # Angabe optional; bestimmt, von wann ab die Notifikationen gelistet werden
+   # 
+
+   GET <http-Adresse/...>?verb=[ListIdentifiers|ListRecords]&until=<YYYY-MM-DD>
+   #
+   # Angabe optional, bestimmt ein Enddatum für die Notifikationen, die gelistet werden sollen
+   #
+
+   GET <http-Adresse/...>?verb=GetRecord?identifier=<oai_id>
+   #
+   # Angabe erforderlich; gibt für dieses OAI-Verb den bestimmen Datensatz an, der geholt werden soll
+   #
+
+
+Bei allen OAI-Verben, die eine Datensatzliste zurückliefern, **muss** zusätzlichen der 
+Parameter ``...&metadataPrefix=oai_dc`` angehängt werden. Sofern es für ein OAI-Verb 
+sinnvoll (oder vorgeschrieben) ist, können mit dem ``&``-Zeichen mehrere Parameter 
+verbunden werden.
+
+

@@ -104,7 +104,9 @@ angesprochen werden, z.B. mit dem Kommando <a class="reference external" href="h
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -k -s https://www.oa-deepgreen.de/oaipmh/...
 </pre></div>
 </div>
-<p>Dabei können (<em>müssen</em>!) die <code class="docutils literal"><span class="pre">...</span></code> noch ersetzt werden durch die zwei möglichen Aufrufvarianten:</p>
+<p>Dabei können (<em>müssen</em>!) die <code class="docutils literal"><span class="pre">...</span></code> noch ersetzt werden durch die zwei möglichen
+Aufrufvarianten <code class="docutils literal"><span class="pre">all</span></code> oder <code class="docutils literal"><span class="pre">repo</span></code> der DeepGreen OAI-PMH-Schnittstelle. Wie üblich,
+seien im Folgenden mit <code class="docutils literal"><span class="pre">GET</span></code> stets die oben angegebene, komplette <code class="docutils literal"><span class="pre">curl</span></code>-Zeile gemeint:</p>
 <ul>
 <li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/all</span></code></p>
 <div class="literal-block-wrapper docutils container" id="id1">
@@ -125,6 +127,31 @@ angesprochen werden, z.B. mit dem Kommando <a class="reference external" href="h
 </ul>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Der übersichlichkeithalber seien hier kurz die gebäuchlichsten OAI-Verben, die
+von DeepGreen unterstützt werden, gelistet:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Mögliche <strong>Parameter</strong> bei OAI-Verben von DeepGreen</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;http-Adresse/...&gt;?verb=[ListIdentifiers|ListRecords]&amp;from=&lt;YYYY-MM-DD&gt;
+<span class="gh">#</span>
+<span class="gh"># Angabe optional; bestimmt, von wann ab die Notifikationen gelistet werden</span>
+<span class="gh">#</span>
+
+GET &lt;http-Adresse/...&gt;?verb=[ListIdentifiers|ListRecords]&amp;until=&lt;YYYY-MM-DD&gt;
+<span class="gh">#</span>
+<span class="gh"># Angabe optional, bestimmt ein Enddatum für die Notifikationen, die gelistet werden sollen</span>
+<span class="gh">#</span>
+
+GET &lt;http-Adresse/...&gt;?verb=GetRecord?identifier=&lt;oai_id&gt;
+<span class="gh">#</span>
+<span class="gh"># Angabe erforderlich; gibt für dieses OAI-Verb den bestimmen Datensatz an, der geholt werden soll</span>
+<span class="gh">#</span>
+</pre></div>
+</div>
+</div>
+<p>Bei allen OAI-Verben, die eine Datensatzliste zurückliefern, <strong>muss</strong> zusätzlichen der
+Parameter <code class="docutils literal"><span class="pre">...&amp;metadataPrefix=oai_dc</span></code> angehängt werden. Sofern es für ein OAI-Verb
+sinnvoll (oder vorgeschrieben) ist, können mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen mehrere Parameter
+verbunden werden.</p>
 </div>
 </div>
 
