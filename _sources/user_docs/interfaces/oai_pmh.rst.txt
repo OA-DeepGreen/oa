@@ -86,6 +86,6 @@ stets ``200 OK``
    | **200** OK           |    HTTP 1.1  200 OK                                               |
    |                      |    Content-Type: text/xml; charset=utf-8                          |
    |                      |                                                                   |
-   |                      |    [XML response to OAI-PMH request]                              |
+   |                      |    [XML response to OAI-PMH request; either content (e.g. list of records) of error message]    |
    +----------------------+-------------------------------------------------------------------+
 
