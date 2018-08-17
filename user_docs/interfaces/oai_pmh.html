@@ -134,7 +134,12 @@ von DeepGreen <strong>ausschließlich</strong> nur Metadaten anbietet. Die Ausli
 unterstützt werden, gelistet:</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Mögliche <strong>Parameter</strong> bei OAI-Verben von DeepGreen</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;http-Adresse/...&gt;?verb=[ListIdentifiers|ListRecords]&amp;from=&lt;YYYY-MM-DD&gt;
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;hhtp-Adresse/...&gt;?verb=Identify
+<span class="gh">#</span>
+<span class="gh"># Dieses OAI-Verb hat keine weiteren Parameter</span>
+<span class="gh">#</span>
+
+GET &lt;http-Adresse/...&gt;?verb=[ListIdentifiers|ListRecords]&amp;from=&lt;YYYY-MM-DD&gt;
 <span class="gh">#</span>
 <span class="gh"># Angabe optional; bestimmt, von wann ab die Notifikationen gelistet werden</span>
 <span class="gh">#</span>
@@ -154,6 +159,38 @@ GET &lt;http-Adresse/...&gt;?verb=GetRecord?identifier=&lt;oai_id&gt;
 <p>Bei allen OAI-Verben, die einen oder mehrere Datensätze zurückliefern, <strong>muss</strong> zusätzlich
 der Parameter <code class="docutils literal"><span class="pre">...&amp;metadataPrefix=oai_dc</span></code> angehängt werden. Sofern es also für ein OAI-Verb
 sinnvoll (oder vorgeschrieben) ist, werden mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen mehrere Parameter verbunden.</p>
+<p>Der <code class="docutils literal"><span class="pre">http-Header</span></code> Rückgabewert ist bei allen OAI-Anfragen gemäß der <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Spezifikation
+stets <code class="docutils literal"><span class="pre">200</span> <span class="pre">OK</span></code></p>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>200</strong> OK</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+Content-Type: text/xml; charset=utf-8
+
+[XML response to OAI-PMH request]
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
 </div>
 </div>
 

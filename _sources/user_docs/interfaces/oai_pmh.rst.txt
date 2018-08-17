@@ -48,6 +48,11 @@ unterstützt werden, gelistet:
 .. code-block:: rest
    :caption: Mögliche **Parameter** bei OAI-Verben von DeepGreen
 
+   GET <hhtp-Adresse/...>?verb=Identify
+   #
+   # Dieses OAI-Verb hat keine weiteren Parameter
+   #
+
    GET <http-Adresse/...>?verb=[ListIdentifiers|ListRecords]&from=<YYYY-MM-DD>
    #
    # Angabe optional; bestimmt, von wann ab die Notifikationen gelistet werden
@@ -68,4 +73,19 @@ Bei allen OAI-Verben, die einen oder mehrere Datensätze zurückliefern, **muss*
 der Parameter ``...&metadataPrefix=oai_dc`` angehängt werden. Sofern es also für ein OAI-Verb 
 sinnvoll (oder vorgeschrieben) ist, werden mit dem ``&``-Zeichen mehrere Parameter verbunden.
 
+Der ``http-Header`` Rückgabewert ist bei allen OAI-Anfragen gemäß der ``OAI-PMH``-Spezifikation
+stets ``200 OK``
+
+* **http-Header Rückgabewerte**
+
+   +----------------------+-------------------------------------------------------------------+
+   | Code                 | Beschreibung                                                      |
+   +======================+===================================================================+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **200** OK           |    HTTP 1.1  200 OK                                               |
+   |                      |    Content-Type: text/xml; charset=utf-8                          |
+   |                      |                                                                   |
+   |                      |    [XML response to OAI-PMH request]                              |
+   +----------------------+-------------------------------------------------------------------+
 
