@@ -76,7 +76,7 @@ sinnvoll (oder vorgeschrieben) ist, werden mit dem ``&``-Zeichen mehrere Paramet
 Der ``http-Header`` Rückgabewert ist bei allen OAI-Anfragen gemäß der ``OAI-PMH``-Spezifikation
 stets ``200 OK``
 
-* **http-Header Rückgabewerte**
+* **http-Header Rückgabewert**
 
    +----------------------+-------------------------------------------------------------------+
    | Code                 | Beschreibung                                                      |
