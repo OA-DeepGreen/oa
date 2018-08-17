@@ -98,12 +98,31 @@
 <p>Eine weitere Schnittstelle, die insbesondere für <em>metadata harvesting</em>-Prozesse geeignet ist,
 stellt DeepGreen mit einer <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-konformen An-/Abfragemöglichkeit zur Verfügung (siehe
 <a class="reference external" href="https://de.wikipedia.org/wiki/Open_Archives_Initiative">Open Archives Initiative (dt.)</a>).
-Diese kann über die Web-Adresse <code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/oaipmh/</span></code> angesprochen werden,
-z.B. mit dem Kommando <a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.):</p>
+Diese Art der Metadaten-Abfrage kann über die Web-Adresse <code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/oaipmh/</span></code>
+angesprochen werden, z.B. mit dem Kommando <a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell
+(<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.):</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -k -s https://www.oa-deepgreen.de/oaipmh/...
 </pre></div>
 </div>
-<p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten</p>
+<p>Dabei können (<em>müssen</em>!) die <code class="docutils literal"><span class="pre">...</span></code> noch ersetzt werden durch die zwei möglichen Aufrufvarianten:</p>
+<ul>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/all</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Liste <strong>aller</strong> erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /all[?&lt;params (i.e. oai verbs)&gt;]
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong>:  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/repo</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /repo/&lt;repo_id&gt;[?&lt;params (i.e. oai verbs)&gt;]
+</pre></div>
+</div>
+</div>
+</li>
+</ul>
 <div class="section" id="artikeldaten-von-deepgreen-erhalten">
 <h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
 </div>
