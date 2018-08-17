@@ -14,7 +14,7 @@ angesprochen werden, z.B. mit dem Kommando `curl <https://curl.haxx.se>`_ in ein
   $ curl -k -s https://www.oa-deepgreen.de/oaipmh/...
 
 Dabei können (*müssen*!) die ``...`` noch ersetzt werden durch die zwei möglichen 
-Aufrufvarianten ``all`` oder ``repo`` der DeepGreen OAI-PMH-Schnittstelle. Wie üblich,
+Aufrufvarianten ``all`` oder ``repo`` der DeepGreen-``OAI-PMH``-Schnittstelle. Wie üblich,
 seien im Folgenden mit ``GET`` stets die oben angegebene, komplette ``curl``-Zeile gemeint:
 
 
