@@ -40,7 +40,7 @@ Artikeldaten von DeepGreen erhalten
 
 Es sei hier noch einmal ausdrücklich darauf hingewiesen, dass die ``OAI-PMH``-Schnittstelle 
 von DeepGreen **ausschließlich** nur Metadaten anbietet. Die Auslieferung von Volltexten 
-über ``OAI-PMH`` ist (und wird zukünftig) **nicht** vorgesehen.
+über ``OAI-PMH`` ist (und wird auch zukünftig!) **nicht** vorgesehen.
 
 Der übersichlichkeithalber seien nun kurz die gebäuchlichsten OAI-Verben, die von DeepGreen 
 unterstützt werden, gelistet:
