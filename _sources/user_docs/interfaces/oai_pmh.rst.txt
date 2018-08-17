@@ -38,12 +38,12 @@ seien im Folgenden mit ``GET`` stets die oben angegebene, komplette ``curl``-Zei
 Artikeldaten von DeepGreen erhalten
 -----------------------------------
 
-Noch einmal sei ausdrücklich betont, dass die ``OAI-PMH``-Schnittstelle von DeepGreen
-**ausschließlich** nur Metadaten anbietet. Die Auslieferung von Volltexten über ``OAI-PMH`` 
-ist (und wird zukünftig) **nicht** vorgesehen.
+Es sei hier noch einmal ausdrücklich darauf hingewiesen, dass die ``OAI-PMH``-Schnittstelle 
+von DeepGreen **ausschließlich** nur Metadaten anbietet. Die Auslieferung von Volltexten 
+über ``OAI-PMH`` ist (und wird zukünftig) **nicht** vorgesehen.
 
-Der übersichlichkeithalber seien hier kurz die gebäuchlichsten OAI-Verben, die 
-von DeepGreen unterstützt werden, gelistet:
+Der übersichlichkeithalber seien nun kurz die gebäuchlichsten OAI-Verben, die von DeepGreen 
+unterstützt werden, gelistet:
 
 .. code-block:: rest
    :caption: Mögliche **Parameter** bei OAI-Verben von DeepGreen
