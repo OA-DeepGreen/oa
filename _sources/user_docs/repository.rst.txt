@@ -44,7 +44,7 @@ DeepGreen **beantragt** werden.  Mit der Vergabe eines neues neuen Kontos werden
 eine 32-stellige ID und ein sogenannter API-Schlüssel erzeugt, der für den 
 Zugriff auf die zu erwartenden Volltexte benötigt wird.
 
-Über dieses Konto kann man sich als Repositorienbetreiber bei DeepGreen einwählen, um
+Über dieses Konto wählt man sich als Repositorienbetreiber bei DeepGreen ein, um
 
 
 * die aktuellen Benachrichtigungen aufzulisten und herunterzuladen,
