@@ -114,3 +114,28 @@ stets ``200 OK``:
    +----------------------+-------------------------------------------------------------------+
 
 
+Exemplarisches Ergebnis eines ``OAI-PMH``-Aufrufs::
+
+  $ curl 
+  $ curl -s "https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListIdentifiers&metadataPrefix=oai_dc" | xml_pp
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>2018-08-20T12:03:31Z</responseDate>
+    <request metadataPrefix="oai_dc" verb="ListIdentifiers">http://www.oa-deepgreen.de/oaipmh/repo/1234567890</request>
+    <ListIdentifiers>
+      <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+        <identifier>oai:www.oa-deepgreen.de/notification:*****</identifier>
+        <datestamp>2018-08-03T07:56:26Z</datestamp>
+      </header>
+      <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+        <identifier>oai:www.oa-deepgreen.de/notification:*****</identifier>
+        <datestamp>2018-07-04T12:41:44Z</datestamp>
+      </header>
+    <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+        <identifier>oai:www.oa-deepgreen.de/notification:*****</identifier>
+        <datestamp>2018-06-18T13:39:04Z</datestamp>
+      </header>
+    </ListIdentifiers>
+  </OAI-PMH>
+
+
