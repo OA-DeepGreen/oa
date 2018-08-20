@@ -116,3 +116,9 @@ daher stets leer bleiben.
    ,,,,0000-0000-0000-0000,
    ,,,,1234-5678-9000-0000,
    ,,,,,max.mustermann@inst.uerlangen.de
+
+
+Es ist klar, je mehr und je genauer die Angaben in dieser Datei sind, desto treffsicherer
+kann DeepGreen fragliche Publikationen einer Institution anhand der gegebenen Metadaten 
+eines Artikels/Reviews/Buch zuordnen.
+
