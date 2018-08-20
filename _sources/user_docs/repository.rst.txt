@@ -3,7 +3,8 @@ Anleitung und Hinweise für Repositorienbetreiber
 ================================================
 
 Zunächst soll eine Feature-Liste für wissenschaftliche Institutionen (den Repositorienbetreiber)
-gegeben werden.  
+gegeben werden. Darauf folgt eine kurze Beschreibung der Funktionsweise von DeepGreen aus der
+Sicht eines solchen Repositorienbetreibers.
 
 
 Vorteile von Deepgreen
