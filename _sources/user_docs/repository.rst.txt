@@ -23,7 +23,8 @@ die DeepGreen-Datendrehscheibe folgende Vorteile:
 
 * Ist eine Institution berechtigt, eine Publikation frei verfügbar zu machen, wird dies
   durch eine Benachrichtigung an die Institution (über ein zugehöriges DeepGreen-Konto ; 
-  siehe unten!) signalisiert.
+  siehe unten!) signalisiert.  Sofern spezielle Embargo-Fristen einzuhalten sind, sind
+  die Repositorienbetreiber dafür verantwortlich.
 
 
 * Liegen neben den Metadaten auch der Volltext der Publikation vor, können diese (innerhalb
