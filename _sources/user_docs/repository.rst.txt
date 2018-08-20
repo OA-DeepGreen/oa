@@ -171,7 +171,7 @@ sind drei Varianten dazu vorgesehen.
     eine SWORD (v2)-Schnittstelle an berechtigte Repositorien ausgespielt.  Dazu muss 
     eine kompatible SWORD-Schnittstelle auf der Seite des Repositoriums vorliegen. Momentan 
     unterstützt DeepGreen die Repositorien auf Basis von ``OPUS4`` (*OPUS4-Import-XML*), 
-    ``DSpace`` (*METS-MODS*), ``Pubman`` (*ESciDoc*) und ``EPrints``.
+    ``DSpace`` (*METS-MODS*), ``PubMan`` (*ESciDoc*) und ``EPrints``.
 
   * Diese Variante ist optional.
 
