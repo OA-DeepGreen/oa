@@ -77,10 +77,10 @@ Publikationen zugeordnet bekommen möchte.
 
 * *Bemerkungen:* 
 
-  * Die Spalte ``Postcodes`` hat keinerlei Funktion in DeepGreen und sollte daher stets 
-    leer bleiben.  
+  * Die Spalte ``Postcodes`` hat keinerlei Funktion in DeepGreen und sollte daher 
+    **stets leer** bleiben.  
 
-  * Pro Zeile **müssen** auf alle Fälle genau fünf Kommata gegeben sein.
+  * Pro Zeile **müssen** auf alle Fälle genau **fünf Kommata** gegeben sein.
 
   * **Alle** Spalten werden als ``unicode``-Zeichenketten eingelesen und interpretiert.  
     Für die interne Verarbeitung wird die ``nfd``-Normalisierung von ``unicode`` verwendet.
