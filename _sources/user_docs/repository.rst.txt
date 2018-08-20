@@ -135,10 +135,10 @@ herausfinden, ob die fragliche Publikationen einer Institution zuzuordnen ist od
 Abruf von Artikeldaten
 ----------------------
 
-Vorhandene Artikeldaten können auf mehrere Arten von DeepGreen abgerufen werden:  Momentan
+Vorhandene Artikeldaten können auf mehrere Arten von DeepGreen abgerufen werden. Momentan
 sind drei Varianten dazu vorgesehen.
 
-* **Variante 1: Manuelle Abfrage der Daten über eine (native) Web-API**
+* **Variante 1: Manuelle Abfrage der Daten über eine (native) Web-API (ReSTful interface)**
 
 
 * **Variante 2: Abfrage von Metadaten über eine OAI-PMH-konforme Schnittstelle**
