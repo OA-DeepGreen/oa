@@ -2,3 +2,31 @@
 Anleitung und Hinweise für Repositorienbetreiber
 ================================================
 
+Zunächst soll eine Feature-Liste für wissenschaftliche Institutionen gegeben werden.
+
+
+Vorteile von Deepgreen
+----------------------
+
+In Bezug auf die implementierten Lizenzmodelle (momentan: Allianz-Lizenzen) bietet
+die DeepGreen-Datendrehscheibe folgende Vorteile:
+
+
+* DeepGreen ermöglicht eine automatisierte Ablieferung von Metadaten und 
+  Volltexten von lizenzierten Werken an das institutionelle Repositorium.
+
+
+* Die manuelle Recherche von lizenzierten Publikationen der eigenen Institution entfällt.
+
+
+* Ist eine Institution berechtigt, eine Publikation frei verfügbar zu machen, wird dies
+  durch eine Benachrichtigung an die Institution (über ein zugehöriges DeepGreen-Konto ; 
+  siehe unten!) signalisiert.
+
+
+* Liegen neben den Metadaten auch der Volltext der Publikation vor, können diese von
+  den berechtigten Institutionen abgeholt werden oder ggf. diesen automatisiert zugestellt
+  werden.
+
+
+
