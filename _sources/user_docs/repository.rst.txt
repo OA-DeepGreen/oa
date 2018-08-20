@@ -79,7 +79,7 @@ Publikationen zugeordnet bekommen möchte.
 daher stets leer bleiben.
 
 .. code-block:: csv
-   :caption: Beispiel einer match-config-Datei
+   :caption: Beispiel einer **match-config** - Datei
 
    Name Variants,Domains,Postcodes,Grant Numbers,ORCIDs,Author Emails
    Academia Fridericiana Erlangensis,,,,,
