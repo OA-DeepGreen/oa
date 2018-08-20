@@ -47,6 +47,9 @@ der für den Zugriff auf die zu erwartenden Volltexte benötigt wird.
 Über dieses Konto wählt man sich als Repositorienbetreiber bei DeepGreen ein, um
 
 
+* die eigene ID und den API-Schlüssel herauszufinden (bzw. nachzuschlagen),
+ 
+
 * die aktuellen Benachrichtigungen aufzulisten und herunterzuladen,
 
 
