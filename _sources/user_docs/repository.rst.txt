@@ -24,9 +24,10 @@ die DeepGreen-Datendrehscheibe folgende Vorteile:
   siehe unten!) signalisiert.
 
 
-* Liegen neben den Metadaten auch der Volltext der Publikation vor, können diese von
-  den berechtigten Institutionen abgeholt werden oder ggf. diesen automatisiert zugestellt
-  werden.
+* Liegen neben den Metadaten auch der Volltext der Publikation vor, können diese (innerhalb
+  eines bestimmten Zeitfensters ; momentan 3 Monate) von den berechtigten Institutionen 
+  bezogen werden oder ggf. automatisiert in die jeweiligen institutionelles Repositorien 
+  übersendet werden.
 
 
 
