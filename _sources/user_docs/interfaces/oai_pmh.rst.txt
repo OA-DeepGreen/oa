@@ -83,7 +83,7 @@ unterstützt werden, gelistet:
 
    GET <http-Adresse/...>?verb=[ListIdentifiers|ListRecords]&until=<YYYY-MM-DD>
    #
-   # Angabe optional, bestimmt ein Enddatum für die Notifikationen, die gelistet werden sollen
+   # Angabe optional, gibt ein maximales Datum an, bis wohin die Notifikationen gelistet werden
    #
 
    GET <http-Adresse/...>?verb=GetRecord?identifier=<oai_id>
