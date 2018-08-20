@@ -32,6 +32,10 @@ die DeepGreen-Datendrehscheibe folgende Vorteile:
   institutionelles Repositorien übersendet werden.
 
 
+* Sind keine Volltexte vorhanden, so werden nur die Metadaten der entsprechenden Publikationen
+  bereitgestellt. 
+
+
 
 Bedienung eines Repositorium-Kontos 
 -----------------------------------
