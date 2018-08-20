@@ -138,14 +138,17 @@ Abruf von Artikeldaten
 Vorhandene Artikeldaten können auf mehrere Arten von DeepGreen abgerufen werden. Momentan
 sind drei Varianten dazu vorgesehen.
 
-* **Variante 1: Manuelle Abfrage der Daten über eine (native) Web-API (ReSTful interface)**
+* **Variante 1: Manuelle Abfrage der Daten über eine (native) Web-API (ReSTful Interface)**
+
 
   * Es besteht die Möglichkeit, die Metadaten *aller* zugeordneten Publikationen der letzten
     drei Monate abzufragen oder nur die einer einzigen Institution betreffend.  Dies wird 
     über die Betreiberkonto-ID selektiert.
 
+
   * Ein Zugriff auf eventuell vorhandene Volltexte geschieht bei Berechtigung nur in
     Kombination mit Konto-ID **und** API-Schüssel, die (natürlich) zueinander passen müssen.
+
 
   * Für alle syntaktischen und technischen Einzelheiten siehe die detaillierte Beschreibung 
     der Web-API.
@@ -153,13 +156,16 @@ sind drei Varianten dazu vorgesehen.
 
 * **Variante 2: Abfrage von Metadaten über eine OAI-PMH-konforme Schnittstelle**
 
+
   * Wie in Variante 1 besteht auch hier die Möglichkeit, eine Metadatenliste *aller* 
     zugeordneten Publikationen der letzten drei Monate abzurufen oder nur die Liste für
     eine einzige Institution.  Dazu wird hier ebenfalls die Repositorien-Konto-ID 
     herangezogen.
 
+
   * Über die OAI-PMH-Schnittstelle werden die Metadaten der Publikationen in einem
     (rudimentären) ``Dublin Core``-Format ausgegeben.
+
 
   * Für die technischen Einzelheiten und die genaue Syntax der OAI-PMH-Abfragen siehe 
     die Beschreibung der OAI-PMH-Schnittstelle von DeepGreen.
@@ -167,11 +173,19 @@ sind drei Varianten dazu vorgesehen.
 
 * **Variante 3: Automatisierte Lieferung der Daten via SWORD-Schnittstelle**
 
+
   * Bei dieser Variante werden die Metadaten und die ggf. vorhandenen Volltexte über 
-    eine SWORD (v2)-Schnittstelle an berechtigte Repositorien ausgespielt.  Dazu muss 
-    eine kompatible SWORD-Schnittstelle auf der Seite des Repositoriums vorliegen. Momentan 
-    unterstützt DeepGreen die Repositorien auf Basis von ``OPUS4`` (*OPUS4-Import-XML*), 
-    ``DSpace`` (*METS-MODS*), ``PubMan`` (*ESciDoc*) und ``EPrints``.
+    eine SWORD(v2)-Schnittstelle an berechtigte Repositorien ausgespielt.  Dazu muss 
+    eine kompatible SWORD-Schnittstelle auf der Seite des Repositoriums vorliegen. 
+
+
+  * DeepGreen kann auch SWORD(v1)-Schnittstellen bedienen (Abwärtskompatibilität).
+
+
+  * Momentan unterstützt DeepGreen die Repositorien auf Basis von 
+    ``OPUS4`` (*OPUS4-Import-XML*), ``DSpace`` (*METS-MODS*), ``PubMan`` (*ESciDoc*) 
+    und ``EPrints``.
+
 
   * Diese Variante ist optional.
 
