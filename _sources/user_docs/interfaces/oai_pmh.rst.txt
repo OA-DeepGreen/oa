@@ -58,8 +58,8 @@ in etwa "-3 Monate" vom Aufrufdatum (``responseDate``) beträgt, da DeepGreen Ar
 stets nur solange aktuell und somit vorrätig hält (*moving wall*-Prinzip).
 
 
-Artikeldaten von DeepGreen erhalten
------------------------------------
+Metadaten von DeepGreen erhalten
+--------------------------------
 
 Es sei hier noch einmal ausdrücklich darauf hingewiesen, dass die ``OAI-PMH``-Schnittstelle 
 von DeepGreen **ausschließlich** nur Metadaten anbietet. Die Auslieferung von Volltexten 
