@@ -53,8 +53,8 @@ der für den Zugriff auf die zu erwartenden Volltexte benötigt wird.
 * die aktuellen Benachrichtigungen aufzulisten und herunterzuladen,
 
 
-* die aktuellen Einstellung der match-config-Datei einzusehen und ggf. eine neue 
-  match-config-Datei hochzuladen,
+* die aktuellen Einstellung der ``match-config``-Datei einzusehen und ggf. eine neue 
+  ``match-config``-Datei hochzuladen,
 
 
 * die Einstellungen des DeepGreen-Kontos allgemein zu überprüfen und anzupassen
