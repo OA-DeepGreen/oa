@@ -182,8 +182,8 @@ sind drei Varianten dazu vorgesehen.
   * DeepGreen kann auch SWORD(v1)-Schnittstellen bedienen (Abwärtskompatibilität).
 
 
-  * Momentan unterstützt DeepGreen die Repositorien auf Basis von 
-    ``OPUS4`` (*OPUS4-Import-XML*), ``DSpace`` (*METS-MODS*), ``PubMan`` (*ESciDoc*) 
+  * Momentan unterstützt DeepGreen Repositorien auf Basis von 
+    ``OPUS 4`` (*OPUS4-Import-XML*), ``DSpace`` (*METS-MODS*), ``PubMan`` (*ESciDoc*) 
     und ``EPrints``.
 
 
