@@ -55,7 +55,7 @@ Zugriff auf die zu erwartenden Volltexte benötigt wird.
 
 
 * die Einstellungen des DeepGreen-Kontos allgemein zu überprüfen und anzupassen
-  (Passwort, ggf. SWORD-Einstellungen, weitere administrative Einstellungen).  
+  (Passwort, ggf. SWORD-Einstellungen).  
 
 
 
