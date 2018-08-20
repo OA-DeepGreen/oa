@@ -241,6 +241,92 @@ $ curl -k -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234
 &lt;/OAI-PMH&gt;
 </pre></div>
 </div>
+<p>Weiteres Beispiel:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListRecords&amp;metadataPrefix=oai_dc&quot;</span> <span class="p">|</span> xml_pp
+&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>?&gt;
+&lt;OAI-PMH <span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/&quot;</span> xmlns:xsi<span class="o">=</span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> xsi:schemaLocation<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd&quot;</span>&gt;
+  &lt;responseDate&gt;2018-08-20T12:24:10Z&lt;/responseDate&gt;
+  &lt;request <span class="nv">metadataPrefix</span><span class="o">=</span><span class="s2">&quot;oai_dc&quot;</span> <span class="nv">verb</span><span class="o">=</span><span class="s2">&quot;ListRecords&quot;</span>&gt;http://www.oa-deepgreen.de/oaipmh/repo/03fad0a0ae5e4918964485663585adbe&lt;/request&gt;
+  &lt;ListRecords&gt;
+    &lt;record&gt;
+      &lt;header xmlns:dc<span class="o">=</span><span class="s2">&quot;http://purl.org/dc/elements/1.1/&quot;</span> xmlns:oai_dc<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot;</span>&gt;
+        &lt;identifier&gt;oai:www.oa-deepgreen.de/notification:b621b93a144b46199e254e54b7def5a0&lt;/identifier&gt;
+        &lt;datestamp&gt;2018-08-10T08:29:00Z&lt;/datestamp&gt;
+      &lt;/header&gt;
+      &lt;metadata xmlns:dc<span class="o">=</span><span class="s2">&quot;http://purl.org/dc/elements/1.1/&quot;</span> xmlns:oai_dc<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot;</span>&gt;
+        &lt;oai_dc:dc xsi:schemaLocation<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd&quot;</span>&gt;
+          &lt;dc:title&gt;Healthcare IT Utilization and Penetration among Physicians: Novel IT Solutions in Healthcare – Use and Acceptance in Hospitals&lt;/dc:title&gt;
+          &lt;dc:publisher&gt;S. Karger AG&lt;/dc:publisher&gt;
+          &lt;dc:identifier&gt;issn:0014-312X&lt;/dc:identifier&gt;
+          &lt;dc:identifier&gt;issn:1421-9921&lt;/dc:identifier&gt;
+          &lt;dc:identifier&gt;doi:10.1159/000490241&lt;/dc:identifier&gt;
+          &lt;dc:creator&gt;Ferdinand Vogt&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Fritz Seidl&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Giuseppe Santarpino&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Martijn van Griensven&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Martin Emmert&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Guenther Edenharter&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Dominik Pförringer&lt;/dc:creator&gt;
+          &lt;dc:contributor&gt;eDepartment of Anaesthesiology, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany&lt;/dc:contributor&gt;
+          &lt;dc:contributor&gt;bDepartment of Trauma Surgery, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany&lt;/dc:contributor&gt;
+          &lt;dc:contributor&gt;bDepartment of Trauma Surgery, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany<span class="p">;</span> cDepartment of Experimental Trauma Surgery, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany&lt;/dc:contributor&gt;
+          &lt;dc:contributor&gt;aDepartment of Cardiac Surgery, Klinikum Nürnberg, Paracelsus Medical University, Nuremberg, Germany&lt;/dc:contributor&gt;
+          &lt;dc:contributor&gt;cDepartment of Experimental Trauma Surgery, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany&lt;/dc:contributor&gt;
+          &lt;dc:contributor&gt;dInstitute of Management <span class="o">(</span>IFM<span class="o">)</span>, School of Business and Economics, Friedrich Alexander University Erlangen-Nuremberg, Nuremberg, Germany&lt;/dc:contributor&gt;
+          &lt;dc:date&gt;2018-07-26T00:00:00Z&lt;/dc:date&gt;
+          &lt;dc:rights&gt;Alliance License DFG&lt;/dc:rights&gt;
+          &lt;dc:subject&gt;Original Paper&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Health monitoring&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Information technology&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Physicians&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Demand&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Outlook&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Expectations&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Data storage&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Healthcare IT&lt;/dc:subject&gt;
+        &lt;/oai_dc:dc&gt;
+      &lt;/metadata&gt;
+    &lt;/record&gt;
+    &lt;record&gt;
+      &lt;header xmlns:dc<span class="o">=</span><span class="s2">&quot;http://purl.org/dc/elements/1.1/&quot;</span> xmlns:oai_dc<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot;</span>&gt;
+        &lt;identifier&gt;oai:www.oa-deepgreen.de/notification:fcf9c48553d6418ba668c16deb074955&lt;/identifier&gt;
+        &lt;datestamp&gt;2018-08-10T08:34:06Z&lt;/datestamp&gt;
+      &lt;/header&gt;
+      &lt;metadata xmlns:dc<span class="o">=</span><span class="s2">&quot;http://purl.org/dc/elements/1.1/&quot;</span> xmlns:oai_dc<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot;</span>&gt;
+        &lt;oai_dc:dc xsi:schemaLocation<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd&quot;</span>&gt;
+          &lt;dc:title&gt;Gastrointestinal Stromal Tumors: Clinical Symptoms, Location, Metastasis Formation, and Associated Malignancies in a Single Center Retrospective Study&lt;/dc:title&gt;
+          &lt;dc:publisher&gt;S. Karger AG&lt;/dc:publisher&gt;
+          &lt;dc:identifier&gt;issn:0257-2753&lt;/dc:identifier&gt;
+          &lt;dc:identifier&gt;issn:1421-9875&lt;/dc:identifier&gt;
+          &lt;dc:identifier&gt;doi:10.1159/000489556&lt;/dc:identifier&gt;
+          &lt;dc:creator&gt;Ali Aghdassi&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Agnes Christoph&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Frank Dombrowski&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Paula Döring&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Christoph Barth&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Jan Christoph&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Markus M. Lerch&lt;/dc:creator&gt;
+          &lt;dc:creator&gt;Peter Simon&lt;/dc:creator&gt;
+          &lt;dc:contributor&gt;aDepartment of Medicine A, University Medicine Greifswald, Greifswald, Germany&lt;/dc:contributor&gt;
+          &lt;dc:contributor&gt;dChair of Medical Informatics, Friedrich-Alexander-University Erlangen-Nürnberg, Erlangen, Germany&lt;/dc:contributor&gt;
+          &lt;dc:contributor&gt;cGastroenterologische Praxis, Kempten, Germany&lt;/dc:contributor&gt;
+          &lt;dc:contributor&gt;bInstitute of Pathology, University Medicine Greifswald, Greifswald, Germany&lt;/dc:contributor&gt;
+          &lt;dc:date&gt;2018-06-05T00:00:00Z&lt;/dc:date&gt;
+          &lt;dc:rights&gt;Alliance License DFG&lt;/dc:rights&gt;
+          &lt;dc:subject&gt;Stomach and Duodenum: Original Paper&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Gastrointestinal stromal tumor&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Gastrointestinal oncology&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Gastrointestinal symptoms&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Gastrointestinal tract&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Metastasis&lt;/dc:subject&gt;
+          &lt;dc:subject&gt;Recurrence&lt;/dc:subject&gt;
+        &lt;/oai_dc:dc&gt;
+      &lt;/metadata&gt;
+    &lt;/record&gt;
+  &lt;/ListRecords&gt;
+&lt;/OAI-PMH&gt;
+</pre></div>
+</div>
 </div>
 </div>
 

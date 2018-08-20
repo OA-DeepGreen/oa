@@ -141,4 +141,89 @@ die Notifikations-IDs sind ausgesternt)::
     </ListIdentifiers>
   </OAI-PMH>
 
+Weiteres Beispiel::
+
+  $ curl -s "https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListRecords&metadataPrefix=oai_dc" | xml_pp
+  <?xml version="1.0" encoding="UTF-8"?>
+  <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>2018-08-20T12:24:10Z</responseDate>
+    <request metadataPrefix="oai_dc" verb="ListRecords">http://www.oa-deepgreen.de/oaipmh/repo/03fad0a0ae5e4918964485663585adbe</request>
+    <ListRecords>
+      <record>
+        <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+          <identifier>oai:www.oa-deepgreen.de/notification:b621b93a144b46199e254e54b7def5a0</identifier>
+          <datestamp>2018-08-10T08:29:00Z</datestamp>
+        </header>
+        <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+          <oai_dc:dc xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+            <dc:title>Healthcare IT Utilization and Penetration among Physicians: Novel IT Solutions in Healthcare – Use and Acceptance in Hospitals</dc:title>
+            <dc:publisher>S. Karger AG</dc:publisher>
+            <dc:identifier>issn:0014-312X</dc:identifier>
+            <dc:identifier>issn:1421-9921</dc:identifier>
+            <dc:identifier>doi:10.1159/000490241</dc:identifier>
+            <dc:creator>Ferdinand Vogt</dc:creator>
+            <dc:creator>Fritz Seidl</dc:creator>
+            <dc:creator>Giuseppe Santarpino</dc:creator>
+            <dc:creator>Martijn van Griensven</dc:creator>
+            <dc:creator>Martin Emmert</dc:creator>
+            <dc:creator>Guenther Edenharter</dc:creator>
+            <dc:creator>Dominik Pförringer</dc:creator>
+            <dc:contributor>eDepartment of Anaesthesiology, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany</dc:contributor>
+            <dc:contributor>bDepartment of Trauma Surgery, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany</dc:contributor>
+            <dc:contributor>bDepartment of Trauma Surgery, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany; cDepartment of Experimental Trauma Surgery, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany</dc:contributor>
+            <dc:contributor>aDepartment of Cardiac Surgery, Klinikum Nürnberg, Paracelsus Medical University, Nuremberg, Germany</dc:contributor>
+            <dc:contributor>cDepartment of Experimental Trauma Surgery, Klinikum rechts der Isar, Technical University of Munich, Munich, Germany</dc:contributor>
+            <dc:contributor>dInstitute of Management (IFM), School of Business and Economics, Friedrich Alexander University Erlangen-Nuremberg, Nuremberg, Germany</dc:contributor>
+            <dc:date>2018-07-26T00:00:00Z</dc:date>
+            <dc:rights>Alliance License DFG</dc:rights>
+            <dc:subject>Original Paper</dc:subject>
+            <dc:subject>Health monitoring</dc:subject>
+            <dc:subject>Information technology</dc:subject>
+            <dc:subject>Physicians</dc:subject>
+            <dc:subject>Demand</dc:subject>
+            <dc:subject>Outlook</dc:subject>
+            <dc:subject>Expectations</dc:subject>
+            <dc:subject>Data storage</dc:subject>
+            <dc:subject>Healthcare IT</dc:subject>
+          </oai_dc:dc>
+        </metadata>
+      </record>
+      <record>
+        <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+          <identifier>oai:www.oa-deepgreen.de/notification:fcf9c48553d6418ba668c16deb074955</identifier>
+          <datestamp>2018-08-10T08:34:06Z</datestamp>
+        </header>
+        <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+          <oai_dc:dc xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+            <dc:title>Gastrointestinal Stromal Tumors: Clinical Symptoms, Location, Metastasis Formation, and Associated Malignancies in a Single Center Retrospective Study</dc:title>
+            <dc:publisher>S. Karger AG</dc:publisher>
+            <dc:identifier>issn:0257-2753</dc:identifier>
+            <dc:identifier>issn:1421-9875</dc:identifier>
+            <dc:identifier>doi:10.1159/000489556</dc:identifier>
+            <dc:creator>Ali Aghdassi</dc:creator>
+            <dc:creator>Agnes Christoph</dc:creator>
+            <dc:creator>Frank Dombrowski</dc:creator>
+            <dc:creator>Paula Döring</dc:creator>
+            <dc:creator>Christoph Barth</dc:creator>
+            <dc:creator>Jan Christoph</dc:creator>
+            <dc:creator>Markus M. Lerch</dc:creator>
+            <dc:creator>Peter Simon</dc:creator>
+            <dc:contributor>aDepartment of Medicine A, University Medicine Greifswald, Greifswald, Germany</dc:contributor>
+            <dc:contributor>dChair of Medical Informatics, Friedrich-Alexander-University Erlangen-Nürnberg, Erlangen, Germany</dc:contributor>
+            <dc:contributor>cGastroenterologische Praxis, Kempten, Germany</dc:contributor>
+            <dc:contributor>bInstitute of Pathology, University Medicine Greifswald, Greifswald, Germany</dc:contributor>
+            <dc:date>2018-06-05T00:00:00Z</dc:date>
+            <dc:rights>Alliance License DFG</dc:rights>
+            <dc:subject>Stomach and Duodenum: Original Paper</dc:subject>
+            <dc:subject>Gastrointestinal stromal tumor</dc:subject>
+            <dc:subject>Gastrointestinal oncology</dc:subject>
+            <dc:subject>Gastrointestinal symptoms</dc:subject>
+            <dc:subject>Gastrointestinal tract</dc:subject>
+            <dc:subject>Metastasis</dc:subject>
+            <dc:subject>Recurrence</dc:subject>
+          </oai_dc:dc>
+        </metadata>
+      </record>
+    </ListRecords>
+  </OAI-PMH>
 
