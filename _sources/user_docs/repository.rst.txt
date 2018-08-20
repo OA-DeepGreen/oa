@@ -127,7 +127,7 @@ Publikationen zugeordnet bekommen möchte.
    ,,,,,max.mustermann@inst.uerlangen.de
 
 
-Es ist klar, je mehr und je genauer die Angaben in dieser Datei sind, desto treffsicherer
-kann DeepGreen fragliche Publikationen einer Institution anhand der Verlagsmetadaten 
-eines Artikels/Reviews/Buch zuordnen.
+Es ist klar, je mehr, je umfassender und je genauer die Angaben in dieser Datei sind, 
+desto treffsicherer kann DeepGreen anhand der Verlagsmetadaten eines Artikels/Reviews/Buch 
+herausfinden, ob eine fragliche Publikationen einer Institution zuzuordnen ist oder nicht.
 
