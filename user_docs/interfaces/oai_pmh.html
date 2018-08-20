@@ -217,7 +217,7 @@ Content-Type: text/xml; charset=utf-8
 <p>Exemplarisches Ergebnis eines <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Aufrufs (mit fiktiver Konto-Nummer 1234567890 ;
 die Notifikations-IDs sind ausgesternt):</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="c1"># ListIdentifiers</span>
+<span class="c1">#  ListIdentifiers</span>
 <span class="c1">#</span>
 $ curl -k -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListIdentifiers&amp;metadataPrefix=oai_dc&quot;</span> <span class="p">|</span> xml_pp
 &lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>?&gt;
@@ -242,15 +242,18 @@ $ curl -k -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234
 </pre></div>
 </div>
 <p>Weiteres Beispiel:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListRecords&amp;metadataPrefix=oai_dc&quot;</span> <span class="p">|</span> xml_pp
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1">#  ListRecords</span>
+<span class="c1">#</span>
+$ curl -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListRecords&amp;metadataPrefix=oai_dc&quot;</span> <span class="p">|</span> xml_pp
 &lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>?&gt;
 &lt;OAI-PMH <span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/&quot;</span> xmlns:xsi<span class="o">=</span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> xsi:schemaLocation<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd&quot;</span>&gt;
   &lt;responseDate&gt;2018-08-20T12:24:10Z&lt;/responseDate&gt;
-  &lt;request <span class="nv">metadataPrefix</span><span class="o">=</span><span class="s2">&quot;oai_dc&quot;</span> <span class="nv">verb</span><span class="o">=</span><span class="s2">&quot;ListRecords&quot;</span>&gt;http://www.oa-deepgreen.de/oaipmh/repo/03fad0a0ae5e4918964485663585adbe&lt;/request&gt;
+  &lt;request <span class="nv">metadataPrefix</span><span class="o">=</span><span class="s2">&quot;oai_dc&quot;</span> <span class="nv">verb</span><span class="o">=</span><span class="s2">&quot;ListRecords&quot;</span>&gt;http://www.oa-deepgreen.de/oaipmh/repo/1234567890&lt;/request&gt;
   &lt;ListRecords&gt;
     &lt;record&gt;
       &lt;header xmlns:dc<span class="o">=</span><span class="s2">&quot;http://purl.org/dc/elements/1.1/&quot;</span> xmlns:oai_dc<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot;</span>&gt;
-        &lt;identifier&gt;oai:www.oa-deepgreen.de/notification:b621b93a144b46199e254e54b7def5a0&lt;/identifier&gt;
+        &lt;identifier&gt;oai:www.oa-deepgreen.de/notification:*****&lt;/identifier&gt;
         &lt;datestamp&gt;2018-08-10T08:29:00Z&lt;/datestamp&gt;
       &lt;/header&gt;
       &lt;metadata xmlns:dc<span class="o">=</span><span class="s2">&quot;http://purl.org/dc/elements/1.1/&quot;</span> xmlns:oai_dc<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot;</span>&gt;
@@ -289,7 +292,7 @@ $ curl -k -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234
     &lt;/record&gt;
     &lt;record&gt;
       &lt;header xmlns:dc<span class="o">=</span><span class="s2">&quot;http://purl.org/dc/elements/1.1/&quot;</span> xmlns:oai_dc<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot;</span>&gt;
-        &lt;identifier&gt;oai:www.oa-deepgreen.de/notification:fcf9c48553d6418ba668c16deb074955&lt;/identifier&gt;
+        &lt;identifier&gt;oai:www.oa-deepgreen.de/notification:*****&lt;/identifier&gt;
         &lt;datestamp&gt;2018-08-10T08:34:06Z&lt;/datestamp&gt;
       &lt;/header&gt;
       &lt;metadata xmlns:dc<span class="o">=</span><span class="s2">&quot;http://purl.org/dc/elements/1.1/&quot;</span> xmlns:oai_dc<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot;</span>&gt;

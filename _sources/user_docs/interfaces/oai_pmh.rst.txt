@@ -118,7 +118,7 @@ Exemplarisches Ergebnis eines ``OAI-PMH``-Aufrufs (mit fiktiver Konto-Nummer 123
 die Notifikations-IDs sind ausgesternt)::
 
   #
-  # ListIdentifiers
+  #  ListIdentifiers
   #
   $ curl -k -s "https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListIdentifiers&metadataPrefix=oai_dc" | xml_pp
   <?xml version="1.0" encoding="UTF-8"?>
@@ -143,15 +143,18 @@ die Notifikations-IDs sind ausgesternt)::
 
 Weiteres Beispiel::
 
+  #
+  #  ListRecords
+  #
   $ curl -s "https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListRecords&metadataPrefix=oai_dc" | xml_pp
   <?xml version="1.0" encoding="UTF-8"?>
   <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
     <responseDate>2018-08-20T12:24:10Z</responseDate>
-    <request metadataPrefix="oai_dc" verb="ListRecords">http://www.oa-deepgreen.de/oaipmh/repo/03fad0a0ae5e4918964485663585adbe</request>
+    <request metadataPrefix="oai_dc" verb="ListRecords">http://www.oa-deepgreen.de/oaipmh/repo/1234567890</request>
     <ListRecords>
       <record>
         <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
-          <identifier>oai:www.oa-deepgreen.de/notification:b621b93a144b46199e254e54b7def5a0</identifier>
+          <identifier>oai:www.oa-deepgreen.de/notification:*****</identifier>
           <datestamp>2018-08-10T08:29:00Z</datestamp>
         </header>
         <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
@@ -190,7 +193,7 @@ Weiteres Beispiel::
       </record>
       <record>
         <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
-          <identifier>oai:www.oa-deepgreen.de/notification:fcf9c48553d6418ba668c16deb074955</identifier>
+          <identifier>oai:www.oa-deepgreen.de/notification:*****</identifier>
           <datestamp>2018-08-10T08:34:06Z</datestamp>
         </header>
         <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
