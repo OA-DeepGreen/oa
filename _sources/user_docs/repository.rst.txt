@@ -152,7 +152,7 @@ sind drei Varianten dazu vorgesehen.
 
 
   * Für alle syntaktischen und technischen Einzelheiten siehe die detaillierte Beschreibung 
-    der Web-API.
+    der Web-API. (*LINK* einfügen!)
   
 
 
@@ -172,7 +172,7 @@ sind drei Varianten dazu vorgesehen.
 
 
   * Für die technischen Einzelheiten und die genaue Syntax der OAI-PMH-Abfragen siehe 
-    die Beschreibung der OAI-PMH-Schnittstelle von DeepGreen.
+    die Beschreibung der OAI-PMH-Schnittstelle von DeepGreen. (*LINK* einfügen!)
   
 
 
@@ -193,11 +193,11 @@ sind drei Varianten dazu vorgesehen.
     ``OPUS 4`` (*OPUS4-Import-XML*), ``DSpace`` (*METS-MODS*), ``PubMan`` (*ESciDoc*) 
     oder ``EPrints`` laufen.
 
+ 
+  * Für alle technischen Einzelheit siehe die ausführliche Beschreibung der 
+    DeepGreen-SWORD-Schnittstelle. (*LINK* einfügen!)
+
 
   * Diese Variante ist für Repositorienbetreiber optional.
   
-
-
-
-
 
