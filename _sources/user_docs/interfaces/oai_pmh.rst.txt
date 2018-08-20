@@ -117,6 +117,9 @@ stets ``200 OK``:
 Exemplarisches Ergebnis eines ``OAI-PMH``-Aufrufs (mit fiktiver Konto-Nummer 1234567890 ;  
 die Notifikations-IDs sind ausgesternt)::
 
+  #
+  # ListIdentifiers
+  #
   $ curl -k -s "https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListIdentifiers&metadataPrefix=oai_dc" | xml_pp
   <?xml version="1.0" encoding="UTF-8"?>
   <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
