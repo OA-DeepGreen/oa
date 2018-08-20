@@ -152,6 +152,8 @@ sind drei Varianten dazu vorgesehen.
 
   * Für alle syntaktischen und technischen Einzelheiten siehe die detaillierte Beschreibung 
     der Web-API.
+    \
+
 
 
 * **Variante 2: Abfrage von Metadaten über eine OAI-PMH-konforme Schnittstelle**
@@ -169,6 +171,7 @@ sind drei Varianten dazu vorgesehen.
 
   * Für die technischen Einzelheiten und die genaue Syntax der OAI-PMH-Abfragen siehe 
     die Beschreibung der OAI-PMH-Schnittstelle von DeepGreen.
+    \ 
 
 
 * **Variante 3: Automatisierte Lieferung der Daten via SWORD-Schnittstelle**
@@ -188,5 +191,6 @@ sind drei Varianten dazu vorgesehen.
 
 
   * Diese Variante ist optional.
+    \ 
 
 
