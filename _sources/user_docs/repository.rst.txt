@@ -33,8 +33,8 @@ die DeepGreen-Datendrehscheibe folgende Vorteile:
 
 
 
-Funktionsweise über ein Repositorium-Konto bei DeepGreen
---------------------------------------------------------
+Bedienung eines Repositorium-Kontos bei DeepGreen
+-------------------------------------------------
 
 Zur Teilnahme an DeepGreen ist (aus technischen Gründen) zwingend notwendig, dass man 
 bei der Elektronischen Zeitschriftenbibliothek (EZB) in Regensburg angemeldet ist.
