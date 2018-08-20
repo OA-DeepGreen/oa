@@ -114,7 +114,7 @@ stets ``200 OK``:
    +----------------------+-------------------------------------------------------------------+
 
 
-Exemplarisches Ergebnis eines ``OAI-PMH``-Aufrufs::
+Exemplarisches Ergebnis eines ``OAI-PMH``-Aufrufs (mit fiktiver Konto-Nummer 1234567890)::
 
   $ curl 
   $ curl -s "https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListIdentifiers&metadataPrefix=oai_dc" | xml_pp
