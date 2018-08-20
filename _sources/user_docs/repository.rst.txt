@@ -31,3 +31,29 @@ die DeepGreen-Datendrehscheibe folgende Vorteile:
 
 
 
+Funktionsweise über ein Repositorium-Konto bei DeepGreen
+--------------------------------------------------------
+
+Zur Teilnahme ist (aus technischen Gründen) zwingend notwendig, dass man bei der 
+Elektronischen Zeitschriftenbibliothek (EZB) in Regensburg angemeldet ist.
+
+Ist diese Voraussetzung erfüllt, kann ein Konto (als Repositorienbetreiber) bei 
+DeepGreen beantragt werden.  Mit der Vergabe eines neues neuen Kontos werden 
+eine 32-stellige ID und ein sogenannter API-Schlüssel erzeugt, der für den 
+Zugriff auf die zu erwartenden Volltexte benötigt wird.
+
+Über dieses Konto kann man sich als Repositorienbetreiber bei DeepGreen einwählen, um
+
+
+* die aktuellen Benachrichtigungen aufzulisten und herunterzuladen,
+
+
+* die aktuellen Einstellung der match-config-Datei einzusehen und ggf. eine neue 
+  match-config-Datei hochzuladen,
+
+
+* die Einstellungen des DeepGreen-Kontos allgemein zu überprüfen und anzupassen
+  (Passwort, ggf. SWORD-Einstellungen).  
+
+
+
