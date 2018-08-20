@@ -163,7 +163,7 @@ sind drei Varianten dazu vorgesehen.
     herangezogen.
 
 
-  * Über die OAI-PMH-Schnittstelle werden die Metadaten der Publikationen in einem
+  * Über die OAI-PMH-Schnittstelle werden die Publikationsmetadaten in einem
     (rudimentären) ``Dublin Core``-Format ausgegeben.
 
 
