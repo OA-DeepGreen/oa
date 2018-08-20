@@ -86,7 +86,7 @@ Publikationen zugeordnet bekommen möchte.
     Für die interne Verarbeitung wird die ``nfd``-Normalisierung von ``unicode`` verwendet.
 
 
-.. code-block:: csv
+.. code-block:: CSV
    :caption: Beispiel einer **match-config** - Datei.  Die erste Zeile (*header*) ist unveränderlich und muss stets so lauten.
 
    Name Variants,Domains,Postcodes,Grant Numbers,ORCIDs,Author Emails
