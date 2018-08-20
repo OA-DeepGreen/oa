@@ -141,7 +141,7 @@ die Notifikations-IDs sind ausgesternt)::
     </ListIdentifiers>
   </OAI-PMH>
 
-Ein weiteres Beispiel mit konkreten Datensätzen::
+Ein weiteres Beispiel mit konkreten Datensätzen. Anhand der Notifikations-IDs (hier ausgesternt) können die berechtigten Repositorien über die Web-API von DeepGreen die Artikel ggf. beziehen::
 
   #
   #  ListRecords
