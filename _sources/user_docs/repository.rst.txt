@@ -62,7 +62,7 @@ der für den Zugriff auf die zu erwartenden Volltexte benötigt wird.
 
 
 
-Bedeutung der ``match-config``-Datei
+Bedeutung der *match-config* - Datei
 ------------------------------------
 
 Mit dieser speziellen Datei 
