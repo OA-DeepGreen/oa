@@ -114,7 +114,8 @@ stets ``200 OK``:
    +----------------------+-------------------------------------------------------------------+
 
 
-Exemplarisches Ergebnis eines ``OAI-PMH``-Aufrufs (mit fiktiver Konto-Nummer 1234567890)::
+Exemplarisches Ergebnis eines ``OAI-PMH``-Aufrufs (mit fiktiver Konto-Nummer 1234567890 ;  
+die Notifikations-IDs sind ausgesternt)::
 
   $ curl -k -s "https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListIdentifiers&metadataPrefix=oai_dc" | xml_pp
   <?xml version="1.0" encoding="UTF-8"?>
