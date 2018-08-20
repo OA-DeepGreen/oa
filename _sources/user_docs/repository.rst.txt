@@ -138,6 +138,7 @@ Abruf von Artikeldaten
 Vorhandene Artikeldaten können auf mehrere Arten von DeepGreen abgerufen werden. Momentan
 sind drei Varianten dazu vorgesehen.
 
+
 * **Variante 1: Manuelle Abfrage der Daten über eine (native) Web-API (ReSTful Interface)**
 
 
@@ -154,7 +155,7 @@ sind drei Varianten dazu vorgesehen.
     der Web-API.
   
 
-  *
+
 
 
 * **Variante 2: Abfrage von Metadaten über eine OAI-PMH-konforme Schnittstelle**
@@ -174,7 +175,7 @@ sind drei Varianten dazu vorgesehen.
     die Beschreibung der OAI-PMH-Schnittstelle von DeepGreen.
   
 
-  *
+
 
 
 * **Variante 3: Automatisierte Lieferung der Daten via SWORD-Schnittstelle**
@@ -196,7 +197,7 @@ sind drei Varianten dazu vorgesehen.
   * Diese Variante ist für Repositorienbetreiber optional.
   
 
-  *
+
 
 
 
