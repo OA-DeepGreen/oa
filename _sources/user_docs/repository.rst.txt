@@ -7,7 +7,7 @@ gegeben werden. Darauf folgt eine kurze Beschreibung der Funktionsweise von Deep
 Sicht eines solchen Repositorienbetreibers.
 
 
-Vorteile von Deepgreen
+Vorteile von DeepGreen
 ----------------------
 
 In Bezug auf die implementierten Lizenzmodelle (momentan: Allianz-Lizenzen) bietet
