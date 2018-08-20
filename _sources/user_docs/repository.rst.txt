@@ -131,3 +131,19 @@ Es ist klar, je mehr, je umfassender und je genauer die Angaben in dieser Datei 
 desto treffsicherer kann DeepGreen anhand der Verlagsmetadaten eines Artikels/Reviews/Buch 
 herausfinden, ob die fragliche Publikationen einer Institution zuzuordnen ist oder nicht.
 
+
+Abruf von Artikeldaten
+----------------------
+
+Vorhandene Artikeldaten können auf mehrere Arten von DeepGreen abgerufen werden:  Momentan
+sind drei Varianten dazu vorgesehen.
+
+* **Variante 1: Manuelle Abfrage der Daten über eine (native) Web-API**
+
+
+* **Variante 2: Abfrage von Metadaten über eine OAI-PMH-konforme Schnittstelle**
+
+
+* **Variante 3: Automatisierte Lieferung der Daten via SWORD-Schnittstelle**
+
+
