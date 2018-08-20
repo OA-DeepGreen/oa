@@ -70,9 +70,13 @@ der für den Zugriff auf die zu erwartenden Volltexte benötigt wird.
 Bedeutung der *match-config* - Datei
 ------------------------------------
 
-Mit dieser besonderen Datei (einer ``.csv``-Datei mit **genau** sechs Spalten) gibt 
-eine Institution an, mit welchen (Namens-)Ansetzungen sie Publikationen zugeordnet 
-bekommen möchte.
+Mit dieser besonderen Datei (einer ``.csv``-Datei mit **genau** sechs Spalten: 
+``Name Variants``, ``Domains``, ``Postcodes``, ``Grant Numbers``, ``ORCIDs`` und 
+``Author Emails``) gibt eine Institution an, mit welchen (Namens-)Ansetzungen sie 
+Publikationen zugeordnet bekommen möchte.
+
+*Bemerkung:* Die Spalte ``Postcodes`` hat keinerlei Funktion in DeepGreen und sollte leer 
+bleiben.
 
 .. code-block:: csv
    :caption: Beispiel einer match-config-Datei
