@@ -138,7 +138,7 @@ die Notifikations-IDs sind ausgesternt)::
         <identifier>oai:www.oa-deepgreen.de/notification:*****</identifier>
         <datestamp>2018-07-04T12:41:44Z</datestamp>
       </header>
-    <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+      <header xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
         <identifier>oai:www.oa-deepgreen.de/notification:*****</identifier>
         <datestamp>2018-06-18T13:39:04Z</datestamp>
       </header>
