@@ -114,6 +114,10 @@ stets ``200 OK``:
    +----------------------+-------------------------------------------------------------------+
 
 
+
+Beispiele für die Benutzung der OAI-PMH-Schnittstelle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Exemplarisches Ergebnis eines ``OAI-PMH``-Aufrufs (mit fiktiver Konto-Nummer 1234567890 ;  
 die Notifikations-IDs sind ausgesternt)::
 
