@@ -70,7 +70,7 @@ der für den Zugriff auf die zu erwartenden Volltexte benötigt wird.
 Bedeutung der *match-config* - Datei
 ------------------------------------
 
-Mit dieser besonderen Datei (einer ``.csv``-Datei mit **genau** sieben Spalten) gibt 
+Mit dieser besonderen Datei (einer ``.csv``-Datei mit **genau** sechs Spalten) gibt 
 eine Institution an, mit welchen (Namens-)Ansetzungen sie Publikationen zugeordnet 
 bekommen möchte.
 
