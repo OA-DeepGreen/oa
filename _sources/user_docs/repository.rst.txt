@@ -75,8 +75,8 @@ Mit dieser besonderen Datei (einer ``.csv``-Datei mit **genau** sechs Spalten:
 ``Author Emails``) gibt eine Institution an, mit welchen (Namens-)Ansetzungen sie 
 Publikationen zugeordnet bekommen möchte.
 
-*Bemerkung:* Die Spalte ``Postcodes`` hat keinerlei Funktion in DeepGreen und sollte 
-daher stets leer bleiben.  Pro Zeile **müssen** fünf Kommata gegeben sein.
+*Bemerkung:* Die Spalte ``Postcodes`` hat keinerlei Funktion in DeepGreen und sollte daher 
+stets leer bleiben.  Pro Zeile **müssen** auf alle Fälle genau fünf Kommata gegeben sein.
 
 .. code-block:: csv
    :caption: Beispiel einer **match-config** - Datei.  Die erste Zeile (*header*) ist unveränderlich und muss stets so lauten.
