@@ -141,7 +141,7 @@ die Notifikations-IDs sind ausgesternt)::
     </ListIdentifiers>
   </OAI-PMH>
 
-Weiteres Beispiel::
+Ein weiteres Beispiel::
 
   #
   #  ListRecords
