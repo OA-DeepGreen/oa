@@ -27,9 +27,9 @@ die DeepGreen-Datendrehscheibe folgende Vorteile:
 
 
 * Liegen neben den Metadaten auch der Volltext der Publikation vor, können diese (innerhalb
-  eines bestimmten Zeitfensters ; momentan 3 Monate) von den berechtigten Institutionen 
-  bezogen werden oder ggf. automatisiert in die jeweiligen institutionelles Repositorien 
-  übersendet werden.
+  eines bestimmten Zeitfensters ; in DeepGreen sind momentan 3 Monate eingestellt) von den 
+  berechtigten Institutionen bezogen werden oder ggf. automatisiert in die jeweiligen 
+  institutionelles Repositorien übersendet werden.
 
 
 
@@ -58,7 +58,7 @@ der für den Zugriff auf die zu erwartenden Volltexte benötigt wird.
 
 
 * die Einstellungen des DeepGreen-Kontos allgemein zu überprüfen und anzupassen
-  (Passwort, ggf. SWORD-Einstellungen).  
+  (Passwort, ggf. SWORD-Einstellungen für die automatisierte Artikeldaten-Zustellung).  
 
 
 
