@@ -58,8 +58,8 @@ der für den Zugriff auf die zu erwartenden Volltexte benötigt wird.
 * die aktuellen Benachrichtigungen aufzulisten und herunterzuladen,
 
 
-* die aktuellen Einstellung der ``match-config``-Datei einzusehen und ggf. eine neue 
-  ``match-config``-Datei hochzuladen,
+* die aktuellen Einstellung der ``match-config``-Datei einzusehen, herunterzuladen
+  oder ggf. eine neue ``match-config``-Datei hochzuladen,
 
 
 * die Einstellungen des DeepGreen-Kontos allgemein zu überprüfen und anzupassen
@@ -189,15 +189,15 @@ sind drei Varianten dazu vorgesehen.
   * DeepGreen kann auch SWORD(v1)-Schnittstellen bedienen (Abwärtskompatibilität).
 
 
-  * DeepGreen unterstützt momentan Repositorien, die auf Basis von 
-    ``OPUS 4`` (*OPUS4-Import-XML*), ``DSpace`` (*METS-MODS*), ``PubMan`` (*ESciDoc*) 
-    oder ``EPrints`` laufen.
+  * DeepGreen kann momentan über die SWORD-Schnittstelle an Repositorien liefern, 
+    die auf Basis von ``OPUS 4`` (*OPUS4-Import-XML*), ``DSpace`` (*METS-MODS*), 
+    ``PubMan`` (*ESciDoc*) oder ``EPrints`` laufen.
 
  
   * Für alle technischen Einzelheit siehe die ausführliche Beschreibung der 
     DeepGreen-SWORD-Schnittstelle. (*LINK* einfügen!)
 
 
-  * Diese Variante ist für Repositorienbetreiber optional.
+  * Diese Variante ist für Repositorienbetreiber **optional**.
   
 
