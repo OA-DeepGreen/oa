@@ -4,6 +4,7 @@ sFTP
 
 Aus technischen Gründen wird die Datenablieferung via ``sFTP`` **nicht** über 
 die gewohnte Basis-Adresse, sondern vielmehr über ``sl61.kobv.de`` abgewickelt.
+
 Der allgemeine Zugang, z.B. in einer Unix-Shell (``bash``, ``tcsh``, etc.), 
 lautet wie folgt::
 
