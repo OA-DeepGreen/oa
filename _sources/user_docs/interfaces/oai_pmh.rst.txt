@@ -11,7 +11,7 @@ Diese Art der Metadaten-Abfrage kann über die Web-Adresse ``https://www.oa-deep
 angesprochen werden, z.B. mit dem Kommando `curl <https://curl.haxx.se>`_ in einer Shell 
 (``bash``, ``tcsh``, etc.)::
  
-  $ curl -k -s https://www.oa-deepgreen.de/oaipmh/...
+  $ curl -s https://www.oa-deepgreen.de/oaipmh/...
 
 Dabei können (*müssen*!) die ``...`` noch ersetzt werden durch die zwei möglichen 
 Aufrufvarianten ``all`` oder ``repo`` der DeepGreen-``OAI-PMH``-Schnittstelle. Wie üblich,
