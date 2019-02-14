@@ -10,7 +10,7 @@ genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse,
 ``https://www.oa-deepgreen.de/sword`` angesprochen, z.B. mit dem Kommando
 `curl <https://curl.haxx.se>`_ in einer Shell (``bash``, ``tcsh``, etc.)::
  
-  $ curl -k -s -u "<dg_username>:<api_key>" [-X GET|POST] https://www.oa-deepgreen.de/sword/...
+  $ curl -s -u "<dg_username>:<api_key>" [-X GET|POST] https://www.oa-deepgreen.de/sword/...
 
 Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
 Endpunkte ``validate``, ``notify``, ``collection`` und ``entry`` der SWORD-Schnittstelle.
