@@ -29,7 +29,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
     <link rel="next" title="SWORD(v2)" href="sword.html" />
-    <link rel="prev" title="Benutzung der Schnittstellen" href="../interfaces.html" /> 
+    <link rel="prev" title="Benutzung der DG-Schnittstellen" href="../interfaces.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -42,11 +42,11 @@
           <a href="sword.html" title="SWORD(v2)"
              accesskey="N">weiter</a> |</li>
         <li class="right" >
-          <a href="../interfaces.html" title="Benutzung der Schnittstellen"
+          <a href="../interfaces.html" title="Benutzung der DG-Schnittstellen"
              accesskey="P">zurück</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">DeepGreen 1.1.3 Dokumentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Anleitung zur Benutzung von DeepGreen</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../interfaces.html" accesskey="U">Benutzung der Schnittstellen</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../interfaces.html" accesskey="U">Benutzung der DG-Schnittstellen</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -77,7 +77,7 @@
 
   <h4>Vorheriges Thema</h4>
   <p class="topless"><a href="../interfaces.html"
-                        title="vorheriges Kapitel">Benutzung der Schnittstellen</a></p>
+                        title="vorheriges Kapitel">Benutzung der DG-Schnittstellen</a></p>
   <h4>Nächstes Thema</h4>
   <p class="topless"><a href="sword.html"
                         title="nächstes Kapitel">SWORD(v2)</a></p>
@@ -118,7 +118,11 @@ Die aktuelle Version der DeepGreen REST API ist <code class="docutils literal"><
 </div>
 <p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
 REST-Resourcen <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notification</span></code> und <code class="docutils literal"><span class="pre">routed</span></code> der Web-API-Schnittstelle.
-Im Folgenden soll der Übersichtlichkeit halber <code class="docutils literal"><span class="pre">GET</span></code>, <code class="docutils literal"><span class="pre">POST</span></code>, usw. für die gesamte,
+Eine weitere, für die GUI-lose Bedienung von Repositorienkonten gedachte REST-Resource
+ist durch den Endpunkt <code class="docutils literal"><span class="pre">config</span></code> gegeben. Diese Resource ist insbesondere für
+Repositorienbetreiber, die eigene Skripte zur Verwaltung ihrer Konten entwickeln
+möchten. Sie ist hier der Vollständigkeit halber mit aufgeführt.</p>
+<p>Im Folgenden soll der Übersichtlichkeit halber <code class="docutils literal"><span class="pre">GET</span></code>, <code class="docutils literal"><span class="pre">POST</span></code>, usw. für die gesamte,
 wie oben angegebene <code class="docutils literal"><span class="pre">curl</span></code>-Zeile geschrieben werden.  Hier ein kleiner Überblick der
 möglichen Aufrufe in dieser Kurzform:</p>
 <ul>
@@ -185,6 +189,29 @@ Content-Type: application/zip
 </div>
 </li>
 </ul>
+<p>Daneben gibt es, wie eingangs schon erwähnt, einen weiteren Aufruf ausschließlich für
+Repositorienbetreiber gedacht:</p>
+<ul>
+<li><p class="first"><strong>Aufruf</strong>: <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/config</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Eine neue &#8220;<code class="docutils literal"><span class="pre">match-config</span></code>&#8220;-Datei für das eigene Konto installieren (JSON-Format)</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /config?api_key=&lt;api_key&gt;
+Content-Type: application/json; charset=utf-8
+
+[New (overwriting!) config settings JSON]
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong>: <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/config</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Die aktuelle &#8220;<code class="docutils literal"><span class="pre">match-config</span></code>&#8220;-Setzungen des eigenen Kontos abfragen (JSON-Format)</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /config?api_key=&lt;api_key&gt;
+</pre></div>
+</div>
+</div>
+</li>
+</ul>
 <p>All diese Aufrufmöglichkeiten der <code class="docutils literal"><span class="pre">Web-API</span></code> sollen nun im Folgenden näher erläutert werden.</p>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
@@ -199,8 +226,8 @@ der Datendrehscheibe überprüft werden. Es sind also zwei REST-Resourcen des We
 analysieren zunächst jeweils die angegeben <code class="docutils literal"><span class="pre">zip</span></code>-Datei, welches Metadatenschema im
 Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">JATS</span></code>,
 <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">Journal</span></code> (dies ist eine Variante des <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">JATS</span></code>-Schema) und <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">RSC</span></code>.</p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">bash-Skript zur Validierung</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">bash-Skript zur Validierung</span><a class="headerlink" href="#id8" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
 <span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://www.oa-deepgreen.de&quot;</span>
@@ -254,8 +281,8 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">bash-Skript zur Datenpaketübertragung</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">bash-Skript zur Datenpaketübertragung</span><a class="headerlink" href="#id9" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
 <span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://www.oa-deepgreen.de&quot;</span>
@@ -324,8 +351,8 @@ Lieferung zu schicken.  Dazu wird das <code class="docutils literal"><span class
 zur Beschreibung der zu überprüfenden Metadaten verwendet.  Mit Binärdaten gebündelte
 Lieferungen können natürlich ebenso geprüft werden.  Dies funktioniert genau wie im
 Beispiel <code class="docutils literal"><span class="pre">notification</span></code> unten angegeben.</p>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id8" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id10" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /validate?api_key=&lt;api_key&gt;
 Content-Type: application/json
 
@@ -388,8 +415,8 @@ Beschreibung der Rückgabewerte bei der Verwendung der Funktion <code class="doc
 werden durch die Kennzeichnung &#8220;<code class="docutils literal"><span class="pre">multipart/form-data</span></code>&#8221; im http-Header gebündelt.  Dabei
 <strong>muss</strong> im <code class="docutils literal"><span class="pre">json</span></code> des Metadatenteil (&#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notifikation</span> <span class="pre">JSON</span></code>&#8221;) das Feld
 <strong>content.packaging_format</strong> zwingend vorhanden sein.</p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch &#8220;<code class="docutils literal"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>&#8220;</span><a class="headerlink" href="#id9" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch &#8220;<code class="docutils literal"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>&#8220;</span><a class="headerlink" href="#id11" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
 Content-Type: multipart/form-data; boundary=FulltextBoundary
 
@@ -411,8 +438,8 @@ Content-Type: application/zip
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Minimale Angabe der Metadaten durch &#8220;<code class="docutils literal"><span class="pre">packaging_format</span></code>&#8220;</span><a class="headerlink" href="#id10" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Minimale Angabe der Metadaten durch &#8220;<code class="docutils literal"><span class="pre">packaging_format</span></code>&#8220;</span><a class="headerlink" href="#id12" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
 Content-Type: multipart/form-data; boundary=FulltextBoundary
 
@@ -501,8 +528,8 @@ Content-Type: application/json
 und zu listen.  Diese verschiedenen Möglichkeiten werden durch unterschiedliche
 Aufrufe, aber auch durch bestimmte Parameter festgelegt und gesteuert.  Als
 Parameter für die http-Adressen sind vorgesehen:</p>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">Mögliche <strong>Parameter</strong> bei GET-Funktionen von DeepGreen</span><a class="headerlink" href="#id11" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Mögliche <strong>Parameter</strong> bei GET-Funktionen von DeepGreen</span><a class="headerlink" href="#id13" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;http-Adresse/...&gt;?since=&lt;YYYY-MM-DD&gt;
 <span class="gh">#</span>
 <span class="gh"># Angabe erforderlich; bestimmt, von wann ab die Notifikationen gelistet werden</span>
@@ -528,8 +555,8 @@ GET &lt;http-Adresse/...&gt;?api_key=&lt;api_key&gt;
 <p>Mehrere Parameterangaben hintereinander können mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen verbunden werden.</p>
 <div class="section" id="liste-aller-erfolgreich-zugestellten-artikel">
 <h3>Liste aller erfolgreich zugestellten Artikel<a class="headerlink" href="#liste-aller-erfolgreich-zugestellten-artikel" title="Link zu dieser Überschrift">¶</a></h3>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">Liste aller erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id12" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Liste aller erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id14" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed?since=&lt;YYYY-MM-DD&gt;[&amp;&lt;other params&gt;]
 </pre></div>
 </div>
@@ -589,8 +616,8 @@ Content-Type: application/json
 </div>
 <div class="section" id="liste-der-einer-einrichtung-zugestellten-artikel">
 <h3>Liste der einer Einrichtung zugestellten Artikel<a class="headerlink" href="#liste-der-einer-einrichtung-zugestellten-artikel" title="Link zu dieser Überschrift">¶</a></h3>
-<div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id13" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id15" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;?since=&lt;YYYY-MM-DD&gt;[&amp;&lt;other params&gt;]
 </pre></div>
 </div>
@@ -654,8 +681,8 @@ Content-Type: application/json
 ist mit einer eindeutigen ID, der sogenannten Notifikations-ID, gekennzeichnet.  Diese ID
 ist in den Ausgabelisten der vorherigen Abfragen zu finden.  Mit der folgenden Anfarge
 erhält man den individuellen <code class="docutils literal"><span class="pre">JSON</span></code> Datensatz einer bestimmten Notifikations-ID.</p>
-<div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">Abfrage einer bestimmten Notifikation, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id14" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Abfrage einer bestimmten Notifikation, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id16" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
 </pre></div>
 </div>
@@ -722,8 +749,8 @@ Angenommen, die Notifikation enthielte den JSON-Abschnitt</p>
 </pre></div>
 </div>
 <p>dann lautete der Abruf des Volltextes wie folgt:</p>
-<div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">Abfrage der Binärdaten eines Datenpakets, i.d.R. eine .zip-Datei mit dem/den Volltext(en)</span><a class="headerlink" href="#id15" title="Link zu diesem Quellcode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Abfrage der Binärdaten eines Datenpakets, i.d.R. eine .zip-Datei mit dem/den Volltext(en)</span><a class="headerlink" href="#id17" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;links url&gt;?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
@@ -795,11 +822,11 @@ die URL ist schlicht nicht existent</p>
           <a href="sword.html" title="SWORD(v2)"
              >weiter</a> |</li>
         <li class="right" >
-          <a href="../interfaces.html" title="Benutzung der Schnittstellen"
+          <a href="../interfaces.html" title="Benutzung der DG-Schnittstellen"
              >zurück</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">DeepGreen 1.1.3 Dokumentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Anleitung zur Benutzung von DeepGreen</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../interfaces.html" >Benutzung der Schnittstellen</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../interfaces.html" >Benutzung der DG-Schnittstellen</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
