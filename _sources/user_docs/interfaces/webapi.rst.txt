@@ -674,8 +674,8 @@ laden zu können, benötigt man (wie gewohnt) einen gültigen ``api_key``:
    +----------------------+-------------------------------------------------------------------+
 
 
-Beispielhafte ``match-config``-Datei im internen JSON-Format
-````````````````````````````````````````````````````````````
+Beispielhafte, korrekte ``match-config``-Datei im internen JSON-Format
+``````````````````````````````````````````````````````````````````````
 
 .. code-block:: json
 
