@@ -606,4 +606,30 @@ Repositorienkontos benötigt man natürlich einen gültigen ``api_key``:
    GET /config?api_key=<api_key>
 
 
+* **http-Header Rückgabewerte**
+
+   +----------------------+-------------------------------------------------------------------+
+   | Code                 | Beschreibung                                                      |
+   +======================+===================================================================+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **200** OK           |    HTTP 1.1  200 OK                                               |
+   |                      |    Content-Type: application/json                                 |
+   |                      |                                                                   |
+   |                      |    [matching Kriterien JSON]                                      |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **401** Unauthorised | z.B. ungültiger ``api_key``, falsche Benutzertyp oder die         |
+   |                      | entsprechende Notifikation wurde (noch) nicht zugestellt          |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **404** Not Found    | unter der angegebenen URL gibt es keinen Inhalt bzw.              |
+   |                      | die URL ist schlicht nicht existent                               |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+
 

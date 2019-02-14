@@ -815,6 +815,52 @@ Repositorienkontos benötigt man natürlich einen gültigen <code class="docutil
 </pre></div>
 </div>
 </div>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>200</strong> OK</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+Content-Type: application/json
+
+[matching Kriterien JSON]
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>401</strong> Unauthorised</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falsche Benutzertyp oder die
+entsprechende Notifikation wurde (noch) nicht zugestellt</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>404</strong> Not Found</p>
+</td>
+<td><p class="first"></p>
+<p class="last">unter der angegebenen URL gibt es keinen Inhalt bzw.
+die URL ist schlicht nicht existent</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
 </div>
 </div>
 
