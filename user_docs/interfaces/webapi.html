@@ -926,62 +926,47 @@ die URL ist schlicht nicht existent (z.B. durch <code class="docutils literal"><
 </ul>
 <div class="section" id="beispielhafte-match-config-datei-im-internen-json-format">
 <h4>Beispielhafte <code class="docutils literal"><span class="pre">match-config</span></code>-Datei im internen JSON-Format<a class="headerlink" href="#beispielhafte-match-config-datei-im-internen-json-format" title="Link zu dieser Überschrift">¶</a></h4>
-<div class="highlight-json"><div class="highlight"><pre><span></span>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;author_ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;orcid&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-0000-0000-0000&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;max.muster@fau.de&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;orcid&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-0000-0000-0001&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;name_variants&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;Academia Fridericiana Erlangensis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Academia Friderico Alexandrina Erlangen-Nürnberg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Academia Friderico-Alexandrina&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Academia Regia Bavarica Friderico-Alexandrina&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Academia Regia Friderico-Alexandrina&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Bayerische Friedrich-Alexanders-Universität&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;F.A.U. Erlangen-Nürnberg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;University of Erlangen&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;grants&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;2491691&quot;</span><span class="p">,</span> <span class="s2">&quot;2673762&quot;</span><span class="p">,</span> <span class="s2">&quot;6273863&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;domains&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;fau.de&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;uk-erlangen.de&quot;</span>
+    <span class="s2">&quot;uni-erlangen.de&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;research&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bavarian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;erlangen&quot;</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>{</dt>
-<dd><dl class="first docutils">
-<dt>&#8220;author_ids&#8221;: [</dt>
-<dd><dl class="first docutils">
-<dt>{</dt>
-<dd>&#8220;type&#8221;: &#8220;orcid&#8221;,
-&#8220;id&#8221;: &#8220;0000-0000-0000-0000&#8221;</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div>&#8220;type&#8221;: &#8220;email&#8221;,
-&#8220;id&#8221;: &#8220;<a class="reference external" href="mailto:max&#46;muster&#37;&#52;&#48;fau&#46;de">max<span>&#46;</span>muster<span>&#64;</span>fau<span>&#46;</span>de</a>&#8220;</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div>&#8220;type&#8221;: &#8220;orcid&#8221;,
-&#8220;id&#8221;: &#8220;0000-0000-0000-0001&#8221;</div></blockquote>
-<p class="last">}</p>
-</dd>
-</dl>
-<p>],
-&#8220;name_variants&#8221;: [</p>
-<blockquote>
-<div>&#8220;Academia Fridericiana Erlangensis&#8221;,
-&#8220;Academia Friderico Alexandrina Erlangen-Nürnberg&#8221;,
-&#8220;Academia Friderico-Alexandrina&#8221;,
-&#8220;Academia Regia Bavarica Friderico-Alexandrina&#8221;,
-&#8220;Academia Regia Friderico-Alexandrina&#8221;,
-&#8220;Bayerische Friedrich-Alexanders-Universität&#8221;,
-&#8220;F.A.U. Erlangen-Nürnberg&#8221;,
-&#8220;University of Erlangen&#8221;</div></blockquote>
-<p>],
-&#8220;grants&#8221;: [</p>
-<blockquote>
-<div>&#8220;2491691&#8221;, &#8220;2673762&#8221;, &#8220;6273863&#8221;</div></blockquote>
-<p>],
-&#8220;domains&#8221;: [</p>
-<blockquote>
-<div>&#8220;fau.de&#8221;,
-&#8220;uk-erlangen.de&#8221;
-&#8220;uni-erlangen.de&#8221;</div></blockquote>
-<p>],
-&#8220;keywords&#8221;: [</p>
-<blockquote>
-<div>&#8220;research&#8221;,
-&#8220;bavarian&#8221;,
-&#8220;erlangen&#8221;</div></blockquote>
-<p class="last">]</p>
-</dd>
-</dl>
-<p>}</p>
 </div>
 </div>
 </div>
