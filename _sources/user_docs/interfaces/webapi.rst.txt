@@ -670,8 +670,8 @@ laden zu können, benötigt man (wie gewohnt) einen gültigen ``api_key``:
    +----------------------+-------------------------------------------------------------------+
    | \                    | \                                                                 |
    |                      |                                                                   |
-   | **400** Bad Request  | In der JSON-Datei, die hochgeladen wurde, ist ein Syntax-Fehler   |
-   |                      | festgestellt worden (z.B. fehlendes Komma in Aufzählungen)        |
+   | **400** Bad Request  | Im JSON-Format, das hochgeladen wurde, ist ein Syntax-Fehler      |
+   |                      | festgestellt worden (z.B. ein fehlendes Komma in Aufzählungen)    |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
 
