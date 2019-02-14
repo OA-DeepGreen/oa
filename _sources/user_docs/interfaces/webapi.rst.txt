@@ -628,7 +628,7 @@ Repositorienkontos benötigt man natürlich einen gültigen ``api_key``:
    | \                    | \                                                                 |
    |                      |                                                                   |
    | **404** Not Found    | unter der angegebenen URL gibt es keinen Inhalt bzw.              |
-   |                      | die URL ist schlicht nicht existent                               |
+   |                      | die URL ist schlicht nicht existent (z.B. durch ``GET /config/``) |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
 
