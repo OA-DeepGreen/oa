@@ -632,6 +632,7 @@ Repositorienkontos benötigt man natürlich einen gültigen ``api_key``:
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
 
+   \
 
 Update der ``matching``-Kriterien eines Repositorienkontos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -656,7 +657,7 @@ laden zu können, benötigt man (wie gewohnt) einen gültigen ``api_key``:
    | \                    | .. code-block:: rest                                              |
    |                      |                                                                   |
    | **200** OK           |    HTTP 1.1  200 OK                                               |
-   |                      |    Content-Type: application/json                                 |
+   |                      |    Content-Length: 0                                              |
    |                      |                                                                   |
    |                      |    [matching Kriterien JSON]                                      |
    |                      |                                                                   |
@@ -669,8 +670,8 @@ laden zu können, benötigt man (wie gewohnt) einen gültigen ``api_key``:
    +----------------------+-------------------------------------------------------------------+
    | \                    | \                                                                 |
    |                      |                                                                   |
-   | **404** Not Found    | unter der angegebenen URL gibt es keinen Inhalt bzw.              |
-   |                      | die URL ist schlicht nicht existent (z.B. durch ``GET /config/``) |
+   | **400** Bad Request  | In der JSON-Datei, die hochgeladen wurde, ist ein Syntax-Fehler   |
+   |                      | festgestellt worden (z.B. fehlendes Komma in Aufzählungen)        |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
 

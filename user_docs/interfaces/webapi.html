@@ -863,6 +863,7 @@ die URL ist schlicht nicht existent (z.B. durch <code class="docutils literal"><
 </tr>
 </tbody>
 </table>
+<p></p>
 </div></blockquote>
 </li>
 </ul>
@@ -897,7 +898,7 @@ Content-Type: application/json; charset=utf-8
 <p class="last"><strong>200</strong> OK</p>
 </td>
 <td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
-Content-Type: application/json
+Content-Length: 0
 
 [matching Kriterien JSON]
 </pre></div>
@@ -912,11 +913,11 @@ Content-Type: application/json
 </td>
 </tr>
 <tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>404</strong> Not Found</p>
+<p class="last"><strong>400</strong> Bad Request</p>
 </td>
 <td><p class="first"></p>
-<p class="last">unter der angegebenen URL gibt es keinen Inhalt bzw.
-die URL ist schlicht nicht existent (z.B. durch <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/config/</span></code>)</p>
+<p class="last">In der JSON-Datei, die hochgeladen wurde, ist ein Syntax-Fehler
+festgestellt worden (z.B. fehlendes Komma in Aufzählungen)</p>
 </td>
 </tr>
 </tbody>
