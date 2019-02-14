@@ -621,8 +621,8 @@ Repositorienkontos benötigt man natürlich einen gültigen ``api_key``:
    +----------------------+-------------------------------------------------------------------+
    | \                    | \                                                                 |
    |                      |                                                                   |
-   | **401** Unauthorised | z.B. ungültiger ``api_key``, falsche Benutzertyp oder die         |
-   |                      | entsprechende Notifikation wurde (noch) nicht zugestellt          |
+   | **401** Unauthorised | z.B. ungültiger ``api_key``                                       |
+   |                      |                                                                   |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
    | \                    | \                                                                 |
