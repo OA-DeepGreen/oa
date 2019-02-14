@@ -71,7 +71,13 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#abfrage-und-update-der-match-config-setzungen-bei-repositorien">Abfrage und Update der <code class="docutils literal"><span class="pre">match-config</span></code>-Setzungen bei Repositorien</a></li>
+<li><a class="reference internal" href="#abfrage-und-update-der-match-config-setzungen-bei-repositorien">Abfrage und Update der <code class="docutils literal"><span class="pre">match-config</span></code>-Setzungen bei Repositorien</a><ul>
+<li><a class="reference internal" href="#update-der-matching-kriterien-eines-repositorienkontos">Update der <code class="docutils literal"><span class="pre">matching</span></code>-Kriterien eines Repositorienkontos</a><ul>
+<li><a class="reference internal" href="#beispielhafte-match-config-datei-im-internen-json-format">Beispielhafte <code class="docutils literal"><span class="pre">match-config</span></code>-Datei im internen JSON-Format</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -860,6 +866,124 @@ die URL ist schlicht nicht existent (z.B. durch <code class="docutils literal"><
 </div></blockquote>
 </li>
 </ul>
+<div class="section" id="update-der-matching-kriterien-eines-repositorienkontos">
+<h3>Update der <code class="docutils literal"><span class="pre">matching</span></code>-Kriterien eines Repositorienkontos<a class="headerlink" href="#update-der-matching-kriterien-eines-repositorienkontos" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Um neue Affiliations- und Treffer-Angaben für ein Repositorium in das zugehörige Konto
+laden zu können, benötigt man (wie gewohnt) einen gültigen <code class="docutils literal"><span class="pre">api_key</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Überschreiben der matching-Kriterien mit neuen Werten</span><a class="headerlink" href="#id19" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /config?api_key=&lt;api_key&gt;
+Content-Type: application/json; charset=utf-8
+
+[Overwriting new match config settings JSON]
+</pre></div>
+</div>
+</div>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>200</strong> OK</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+Content-Type: application/json
+
+[matching Kriterien JSON]
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>401</strong> Unauthorised</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>404</strong> Not Found</p>
+</td>
+<td><p class="first"></p>
+<p class="last">unter der angegebenen URL gibt es keinen Inhalt bzw.
+die URL ist schlicht nicht existent (z.B. durch <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/config/</span></code>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="beispielhafte-match-config-datei-im-internen-json-format">
+<h4>Beispielhafte <code class="docutils literal"><span class="pre">match-config</span></code>-Datei im internen JSON-Format<a class="headerlink" href="#beispielhafte-match-config-datei-im-internen-json-format" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-json"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>{</dt>
+<dd><dl class="first docutils">
+<dt>&#8220;author_ids&#8221;: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd>&#8220;type&#8221;: &#8220;orcid&#8221;,
+&#8220;id&#8221;: &#8220;0000-0000-0000-0000&#8221;</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div>&#8220;type&#8221;: &#8220;email&#8221;,
+&#8220;id&#8221;: &#8220;<a class="reference external" href="mailto:max&#46;muster&#37;&#52;&#48;fau&#46;de">max<span>&#46;</span>muster<span>&#64;</span>fau<span>&#46;</span>de</a>&#8220;</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div>&#8220;type&#8221;: &#8220;orcid&#8221;,
+&#8220;id&#8221;: &#8220;0000-0000-0000-0001&#8221;</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>],
+&#8220;name_variants&#8221;: [</p>
+<blockquote>
+<div>&#8220;Academia Fridericiana Erlangensis&#8221;,
+&#8220;Academia Friderico Alexandrina Erlangen-Nürnberg&#8221;,
+&#8220;Academia Friderico-Alexandrina&#8221;,
+&#8220;Academia Regia Bavarica Friderico-Alexandrina&#8221;,
+&#8220;Academia Regia Friderico-Alexandrina&#8221;,
+&#8220;Bayerische Friedrich-Alexanders-Universität&#8221;,
+&#8220;F.A.U. Erlangen-Nürnberg&#8221;,
+&#8220;University of Erlangen&#8221;</div></blockquote>
+<p>],
+&#8220;grants&#8221;: [</p>
+<blockquote>
+<div>&#8220;2491691&#8221;, &#8220;2673762&#8221;, &#8220;6273863&#8221;</div></blockquote>
+<p>],
+&#8220;domains&#8221;: [</p>
+<blockquote>
+<div>&#8220;fau.de&#8221;,
+&#8220;uk-erlangen.de&#8221;
+&#8220;uni-erlangen.de&#8221;</div></blockquote>
+<p>],
+&#8220;keywords&#8221;: [</p>
+<blockquote>
+<div>&#8220;research&#8221;,
+&#8220;bavarian&#8221;,
+&#8220;erlangen&#8221;</div></blockquote>
+<p class="last">]</p>
+</dd>
+</dl>
+<p>}</p>
+</div>
+</div>
 </div>
 </div>
 

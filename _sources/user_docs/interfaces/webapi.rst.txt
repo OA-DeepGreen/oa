@@ -633,3 +633,92 @@ Repositorienkontos benötigt man natürlich einen gültigen ``api_key``:
    +----------------------+-------------------------------------------------------------------+
 
 
+Update der ``matching``-Kriterien eines Repositorienkontos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Um neue Affiliations- und Treffer-Angaben für ein Repositorium in das zugehörige Konto 
+laden zu können, benötigt man (wie gewohnt) einen gültigen ``api_key``:
+
+.. code-block:: rest
+   :caption: Überschreiben der matching-Kriterien mit neuen Werten
+
+   POST /config?api_key=<api_key>
+   Content-Type: application/json; charset=utf-8
+
+   [Overwriting new match config settings JSON]
+
+
+* **http-Header Rückgabewerte**
+
+   +----------------------+-------------------------------------------------------------------+
+   | Code                 | Beschreibung                                                      |
+   +======================+===================================================================+
+   | \                    | .. code-block:: rest                                              |
+   |                      |                                                                   |
+   | **200** OK           |    HTTP 1.1  200 OK                                               |
+   |                      |    Content-Type: application/json                                 |
+   |                      |                                                                   |
+   |                      |    [matching Kriterien JSON]                                      |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **401** Unauthorised | z.B. ungültiger ``api_key``                                       |
+   |                      |                                                                   |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+   | \                    | \                                                                 |
+   |                      |                                                                   |
+   | **404** Not Found    | unter der angegebenen URL gibt es keinen Inhalt bzw.              |
+   |                      | die URL ist schlicht nicht existent (z.B. durch ``GET /config/``) |
+   |                      |                                                                   |
+   +----------------------+-------------------------------------------------------------------+
+
+
+Beispielhafte ``match-config``-Datei im internen JSON-Format
+````````````````````````````````````````````````````````````
+
+.. code-block:: json
+
+{
+  "author_ids": [
+    {
+      "type": "orcid",
+      "id": "0000-0000-0000-0000"
+    },
+    {
+      "type": "email",
+      "id": "max.muster@fau.de"
+    },
+    {
+      "type": "orcid",
+      "id": "0000-0000-0000-0001"
+    }
+  ],
+  "name_variants": [
+    "Academia Fridericiana Erlangensis",
+    "Academia Friderico Alexandrina Erlangen-Nürnberg",
+    "Academia Friderico-Alexandrina",
+    "Academia Regia Bavarica Friderico-Alexandrina",
+    "Academia Regia Friderico-Alexandrina",
+    "Bayerische Friedrich-Alexanders-Universität",
+    "F.A.U. Erlangen-Nürnberg",
+    "University of Erlangen"
+  ],
+  "grants": [
+    "2491691", "2673762", "6273863"
+  ],
+  "domains": [
+    "fau.de",
+    "uk-erlangen.de"
+    "uni-erlangen.de"
+  ],
+  "keywords": [
+    "research",
+    "bavarian",
+    "erlangen"
+  ]
+}
+
+
+
