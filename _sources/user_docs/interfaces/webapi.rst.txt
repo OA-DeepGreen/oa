@@ -99,7 +99,7 @@ Repositorienbetreiber gedacht:
 * **Aufruf**: ``GET /config``
 
   .. code-block:: rest
-     :caption: Die aktuelle "``match-config``"-Setzungen des eigenen Kontos abfragen (JSON-Format)
+     :caption: Die aktuellen "``match-config``"-Setzungen des eigenen Kontos abfragen (JSON-Format)
 
      GET /config?api_key=<api_key>
 
@@ -566,6 +566,7 @@ dann lautete der Abruf des Volltextes wie folgt:
   
    GET <links url>?api_key=<api_key>
 
+
 * **http-Header Rückgabewerte**
 
    +----------------------+-------------------------------------------------------------------+
@@ -591,4 +592,18 @@ dann lautete der Abruf des Volltextes wie folgt:
    |                      | die URL ist schlicht nicht existent                               |
    |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
+
+
+Abfrage und Update der ``match-config``-Setzungen bei Repositorien
+------------------------------------------------------------------
+
+Zur Abfrage der aktuellen Affiliations- und weiteren Treffer-Einstellungen eines 
+Repositorienkontos benötigt man natürlich einen gültigen ``api_key``:
+
+.. code-block:: rest
+   :caption: Abfrage der aktuellen matching-Kriterien
+
+   GET /config?api_key=<api_key>
+
+
 
