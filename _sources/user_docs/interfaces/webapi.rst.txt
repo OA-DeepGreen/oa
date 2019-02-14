@@ -659,8 +659,6 @@ laden zu können, benötigt man (wie gewohnt) einen gültigen ``api_key``:
    | **200** OK           |    HTTP 1.1  200 OK                                               |
    |                      |    Content-Length: 0                                              |
    |                      |                                                                   |
-   |                      |    [matching Kriterien JSON]                                      |
-   |                      |                                                                   |
    +----------------------+-------------------------------------------------------------------+
    | \                    | \                                                                 |
    |                      |                                                                   |
