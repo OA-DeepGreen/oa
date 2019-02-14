@@ -709,14 +709,10 @@ Beispielhafte ``match-config``-Datei im internen JSON-Format
        "2491691", "2673762", "6273863"
      ],
      "domains": [
-       "fau.de",
-       "uk-erlangen.de"
-       "uni-erlangen.de"
+       "fau.de", "uk-erlangen.de", "uni-erlangen.de"
      ],
      "keywords": [
-       "research",
-       "bavarian",
-       "erlangen"
+       "research", "bavarian", "erlangen"
      ]
    }
 
