@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Anleitung und Hinweise für Repositorienbetreiber &#8212; DeepGreen 1.1.3 Dokumentation</title>
+    <title>Anleitung und Hinweise für Repositorienbetreiber &#8212; DeepGreen 1.1.5 Dokumentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1.3',
+        VERSION:     '1.1.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="publisher.html" title="Anleitung und Hinweise für Verlage"
              accesskey="P">zurück</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">DeepGreen 1.1.3 Dokumentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">DeepGreen 1.1.5 Dokumentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Anleitung zur Benutzung von DeepGreen</a> &#187;</li> 
       </ul>
     </div>
@@ -141,13 +141,14 @@ oder ggf. eine neue <code class="docutils literal"><span class="pre">match-confi
 <div class="section" id="bedeutung-der-match-config-datei">
 <h2>Bedeutung der <em>match-config</em> - Datei<a class="headerlink" href="#bedeutung-der-match-config-datei" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Mit dieser besonderen Datei (einer <code class="docutils literal"><span class="pre">.csv</span></code>-Datei mit <strong>genau</strong> sechs Spalten:
-<code class="docutils literal"><span class="pre">Name</span> <span class="pre">Variants</span></code>, <code class="docutils literal"><span class="pre">Domains</span></code>, <code class="docutils literal"><span class="pre">Postcodes</span></code>, <code class="docutils literal"><span class="pre">Grant</span> <span class="pre">Numbers</span></code>, <code class="docutils literal"><span class="pre">ORCIDs</span></code> und
-<code class="docutils literal"><span class="pre">Author</span> <span class="pre">Emails</span></code>) gibt eine Institution an, mit welchen (Namens-)Ansetzungen sie
+<code class="docutils literal"><span class="pre">Name</span> <span class="pre">Variants</span></code>, <code class="docutils literal"><span class="pre">Domains</span></code>, <code class="docutils literal"><span class="pre">Grant</span> <span class="pre">Numbers</span></code>, <code class="docutils literal"><span class="pre">Dummy1</span></code>, <code class="docutils literal"><span class="pre">Dummy2</span></code> und
+<code class="docutils literal"><span class="pre">Keywords</span></code>) gibt eine Institution an, mit welchen (Namens-)Ansetzungen sie
 Publikationen zugeordnet bekommen möchte.</p>
 <ul class="simple">
 <li><em>Bemerkungen:</em><ul>
-<li>Die Spalte <code class="docutils literal"><span class="pre">Postcodes</span></code> hat keinerlei Funktion in DeepGreen und sollte daher
-<strong>stets leer</strong> bleiben.</li>
+<li>Die Spalten <code class="docutils literal"><span class="pre">Dummy1</span></code> und <code class="docutils literal"><span class="pre">Dummy2</span></code> haben bisher keinerlei Funktion in DeepGreen
+und sollte daher <strong>stets leer</strong> bleiben.  Diese Spalten sind für zukünftige
+Erweiterungen frei gelassen.</li>
 <li>Pro Zeile <strong>müssen</strong> auf alle Fälle genau <strong>fünf Kommata</strong> gegeben sein.</li>
 <li><strong>Alle</strong> Spalten werden als <code class="docutils literal"><span class="pre">unicode</span></code>-Zeichenketten eingelesen und interpretiert.
 Für die interne Verarbeitung innerhalb DeepGreens wird die <code class="docutils literal"><span class="pre">nfd</span></code>-Normalisierung
@@ -157,7 +158,7 @@ von <code class="docutils literal"><span class="pre">unicode</span></code> verwe
 </ul>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Beispiel einer <strong>match-config</strong> - Datei.  Die erste Zeile (<em>header</em>) ist unveränderlich und muss stets so lauten.</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>Name Variants,Domains,Postcodes,Grant Numbers,ORCIDs,Author Emails
+<div class="highlight-text"><div class="highlight"><pre><span></span>Name Variants,Domains,Grant Numbers,Dummy1,Dummy2,Keywords
 Academia Fridericiana Erlangensis,,,,,
 Academia Friderico Alexandrina Erlangen-Nürnberg,,,,,
 Academia Friderico-Alexandrina,,,,,
@@ -189,9 +190,6 @@ University of Erlangen-Nürnberg,,,,,
 ,uni-erlangen.de,,,,
 ,,,123456-563/2,,
 ,,,99988/365-2,,
-,,,,0000-0000-0000-0000,
-,,,,1234-5678-9000-0000,
-,,,,,max.mustermann@inst.uerlangen.de
 </pre></div>
 </div>
 </div>
@@ -260,7 +258,7 @@ DeepGreen-SWORD-Schnittstelle. (<em>LINK</em> einfügen!)</li>
         <li class="right" >
           <a href="publisher.html" title="Anleitung und Hinweise für Verlage"
              >zurück</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">DeepGreen 1.1.3 Dokumentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">DeepGreen 1.1.5 Dokumentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Anleitung zur Benutzung von DeepGreen</a> &#187;</li> 
       </ul>
     </div>

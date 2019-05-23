@@ -71,14 +71,15 @@ Bedeutung der *match-config* - Datei
 ------------------------------------
 
 Mit dieser besonderen Datei (einer ``.csv``-Datei mit **genau** sechs Spalten: 
-``Name Variants``, ``Domains``, ``Postcodes``, ``Grant Numbers``, ``ORCIDs`` und 
-``Author Emails``) gibt eine Institution an, mit welchen (Namens-)Ansetzungen sie 
+``Name Variants``, ``Domains``, ``Grant Numbers``, ``Dummy1``, ``Dummy2`` und 
+``Keywords``) gibt eine Institution an, mit welchen (Namens-)Ansetzungen sie 
 Publikationen zugeordnet bekommen möchte.
 
 * *Bemerkungen:* 
 
-  * Die Spalte ``Postcodes`` hat keinerlei Funktion in DeepGreen und sollte daher 
-    **stets leer** bleiben.  
+  * Die Spalten ``Dummy1`` und ``Dummy2`` haben bisher keinerlei Funktion in DeepGreen 
+    und sollte daher **stets leer** bleiben.  Diese Spalten sind für zukünftige 
+    Erweiterungen frei gelassen.  
 
   * Pro Zeile **müssen** auf alle Fälle genau **fünf Kommata** gegeben sein.
 
@@ -90,7 +91,7 @@ Publikationen zugeordnet bekommen möchte.
 .. code-block:: text
    :caption: Beispiel einer **match-config** - Datei.  Die erste Zeile (*header*) ist unveränderlich und muss stets so lauten.
 
-   Name Variants,Domains,Postcodes,Grant Numbers,ORCIDs,Author Emails
+   Name Variants,Domains,Grant Numbers,Dummy1,Dummy2,Keywords
    Academia Fridericiana Erlangensis,,,,,
    Academia Friderico Alexandrina Erlangen-Nürnberg,,,,,
    Academia Friderico-Alexandrina,,,,,
@@ -122,9 +123,6 @@ Publikationen zugeordnet bekommen möchte.
    ,uni-erlangen.de,,,,
    ,,,123456-563/2,,
    ,,,99988/365-2,,
-   ,,,,0000-0000-0000-0000,
-   ,,,,1234-5678-9000-0000,
-   ,,,,,max.mustermann@inst.uerlangen.de
 
 
 Es ist klar, je mehr, je umfassender und je genauer die Angaben in dieser Datei sind, 
