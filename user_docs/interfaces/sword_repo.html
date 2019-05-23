@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>sFTP &#8212; DeepGreen 1.1.5 Dokumentation</title>
+    <title>SWORD(v2) Repositorium &#8212; DeepGreen 1.1.5 Dokumentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -56,9 +56,8 @@
             </a></p>
   <h3><a href="../../index.html">Inhalt</a></h3>
   <ul>
-<li><a class="reference internal" href="#">sFTP</a><ul>
-<li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a></li>
-<li><a class="reference internal" href="#aufbau-der-zip-dateien-der-artikeldaten">Aufbau der <code class="docutils literal"><span class="pre">.zip</span></code>-Dateien der Artikeldaten</a></li>
+<li><a class="reference internal" href="#">SWORD(v2) Repositorium</a><ul>
+<li><a class="reference internal" href="#dspace-6">DSpace 6</a></li>
 </ul>
 </li>
 </ul>
@@ -94,86 +93,39 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="sftp">
-<h1>sFTP<a class="headerlink" href="#sftp" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Aus technischen Gründen wird die Datenablieferung via <code class="docutils literal"><span class="pre">sFTP</span></code> <strong>nicht</strong> über
-die gewohnte Basis-Adresse, sondern vielmehr über <code class="docutils literal"><span class="pre">sl61.kobv.de</span></code> abgewickelt.</p>
-<p>Der allgemeine Zugang, z.B. in einer Unix-Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.),
-lautet wie folgt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ sftp [Account-ID]@sl61.kobv.de
-[Account-ID]@sl61.kobv.de&#39;s password: [API-Key]
-sftp&gt; pwd
-Remote working directory: /xfer
-sftp&gt; quit
-</pre></div>
-</div>
-<p>In diesem Beispiel liefert der <code class="docutils literal"><span class="pre">sFTP</span></code>-Befehl <code class="docutils literal"><span class="pre">pwd</span></code> das aktuelle Verzeichnis
-auf dem entfernten Rechner <code class="docutils literal"><span class="pre">sl61.kobv.de</span></code> nach dem Einloggen.  Das Verzeichnis
-ist das Standard-Verzeichnis für jeden <code class="docutils literal"><span class="pre">sFTP</span></code>-Benutzer von DeepGreen und darf
-unter <em>keinen Umständen</em> verändert werden!  Alle anderen, interaktiven <code class="docutils literal"><span class="pre">sFTP</span></code>-Befehle
-stehen ebenfalls zur Verfügung (s. dazu z.B. die entsprechenden <code class="docutils literal"><span class="pre">man-pages</span></code> auf
-Unix-Systemen: <code class="docutils literal"><span class="pre">man</span> <span class="pre">sftp</span></code>).  Darüberhinaus ist es natürlich möglich, mit den
-entsprechenden Zugangsangaben direkt (<code class="docutils literal"><span class="pre">.zip</span></code>-)Dateien über das <code class="docutils literal"><span class="pre">sFTP</span></code>-Protokoll
-einzuspielen.  Wichtig ist in beiden Fällen, dass pro Artikel nur eine <code class="docutils literal"><span class="pre">.zip</span></code>-Datei
-mit <strong>flacher</strong> Hierarchie verwendet werden, d.h. es dürfen keine verschachtelten
-Verzeichnisstrukturen in der <code class="docutils literal"><span class="pre">.zip</span></code>-Datei enthalten sein.</p>
-<p>Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verwenden,
-zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel
-(<code class="docutils literal"><span class="pre">API-Key</span></code>) als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.</p>
-<p><strong>Bermerkung</strong> :  Der <code class="docutils literal"><span class="pre">sFTP</span></code>-Zugang ist ausschließlich <strong>nur</strong> für Verlagskonten
-freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.</p>
-<div class="section" id="artikeldaten-an-deepgreen-liefern">
-<h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Eine typische <code class="docutils literal"><span class="pre">sFTP</span></code>-Session zur Abliefieferung von Metadaten (und evtl. Volltext)
-sieht folgendermaßen aus:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ echo &quot;put artikel.zip&quot; | sftp [Account-ID]@sl61.kobv.de
-[Accout-ID]@sl61.kobv.de&#39;s password: [API-Key]
-sftp&gt; put article.zip
-</pre></div>
-</div>
-<p>Falls auf dem lokalen Unix-System <code class="docutils literal"><span class="pre">sshpass</span></code> installiert ist, kann auf die interaktive
-Eingabe des API-Schlüssels auch verzichtet werden:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ echo &quot;put artikel.zip&quot; | sshpass -p [API-Key] sftp [Accout-ID]@sl61.kobv.de
-sftp&gt; put artikel.zip
-</pre></div>
-</div>
-<p>In beiden Beispielen wird angenommen, dass sich die zu übertragene <code class="docutils literal"><span class="pre">.zip</span></code>-Datei
-<code class="docutils literal"><span class="pre">artikel.zip</span></code> im aktuellen Verzeichnis des lokalen Systems befindet.</p>
-<p>Die Variante mit <code class="docutils literal"><span class="pre">sshpass</span></code> ist u.U. in einem Skript sehr nützlich, wenn mehrere
-<code class="docutils literal"><span class="pre">.zip</span></code>-Dateien, wie hier in einer Schleife über den Pfad <code class="docutils literal"><span class="pre">some/path/*.zip</span></code>, auf
-einmal gesendet werden sollen:</p>
-<blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
-<span class="nb">export</span> <span class="nv">SSHPASS</span><span class="o">=</span><span class="s2">&quot;API-Key&quot;</span>
-<span class="k">for</span> f in some/path/*.zip <span class="p">;</span> <span class="k">do</span>
-  <span class="nb">echo</span> put <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
-<span class="k">done</span> <span class="p">|</span> sshpass -e sftp <span class="s2">&quot;Account-ID@sl61.kobv.de&quot;</span>
-<span class="nb">unset</span> SSHPASS
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="aufbau-der-zip-dateien-der-artikeldaten">
-<h2>Aufbau der <code class="docutils literal"><span class="pre">.zip</span></code>-Dateien der Artikeldaten<a class="headerlink" href="#aufbau-der-zip-dateien-der-artikeldaten" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Die <code class="docutils literal"><span class="pre">.zip</span></code>-Dateien, die DeepGreen verarbeiten kann, sollten folgenden Aufbau haben:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Archive</span><span class="p">:</span> <span class="n">pfad</span><span class="o">/</span><span class="n">artikel</span><span class="o">.</span><span class="n">zip</span>
-  <span class="n">Length</span>      <span class="n">Date</span>    <span class="n">Time</span>    <span class="n">Name</span>
-<span class="o">---------</span>  <span class="o">----------</span> <span class="o">-----</span>   <span class="o">----</span>
-    <span class="mi">62225</span>  <span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">08</span> <span class="mi">15</span><span class="p">:</span><span class="mi">58</span>   <span class="n">art123456789</span><span class="o">.</span><span class="n">xml</span>
-   <span class="mi">223902</span>  <span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">08</span> <span class="mi">15</span><span class="p">:</span><span class="mi">58</span>   <span class="n">art123456789</span><span class="o">.</span><span class="n">pdf</span>
-<span class="o">---------</span>                     <span class="o">-------</span>
-   <span class="mi">286127</span>                     <span class="mi">2</span> <span class="n">files</span>
-</pre></div>
-</div>
-<p>Dabei sollte die <code class="docutils literal"><span class="pre">.xml</span></code>-Datei im <code class="docutils literal"><span class="pre">NISO</span> <span class="pre">JATS</span></code>
-(<a class="reference external" href="https://en.wikipedia.org/wiki/Journal_Article_Tag_Suite">Journal Publishing-Variante (engl.)</a>)- oder <code class="docutils literal"><span class="pre">RSC</span> <span class="pre">DTD</span></code>
-(<a class="reference external" href="http://www.rsc.org/dtds/desc36.htm">Guidelines on the capture of RSC journal articles (engl.)</a>)-
-Format vorliegen.  Darüberhinaus könnten noch weitere Binärdateien (Grafiken,
-Tabellen, usw.) im <code class="docutils literal"><span class="pre">.zip</span></code>-Archiv enthalten sein.  Die Dateinamen im Einzelnen sind
-dabei unwichtig. Im Wesentlichen kommt es auf die Endkürzel <code class="docutils literal"><span class="pre">.xml</span></code>, <code class="docutils literal"><span class="pre">.pdf</span></code>, usw. an
-und die Verzeichnisstruktur im Archiv <strong>muss flach</strong> sein, d.h. es dürfen keine
-Unterverzeichnisse in der <code class="docutils literal"><span class="pre">.zip</span></code>-Datei enthalten sein.</p>
-<p><strong>Bemerkung</strong> : Genau(!) eine Datei in einer DeepGreen-<code class="docutils literal"><span class="pre">.zip</span></code>-Datei <strong>muss</strong> die Endung <code class="docutils literal"><span class="pre">.xml</span></code> tragen.</p>
+  <div class="section" id="sword-v2-repositorium">
+<h1>SWORD(v2) Repositorium<a class="headerlink" href="#sword-v2-repositorium" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="dspace-6">
+<h2>DSpace 6<a class="headerlink" href="#dspace-6" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Standardinstallation einer SWORDv2-DSpace-Instanz versteht im Wesentlichen drei Formate
+laut den &lt;acceptPackaging&gt; tag vom Service Dokument:  METSDSpaceSIP, Binary und SimpleZip.
+Je nach angegebenem Format (Packaging), muss dem hochzuladenden Paket entsprechend für einen
+erfolgreichen Deposit bereitgestellt werden.</p>
+<p>Wir hatte in Erwägung gezogen, einen NISO JATS Ingester für die SWORDV2-Schnittstelle in
+DSpace 6 zu implementieren, da unsere Tests-Deposits von Metadaten und deren Volltexten mit
+<code class="docutils literal"><span class="pre">SimpleZip</span> <span class="pre">Deposit</span></code>, <code class="docutils literal"><span class="pre">Binary</span> <span class="pre">Deposit</span> <span class="pre">via</span> <span class="pre">Atom</span> <span class="pre">entry</span></code> nicht wie gewünscht verliefen.
+Was auf jeden Fall für die Übertragung von Metadaten und Volltextdatei(en) (oder sonstigen
+Binärformaten) nach DSpace via SWORDv2  funktionierte, war das <code class="docutils literal"><span class="pre">METSDSpaceSIP</span> <span class="pre">Deposit</span></code>.
+Also entschieden wir uns für diese Variante. Um möglichst viele Metadaten übernehmen zu können,
+fiel der Wahl auf das MODS Schema. Dafür wurde von DeepGreen und uns verschiedene XSLT-Dateien
+entwickelt für die Umwandlung der Metadaten und Volltextdatei(en) in dem METSMODS Packages.</p>
+<p>Für Sie relevante DSpace Konfiguration um METSMODS Packages via SWORDv2 zu erhalten:</p>
+<ul class="simple">
+<li>Die SWORDV2 Schnittstelle muss freigeschaltet sein.
+Siehe <a class="reference external" href="https://wiki.duraspace.org/display/DSDOC5x/SWORDv2+Server">https://wiki.duraspace.org/display/DSDOC5x/SWORDv2+Server</a>.</li>
+<li>Um METSMODS Dateien einlesen zu können und so viel wie möglich DeepGreen-Metadaten zu
+erhalten, haben wir eine XSLT-Datei implementiert, die das Mapping von METSMODS-Metadaten
+zu unsere DSpace-Metadaten durchführt. Die Datei finden Sie unter:
+<a class="reference external" href="https://github.com/tuub/DSpace/blob/depositonce-6.3x/dspace/config/crosswalks/sword-mods-ingest.xsl">https://github.com/tuub/DSpace/blob/depositonce-6.3x/dspace/config/crosswalks/sword-mods-ingest.xsl</a>.
+Dabei müssen Sie folgenden Konfigurationen in der &#8220;dspace.cfg&#8221; bzw. &#8220;local.cfg&#8221; setzen:<ul>
+<li>mets.default.ingest.crosswalk.MODS = MODS</li>
+<li>crosswalk.submission.MODS.stylesheet= crosswalks/sword-mods-ingest.xsl</li>
+</ul>
+</li>
+</ul>
+<p>Wichtig: Für die SWORD-Konfiguration eines DeepGreen Repositorium-Kontos muss bei der
+SWORD-Konfiguration <code class="docutils literal"><span class="pre">packaging</span> <span class="pre">preference</span></code>, <a class="reference external" href="http://purl.org/net/sword/package/METSMODS">http://purl.org/net/sword/package/METSMODS</a>
+eintragt werden.</p>
 </div>
 </div>
 

@@ -1,92 +1,40 @@
 
-sFTP
-====
+SWORD(v2) Repositorium
+======================
 
-Aus technischen Gründen wird die Datenablieferung via ``sFTP`` **nicht** über 
-die gewohnte Basis-Adresse, sondern vielmehr über ``sl61.kobv.de`` abgewickelt.
+DSpace 6
+--------
+Die Standardinstallation einer SWORDv2-DSpace-Instanz versteht im Wesentlichen drei Formate 
+laut den <acceptPackaging> tag vom Service Dokument:  METSDSpaceSIP, Binary und SimpleZip. 
+Je nach angegebenem Format (Packaging), muss dem hochzuladenden Paket entsprechend für einen 
+erfolgreichen Deposit bereitgestellt werden.
 
-Der allgemeine Zugang, z.B. in einer Unix-Shell (``bash``, ``tcsh``, etc.), 
-lautet wie folgt::
+Wir hatte in Erwägung gezogen, einen NISO JATS Ingester für die SWORDV2-Schnittstelle in 
+DSpace 6 zu implementieren, da unsere Tests-Deposits von Metadaten und deren Volltexten mit 
+``SimpleZip Deposit``, ``Binary Deposit via Atom entry`` nicht wie gewünscht verliefen. 
+Was auf jeden Fall für die Übertragung von Metadaten und Volltextdatei(en) (oder sonstigen 
+Binärformaten) nach DSpace via SWORDv2  funktionierte, war das ``METSDSpaceSIP Deposit``. 
+Also entschieden wir uns für diese Variante. Um möglichst viele Metadaten übernehmen zu können, 
+fiel der Wahl auf das MODS Schema. Dafür wurde von DeepGreen und uns verschiedene XSLT-Dateien 
+entwickelt für die Umwandlung der Metadaten und Volltextdatei(en) in dem METSMODS Packages.
 
-  $ sftp [Account-ID]@sl61.kobv.de
-  [Account-ID]@sl61.kobv.de's password: [API-Key]
-  sftp> pwd
-  Remote working directory: /xfer
-  sftp> quit
+Für Sie relevante DSpace Konfiguration um METSMODS Packages via SWORDv2 zu erhalten:
 
-In diesem Beispiel liefert der ``sFTP``-Befehl ``pwd`` das aktuelle Verzeichnis 
-auf dem entfernten Rechner ``sl61.kobv.de`` nach dem Einloggen.  Das Verzeichnis 
-ist das Standard-Verzeichnis für jeden ``sFTP``-Benutzer von DeepGreen und darf 
-unter *keinen Umständen* verändert werden!  Alle anderen, interaktiven ``sFTP``-Befehle 
-stehen ebenfalls zur Verfügung (s. dazu z.B. die entsprechenden ``man-pages`` auf 
-Unix-Systemen: ``man sftp``).  Darüberhinaus ist es natürlich möglich, mit den 
-entsprechenden Zugangsangaben direkt (``.zip``-)Dateien über das ``sFTP``-Protokoll 
-einzuspielen.  Wichtig ist in beiden Fällen, dass pro Artikel nur eine ``.zip``-Datei 
-mit **flacher** Hierarchie verwendet werden, d.h. es dürfen keine verschachtelten 
-Verzeichnisstrukturen in der ``.zip``-Datei enthalten sein.
+* Die SWORDV2 Schnittstelle muss freigeschaltet sein. 
+  Siehe https://wiki.duraspace.org/display/DSDOC5x/SWORDv2+Server. 
 
-Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verwenden,
-zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel 
-(``API-Key``) als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.
+* Um METSMODS Dateien einlesen zu können und so viel wie möglich DeepGreen-Metadaten zu 
+  erhalten, haben wir eine XSLT-Datei implementiert, die das Mapping von METSMODS-Metadaten 
+  zu unsere DSpace-Metadaten durchführt. Die Datei finden Sie unter: 
+  https://github.com/tuub/DSpace/blob/depositonce-6.3x/dspace/config/crosswalks/sword-mods-ingest.xsl. 
+  Dabei müssen Sie folgenden Konfigurationen in der "dspace.cfg" bzw. "local.cfg" setzen:
 
-**Bermerkung** :  Der ``sFTP``-Zugang ist ausschließlich **nur** für Verlagskonten 
-freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.   
+  * mets.default.ingest.crosswalk.MODS = MODS
 
+  * crosswalk.submission.MODS.stylesheet= crosswalks/sword-mods-ingest.xsl
+                                   
 
-Artikeldaten an DeepGreen liefern
----------------------------------
-
-Eine typische ``sFTP``-Session zur Abliefieferung von Metadaten (und evtl. Volltext) 
-sieht folgendermaßen aus::
-
-  $ echo "put artikel.zip" | sftp [Account-ID]@sl61.kobv.de
-  [Accout-ID]@sl61.kobv.de's password: [API-Key]
-  sftp> put article.zip
-
-Falls auf dem lokalen Unix-System ``sshpass`` installiert ist, kann auf die interaktive
-Eingabe des API-Schlüssels auch verzichtet werden::
-
-  $ echo "put artikel.zip" | sshpass -p [API-Key] sftp [Accout-ID]@sl61.kobv.de
-  sftp> put artikel.zip
-
-In beiden Beispielen wird angenommen, dass sich die zu übertragene ``.zip``-Datei 
-``artikel.zip`` im aktuellen Verzeichnis des lokalen Systems befindet.
-
-Die Variante mit ``sshpass`` ist u.U. in einem Skript sehr nützlich, wenn mehrere 
-``.zip``-Dateien, wie hier in einer Schleife über den Pfad ``some/path/*.zip``, auf 
-einmal gesendet werden sollen:
-
-  .. code-block:: bash
-
-     #! /usr/bin/env bash
-     export SSHPASS="API-Key" 
-     for f in some/path/*.zip ; do 
-       echo put "$f"
-     done | sshpass -e sftp "Account-ID@sl61.kobv.de"
-     unset SSHPASS
-
-Aufbau der ``.zip``-Dateien der Artikeldaten
---------------------------------------------
-
-Die ``.zip``-Dateien, die DeepGreen verarbeiten kann, sollten folgenden Aufbau haben::
-
-  Archive: pfad/artikel.zip
-    Length      Date    Time    Name
-  ---------  ---------- -----   ----
-      62225  2016-01-08 15:58   art123456789.xml
-     223902  2016-01-08 15:58   art123456789.pdf
-  ---------                     -------
-     286127                     2 files
-  
-Dabei sollte die ``.xml``-Datei im ``NISO JATS`` 
-(`Journal Publishing-Variante (engl.) <https://en.wikipedia.org/wiki/Journal_Article_Tag_Suite>`_)- oder ``RSC DTD`` 
-(`Guidelines on the capture of RSC journal articles (engl.) <http://www.rsc.org/dtds/desc36.htm>`_)-
-Format vorliegen.  Darüberhinaus könnten noch weitere Binärdateien (Grafiken, 
-Tabellen, usw.) im ``.zip``-Archiv enthalten sein.  Die Dateinamen im Einzelnen sind 
-dabei unwichtig. Im Wesentlichen kommt es auf die Endkürzel ``.xml``, ``.pdf``, usw. an 
-und die Verzeichnisstruktur im Archiv **muss flach** sein, d.h. es dürfen keine 
-Unterverzeichnisse in der ``.zip``-Datei enthalten sein.
-
-**Bemerkung** : Genau(!) eine Datei in einer DeepGreen-``.zip``-Datei **muss** die Endung ``.xml`` tragen.
-
+Wichtig: Für die SWORD-Konfiguration eines DeepGreen Repositorium-Kontos muss bei der 
+SWORD-Konfiguration ``packaging preference``, http://purl.org/net/sword/package/METSMODS 
+eintragt werden. 
 
