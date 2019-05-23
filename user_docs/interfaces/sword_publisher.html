@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SWORD(v2) &#8212; DeepGreen 1.1.5 Dokumentation</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="author" title="Über dieses Dokument" href="../../about.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="sFTP" href="sftp.html" />
+    <link rel="prev" title="Web-API (nativ)" href="webapi.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="Stichwortverzeichnis"
+             accesskey="I">Index</a></li>
+        <li class="right" >
+          <a href="sftp.html" title="sFTP"
+             accesskey="N">weiter</a> |</li>
+        <li class="right" >
+          <a href="webapi.html" title="Web-API (nativ)"
+             accesskey="P">zurück</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">DeepGreen 1.1.5 Dokumentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Anleitung zur Benutzung von DeepGreen</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../interfaces.html" accesskey="U">Benutzung der DG-Schnittstellen</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/deepgreen_logo.svg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SWORD(v2)</a><ul>
+<li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a><ul>
+<li><a class="reference internal" href="#ruckgabewerte-bei-collection-validate">Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/validate</span></code></a></li>
+<li><a class="reference internal" href="#ruckgabewerte-bei-collection-notify">Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/notify</span></code></a></li>
+<li><a class="reference internal" href="#weitere-uberprufung-von-gesendeten-artikeldaten">Weitere Überprüfung von gesendeten Artikeldaten</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Vorheriges Thema</h4>
+  <p class="topless"><a href="webapi.html"
+                        title="vorheriges Kapitel">Web-API (nativ)</a></p>
+  <h4>Nächstes Thema</h4>
+  <p class="topless"><a href="sftp.html"
+                        title="nächstes Kapitel">sFTP</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Diese Seite</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user_docs/interfaces/sword_publisher.rst.txt"
+            rel="nofollow">Quellcode anzeigen</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sword-v2">
+<h1>SWORD(v2)<a class="headerlink" href="#sword-v2" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Die Datendrehscheibe bietet auch die Möglichkeit, Artikeldaten über die sogenannte
+<a class="reference external" href="https://en.wikipedia.org/wiki/SWORD_(protocol)">SWORD-Schnittstelle (engl.)</a> zu verarbeiten.
+Es wird die aktuelle Version <code class="docutils literal"><span class="pre">v2</span></code> angeboten.  Mehrfache Tests haben gezeigt, dass <code class="docutils literal"><span class="pre">v2</span></code>
+abwärtskombatible zu der älteren Fassung <code class="docutils literal"><span class="pre">v1</span></code> ist.  Das <code class="docutils literal"><span class="pre">SWORD</span></code>-Protokoll wird,
+genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse,
+<code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/sword</span></code> angesprochen, z.B. mit dem Kommando
+<a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -s -u &quot;&lt;dg_username&gt;:&lt;api_key&gt;&quot; [-X GET|POST] https://www.oa-deepgreen.de/sword/...
+</pre></div>
+</div>
+<p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
+Endpunkte <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notify</span></code>, <code class="docutils literal"><span class="pre">collection</span></code> und <code class="docutils literal"><span class="pre">entry</span></code> der SWORD-Schnittstelle.
+Diese Endpunkte sind <strong>nur für Verlagskonten</strong> freigeschaltet und zugänglich, Repositorienkonten
+dagegen haben keinerlei Zugriff auf diese!</p>
+<p>Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung ist dabei
+die Angabe eines gültigen DeepGreen-Kontonamens <code class="docutils literal"><span class="pre">dg_username</span></code> samt dessen API-Schlüssels
+<code class="docutils literal"><span class="pre">api_key</span></code>.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
+und man erhält keinen Zugang.  Im Folgenden soll der Übersichtlichkeit halber <code class="docutils literal"><span class="pre">GET</span></code>
+und <code class="docutils literal"><span class="pre">POST</span></code> für die gesamte, mit einer wie oben angegeben gültigen Kennung versehenen
+<code class="docutils literal"><span class="pre">curl</span></code>-Zeile geschrieben werden.  Hier ein kleiner Überblick der möglichen Aufrufe in
+dieser Kurzform:</p>
+<ul>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/service-document</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Abfrage des SWORD-Servicedokuments, einer konkreten Beschreibung aller von DeepGreen angebotenen SWORD-Funktionalitäten</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /service-document
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/collection/validate</span></code></p>
+<p><strong>Bemerkung</strong> : Hierbei findet <strong>kein(!)</strong> Doublettencheck statt.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Überprüfung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler ( <em>ohne</em> Doublettencheck! )</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/validate
+Content-Disposition: filename=article.zip
+Content-Type: application/zip
+Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+[binäre .zip-Datei]
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/collection/notify</span></code></p>
+<p><strong>Bemerkung</strong> : Hierbei findet <strong>kein(!)</strong> Doublettencheck statt.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Neue Artikeldaten an DeepGreen senden</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/notify
+Content-Disposition: filename=article.zip
+Content-Type: application/zip
+Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+[binäre .zip-Datei]
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Details einer (eigenen!) Notifikation abfragen</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;/content</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Den binären Inhalt (i.d.R. den Volltext als .pdf) einer (eigenen!) Notifikation abfragen (zur Überprüfung?!)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;/content
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/entry/&lt;notification_id&gt;/statement/atom</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Statusabfrage für eine (eigenen!) Notifikation (hier als Atom-Feed)</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /entry/&lt;notification_id&gt;/statement/atom
+</pre></div>
+</div>
+</div>
+</li>
+</ul>
+<div class="section" id="artikeldaten-an-deepgreen-liefern">
+<h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten
+<code class="docutils literal"><span class="pre">SWORD</span></code>-Servers liefert folgende Antwort:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s https://[Account-Name]@www.oa-deepgreen.de/sword/service-document
+&lt;service xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:sword=&quot;http://purl.org/net/sword/terms/&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot; xmlns=&quot;http://www.w3.org/2007/app&quot;&gt;
+  &lt;sword:version&gt;2.0&lt;/sword:version&gt;
+  &lt;sword:maxUploadSize&gt;16777216&lt;/sword:maxUploadSize&gt;
+  &lt;workspace&gt;
+    &lt;atom:title&gt;DeepGreen Prototype&lt;/atom:title&gt;
+    &lt;collection href=&quot;https://www.oa-deepgreen.de/sword/collection/validate&quot;&gt;
+      &lt;atom:title&gt;Validate&lt;/atom:title&gt;
+      &lt;accept&gt;*/*&lt;/accept&gt;
+      &lt;sword:collectionPolicy&gt;This collection will take any deposit package intended for the DeepGreen service&lt;/sword:collectionPolicy&gt;
+      &lt;dcterms:abstract&gt;Deposit here to validate the format of your notification files&lt;/dcterms:abstract&gt;
+      &lt;sword:mediation&gt;true&lt;/sword:mediation&gt;
+      &lt;sword:treatment&gt;Packages sent here will be validated, and you will receive an error document or a deposit receipt.  The deposit will not subsequently be stored, so you will not be able to retrieve it again afterwards.&lt;/sword:treatment&gt;
+      &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndJATS&lt;/sword:acceptPackaging&gt;
+      &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndRSC&lt;/sword:acceptPackaging&gt;
+    &lt;/collection&gt;
+    &lt;collection href=&quot;https://www.oa-deepgreen.de/sword/collection/notify&quot;&gt;
+      &lt;atom:title&gt;Notify&lt;/atom:title&gt;
+      &lt;accept&gt;*/*&lt;/accept&gt;
+      &lt;sword:collectionPolicy&gt;This collection will take any deposit package intended for the DeepGreen service&lt;/sword:collectionPolicy&gt;
+      &lt;dcterms:abstract&gt;Deposit here to deliver a publication event notification&lt;/dcterms:abstract&gt;
+      &lt;sword:mediation&gt;true&lt;/sword:mediation&gt;
+      &lt;sword:treatment&gt;Packages sent here will be analysed for metadata suitable for routing to appropriate repository systems, and then delivered onward.&lt;/sword:treatment&gt;
+      &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndJATS&lt;/sword:acceptPackaging&gt;
+      &lt;sword:acceptPackaging&gt;https://datahub.deepgreen.org/FilesAndRSC&lt;/sword:acceptPackaging&gt;
+    &lt;/collection&gt;
+  &lt;/workspace&gt;
+&lt;/service&gt;
+</pre></div>
+</div>
+<p>Demzufolge gibt es zwei Einstiegspunkte, um über die <code class="docutils literal"><span class="pre">SWORD</span></code>-Schnittstelle Artikeldaten
+an die Datendrehscheibe zu schicken, einmal über den Endpunkt <code class="docutils literal"><span class="pre">.../collection/validate</span></code>
+und einmal über den Endpunkt <code class="docutils literal"><span class="pre">.../collection/notify</span></code>.  Der Unterschied in diesen beiden
+Empfangsadressen besteht darin, dass nur bei der Benutzung der zweiten Adresse die gesendeten
+Daten tatsächlich in die Drehscheibe aufgenommen, analysiert und ggf. Benachrichtigungen
+ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien für
+Open Access-Zweitveröffentlichungen gibt.</p>
+<div class="section" id="ruckgabewerte-bei-collection-validate">
+<h3>Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/validate</span></code><a class="headerlink" href="#ruckgabewerte-bei-collection-validate" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Für die Verifikation einer <code class="docutils literal"><span class="pre">zip</span></code>-Datei, ob sie als Datenlieferung geeignet ist, kann
+die folgende Kommando-Zeile verwendet werden:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;&lt;dg_username&gt;:&lt;api_key&gt;&quot; -X POST https://www.oa-deepgreen.de/sword/collection/validate -H &quot;Packaging: https://datahub.deepgreen.org/FilesAndJATS&quot; -H &quot;Content-Type: application/zip&quot; --data-binary &quot;@test.zip&quot;
+</pre></div>
+</div>
+<p>Hierbei ist unter <code class="docutils literal"><span class="pre">&#64;test.zip</span></code> die zu überprüfende <code class="docutils literal"><span class="pre">zip</span></code>-Datei angegeben.  Die
+<code class="docutils literal"><span class="pre">header</span></code>-Angabe <code class="docutils literal"><span class="pre">Packaging:</span> <span class="pre">https://datahub.deepgreen.org/FilesAndJATS</span></code> ist
+unbedingt erforderlich, da sonst die <code class="docutils literal"><span class="pre">zip</span></code>-Datei nicht von der Datendrehscheibe
+analysiert werden kann.</p>
+<p>Der generelle <code class="docutils literal"><span class="pre">header</span></code>-Aufbau ist in der folgenden, formalen Syntaxbeschreibung,
+zusammen mit den möglichen Rückgabewerten der <code class="docutils literal"><span class="pre">http</span></code>-Anfrage, ersichtlich.</p>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/validate
+Content-Disposition: filenname=test.zip
+Content-Type: application/zip
+Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+[Binäre .zip-Datei]
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>202</strong> Accepted</p>
+</td>
+<td><p class="first"></p>
+<p class="last">Datenpaket ok!</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>401</strong> Unauthorised</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falsche Benutzertyp</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>404</strong> Not Found</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP/1.1 404 Not Found
+Server: nginx/1.12.2
+Content-Type: text/xml; charset=utf-8
+Content-Length: 0
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>500</strong> Internal Server Error</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültige Datei oder Header-Angabe (Packaging)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+<p>Als nächstes kommt nun eine Beschreibung des völlig analogen Falls der Datenablieferung,
+bei dem ein intaktes Artikeldatenpaket tatsächlich an DeepGreen zur weiteren Verarbeitung
+übertragen wird.</p>
+</div>
+<div class="section" id="ruckgabewerte-bei-collection-notify">
+<h3>Rückgabewerte bei <code class="docutils literal"><span class="pre">.../collection/notify</span></code><a class="headerlink" href="#ruckgabewerte-bei-collection-notify" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Für die reale Datenablieferung einer <code class="docutils literal"><span class="pre">zip</span></code>-Datei, kann (ensprechend der gerade beschriebenen
+Verifikation) die folgende Kommando-Zeile verwendet werden:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;&lt;dg_username&gt;:&lt;api_key&gt;&quot; -X POST https://www.oa-deepgreen.de/sword/collection/notify -H &quot;Packaging: https://datahub.deepgreen.org/FilesAndJATS&quot; -H &quot;Content-Type: application/zip&quot; --data-binary &quot;@article.zip&quot;
+</pre></div>
+</div>
+<p>Hierbei ist unter <code class="docutils literal"><span class="pre">&#64;article.zip</span></code> die an DeepGreen zu übertragene <code class="docutils literal"><span class="pre">zip</span></code>-Datei angegeben.
+Die <code class="docutils literal"><span class="pre">header</span></code>-Angabe <code class="docutils literal"><span class="pre">Packaging:</span> <span class="pre">https://datahub.deepgreen.org/FilesAndJATS</span></code> ist
+unbedingt erforderlich, da sonst die <code class="docutils literal"><span class="pre">zip</span></code>-Datei nicht von der Datendrehscheibe
+analysiert und angenommen werden kann.</p>
+<p>Der generelle <code class="docutils literal"><span class="pre">header</span></code>-Aufbau ist in der folgenden, formalen Syntaxbeschreibung,
+zusammen mit den möglichen Rückgabewerten der <code class="docutils literal"><span class="pre">http</span></code>-Anfrage, ersichtlich.</p>
+<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /collection/notify
+Content-Disposition: filenname=article.zip
+Content-Type: application/zip
+Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+[Binäre .zip-Datei]
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>201</strong> Created</p>
+</td>
+<td><p class="first"></p>
+<p class="last">Datenpaket zur weiteren Verarbeitung angenommen!</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>401</strong> Unauthorised</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falsche Benutzertyp</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"></p>
+<p class="last"><strong>404</strong> Not Found</p>
+</td>
+<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP/1.1 404 Not Found
+Server: nginx/1.12.2
+Content-Type: text/xml; charset=utf-8
+Content-Length: 0
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last"><strong>500</strong> Internal Server Error</p>
+</td>
+<td><p class="first"></p>
+<p class="last">z.B. ungültige Datei oder Header-Angabe (Packaging)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ul>
+<p>Im Erfolgsfall [<code class="docutils literal"><span class="pre">201</span> <span class="pre">Created</span></code>] wird zusätzlich noch eine <code class="docutils literal"><span class="pre">SWORD</span></code>-Empfangsbestätigung in
+Form einer <code class="docutils literal"><span class="pre">ATOM</span></code>-Meldung zurückgeliefert (siehe für die Einzelheiten auch die
+<a class="reference external" href="https://en.wikipedia.org/wiki/SWORD_(protocol)">Spezifikation der SWORD-Schnittstelle (engl.)</a>
+):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -u &quot;&lt;dg_username:&lt;api_key&gt;&quot; -H &quot;Packaging: https://datahub.deepgreen.org/FilesAndJATS&quot; -H &quot;Content-Type: application/zip&quot; https://www.oa-deepgreen.de/sword/collection/notify --data-binary &quot;@article.zip&quot;
+&lt;entry xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:sword=&quot;http://purl.org/net/sword/terms/&quot; xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+  &lt;title&gt;DeepGreen Notification&lt;/title&gt;
+  &lt;id&gt;tag:container@deepgreen/b776b7ec1bec4ac18c4dfdc277696f51&lt;/id&gt;
+  &lt;updated&gt;2017-11-07T17:05:37Z&lt;/updated&gt;
+  &lt;author&gt;
+    &lt;name&gt;DeepGreen Prototyp&lt;/name&gt;
+  &lt;/author&gt;
+  &lt;summary type=&quot;text&quot;&gt;&lt;/summary&gt;
+  &lt;generator uri=&quot;https://www.oa-deepgreen.de&quot; version=&quot;2.0&quot;/&gt;
+  &lt;dcterms:creator&gt;DeepGreen Prototyp&lt;/dcterms:creator&gt;
+  &lt;dcterms:title&gt;DeepGreen Notification&lt;/dcterms:title&gt;
+  &lt;sword:treatment&gt;Notification has been accepted for routing&lt;/sword:treatment&gt;
+  &lt;content type=&quot;application/zip&quot; src=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content&quot;/&gt;
+  &lt;link rel=&quot;edit&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51&quot;/&gt;
+  &lt;link rel=&quot;edit-media&quot; type=&quot;application/zip&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content&quot;/&gt;
+  &lt;sword:packaging&gt;https://datahub.deepgreen.org/FilesAndJATS&lt;/sword:packaging&gt;
+  &lt;link rel=&quot;http://purl.org/net/sword/terms/statement&quot; type=&quot;application/atom+xml;type=feed&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom&quot;/&gt;
+  &lt;link rel=&quot;http://purl.org/net/sword/terms/statement&quot; type=&quot;application/rdf+xml&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/rdf&quot;/&gt;
+  &lt;link rel=&quot;http://purl.org/net/sword/terms/originalDeposit&quot; href=&quot;https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content&quot;/&gt;
+&lt;/entry&gt;
+</pre></div>
+</div>
+<p>Nach der erfolgreichen Datenlieferung gibt es darüberhinus noch Abfragemöglichkeiten
+zu den gesendeten Datenpaketen.  Dies geschieht durch die in der Empfangsquittung
+unter <code class="docutils literal"><span class="pre">&lt;link</span> <span class="pre">rel=&quot;edit&quot;...&gt;</span></code> angegebene <code class="docutils literal"><span class="pre">http</span></code>-Adresse:
+<code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/sword/entry/&lt;id&gt;</span></code> .</p>
+</div>
+<div class="section" id="weitere-uberprufung-von-gesendeten-artikeldaten">
+<h3>Weitere Überprüfung von gesendeten Artikeldaten<a class="headerlink" href="#weitere-uberprufung-von-gesendeten-artikeldaten" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Mit der <code class="docutils literal"><span class="pre">&lt;id&gt;</span></code> aus dem <code class="docutils literal"><span class="pre">edit</span></code>-Feld der Empfangsbestätigung kann der Sender des
+Datenpakets (und sonst <em>niemand</em>!)</p>
+<ol class="arabic">
+<li><p class="first">eine Kopie der Empfangsbestätigung erhalten:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;dg_username&gt;:&lt;api_key&gt;&quot; https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51
+</pre></div>
+</div>
+</li>
+<li><p class="first">eine Kopie des geschickten Binärdatenpakets (<code class="docutils literal"><span class="pre">ZIP</span></code>-Datei) erhalten:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;dg_username&gt;:&lt;api_key&gt;&quot; https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content
+</pre></div>
+</div>
+</li>
+<li><p class="first">eine Statusmeldung über den Bearbeitungsstand nachfragen, ob das Paket zugestellt
+wurde oder nicht:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -k -s -i -u &quot;dg_username&gt;:&lt;api_key&gt;&quot; https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom
+</pre></div>
+</div>
+<p>Bei dieser Abfrage des Bearbeitungszustands kann optional mit der Angabe von zusätzlichen
+Headern in der Kommandozeile das Rückgabeformat bestimmt werden,</p>
+<p><code class="docutils literal"><span class="pre">-H</span> <span class="pre">&quot;Accept:</span> <span class="pre">application/atom+xml;type=feed&quot;</span></code> bzw. <code class="docutils literal"><span class="pre">-H</span> <span class="pre">&quot;Accept:</span> <span class="pre">application/rdf+xml&quot;</span></code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="artikeldaten-von-deepgreen-erhalten">
+<h2>Artikeldaten von DeepGreen erhalten<a class="headerlink" href="#artikeldaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In <code class="docutils literal"><span class="pre">DeepGreen</span></code> besteht auch die Möglichkeit, dass über eine <code class="docutils literal"><span class="pre">SWORD</span></code>-Schnittstelle
+die Benachrichtigungen und Volltexte <em>automatisiert</em> in dafür vorgesehene <code class="docutils literal"><span class="pre">collections</span></code>
+der empfangenden Repositorien gespielt werden.</p>
+<p>Die dafür nötigen Einstellungen in den Repositorien hängen sehr stark von den Zielsystemen
+ab, und bedürfen u.U. sehr sorgfältige Vorbereitungen.  Diese können hier &#8211; aus rein
+praktikablen Gründen &#8211; nicht in aller Ausführlichkeit beschrieben werden, zumal diese
+Beschreibungen nach einem Versionswechsel des Repositorium mit einiger Sicherheit schnell
+veraltet wären.  Daher ist es ratsamer, das aktuelle Repositorien-Handbuch zu konsultieren
+oder die jeweilige lokale IT-Administration mit diesen Fragen zu behelligen.</p>
+<p>Rudimentär unterstützt <code class="docutils literal"><span class="pre">DeepGreen</span></code> die Repositorien <code class="docutils literal"><span class="pre">EPrints</span></code>, <code class="docutils literal"><span class="pre">OPUS4</span></code>, <code class="docutils literal"><span class="pre">ESciDoc</span></code>
+und <code class="docutils literal"><span class="pre">DSpace</span></code> (in zwei Varianten: <code class="docutils literal"><span class="pre">METSDSpaceSIP</span></code> und <code class="docutils literal"><span class="pre">METSMODS</span></code>).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="Stichwortverzeichnis"
+             >Index</a></li>
+        <li class="right" >
+          <a href="sftp.html" title="sFTP"
+             >weiter</a> |</li>
+        <li class="right" >
+          <a href="webapi.html" title="Web-API (nativ)"
+             >zurück</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">DeepGreen 1.1.5 Dokumentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Anleitung zur Benutzung von DeepGreen</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../interfaces.html" >Benutzung der DG-Schnittstellen</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, DeepGreen Konsortium.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,330 @@
+
+SWORD(v2)
+=========
+
+Die Datendrehscheibe bietet auch die Möglichkeit, Artikeldaten über die sogenannte
+`SWORD-Schnittstelle (engl.) <https://en.wikipedia.org/wiki/SWORD_(protocol)>`_ zu verarbeiten.
+Es wird die aktuelle Version ``v2`` angeboten.  Mehrfache Tests haben gezeigt, dass ``v2``
+abwärtskombatible zu der älteren Fassung ``v1`` ist.  Das ``SWORD``-Protokoll wird,
+genau wie die native Web-API von DeepGreen, über eine Basis-HTTP-Adresse, 
+``https://www.oa-deepgreen.de/sword`` angesprochen, z.B. mit dem Kommando
+`curl <https://curl.haxx.se>`_ in einer Shell (``bash``, ``tcsh``, etc.)::
+ 
+  $ curl -s -u "<dg_username>:<api_key>" [-X GET|POST] https://www.oa-deepgreen.de/sword/...
+
+Dabei werden in den nun nachfolgende Beispielen die ``...`` ersetzt durch die konkreten
+Endpunkte ``validate``, ``notify``, ``collection`` und ``entry`` der SWORD-Schnittstelle.
+Diese Endpunkte sind **nur für Verlagskonten** freigeschaltet und zugänglich, Repositorienkonten
+dagegen haben keinerlei Zugriff auf diese!
+
+Zwingend notwendig für einen erfolgreichen Verbindungsaufbau und -abwicklung ist dabei 
+die Angabe eines gültigen DeepGreen-Kontonamens ``dg_username`` samt dessen API-Schlüssels 
+``api_key``.  Ohne diese Angaben zur Authentifizierung wird der Verbindungsaufbau abgelehnt,
+und man erhält keinen Zugang.  Im Folgenden soll der Übersichtlichkeit halber ``GET`` 
+und ``POST`` für die gesamte, mit einer wie oben angegeben gültigen Kennung versehenen 
+``curl``-Zeile geschrieben werden.  Hier ein kleiner Überblick der möglichen Aufrufe in 
+dieser Kurzform:
+
+
+* **Aufruf** :  ``GET /service-document``
+
+  .. code-block:: rest
+     :caption: Abfrage des SWORD-Servicedokuments, einer konkreten Beschreibung aller von DeepGreen angebotenen SWORD-Funktionalitäten
+
+     GET /service-document
+
+
+* **Aufruf** :  ``POST /collection/validate``
+
+  **Bemerkung** : Hierbei findet **kein(!)** Doublettencheck statt.
+
+  .. code-block:: rest
+     :caption: Überprüfung eines Artikeldatenpakets auf Syntax- oder sonstiger Fehler ( *ohne* Doublettencheck! )
+
+     POST /collection/validate
+     Content-Disposition: filename=article.zip
+     Content-Type: application/zip
+     Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+     [binäre .zip-Datei]
+
+
+
+* **Aufruf** :  ``POST /collection/notify``
+
+  **Bemerkung** : Hierbei findet **kein(!)** Doublettencheck statt.
+
+  .. code-block:: rest
+     :caption: Neue Artikeldaten an DeepGreen senden
+
+     POST /collection/notify
+     Content-Disposition: filename=article.zip
+     Content-Type: application/zip
+     Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+     [binäre .zip-Datei]
+
+
+
+* **Aufruf** :  ``GET /entry/<notification_id>``
+
+  .. code-block:: rest
+     :caption: Details einer (eigenen!) Notifikation abfragen
+
+     GET /entry/<notification_id>
+
+
+* **Aufruf** :  ``GET /entry/<notification_id>/content``
+
+  .. code-block:: rest
+     :caption: Den binären Inhalt (i.d.R. den Volltext als .pdf) einer (eigenen!) Notifikation abfragen (zur Überprüfung?!)
+
+     GET /entry/<notification_id>/content
+
+
+* **Aufruf** :  ``GET /entry/<notification_id>/statement/atom``
+
+  .. code-block:: rest
+     :caption: Statusabfrage für eine (eigenen!) Notifikation (hier als Atom-Feed)
+
+     GET /entry/<notification_id>/statement/atom
+
+
+
+Artikeldaten an DeepGreen liefern
+---------------------------------
+
+Eine Abfrage des Service-Dokuments des in der Datendrehscheibe implementierten 
+``SWORD``-Servers liefert folgende Antwort::
+
+   $ curl -k -s https://[Account-Name]@www.oa-deepgreen.de/sword/service-document
+   <service xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sword="http://purl.org/net/sword/terms/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.w3.org/2007/app">
+     <sword:version>2.0</sword:version>
+     <sword:maxUploadSize>16777216</sword:maxUploadSize>
+     <workspace>
+       <atom:title>DeepGreen Prototype</atom:title>
+       <collection href="https://www.oa-deepgreen.de/sword/collection/validate">
+         <atom:title>Validate</atom:title>
+         <accept>*/*</accept>
+         <sword:collectionPolicy>This collection will take any deposit package intended for the DeepGreen service</sword:collectionPolicy>
+         <dcterms:abstract>Deposit here to validate the format of your notification files</dcterms:abstract>
+         <sword:mediation>true</sword:mediation>
+         <sword:treatment>Packages sent here will be validated, and you will receive an error document or a deposit receipt.  The deposit will not subsequently be stored, so you will not be able to retrieve it again afterwards.</sword:treatment>
+         <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndJATS</sword:acceptPackaging>
+         <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndRSC</sword:acceptPackaging>
+       </collection>
+       <collection href="https://www.oa-deepgreen.de/sword/collection/notify">
+         <atom:title>Notify</atom:title>
+         <accept>*/*</accept>
+         <sword:collectionPolicy>This collection will take any deposit package intended for the DeepGreen service</sword:collectionPolicy>
+         <dcterms:abstract>Deposit here to deliver a publication event notification</dcterms:abstract>
+         <sword:mediation>true</sword:mediation>
+         <sword:treatment>Packages sent here will be analysed for metadata suitable for routing to appropriate repository systems, and then delivered onward.</sword:treatment>
+         <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndJATS</sword:acceptPackaging>
+         <sword:acceptPackaging>https://datahub.deepgreen.org/FilesAndRSC</sword:acceptPackaging>
+       </collection>
+     </workspace>
+   </service>
+ 
+Demzufolge gibt es zwei Einstiegspunkte, um über die ``SWORD``-Schnittstelle Artikeldaten 
+an die Datendrehscheibe zu schicken, einmal über den Endpunkt ``.../collection/validate`` 
+und einmal über den Endpunkt ``.../collection/notify``.  Der Unterschied in diesen beiden 
+Empfangsadressen besteht darin, dass nur bei der Benutzung der zweiten Adresse die gesendeten 
+Daten tatsächlich in die Drehscheibe aufgenommen, analysiert und ggf. Benachrichtigungen 
+ausgelöst werden, falls es zulässige Abnehmer, sprich legitime Repositorien für 
+Open Access-Zweitveröffentlichungen gibt.
+
+
+Rückgabewerte bei ``.../collection/validate`` 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Für die Verifikation einer ``zip``-Datei, ob sie als Datenlieferung geeignet ist, kann
+die folgende Kommando-Zeile verwendet werden::
+
+  $ curl -k -s -i -u "<dg_username>:<api_key>" -X POST https://www.oa-deepgreen.de/sword/collection/validate -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" --data-binary "@test.zip"
+
+Hierbei ist unter ``@test.zip`` die zu überprüfende ``zip``-Datei angegeben.  Die 
+``header``-Angabe ``Packaging: https://datahub.deepgreen.org/FilesAndJATS`` ist 
+unbedingt erforderlich, da sonst die ``zip``-Datei nicht von der Datendrehscheibe 
+analysiert werden kann.
+
+Der generelle ``header``-Aufbau ist in der folgenden, formalen Syntaxbeschreibung,
+zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
+
+.. code-block:: rest
+
+   POST /collection/validate
+   Content-Disposition: filenname=test.zip
+   Content-Type: application/zip
+   Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+   [Binäre .zip-Datei]
+
+
+
+* **http-Header Rückgabewerte**
+
+   +--------------------------------+---------------------------------------------------------+
+   | Code                           | Beschreibung                                            |
+   +================================+=========================================================+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **202** Accepted               | Datenpaket ok!                                          |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **401** Unauthorised           | z.B. ungültiger ``api_key``, falsche Benutzertyp        |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | .. code-block:: rest                                    |
+   |                                |                                                         |
+   | **404** Not Found              |    HTTP/1.1 404 Not Found                               |
+   |                                |    Server: nginx/1.12.2                                 |
+   |                                |    Content-Type: text/xml; charset=utf-8                |
+   |                                |    Content-Length: 0                                    |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **500** Internal Server Error  | z.B. ungültige Datei oder Header-Angabe (Packaging)     |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+
+Als nächstes kommt nun eine Beschreibung des völlig analogen Falls der Datenablieferung, 
+bei dem ein intaktes Artikeldatenpaket tatsächlich an DeepGreen zur weiteren Verarbeitung 
+übertragen wird.
+
+
+Rückgabewerte bei ``.../collection/notify`` 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Für die reale Datenablieferung einer ``zip``-Datei, kann (ensprechend der gerade beschriebenen
+Verifikation) die folgende Kommando-Zeile verwendet werden::
+
+  $ curl -k -s -i -u "<dg_username>:<api_key>" -X POST https://www.oa-deepgreen.de/sword/collection/notify -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" --data-binary "@article.zip"
+
+Hierbei ist unter ``@article.zip`` die an DeepGreen zu übertragene ``zip``-Datei angegeben.  
+Die ``header``-Angabe ``Packaging: https://datahub.deepgreen.org/FilesAndJATS`` ist 
+unbedingt erforderlich, da sonst die ``zip``-Datei nicht von der Datendrehscheibe 
+analysiert und angenommen werden kann.
+
+Der generelle ``header``-Aufbau ist in der folgenden, formalen Syntaxbeschreibung,
+zusammen mit den möglichen Rückgabewerten der ``http``-Anfrage, ersichtlich.
+
+.. code-block:: rest
+
+   POST /collection/notify
+   Content-Disposition: filenname=article.zip
+   Content-Type: application/zip
+   Packaging: https://datahub.deepgreen.org/FilesAndJATS
+
+   [Binäre .zip-Datei]
+
+
+
+* **http-Header Rückgabewerte**
+
+   +--------------------------------+---------------------------------------------------------+
+   | Code                           | Beschreibung                                            |
+   +================================+=========================================================+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **201** Created                | Datenpaket zur weiteren Verarbeitung angenommen!        |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **401** Unauthorised           | z.B. ungültiger ``api_key``, falsche Benutzertyp        |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | .. code-block:: rest                                    |
+   |                                |                                                         |
+   | **404** Not Found              |    HTTP/1.1 404 Not Found                               |
+   |                                |    Server: nginx/1.12.2                                 |
+   |                                |    Content-Type: text/xml; charset=utf-8                |
+   |                                |    Content-Length: 0                                    |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+   | \                              | \                                                       |
+   |                                |                                                         |
+   | **500** Internal Server Error  | z.B. ungültige Datei oder Header-Angabe (Packaging)     |
+   |                                |                                                         |
+   +--------------------------------+---------------------------------------------------------+
+
+
+Im Erfolgsfall [``201 Created``] wird zusätzlich noch eine ``SWORD``-Empfangsbestätigung in 
+Form einer ``ATOM``-Meldung zurückgeliefert (siehe für die Einzelheiten auch die 
+`Spezifikation der SWORD-Schnittstelle (engl.) <https://en.wikipedia.org/wiki/SWORD_(protocol)>`_ 
+)::
+
+   $ curl -k -s -u "<dg_username:<api_key>" -H "Packaging: https://datahub.deepgreen.org/FilesAndJATS" -H "Content-Type: application/zip" https://www.oa-deepgreen.de/sword/collection/notify --data-binary "@article.zip"
+   <entry xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sword="http://purl.org/net/sword/terms/" xmlns="http://www.w3.org/2005/Atom">
+     <title>DeepGreen Notification</title>
+     <id>tag:container@deepgreen/b776b7ec1bec4ac18c4dfdc277696f51</id>
+     <updated>2017-11-07T17:05:37Z</updated>
+     <author>
+       <name>DeepGreen Prototyp</name>
+     </author>
+     <summary type="text"></summary>
+     <generator uri="https://www.oa-deepgreen.de" version="2.0"/>
+     <dcterms:creator>DeepGreen Prototyp</dcterms:creator>
+     <dcterms:title>DeepGreen Notification</dcterms:title>
+     <sword:treatment>Notification has been accepted for routing</sword:treatment>
+     <content type="application/zip" src="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content"/>
+     <link rel="edit" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51"/>
+     <link rel="edit-media" type="application/zip" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content"/>
+     <sword:packaging>https://datahub.deepgreen.org/FilesAndJATS</sword:packaging>
+     <link rel="http://purl.org/net/sword/terms/statement" type="application/atom+xml;type=feed" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom"/>
+     <link rel="http://purl.org/net/sword/terms/statement" type="application/rdf+xml" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/rdf"/>
+     <link rel="http://purl.org/net/sword/terms/originalDeposit" href="https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content"/>
+   </entry>
+
+Nach der erfolgreichen Datenlieferung gibt es darüberhinus noch Abfragemöglichkeiten
+zu den gesendeten Datenpaketen.  Dies geschieht durch die in der Empfangsquittung 
+unter ``<link rel="edit"...>`` angegebene ``http``-Adresse: 
+``https://www.oa-deepgreen.de/sword/entry/<id>`` .
+
+
+Weitere Überprüfung von gesendeten Artikeldaten
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Mit der ``<id>`` aus dem ``edit``-Feld der Empfangsbestätigung kann der Sender des 
+Datenpakets (und sonst *niemand*!)
+
+1. eine Kopie der Empfangsbestätigung erhalten::
+
+     $ curl -k -s -i -u "dg_username>:<api_key>" https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51
+
+2. eine Kopie des geschickten Binärdatenpakets (``ZIP``-Datei) erhalten::
+
+     $ curl -k -s -i -u "dg_username>:<api_key>" https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/content
+
+3. eine Statusmeldung über den Bearbeitungsstand nachfragen, ob das Paket zugestellt 
+   wurde oder nicht::
+
+     $ curl -k -s -i -u "dg_username>:<api_key>" https://www.oa-deepgreen.de/sword/entry/b776b7ec1bec4ac18c4dfdc277696f51/statement/atom
+
+   Bei dieser Abfrage des Bearbeitungszustands kann optional mit der Angabe von zusätzlichen 
+   Headern in der Kommandozeile das Rückgabeformat bestimmt werden, 
+
+   ``-H "Accept: application/atom+xml;type=feed"`` bzw. ``-H "Accept: application/rdf+xml"``.
+
+
+Artikeldaten von DeepGreen erhalten
+-----------------------------------
+
+In ``DeepGreen`` besteht auch die Möglichkeit, dass über eine ``SWORD``-Schnittstelle 
+die Benachrichtigungen und Volltexte *automatisiert* in dafür vorgesehene ``collections`` 
+der empfangenden Repositorien gespielt werden.
+
+Die dafür nötigen Einstellungen in den Repositorien hängen sehr stark von den Zielsystemen
+ab, und bedürfen u.U. sehr sorgfältige Vorbereitungen.  Diese können hier -- aus rein 
+praktikablen Gründen -- nicht in aller Ausführlichkeit beschrieben werden, zumal diese
+Beschreibungen nach einem Versionswechsel des Repositorium mit einiger Sicherheit schnell
+veraltet wären.  Daher ist es ratsamer, das aktuelle Repositorien-Handbuch zu konsultieren
+oder die jeweilige lokale IT-Administration mit diesen Fragen zu behelligen.
+
+Rudimentär unterstützt ``DeepGreen`` die Repositorien ``EPrints``, ``OPUS4``, ``ESciDoc``
+und ``DSpace`` (in zwei Varianten: ``METSDSpaceSIP`` und ``METSMODS``).
+
