@@ -26,6 +26,7 @@ Für Sie relevante DSpace Konfiguration um METSMODS Packages via SWORDv2 zu erha
 * Um METSMODS Dateien einlesen zu können und so viel wie möglich DeepGreen-Metadaten zu 
   erhalten, haben wir eine XSLT-Datei implementiert, die das Mapping von METSMODS-Metadaten 
   zu unsere DSpace-Metadaten durchführt. Die Datei finden Sie unter: 
+
   https://github.com/OA-DeepGreen/DSpace/blob/depositonce-6.3x/dspace/config/crosswalks/sword-mods-ingest.xsl. 
 
   Dabei müssen Sie folgenden Konfigurationen in der "dspace.cfg" bzw. "local.cfg" setzen:
