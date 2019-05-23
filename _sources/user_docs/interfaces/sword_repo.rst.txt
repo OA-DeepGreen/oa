@@ -27,6 +27,7 @@ Für Sie relevante DSpace Konfiguration um METSMODS Packages via SWORDv2 zu erha
   erhalten, haben wir eine XSLT-Datei implementiert, die das Mapping von METSMODS-Metadaten 
   zu unsere DSpace-Metadaten durchführt. Die Datei finden Sie unter: 
   https://github.com/tuub/DSpace/blob/depositonce-6.3x/dspace/config/crosswalks/sword-mods-ingest.xsl. 
+
   Dabei müssen Sie folgenden Konfigurationen in der "dspace.cfg" bzw. "local.cfg" setzen:
 
   * mets.default.ingest.crosswalk.MODS = MODS
