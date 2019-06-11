@@ -434,8 +434,8 @@ DeepGreen-spezifischen Schemas 'Outgoing Notification'.
        "end": "2016-08-09T14:22:11Z", 
        "start": "2016-08-09T14:22:11Z"
      }, 
-     "event": "string", 
      "id": "string", 
+     "issn_data": "string"
      "links": [ 
        {
          "format": "string", 
@@ -467,7 +467,6 @@ DeepGreen-spezifischen Schemas 'Outgoing Notification'.
            "type": "string"
          }
        ], 
-       "language": "string", 
        "license_ref": {
          "title": "string", 
          "type": "string", 
