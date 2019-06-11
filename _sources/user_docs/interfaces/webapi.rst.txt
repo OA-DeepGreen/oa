@@ -577,6 +577,7 @@ Die folgende Tabelle beschreibt die im Schema genannten Felder, die allesamt opt
    +---------------------------------------+------------------------------------------+
 
 
+
 Liste aller erfolgreich zugestellten Artikel 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
