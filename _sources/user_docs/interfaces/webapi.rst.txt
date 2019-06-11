@@ -419,7 +419,10 @@ Mehrere Parameterangaben hintereinander können mit dem ``&``-Zeichen verbunden 
 
 Die Notifikationlisten der zugestellten Artikel, die von DeepGreen innerhalb eines gewissen 
 Zeitfensters (typischerweise drei Monate) bereitgestellt werden, sind JSON-Listen des 
-DeepGreen-spezifischen Schemas 'Outgoing Notification'.
+DeepGreen-spezifischen Schemas "``Outgoing Notification``".
+
+Volles JSON-Schema für ``Outgoing Notification``
+````````````````````````````````````````````````
 
 .. code-block:: json
 
