@@ -680,20 +680,6 @@ Beispielhafte, korrekte ``match-config``-Datei im internen JSON-Format
 .. code-block:: json
 
    {
-     "author_ids": [
-       {
-         "type": "orcid",
-         "id": "0000-0000-0000-0000"
-       },
-       {
-         "type": "email",
-         "id": "max.muster@fau.de"
-       },
-       {
-         "type": "orcid",
-         "id": "0000-0000-0000-0001"
-       }
-     ],
      "name_variants": [
        "Academia Fridericiana Erlangensis",
        "Academia Friderico Alexandrina Erlangen-Nürnberg",
