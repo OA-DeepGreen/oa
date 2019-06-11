@@ -422,6 +422,7 @@ Zeitfensters (typischerweise drei Monate) bereitgestellt werden, sind JSON-Liste
 DeepGreen-spezifischen Schemas 'Outgoing Notification'.
 
 .. code-block:: json
+
    {
      "analysis_date": "2016-08-09T14:22:11Z", 
      "content": {
