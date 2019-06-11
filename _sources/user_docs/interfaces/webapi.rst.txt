@@ -422,7 +422,7 @@ Zeitfensters (typischerweise drei Monate) bereitgestellt werden, sind JSON-Liste
 DeepGreen-spezifischen Schemas "``Outgoing Notification``".
 
 Volles JSON-Schema für ``Outgoing Notification`` (alphabetisch sortiert nach den Schlüsseln)
-````````````````````````````````````````````````````````````````````````````````````````````
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: json
 
