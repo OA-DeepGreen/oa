@@ -438,28 +438,28 @@ Volles JSON-Schema für ``Outgoing Notification``
        "start": "2016-08-09T14:22:11Z"
      }, 
      "id": "string", 
-     "issn_data": "string"
-     "links": [ 
+     "issn_data": "string",
+     "links": [
        {
          "format": "string", 
          "packaging": "string", 
          "type": "string", 
          "url": "string"
        }
-     ], 
+     ],
      "metadata": {
        "author": [
          {
            "affiliation": "string", 
+           "firstname": "string",
            "identifier": [
              {
                "id": "string", 
                "type": "string"
              }
            ], 
-           "name": "string",
-           "firstname": "string",
-           "lastname": "string"
+           "lastname": "string",
+           "name": "string"
          }
        ], 
        "date_accepted": "2016-08-09T14:22:11Z", 
@@ -502,9 +502,7 @@ Volles JSON-Schema für ``Outgoing Notification``
        "subject": [
          "string"
        ], 
-       "title": "string", 
-       "type": "string", 
-       "version": "string"
+       "title": "string" 
      }
    }
 
