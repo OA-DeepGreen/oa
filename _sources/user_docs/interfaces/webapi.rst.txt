@@ -504,12 +504,18 @@ Volles JSON-Schema für ``Outgoing Notification`` (alphabetisch sortiert nach de
      }
    }
 
-Die folgende Tabelle beschreibt die im Schema genannten Felder, die allesamt optional sind.
+
+Die folgende Tabelle gibt eine prägnante Beschreibung für alle im Schema genannten Felder. 
+Sämtliche Felder sind optional; und es sei der Hinweis gestattet, dass weder das Schema
+noch die Feldbeschreibungen in der Tabelle vollständig sind.  Es können in einer weiteren
+Version von DeepGreen durchaus weitere Felder hinzutreten oder einzelne Felder gelöscht 
+werden.
+
 
 * **Feldbeschreibung für ausgehende Benachrichtungen**
 
    +---------------------------------------+------------------------------------------+
-   | Feldbezeichner                        | Kurze Beschreibung                       |
+   | Feldbezeichner                        | Beschreibung                             |
    +=======================================+==========================================+
    | analysis_date                         |                                          |
    +---------------------------------------+------------------------------------------+
