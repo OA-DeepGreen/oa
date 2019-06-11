@@ -417,6 +417,97 @@ Parameter für die http-Adressen sind vorgesehen:
 
 Mehrere Parameterangaben hintereinander können mit dem ``&``-Zeichen verbunden werden.
 
+Die Notifikationlisten der zugestellten Artikel, die von DeepGreen innerhalb eines gewissen 
+Zeitfensters (typischerweise drei Monate) bereitgestellt werden, sind JSON-Listen des 
+DeepGreen-spezifischen Schemas 'Outgoing Notification'.
+
+.. code-block:: json
+   {
+     "analysis_date": "2016-08-09T14:22:11Z", 
+     "content": {
+       "packaging_format": "string"
+     }, 
+     "created_date": "2016-08-09T14:22:11Z", 
+     "embargo": {
+       "duration": 0, 
+       "end": "2016-08-09T14:22:11Z", 
+       "start": "2016-08-09T14:22:11Z"
+     }, 
+     "event": "string", 
+     "id": "string", 
+     "links": [ 
+       {
+         "format": "string", 
+         "packaging": "string", 
+         "type": "string", 
+         "url": "string"
+       }
+     ], 
+     "metadata": {
+       "author": [
+         {
+           "affiliation": "string", 
+           "identifier": [
+             {
+               "id": "string", 
+               "type": "string"
+             }
+           ], 
+           "name": "string",
+           "firstname": "string",
+           "lastname": "string"
+         }
+       ], 
+       "date_accepted": "2016-08-09T14:22:11Z", 
+       "date_submitted": "2016-08-09T14:22:11Z", 
+       "identifier": [
+         {
+           "id": "string", 
+           "type": "string"
+         }
+       ], 
+       "language": "string", 
+       "license_ref": {
+         "title": "string", 
+         "type": "string", 
+         "url": "string", 
+         "version": "string"
+       }, 
+       "project": [
+         {
+           "grant_number": "string", 
+           "identifier": [
+             {
+               "id": "string", 
+               "type": "string"
+             }
+           ], 
+           "name": "string"
+         }
+       ], 
+       "publication_date": "2016-08-09T14:22:11Z", 
+       "publisher": "string", 
+       "source": {
+         "identifier": [
+           {
+             "id": "string", 
+             "type": "string"
+           }
+         ], 
+         "name": "string"
+       }, 
+       "subject": [
+         "string"
+       ], 
+       "title": "string", 
+       "type": "string", 
+       "version": "string"
+     }
+   }
+
+
+
+
 
 Liste aller erfolgreich zugestellten Artikel 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
