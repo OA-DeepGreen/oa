@@ -512,74 +512,74 @@ einer weiteren Version von DeepGreen durchaus weitere Felder hinzutreten oder ei
 Felder gelöscht werden.
 
 
-* **Feldbeschreibung für ausgehende Benachrichtungen**
+* **Feldbeschreibung für ausgehende Benachrichtungen** (in alphabetischer Reihenfolge)
 
    +---------------------------------------+--------------------------------------------------+
    | Feldbezeichner                        | Beschreibung                                     |
    +=======================================+==================================================+
-   | analysis_date                         |                                                  |
+   | analysis_date                         | Zeitpunkt der Zustellanalyse                     |
    +---------------------------------------+--------------------------------------------------+
-   | content.packaging_format              |                                                  |
+   | content.packaging_format              | Format der zugehörigen Binärpakets (meist .zip)  |
    +---------------------------------------+--------------------------------------------------+
-   | created_date                          |                                                  |
+   | created_date                          | Zeitpunkt, wann die Notifikation angelegt wurde  |
    +---------------------------------------+--------------------------------------------------+
-   | embargo.duration                      |                                                  |
+   | embargo.duration                      | Sperrzeit (Embargo; angegeben in Monaten)        |
    +---------------------------------------+--------------------------------------------------+
-   | id                                    |                                                  |
+   | id                                    | Persistenter System-ID für diese Notifikation    |
    +---------------------------------------+--------------------------------------------------+
-   | links.format                          |                                                  |
+   | links.format                          | MIME-Typ der Quelle                              |
    +---------------------------------------+--------------------------------------------------+
-   | links.packaging                       |                                                  |
+   | links.packaging                       | Paketformat der Quelle                           |
    +---------------------------------------+--------------------------------------------------+
-   | links.type                            |                                                  |
+   | links.type                            | Schlagwort für den Typ der Quelle (z.B. package) |
    +---------------------------------------+--------------------------------------------------+
-   | links.url                             |                                                  |
+   | links.url                             | URL für die Quelle (verlags- oder systemseitig)  |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.author.affiliation           |                                                  |
+   | metadata.author.affiliation           | Affiliationsangabe, ermittelt aus den Metadaten  |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.author.firstname             |                                                  |
+   | metadata.author.firstname             | Vorname eines Autors/Urhebers                    |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.author.lastname              |                                                  |
+   | metadata.author.lastname              | Nachname eines Autors/Urhebers                   |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.author.name                  |                                                  |
+   | metadata.author.name                  | Zusammengesetzter Name eines Autors/Urhebers     |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.date_accepted                |                                                  |
+   | metadata.date_accepted                | Datum, wann die Publikation akzeptiert wurde     |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.date_submitted               |                                                  |
+   | metadata.date_submitted               | Datum, wann die Publikation eingereicht wurde    |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.identifier.id                |                                                  |
+   | metadata.identifier.id                | ID für die Publikation (z.B. DOI)                |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.identifier.type              |                                                  |
+   | metadata.identifier.type              | ID-Typ (z.B. "doi"; allerdings kein Vokabular)   |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.license_ref.title            |                                                  |
+   | metadata.license_ref.title            | Name einer Lizenz (Freifeldtext)                 |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.license_ref.type             |                                                  |
+   | metadata.license_ref.type             | Lizenz-Typ (Freifeldtext)                        |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.license_ref.url              |                                                  |
+   | metadata.license_ref.url              | URL, die zu weiteren Lizenzinformationen führt   |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.license_ref.version          |                                                  |
+   | metadata.license_ref.version          | Version einer Lizenz                             |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.project.grant_number         |                                                  |
+   | metadata.project.grant_number         | Förderkürzel, sofern in den Metadaten angeführt  |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.project.identifier.id        |                                                  |
+   | metadata.project.identifier.id        | ID einer Förderung (z.B. Ringold)                |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.project.identifier.type      |                                                  |
+   | metadata.project.identifier.type      | ID-Typ in Bezug auf die Förder-ID                |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.project.name                 |                                                  |
+   | metadata.project.name                 | Name eines Förders / einer Förderinstitution     |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.publication_date             |                                                  |
+   | metadata.publication_date             | Publikationsdatum                                |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.publisher                    |                                                  |
+   | metadata.publisher                    | Verlagsname bzw. Verlag                          |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.source.identifier.id         |                                                  |
+   | metadata.source.identifier.id         | ID der Veröffentlichungsquelle (z.B. ISSN)       |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.source.identifier.type       |                                                  |
+   | metadata.source.identifier.type       | ID-Typ der Veröffentlichungsquelle               |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.source.name                  |                                                  |
+   | metadata.source.name                  | Name der Veröffentlichungsquelle (Journaltitel)  |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.subject                      |                                                  |
+   | metadata.subject                      | Schlagwort                                       |
    +---------------------------------------+--------------------------------------------------+
-   | metadata.title                        |                                                  |
+   | metadata.title                        | Titel der Veröffentlichung                       |
    +---------------------------------------+--------------------------------------------------+
 
 
