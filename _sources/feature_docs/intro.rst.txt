@@ -97,7 +97,7 @@ eine Notifikation ``failed`` erzeugt.
 
 
 Daten-Löschung (``delete``)
---------------------------
+---------------------------
 
 :Quellcode: ``jper: service/scheduler.py``, ``jper: service/models/notification.py``, ``jper: service/packages.py``
 
