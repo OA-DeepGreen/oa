@@ -3,8 +3,8 @@ Wie-geht-was? Tipps, Tricks, und Skripte für DeepGreen
 ======================================================
 
 
-Sammelsurium kleinerer Skripte für DeepGreen
---------------------------------------------
+Sammelsurium kleinerer Skripte für DeepGreen / Elasticsearch
+------------------------------------------------------------
 
 .. code-block:: bash
    :caption: **bash-Skript**: Ein leerer Block
