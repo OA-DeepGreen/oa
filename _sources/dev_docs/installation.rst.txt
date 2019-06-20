@@ -12,7 +12,10 @@ auf Basis von Python 2.7 geschrieben und verwendet zig Unterpakete
 
 .. note:: 
    
-   Ende 2019 läuft der offizielle Support für ``Python 2.x`` aus!  
+   ===> !!! Ende 2019 läuft der offizielle Support für ``Python 2.x`` aus !!! <===  
+
+Es könnte also nach Dezember 2019 kleiner (oder größere) Komplikationen bei der 
+Installation und der Inbetriebnahme einer (neuen) DeepGreen-Instanz geben.
 
 
 .. code-block:: text
