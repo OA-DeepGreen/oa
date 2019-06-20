@@ -105,7 +105,7 @@ jq -rc <span class="s1">&#39;.hits.hits[]._source.user&#39;</span> <span class="
    ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/account/</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="p">|</span> jq <span class="s1">&#39;._source.email&#39;</span>
 <span class="k">done</span>
 
-<span class="c1"># example output:</span>
+<span class="c1"># example output (2019-06-20):</span>
 <span class="c1"># 03fad0a0ae5e4918964485663585adbe   &quot;UBEN@deepgreen.org&quot;</span>
 <span class="c1"># 272dd77deffc425b961f3ec4fb8a3993   &quot;GFZPO@deepgreen.org&quot;</span>
 <span class="c1"># c0675e0b01864161b77f4654f6910577   &quot;aUBEN@deepgreen.org&quot;</span>

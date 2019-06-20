@@ -28,7 +28,7 @@ Sammelsurium kleinerer Skripte für DeepGreen
       ssh -n "green@sl64.kobv.de" "curl -s 'localhost:9200/jper/account/${user}'" | jq '._source.email' 
    done
 
-   # example output:
+   # example output (2019-06-20):
    # 03fad0a0ae5e4918964485663585adbe	"UBEN@deepgreen.org"
    # 272dd77deffc425b961f3ec4fb8a3993	"GFZPO@deepgreen.org"
    # c0675e0b01864161b77f4654f6910577	"aUBEN@deepgreen.org"
