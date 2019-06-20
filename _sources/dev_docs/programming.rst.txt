@@ -19,7 +19,7 @@ Sammelsurium kleinerer Skripte für DeepGreen
 
 
 .. code-block:: bash
-   :caption: Ergebnismenge der Benutzer, die im ``contentlog`` verzeichnet sind (von remote) 
+   :caption: bash.Skript: Ergebnismenge der Benutzer, die im ``contentlog`` verzeichnet sind (von remote) 
 
    #! /usr/bin/env bash
    ssh -n "green@sl64.kobv.de" "curl -s 'localhost:9200/jper/contentlog/_search?pretty&size=1000'" |\
