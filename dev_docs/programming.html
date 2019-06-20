@@ -102,8 +102,7 @@
 ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/contentlog/_search?pretty&amp;size=1000&#39;&quot;</span> <span class="p">|</span><span class="se">\</span>
 jq -rc <span class="s1">&#39;.hits.hits[]._source.user&#39;</span> <span class="p">|</span> sort -u <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> user<span class="p">;</span> <span class="k">do</span>
    <span class="nb">printf</span> <span class="s2">&quot;%s\t&quot;</span> <span class="s2">&quot;</span><span class="nv">$user</span><span class="s2">&quot;</span>
-   ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/account/</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="p">|</span><span class="se">\</span>
-     jq <span class="s1">&#39;._source.email&#39;</span>
+   ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/account/</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="p">|</span> jq <span class="s1">&#39;._source.email&#39;</span>
 <span class="k">done</span>
 
 <span class="c1"># example output:</span>
