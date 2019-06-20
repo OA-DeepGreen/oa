@@ -6,6 +6,11 @@ Der folgende Block enthält alle wesentlichen Schritte, um die unter
 `<https://github.com//OA-DeepGreen>`_ erhältlichen Repositorien zu 
 einem funktionierenden DeepGreen-System als Ganzes zusammenzufügen.
 
+Ein wichtiger Hinweis sei hier jedoch schon angebracht: DeepGreen ist 
+auf Basis von Python 2.7 geschrieben und verwendet zig Unterpakete 
+(die via ``pip`` nachinstalliert werden; jedoch
+
+.. important:: Ende 2019 läuft der offizielle Support für ``Python 2.x`` aus!  
 
 
 .. code-block:: text
