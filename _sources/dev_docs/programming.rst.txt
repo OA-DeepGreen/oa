@@ -73,7 +73,7 @@ Sammelsurium kleinerer Skripte für DeepGreen
    # www.oa-deepgreen.de_2019-06-19/routed201803.csv  www.oa-deepgreen.de_2019-06-19/routed201906.csv
 
 Der Inhalt der CSV-Dateien ist ebenfalls chronologisch angeordnet. Anhand der letzten Spalte
-(``Elastic-ID``) können alle Datensätze eines Verlages aus der Datenbank gelöscht werden.
+(``Elastic-ID``) können alle Datensätze eines Verlages aus der ES-Datenbank gelöscht werden.
 
 ----
 
