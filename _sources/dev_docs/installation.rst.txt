@@ -1,0 +1,588 @@
+
+Aufsetzen einer DeepGreen-Instanz
+=================================
+
+
+.. code-block:: txt
+   :caption: Installationsschritte im Einzelnen
+
+   # ============================================================
+   #   Things to be done for the li1x.int.zib.de - Installation
+   # ============================================================
+   
+   #  purpose,  hostname,         ip,              mac,                cpu,  ram,   image
+   #  tapp1,    li11.int.zib.de,  10.255.103.11,   00:50:56:0b:a1:11,  1,    2 GB,   50 GB
+   #  tapp2,    li12.int.zib.de,  10.255.103.12,   00:50:56:0b:a1:12,  1,    4 GB,  150 GB
+   #  tgateway, li13.int.zib.de,  10.255.103.13,   00:50:56:0b:a1:13,  1,    2 GB,   50 GB
+   #  tindex1,  li14.int.zib.de,  10.255.103.14,   00:50:56:0b:a1:14,  1,    4 GB,  150 GB
+   
+   # user 'green' is assigned to group 'kobv' [ pw: *** ]
+   # user 'deep' is additionally assigned to group 'wheel' [ pw: *** ]
+   #
+   # > [someone@li1x ~]$ sudo useradd -c 'DFG DeepGreen Project' -G kobv -m -u 1001 green
+   # > [someone@li1x ~]$ sudo passwd green
+   # > [someone@li1x ~]$ sudo useradd -c 'DFG DeepGreen Project' -G kobv,wheel -m -u 1002 deep
+   # > [someone@li1x ~]$ sudo passwd deep
+   #
+   # ... and afterwards on each li1x machine separately:
+   # a)
+   # > [green@li1x ~]$ ssh-keygen [-t rsa] -b 4096 -N ''
+   # b)
+   # > [green@li1x ~]$ for y in 1 2 3 4; do \
+   # > [green@li1x ~]$  [ ${y} -ne  x ] && (scp "green@li1${y}":.ssh/id_rsa.pub .ssh/"id_rsa_li1${y}.pub"; \
+   # > [green@li1x ~]$                      cat .ssh/"id_rsa_li1${y}.pub" >>.ssh/authorized_keys); \
+   # > [green@li1x ~]$ done
+   # > [green@li1x ~]$ chmod g-w .ssh/authorized_keys   ## ...!!! forgotten each time, sigh.
+   #
+   #
+   # ports needed to be open (per virtual machine li1x):
+   #
+   # > $ sudo firewall-cmd --list-ports
+   # > $ sudo firewall-cmd --add-port=<portid>/<protocoll>
+   # > $ sudo firewall-cmd --permanent --add-port=<portid>/<protocoll>
+   #
+   # ports needed to be open:
+   #
+   #  purpose,   hostname,          port(s) 
+   #  tapp1,     li11.int.zib.de,   22/tcp:80/tcp:5998/tcp
+   #  tapp2,     li12.int.zib.de,   22/tcp:5025/tcp:5027/tcp:5030/tcp:5999/tcp
+   #  tgateway,  li13.int.zib.de,   22/tcp:80/tcp:443/tcp:5601/tcp:9200/tcp
+   #  tindex1,   li14.int.zib.de,   22/tcp:5601/tcp:9200/tcp
+   
+   
+   # ***************************
+   # * Still Unresolved Issues *
+   # ***************************
+   #
+   #
+   # + UNSUCCESSFUL(!!) /ALIENS/ LOGIN TRIALS
+   #
+   #   > $ ssh green@sl61.kobv.de
+   #   > green@sl61.kobv.de's password:
+   #   > Last failed login: Thu Sep  8 05:21:39 CEST 2016 from 46.183.221.133 on ssh:notty
+   #   > There were 2 failed login attempts since the last successful login.
+   #   > Last login: Wed Sep  7 09:42:30 2016 from gast-021-067.zib.de
+   #   > $
+   #
+   #   > $ host 46.183.221.133
+   #   > 133.221.183.46.in-addr.arpa domain name pointer ip-221-133.dataclub.biz.
+   #
+   #   Unbelievable, but sadly true...
+   #
+   #
+   # + OCCASIONAL REBOOT
+   #
+   #   In the very unlikely event... well, there should be 
+   #   a strict boot sequence of the machines sl6x, as follows:
+   #
+   #     sl64  sl63  sl61  sl62
+   #
+   #   Other sequences might work, no warranty whatsoever.
+   #   All machines depend on the index elasticsearch (sl64),
+   #   and the applications connect through the gate (sl63).
+   #   So, there you are:  Please have a close look if all 
+   #   services are up and running, right after rebooting...!
+   #
+   #
+   # + NGINX (both on sl61 /and/ sl63 !)
+   #
+   #   It seems that the 'Content-Type' for .svg file is not set.
+   #   Instead a client receives 'application/octet-stream'; for 
+   #   what reason ever. Sigh.
+   #   So, there is a (very ugly) .gif alternative as 
+   #   DeepGreen_Logo which is played out for the time being, 
+   #   see jper/service/index.html and jper/service/footer.html .
+   #
+   #
+   # + REST-API (on sl61)
+   #   OAIPMH / SWORD-IN / SWORD-OUT (all on sl62)
+   #
+   #   All these interfaces are NOT thoroughly tested yet.  Having
+   #   said this, the unit test with 'nosetests' detects only minor
+   #   failures (due, for example, to the missing postcodes in the 
+   #   current matching algorithm).
+   #
+   
+   
+   
+   # -----------------------------
+   #  For all li11 li12 li13 li14
+   # -----------------------------
+   
+   sudo yum install git -y
+   
+   ## sudo rpm -Uvh http://nginx.org/packages/rhel/7/noarch/RPMS/nginx-release-rhel-7-0.el7.ngx.noarch.rpm
+   sudo vi /etc/yum.repos.d/nginx.repo  #  !!! edit: NEW file !!!
+   #; # nginx.repo
+   #; [nginx]
+   #; name=nginx repo
+   #; baseurl=http://nginx.org/packages/rhel/7/$basearch/
+   #; gpgcheck=0
+   #; enabled=1
+   sudo yum install nginx -y
+   
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   sudo yum install python-pip -y
+   sudo yum install python-devel -y
+   #sudo yum install python-setuptools
+   
+   sudo pip install --upgrade pip
+   sudo pip install --upgrade virtualenv
+   sudo rm /usr/lib64/python2.7/site-packages/pyOpenSSL-*
+   sudo pip install --upgrade urllib3[secure]
+   sudo pip install --upgrade gunicorn
+   sudo pip install --upgrade requests
+   
+   
+   
+   # tapp1: For li11.int.zib.de ONLY (as user 'green')
+   # -------------------------------------------------
+   
+   ssh green@li11.int.zib.de
+   sudo firewall-cmd --permanent --add-service=http
+   sudo firewall-cmd --add-service=http
+   sudo firewall-cmd --permanent --add-port=80/tcp
+   sudo firewall-cmd --add-port=80/tcp
+   sudo firewall-cmd --permanent --add-port=5998/tcp
+   sudo firewall-cmd --add-port=5998/tcp
+   sudo semanage port -a -t http_port_t -p tcp 5998  #  jper service
+   exit
+   
+   ssh green@li11.int.zib.de
+   cd
+   virtualenv -p python2.7 jper --no-site-packages
+   cd jper
+   mkdir src
+   cd src
+   git clone http://github.com/OA-DeepGreen/jper.git
+   
+   sudo pip install --upgrade supervisor
+   curl -s https://raw.githubusercontent.com/Supervisor/initscripts/master/centos-systemd-etcs > ~/supervisord.service
+   sudo mv ~/supervisord.service /usr/lib/systemd/system/supervisord.service
+   sudo chmod g-w /usr/lib/systemd/system/supervisord.service
+   sudo chown root:root /usr/lib/systemd/system/supervisord.service
+   cd /etc/systemd/system/multi-user.target.wants
+   sudo ln -s /usr/lib/systemd/system/supervisord.service .
+   cd
+   sudo systemctl stop supervisord
+   sudo mkdir /var/log/supervisor
+   sudo mkdir /etc/supervisor/
+   sudo mkdir /etc/supervisor/conf.d
+   sudo cp /home/green/jper/src/jper/deployment/supervisord.conf /etc/supervisor/supervisord.conf
+   cd /etc
+   sudo ln -s supervisor/supervisord.conf .
+   cd
+   sudo systemctl start supervisord
+   exit
+   
+   ssh green@li11.int.zib.de
+   sudo yum install gcc -y
+   sudo yum install libxml2-devel -y
+   sudo yum install libxslt-devel -y
+   sudo yum install zlib-devel -y
+   sudo yum install expect -y
+   sudo yum install python34 -y
+   mkdir jper_reports
+   mkdir ftptmp
+   cd ~/jper/src/jper
+   source ../../bin/activate
+   pip install --upgrade urllib3[secure]
+   pip install --upgrade gunicorn
+   vi .gitmodules   # edit: change 'git@github.com:' --> 'https://github.com/'
+   git submodule init
+   git submodule update
+   vi jper/src/jper/magnificent-octopus/octopus/modules/jper/settings.py
+   #; JPER_BASE_URL = "https://test.oa-deepgreen.de/api/v1"
+   cp config/service.py local.cfg
+   vi local.cfg  # !!! edit: adjust to local installation environment !!!
+   #; SSL = True
+   #; ELASTIC_SEARCH_HOST = "http://li13.int.zib.de:9200"
+   #; ELASTIC_SEARCH_VERSION = "2.4.6"
+   #; ESDAO_TIME_BOX_LOOKBACK_ROUTED = 24
+   #; MAIL_FROM_ADDRESS = "green@test-deepgreen.de"
+   #; MAIL_SUBJECT_PREFIX = "[test-deepgreen] "
+   #; BASE_URL = "https://test.oa-deepgreen.de/"
+   #; PACKAGE_HANDLERS = {
+   #;     "https://datahub.deepgreen.org/FilesAndJATS": "service.packages.FilesAndJATS",
+   #;     "https://datahub.deepgreen.org/FilesAndRSC": "service.packages.FilesAndRSC",
+   #;     "http://purl.org/net/sword/package/SimpleZip" : "service.packages.SimpleZip"
+   #; }
+   #; API_URL = "https://test.oa-deepgreen.de/api/v1/notification"
+   #; TMP_DIR = "/home/green/ftptmp"
+   #; MOVEFTP_SCHEDULE = 2
+   #; PROCESSFTP_SCHEDULE = 5
+   #; CHECKUNROUTED_SCHEDULE = 15
+   #; REPORTSDIR = "/home/green/jper_reports"
+   #; SCHEDULE_MONTHLY_REPORTING = False
+   #; SCHEDULE_KEEP_ROUTED_MONTHS = 24
+   #; STORE_JPER_URL = "http://li12.int.zib.de"
+   #; KEEP_FAILED_NOTIFICATIONS = True
+   pip install --upgrade -r requirements.txt   # successfully completed!!! (-:
+   cd OAUtils/src
+   vi utils/config.py # adjust in !!last!! line:
+   #; configES = [{'host': 'li13.int.zib.de', 'port': 9200, 'timeout': 60}]
+   #; #                    ^^^^^^^^^^^^^^^^^
+   pip install --upgrade -e .
+   cd ../..
+   cd API/src
+   pip install --upgrade -e .
+   exit
+   
+   ssh green@li11.int.zib.de
+   sudo groupadd sftpusers
+   sudo vi /etc/sudoers.d/03-deepgreen
+   #; ### bzfxxx: enable tty-less sFTP operations
+   #; Defaults!/home/green/jper/src/jper/service/models/createFTPuser.sh !requiretty
+   #; Defaults!/home/green/jper/src/jper/service/models/moveFTPfiles.sh !requiretty
+   #; Defaults!/home/green/jper/src/jper/service/models/deleteFTPuser.sh !requiretty
+   #;
+   #; ### bzfxxx: grant user green some sFTP operations
+   #; green ALL=(root) NOPASSWD: /home/green/jper/src/jper/service/models/createFTPuser.sh
+   #; green ALL=(root) NOPASSWD: /home/green/jper/src/jper/service/models/moveFTPfiles.sh
+   #; green ALL=(root) NOPASSWD: /home/green/jper/src/jper/service/models/deleteFTPuser.sh
+   sudo mkdir /home/sftpusers
+   sudo vi /etc/ssh/sshd_config
+   #; 
+   #; #PasswordAuthentication yes
+   #; 
+   #; Match Group !sftpusers
+   #; 	PasswordAuthentication no
+   #; 
+   #; Match Group sftpusers
+   #; 	PasswordAuthentication yes
+   #; 	ChrootDirectory /home/sftpusers/%u
+   #; 	AllowTCPForwarding no
+   #; 	X11Forwarding no
+   #; 	ForceCommand internal-sftp
+   sudo systemctl restart sshd
+   sudo systemctl status sshd
+   exit
+   
+   ssh green@li11.int.zib.de
+   cd /etc/nginx/conf.d
+   sudo mv default.conf default.conf.backup
+   sudo cp ~/jper/src/jper/deployment/jper_nginx jper_nginx.conf
+   #; if necessary, remove 'default_server' from /etc/nginx/nginx.conf instead. Really!
+   sudo systemctl restart nginx
+   exit
+   
+   ssh green@li11.int.zib.de
+   cd /etc/supervisor/conf.d
+   sudo ln -s /home/green/jper/src/jper/deployment/jper.conf .
+   sudo supervisorctl reread 
+   sudo supervisorctl update
+   
+   
+   
+   # tapp2: For li12.int.zib.de ONLY (as user 'green')
+   # -------------------------------------------------
+   
+   ssh green@li12.int.zib.de
+   sudo mkdir /data/green
+   sudo chown green:green /data/green
+   mkdir /data/green/jperstore
+   ln -s /data/green/jperstore .
+   exit
+   
+   ssh green@li12.int.zib.de
+   # 2018-04-04 TD : port 80 (service http) taken out since this shall not be world-wide open!
+   # sudo firewall-cmd --permanent --add-service=http
+   # sudo firewall-cmd --add-service=http
+   # 2018-04-04 TD : instead do the following:
+   sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="10.255.103.11" service name="http" log prefix="http" level="info" accept'
+   sudo firewall-cmd --add-rich-rule='rule family="ipv4" source address="10.255.103.11" service name="http" log prefix="http" level="info" accept'
+   sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="10.255.103.13" service name="http" log prefix="http" level="info" accept'
+   sudo firewall-cmd --add-rich-rule='rule family="ipv4" source address="10.255.103.13" service name="http" log prefix="http" level="info" accept'
+   #
+   sudo firewall-cmd --permanent --add-port=5025/tcp
+   sudo firewall-cmd --add-port=5025/tcp
+   sudo firewall-cmd --permanent --add-port=5027/tcp
+   sudo firewall-cmd --add-port=5027/tcp
+   sudo firewall-cmd --permanent --add-port=5030/tcp
+   sudo firewall-cmd --add-port=5030/tcp
+   sudo firewall-cmd --permanent --add-port=5999/tcp
+   sudo firewall-cmd --add-port=5999/tcp
+   sudo semanage port -a -t http_port_t -p tcp 5025  #  sword-in  service
+   sudo semanage port -a -t http_port_t -p tcp 5027  #  sword-out service
+   sudo semanage port -a -t http_port_t -p tcp 5030  #  oaipmh    service
+   sudo semanage port -a -t http_port_t -p tcp 5999  #  store     service
+   exit
+   
+   ssh green@li12.int.zib.de
+   cd
+   virtualenv -p python2.7 jper --no-site-packages
+   cd jper
+   mkdir src
+   cd src
+   git clone http://github.com/OA-DeepGreen/jper.git
+   
+   sudo pip install --upgrade supervisor
+   curl -s https://raw.githubusercontent.com/Supervisor/initscripts/master/centos-systemd-etcs > ~/supervisord.service
+   sudo mv ~/supervisord.service /usr/lib/systemd/system/supervisord.service
+   sudo chmod g-w /usr/lib/systemd/system/supervisord.service
+   sudo chown root:root /usr/lib/systemd/system/supervisord.service
+   cd /etc/systemd/system/multi-user.target.wants
+   sudo ln -s /usr/lib/systemd/system/supervisord.service .
+   cd
+   sudo systemctl stop supervisord
+   sudo mkdir /var/log/supervisor
+   sudo mkdir /etc/supervisor/
+   sudo mkdir /etc/supervisor/conf.d
+   sudo cp /home/green/jper/src/jper/deployment/supervisord.conf /etc/supervisor/supervisord.conf
+   cd /etc
+   sudo ln -s supervisor/supervisord.conf .
+   cd
+   sudo systemctl start supervisord
+   
+   sudo yum install gcc -y
+   sudo yum install libxml2-devel -y
+   sudo yum install libxslt-devel -y
+   sudo yum install zlib-devel -y
+   exit
+   
+   #
+   #  store
+   #
+   ssh green@li12.int.zib.de
+   cd
+   virtualenv -p python2.7 store --no-site-packages
+   cd store
+   mkdir src
+   cd src
+   git clone http://github.com/OA-DeepGreen/store.git
+   cd store
+   source ../../bin/active
+   pip install --upgrade -e .
+   pip install --upgrade urllib3[secure]
+   pip install --upgrade gunicorn
+   cd /etc/supervisor/conf.d
+   sudo ln -s ~/store/src/store/deployment/store.conf .
+   sudo supervisorctl reread
+   sudo supervisorctl update
+   sudo supervisorctl status   # successfully completed!!! (-:
+   exit
+   
+   #
+   #  jper-sword-in
+   #
+   ssh green@li12.int.zib.de
+   cd
+   virtualenv -p python2.7 jper-sword-in --no-site-packages
+   cd jper-sword-in
+   mkdir src
+   cd src
+   git clone https://github.com/OA-DeepGreen/jper-sword-in.git
+   cd jper-sword-in
+   vi .gitmodules   # edit: change 'git@github.com:' --> 'https://github.com/'
+   git submodule update --init --recursive
+   cp config/service.py local.cfg
+   vi local.cfg # edit: --> adjust http-url(s) for correct addresses
+   source ../../bin/activate
+   pip install --upgrade -r requirements.txt
+   pip install --upgrade urllib3[secure]
+   pip install --upgrade gunicorn
+   
+   cd /etc/supervisor/conf.d
+   sudo ln -s ~/jper-sword-in/src/jper-sword-in/deployment/sword-in.conf .
+   sudo supervisorctl reread
+   sudo supervisorctl update
+   sudo supervisorctl status   # successfully completed!!! (-:
+   exit
+   
+   #
+   #  jper-sword-out
+   #
+   ssh green@li12.int.zib.de
+   cd
+   virtualenv -p python2.7 jper-sword-out --no-site-packages
+   cd jper-sword-out
+   mkdir src
+   cd src
+   git clone https://github.com/OA-DeepGreen/jper-sword-out.git
+   cd jper-sword-out
+   vi .gitmodules   # edit: change 'git@github.com:' --> 'https://github.com/'
+   git submodule update --init --recursive
+   cp config/service.py local.cfg
+   vi local.cfg # edit: --> adjust *base* http-url(s) for correct addresses
+   #            # (see also below: jper-sword-out/local.cfg for the entire file!)
+   #            # The last entry might be too high (HTTP_TIMEOUT in seconds). 
+   #            # If not defined in local.cfg, it defaults to 30. Adjust to your needs!
+   #; DEBUG = True
+   #; SSL = True
+   #; ELASTIC_SEARCH_HOST = "http://li13.int.zib.de:9200"
+   #; ELASTIC_SEARCH_VERSION = "2.4.6"
+   #; LONG_CYCLE_RETRY_DELAY = 357
+   #; JPER_BASE_URL = "https://test.oa-deepgreen.de/api/v1"
+   #; """The base JPER API for requests"""
+   #; RUN_THROTTLE = 128
+   #; STORE_RESPONSE_DATA = True
+   #; # HTTP_TIMEOUT = 300
+   #; # maybe this is not a good idea with the proxy environment setting of li1x.int.zib.de
+   source ../../bin/activate
+   pip install --upgrade -r requirements.txt
+   pip install --upgrade urllib3[secure]
+   pip install --upgrade gunicorn
+   cd /etc/supervisor/conf.d
+   sudo ln -s ~/jper-sword-out/src/jper-sword-out/deployment/sword-out.conf .
+   sudo supervisorctl reread
+   sudo supervisorctl update
+   sudo supervisorctl status   # !!!unsuccessfully completed, since gateway still missing!!!
+   exit
+   
+   #
+   #  jper-oaipmh
+   #
+   ssh green@li12.int.zib.de
+   cd
+   virtualenv -p python2.7 jper-oaipmh --no-site-packages
+   cd jper-oaipmh
+   mkdir src
+   cd src
+   git clone https://github.com/OA-DeepGreen/jper-oaipmh.git
+   cd jper-oaipmh
+   vi .gitmodules   # edit: change 'git@github.com:' --> 'https://github.com/'
+   git submodule update --init --recursive
+   source ../../bin/activate
+   pip install --upgrade -r requirements.txt
+   pip install --upgrade urllib3[secure]
+   pip install --upgrade gunicorn
+   cd /etc/supervisor/conf.d
+   sudo ln -s ~/jper-oaipmh/src/jper-oaipmh/deployment/oaipmh.conf .
+   sudo supervisorctl reread
+   sudo supervisorctl update
+   sudo supervisorctl status   # successfully completed!!! (-:
+   exit
+   
+   ssh green@li12.int.zib.de
+   cd /etc/nginx/conf.d
+   sudo mv default.conf default.conf.backup
+   sudo cp ~/store/src/store/deployment/storage_nginx storage_nginx.conf
+   #; if necessary, remove 'default_server' from /etc/nginx/nginx.conf instead. Really!
+   sudo systemctl restart nginx
+   exit
+   
+   
+   
+   # tgateway: For li13.int.zib.de ONLY (as user 'green')
+   # ----------------------------------------------------
+   
+   ssh green@li13int.zib.de
+   sudo firewall-cmd --permanent --add-service=http
+   sudo firewall-cmd --add-service=http
+   sudo firewall-cmd --permanent --add-service=https
+   sudo firewall-cmd --add-service=https
+   sudo firewall-cmd --permanent --add-port=9200/tcp
+   sudo firewall-cmd --add-port=9200/tcp
+   sudo firewall-cmd --permanent --add-port=5601/tcp
+   sudo firewall-cmd --add-port=5601/tcp
+   sudo semanage port -m -t http_port_t -p tcp 9200
+   sudo semanage port -m -t http_port_t -p udp 9200
+   sudo semanage port -a -t http_port_t -p tcp 5601
+   sudo semanage port -a -t http_port_t -p udp 5601
+   exit
+   
+   ssh green@li13.int.zib.de
+   cd
+   virtualenv -p python2.7 jper --no-site-packages
+   cd jper
+   mkdir src
+   cd src
+   git clone http://github.com/OA-DeepGreen/jper.git
+   
+   cd /etc/nginx/conf.d
+   sudo mv default.conf default.conf.backup
+   sudo cp ~/jper/src/jper/deployment/gateway_nginx gateway_nginx.conf
+   sudo vi gateway_nginx.conf  # edit: change all the ip-numbers to the *correct* settings!!
+   #; since this instance will be behind a reverse proxy, take 'li13.int.zib.de' as central
+   #; server name serving the http web pages of DG! The proxy will pay attention to ssl, so
+   #; just simply disable all ssl functionality within this nginx config.
+   #; for now; disable the lower part of the .conf as well, starting with kibana settings.
+   #; ==> And, please: DO USE the parameter 'default_server'!  Seriously!!! <==
+   #; if necessary, remove 'default_server' from /etc/nginx/nginx.conf instead. Really!
+   sudo systemctl stop nginx
+   sudo systemctl start nginx
+   exit
+   
+   
+   
+   # tindex1: For li14.int.zib.de ONLY (as user 'green')
+   # ---------------------------------------------------
+   
+   ssh green@li14.int.zib.de
+   sudo firewall-cmd --permanent --add-port=9200/tcp
+   sudo firewall-cmd --add-port=9200/tcp
+   sudo firewall-cmd --permanent --add-port=5601/tcp
+   sudo firewall-cmd --add-port=5601/tcp
+   exit
+   
+   ssh green@li14.int.zib.de
+   ## sudo rpm -Uvh http://nginx.org/packages/rhel/7/noarch/RPMS/nginx-release-rhel-7-0.el7.ngx.noarch.rpm
+   sudo vi /etc/yum.repos.d/nginx.repo  #  !!! edit: NEW file !!!
+   #; # nginx.repo
+   #; [nginx]
+   #; name=nginx repo
+   #; baseurl=http://nginx.org/packages/rhel/7/$basearch/
+   #; gpgcheck=0
+   #; enabled=1
+   sudo yum install nginx -y
+   
+   #; for the next command, you MUST download the Oracle jdk-package first; 
+   #; accepting their terms, (urgh!)
+   ## sudo rpm -ivh jdk-8u101-linux-x64.rpm
+   sudo yum install java -y
+   ## java -version  #  interesting information for the next command ...
+   #### No editing profile.d/java.sh !!! oracle jdk-package will not be needed anymore !!!  Yeah!!!
+   ## sudo vi /etc/profile.d/java.sh  #  !!! edit: NEW file !!!
+   ## #; JAVA_HOME=/usr/java/jdk1.8.0_101/
+   ## #; PATH=$JAVA_HOME/bin:$PATH
+   ## #; export PATH JAVA_HOME
+   ## #; export CLASSPATH=.
+   ## source /etc/profile.de/java.sh
+   
+   sudo rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
+   sudo vi /etc/yum.repos.d/elasticsearch.repo  #  !!! edit: NEW file !!!
+   #; [elasticsearch-2.x]
+   #; name=Elasticsearch repository for 2.x packages
+   #; baseurl=https://packages.elastic.co/elasticsearch/2.x/centos
+   #; gpgcheck=1
+   #; gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch
+   #; enabled=1
+   sudo yum install elasticsearch -y
+   sudo vi /etc/elasticsearch/elasticsearch.yml
+   #; cluster.name: jper
+   #; path.data: /data/IndexES
+   #; path.repo: ["/data/BackupES"]
+   #; bootstrap.memory_lock: true
+   #; network.host: [ 10.255.103.14, _local_ ]
+   #; http.port: 9200
+   #; discovery.zen.ping.unicast.hosts: ["li14"]
+   #; index.number_of_replicas: 0
+   #; index.max_result_window: 1000000
+   sudo vi /etc/security/limits.conf
+   #; elasticsearch  soft  memlock  unlimited
+   #; elasticsearch  hard  memlock  unlimited
+   sudo vi /etc/sysconfig/elasticsearch
+   #; ES_HEAP_SIZE=1g
+   #; MAX_LOCKED_MEMORY=unlimited
+   sudo vi /usr/lib/systemd/system/elasticsearch.service
+   #; LimitMEMLOCK=infinity
+   sudo mkdir /data/IndexES
+   sudo chmod go+rwx /data/IndexES
+   sudo mkdir /data/BackupES
+   sudo chmod go+rwx /data/BackupES
+   
+   sudo systemctl enable elasticsearch
+   sudo systemctl start elasticsearch
+   sudo systemctl status elasticsearch
+   
+   cd /usr/share/elasticsearch/
+   sudo bin/plugin install mobz/elasticsearch-head
+   sudo bin/plugin install mapper-attachments
+   
+   curl -XPUT localhost:9200/_settings -d '{ "index": { "number_of_replicas": 0 } }'
+   curl -XPUT localhost:9200/_settings -d '{ "index": { "max_result_window": 1000000 }}'
+   
+   sudo systemctl restart elasticsearch # to enable the plugins (!!)
+   curl localhost:9200/_cat/health # should give a 'green' go!! (-:
+   exit
+   
