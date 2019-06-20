@@ -2,6 +2,10 @@
 Aufsetzen einer DeepGreen-Instanz
 =================================
 
+Der folgende Block enthält alle wesentlichen Schritte, um die unter 
+`<https://github.com//OA-DeepGreen>`_ erhältlichen Repositorien zu 
+einem funktionierenden DeepGreen-System als Ganzes zusammenzufügen.
+
 
 .. code-block:: text
    :caption: Installationsschritte im Einzelnen
