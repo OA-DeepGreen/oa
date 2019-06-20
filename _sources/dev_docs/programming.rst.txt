@@ -21,6 +21,7 @@ Sammelsurium kleinerer Skripte für DeepGreen
 .. code-block:: bash
    :caption: Ergebnismenge der Benutzer, die im ``contentlog`` verzeichnet sind (von remote) 
 
+   #! /usr/bin/env bash
    ssh -n "green@sl64.kobv.de" "curl -s 'localhost:9200/jper/contentlog/_search?pretty&size=1000'" |\
    jq -rc '.hits.hits[]._source.user' | sort -u | while read user; do 
       printf "%s\t" "$user" 
@@ -28,3 +29,8 @@ Sammelsurium kleinerer Skripte für DeepGreen
         jq '._source.email' 
    done
 
+   # example output:
+   # 03fad0a0ae5e4918964485663585adbe	"UBEN@deepgreen.org"
+   # 272dd77deffc425b961f3ec4fb8a3993	"GFZPO@deepgreen.org"
+   # 6837b10c45c446c88149f1a4b9136177	"RSC@deepgreen.org"
+   

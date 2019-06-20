@@ -98,12 +98,18 @@
 <h2>Sammelsurium kleinerer Skripte für DeepGreen<a class="headerlink" href="#sammelsurium-kleinerer-skripte-fur-deepgreen" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Ergebnismenge der Benutzer, die im <code class="docutils literal"><span class="pre">contentlog</span></code> verzeichnet sind (von remote)</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/contentlog/_search?pretty&amp;size=1000&#39;&quot;</span> <span class="p">|</span><span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
+ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/contentlog/_search?pretty&amp;size=1000&#39;&quot;</span> <span class="p">|</span><span class="se">\</span>
 jq -rc <span class="s1">&#39;.hits.hits[]._source.user&#39;</span> <span class="p">|</span> sort -u <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> user<span class="p">;</span> <span class="k">do</span>
    <span class="nb">printf</span> <span class="s2">&quot;%s\t&quot;</span> <span class="s2">&quot;</span><span class="nv">$user</span><span class="s2">&quot;</span>
    ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/account/</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="p">|</span><span class="se">\</span>
      jq <span class="s1">&#39;._source.email&#39;</span>
 <span class="k">done</span>
+
+<span class="c1"># example output:</span>
+<span class="c1"># 03fad0a0ae5e4918964485663585adbe   &quot;UBEN@deepgreen.org&quot;</span>
+<span class="c1"># 272dd77deffc425b961f3ec4fb8a3993   &quot;GFZPO@deepgreen.org&quot;</span>
+<span class="c1"># 6837b10c45c446c88149f1a4b9136177   &quot;RSC@deepgreen.org&quot;</span>
 </pre></div>
 </div>
 </div>
