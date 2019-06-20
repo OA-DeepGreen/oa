@@ -1,10 +1,10 @@
 
-Wie-geht-was: Tipps, Tricks, und Skripte für DeepGreen
+Wie-geht-was? Tipps, Tricks, und Skripte für DeepGreen
 ======================================================
 
 
-Sammelsurium an kleineren Skripte für DeepGreen
------------------------------------------------
+Sammelsurium kleinerer Skripte für DeepGreen
+--------------------------------------------
 
 .. code-block:: bash
    :caption:
