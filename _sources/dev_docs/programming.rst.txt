@@ -72,7 +72,10 @@ Sammelsurium kleinerer Skripte für DeepGreen
    # www.oa-deepgreen.de_2019-06-19/routed201802.csv  www.oa-deepgreen.de_2019-06-19/routed201905.csv
    # www.oa-deepgreen.de_2019-06-19/routed201803.csv  www.oa-deepgreen.de_2019-06-19/routed201906.csv
 
---------------------------------------------
+Der Inhalt der CSV-Dateien ist ebenfalls chronologisch angeordnet. Anhand der letzten Spalte
+(``Elastic-ID``) können alle Datensätze eines Verlages aus der Datenbank gelöscht werden.
+
+----
 
 .. code-block:: bash
    :caption: **bash-Skript**: Ergebnismenge der Benutzer, die unter ``jper/contentlog`` verzeichnet sind (von remote) 
