@@ -7,11 +7,11 @@ Sammelsurium kleinerer Skripte für DeepGreen
 --------------------------------------------
 
 .. code-block:: bash
-   :caption:
+   :caption: **bash-Skript**: Ein leerer Block
 
 
 .. code-block:: bash
-   :caption:
+   :caption: **bash-Skript**: Ein leerer Block
 
 
 .. code-block:: bash
