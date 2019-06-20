@@ -1,10 +1,10 @@
 
-Aufsetzen einer DeepGreen-Instanz
-=================================
+Aufsetzen einer neuen DeepGreen-Instanz
+=======================================
 
-Der folgende Block enthält alle wesentlichen Schritte, um die unter 
-`<https://github.com//OA-DeepGreen>`_ erhältlichen Repositorien zu 
-einem funktionierenden DeepGreen-System als Ganzes zusammenzufügen.
+In diesem Abschnitt sind alle wesentlichen Schritte enthalten, um die 
+unter `<https://github.com//OA-DeepGreen>`_ erhältlichen Repositorien 
+zu einem funktionierenden DeepGreen-System als Ganzes zusammenzufügen.
 
 Ein wichtiger Hinweis sei hier jedoch schon angebracht: DeepGreen ist 
 auf Basis von Python 2.7 geschrieben und verwendet zig Unterpakete 
