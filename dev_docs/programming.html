@@ -53,6 +53,14 @@
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
+  <h3><a href="../index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Wie-geht-was: Tipps, Tricks, und Skripte für DeepGreen</a><ul>
+<li><a class="reference internal" href="#sammelsurium-an-kleineren-skripte-fur-deepgreen">Sammelsurium an kleineren Skripte für DeepGreen</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Vorheriges Thema</h4>
   <p class="topless"><a href="index.html"
                         title="vorheriges Kapitel">DeepGreen: Programmierung und Installation</a></p>
@@ -86,6 +94,20 @@
             
   <div class="section" id="wie-geht-was-tipps-tricks-und-skripte-fur-deepgreen">
 <h1>Wie-geht-was: Tipps, Tricks, und Skripte für DeepGreen<a class="headerlink" href="#wie-geht-was-tipps-tricks-und-skripte-fur-deepgreen" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="sammelsurium-an-kleineren-skripte-fur-deepgreen">
+<h2>Sammelsurium an kleineren Skripte für DeepGreen<a class="headerlink" href="#sammelsurium-an-kleineren-skripte-fur-deepgreen" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Ergebnismenge der Benutzer, die im <code class="docutils literal"><span class="pre">contentlog</span></code> verzeichnet sind (von remote)</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/contentlog/_search?pretty&amp;size=1000&#39;&quot;</span> <span class="p">|</span><span class="se">\</span>
+jq -rc <span class="s1">&#39;.hits.hits[]._source.user&#39;</span> <span class="p">|</span> sort -u <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> user<span class="p">;</span> <span class="k">do</span>
+   <span class="nb">printf</span> <span class="s2">&quot;%s\t&quot;</span> <span class="s2">&quot;</span><span class="nv">$user</span><span class="s2">&quot;</span>
+   ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/account/</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="p">|</span><span class="se">\</span>
+     jq <span class="s1">&#39;._source.email&#39;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
