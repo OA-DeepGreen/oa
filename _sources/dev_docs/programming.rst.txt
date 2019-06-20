@@ -15,7 +15,7 @@ Sammelsurium kleinerer Skripte für DeepGreen
 
 
 .. code-block:: bash
-   :caption: **bash-Skript**: grand_total_of_routed_and_failed.sh
+   :caption: **bash-Skript** grand_total_of_routed_and_failed.sh : Alle bisher verarbeiteten Notifikationen (jper/failed & jper/routed20xxxx) (von remote)
 
    #! /usr/bin/env bash
    
