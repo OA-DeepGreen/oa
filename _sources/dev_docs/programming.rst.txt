@@ -31,5 +31,6 @@ Sammelsurium kleinerer Skripte für DeepGreen
    # example output:
    # 03fad0a0ae5e4918964485663585adbe	"UBEN@deepgreen.org"
    # 272dd77deffc425b961f3ec4fb8a3993	"GFZPO@deepgreen.org"
-   # 6837b10c45c446c88149f1a4b9136177	"RSC@deepgreen.org"
+   # c0675e0b01864161b77f4654f6910577	"aUBEN@deepgreen.org"
+   
    
