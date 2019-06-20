@@ -3,7 +3,7 @@ Aufsetzen einer DeepGreen-Instanz
 =================================
 
 
-.. code-block:: txt
+.. code-block:: text
    :caption: Installationsschritte im Einzelnen
 
    # ============================================================
