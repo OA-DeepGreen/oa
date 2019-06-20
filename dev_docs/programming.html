@@ -130,7 +130,8 @@ mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv
 <span class="s1">                                                     issn:.issn_data,</span>
 <span class="s1">                                                     id:.id }&#39;</span> &gt;&gt;<span class="s2">&quot;</span><span class="si">${</span><span class="nv">outf</span><span class="si">}</span><span class="s2">&quot;</span>
              <span class="k">done</span>
-             cat <span class="s2">&quot;</span><span class="si">${</span><span class="nv">outf</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> jq -c <span class="s1">&#39;[.analysis,.pubid,.publisher,.doi,.pubdate,.issn,.id]&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;s/^.\(.*\).$/\1/&#39;</span> <span class="p">|</span> sort -t<span class="s1">&#39;,&#39;</span> -k <span class="m">1</span> &gt;<span class="s2">&quot;</span><span class="si">${</span><span class="nv">outf</span><span class="p">%.json</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+             cat <span class="s2">&quot;</span><span class="si">${</span><span class="nv">outf</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> jq -c <span class="s1">&#39;[.analysis,.pubid,.publisher,.doi,.pubdate,.issn,.id]&#39;</span> <span class="p">|</span><span class="se">\</span>
+             sed <span class="s1">&#39;s/^.\(.*\).$/\1/&#39;</span> <span class="p">|</span> sort -t<span class="s1">&#39;,&#39;</span> -k <span class="m">1</span> &gt;<span class="s2">&quot;</span><span class="si">${</span><span class="nv">outf</span><span class="p">%.json</span><span class="si">}</span><span class="s2">.csv&quot;</span>
      <span class="k">fi</span>
 <span class="k">done</span>
 
