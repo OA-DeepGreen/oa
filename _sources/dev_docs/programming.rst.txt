@@ -40,7 +40,14 @@ Sammelsurium kleinerer Skripte für DeepGreen
    	if [ ${total} -gt 0 ]; then
    		for cursor in $(seq 0 ${stepsize} ${total}); do
    			json=$(ssh -n "${user}@${host}" "curl -s '${elhost}/${mapping}/_search?from=${cursor}&size=${stepsize}'")
-   			echo "${json}" | jq -c '.hits.hits[]._source | { analysis:.analysis_date, pubid:.provider.id, publisher:.metadata.publisher, doi:.metadata.identifier[] | select(.type=="doi").id, pubdate:.metadata.publication_date, issn:.issn_data, id:.id}' >>"${outf}"
+   			echo "${json}" |\
+                        jq -c '.hits.hits[]._source | { analysis:.analysis_date, 
+                                                        pubid:.provider.id, 
+                                                        publisher:.metadata.publisher, 
+                                                        doi:.metadata.identifier[] | select(.type=="doi").id, 
+                                                        pubdate:.metadata.publication_date, 
+                                                        issn:.issn_data, 
+                                                        id:.id }' >>"${outf}"
    		done
    		cat "${outf}" | jq -c '[.analysis,.pubid,.publisher,.doi,.pubdate,.issn,.id]' | sed 's/^.\(.*\).$/\1/' | sort -t',' -k 1 >"${outf%.json}.csv"
    	fi
