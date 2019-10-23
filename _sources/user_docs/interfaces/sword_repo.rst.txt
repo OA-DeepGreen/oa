@@ -40,3 +40,14 @@ Wichtig: Für die SWORD-Konfiguration eines DeepGreen Repositorium-Kontos muss b
 SWORD-Konfiguration ``packaging preference``, http://purl.org/net/sword/package/METSMODS 
 eintragt werden. 
 
+METSMODS - Konkordanz
+---------------------
+
+  +--------------------------+-------------------------------+-------------------------------+
+  | NISO JATS (tag)          | METSMODS (xpath)              | Beispieleintrag in METSMODS   |
+  +==========================+===============================+===============================+
+  |                          | //mods/typeOfResource         | text                          |
+  |                          | //mods/genre                  | journal article               |
+  |                          | //mods/language/languageTerm  | EN                            |
+  |                          | //mods/titleInfo/title        | A Discussion on ...           |
+  +--------------------------+-------------------------------+-------------------------------+
