@@ -43,47 +43,47 @@ eintragt werden.
 NISO JATS zu METSMODS - Konkordanz
 ----------------------------------
 
- +-------------------+--------------------------------------------+-----------------------------+
- | NISO JATS (tag)   | METSMODS (xpath)                           | Belegung in METSMODS (Bsp)  |
- +===================+============================================+=============================+
- | n/a               | //mods/typeOfResource                      | text                        |
- +-------------------+--------------------------------------------+-----------------------------+
- | n/a               | //mods/genre                               | journal article             |
- +-------------------+--------------------------------------------+-----------------------------+
- | <article>         | //mods/language/languageTerm               | EN                          |
- +-------------------+--------------------------------------------+-----------------------------+
- | <article-title>   | //mods/titleInfo/title                     | A Short Discussion on ...   |
- +-------------------+--------------------------------------------+-----------------------------+
- | \                 | //mods/relatedItem[@type="host"]/...       | \                           |
- |                   |                                            |                             |
- | <journal-title>\  |  * titleInfo/title                         | * Acta Numerica             |
- | <journal-id>\     |  * identifier[@type="publisher-id"]        | * Act. Num.                 |
- | <issn>\           |  * identifier[@type="eIssn"]               | * 1234-234X                 |
- | <issn>\           |  * identifier[@type="pIssn"]               | * 5432-9634                 |
- | <volume>\         |  * part/detail[@type="volume"]/number      | * 7                         |
- | <issue>           |  * part/detail[@type="issue"]/number       | * 10                        |
- +-------------------+--------------------------------------------+-----------------------------+
- | \                 | //mods/name[@type="personal"]/...          | \                           |
- |                   |                                            |                             |
- | <surname>\        |  * namePart[@type="family"]                | * Hoppenstedt               |
- | <given-names>\    |  * namePart[@type="given"]                 | * Dickie M.                 |
- | <contrib>\        |  * role/roleTerm[@type="text"]             | * author                    |
- | <contrib-id>\     |  * nameIdentifier[@type="orcid"]           | * 1111-1010-1111-0101       |
- | <aff>             |  * affiliation                             | * Zuse Institut Berlin      |
- +-------------------+--------------------------------------------+-----------------------------+
- | <abstract>        | //mods/abstract                            | In this paper we will ...   |
- +-------------------+--------------------------------------------+-----------------------------+
- | <kwd>             | //mods/subject/topic                       | viscoelasticity             |
- +-------------------+--------------------------------------------+-----------------------------+
- | \                 | //mods/originInfo/...                      | \                           |
- |                   |                                            |                             |
- | <publisher-name>\ |  * publisher                               | * MDPI                      |
- | <publisher-place>\|  * place/placeTerm[@type="text"]           | * Basel                     |
- | <pub-date>\       |  * dateIssued[@encoding="iso8601"]         | * 2015-02-23                |
- | <date>\           |  * dateOther[@type="accepted"]             | * 2015-02-20                |
- | <date>            |  * dateOther[@type="received"]             | * 2012-12-24                |
- +-------------------+--------------------------------------------+-----------------------------+
- | <article-id>      | //mods/identifer[@type="doi"]              | 10.1212/sjsdh45723dg        |
- +-------------------+--------------------------------------------+-----------------------------+
- | <license>         | //mods/accessCondition[@description="uri"] | http: //creativecomm.org/.. |
- +-------------------+--------------------------------------------+-----------------------------+
+ +--------------------+--------------------------------------------+-----------------------------+
+ | NISO JATS (tag)    | METSMODS (xpath)                           | Belegung in METSMODS (Bsp)  |
+ +====================+============================================+=============================+
+ | n/a                | //mods/typeOfResource                      | text                        |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | n/a                | //mods/genre                               | journal article             |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | <article>          | //mods/language/languageTerm               | EN                          |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | <article-title>    | //mods/titleInfo/title                     | A Short Discussion on ...   |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | \                  | //mods/relatedItem[@type="host"]/...       | \                           |
+ |                    |                                            |                             |
+ | * <journal-title>  |  * titleInfo/title                         | * Acta Numerica             |
+ | * <journal-id>     |  * identifier[@type="publisher-id"]        | * Act. Num.                 |
+ | * <issn>           |  * identifier[@type="eIssn"]               | * 1234-234X                 |
+ | * <issn>           |  * identifier[@type="pIssn"]               | * 5432-9634                 |
+ | * <volume>         |  * part/detail[@type="volume"]/number      | * 7                         |
+ | * <issue>          |  * part/detail[@type="issue"]/number       | * 10                        |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | \                  | //mods/name[@type="personal"]/...          | \                           |
+ |                    |                                            |                             |
+ | * <surname>        |  * namePart[@type="family"]                | * Hoppenstedt               |
+ | * <given-names>    |  * namePart[@type="given"]                 | * Dickie M.                 |
+ | * <contrib>        |  * role/roleTerm[@type="text"]             | * author                    |
+ | * <contrib-id>     |  * nameIdentifier[@type="orcid"]           | * 1111-1010-1111-0101       |
+ | * <aff>            |  * affiliation                             | * Zuse Institut Berlin      |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | <abstract>         | //mods/abstract                            | In this paper we will ...   |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | <kwd>              | //mods/subject/topic                       | viscoelasticity             |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | \                  | //mods/originInfo/...                      | \                           |
+ |                    |                                            |                             |
+ | * <publisher-name> |  * publisher                               | * MDPI                      |
+ | * <publisher-place>|  * place/placeTerm[@type="text"]           | * Basel                     |
+ | * <pub-date>       |  * dateIssued[@encoding="iso8601"]         | * 2015-02-23                |
+ | * <date>           |  * dateOther[@type="accepted"]             | * 2015-02-20                |
+ | * <date>           |  * dateOther[@type="received"]             | * 2012-12-24                |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | <article-id>       | //mods/identifer[@type="doi"]              | 10.1212/sjsdh45723dg        |
+ +--------------------+--------------------------------------------+-----------------------------+
+ | <license>          | //mods/accessCondition[@description="uri"] | http: //creativecomm.org/.. |
+ +--------------------+--------------------------------------------+-----------------------------+
