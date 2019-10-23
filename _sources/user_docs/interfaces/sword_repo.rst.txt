@@ -52,7 +52,7 @@ METSMODS - Konkordanz
  +-----------------+----------------------------------------------+-----------------------------+
  |                 | //mods/language/languageTerm                 | EN                          |
  +-----------------+----------------------------------------------+-----------------------------+
- |                 | //mods/titleInfo/title                       | A Discussion on ...         |
+ |                 | //mods/titleInfo/title                       | A Short Discussion on ...   |
  +-----------------+----------------------------------------------+-----------------------------+
  |                 | //mods/relatedItem[@type="host"]/...         | *                           |
  |                 |  * titleInfo/title                           | * Acta Numerica             |
@@ -69,7 +69,7 @@ METSMODS - Konkordanz
  |                 |  * nameIdentifier[@type="orcid"]             | * 1111-1010-1111-0101       |
  |                 |  * affiliation                               | * Zuse Institut Berlin      |
  +-----------------+----------------------------------------------+-----------------------------+
- |                 | //mods/abstract                              | In this paper we ...        |
+ |                 | //mods/abstract                              | In this paper we will ...   |
  +-----------------+----------------------------------------------+-----------------------------+
  |                 | //mods/subject/topic                         | viscoelasticity             |
  +-----------------+----------------------------------------------+-----------------------------+
