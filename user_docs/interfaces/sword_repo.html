@@ -135,14 +135,14 @@ eintragt werden.</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="30%" />
-<col width="35%" />
-<col width="35%" />
+<col width="18%" />
+<col width="57%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">NISO JATS (tag)</th>
 <th class="head">METSMODS (xpath)</th>
-<th class="head">Beispieleintrag in METSMODS</th>
+<th class="head">Belegung in METSMODS</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -161,6 +161,23 @@ eintragt werden.</p>
 <tr class="row-odd"><td>&nbsp;</td>
 <td>//mods/titleInfo/title</td>
 <td>A Discussion on ...</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><dl class="first last docutils">
+<dt>//mods/relatedItem[&#64;type=&#8221;host&#8221;]/...</dt>
+<dd><ul class="first last simple">
+<li>titleInfo/title</li>
+<li>identifier[&#64;type=&#8221;eIssn&#8221;]</li>
+<li>identifier[&#64;type=&#8221;pIssn&#8221;]</li>
+<li>part/detail[&#64;type=&#8221;volume&#8221;]/number</li>
+</ul>
+</dd>
+</dl>
+</td>
+<td>Acta Numerica
+1234-234X
+5432-9634
+7</td>
 </tr>
 </tbody>
 </table>
