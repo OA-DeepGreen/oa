@@ -162,10 +162,12 @@ eintragt werden.</p>
 <td>//mods/titleInfo/title</td>
 <td>A Short Discussion on ...</td>
 </tr>
-<tr class="row-even"><td>&lt;journal-title&gt;&lt;journal-id&gt;&lt;issn&gt;&lt;issn&gt;&lt;volume&gt;&lt;issue&gt;</td>
-<td><dl class="first last docutils">
-<dt>//mods/relatedItem[&#64;type=&#8221;host&#8221;]/...</dt>
-<dd><ul class="first last simple">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last">&lt;journal-title&gt;&lt;journal-id&gt;&lt;issn&gt;&lt;issn&gt;&lt;volume&gt;&lt;issue&gt;</p>
+</td>
+<td><p class="first">//mods/relatedItem[&#64;type=&#8221;host&#8221;]/...</p>
+<blockquote class="last">
+<div><ul class="simple">
 <li>titleInfo/title</li>
 <li>identifier[&#64;type=&#8221;publisher-id&#8221;]</li>
 <li>identifier[&#64;type=&#8221;eIssn&#8221;]</li>
@@ -173,34 +175,42 @@ eintragt werden.</p>
 <li>part/detail[&#64;type=&#8221;volume&#8221;]/number</li>
 <li>part/detail[&#64;type=&#8221;issue&#8221;]/number</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </td>
-<td>* Acta Numerica
-* Act. Num.
-* 1234-234X
-* 5432-9634
-* 7
-* 10</td>
+<td><p class="first"></p>
+<ul class="last simple">
+<li>Acta Numerica</li>
+<li>Act. Num.</li>
+<li>1234-234X</li>
+<li>5432-9634</li>
+<li>7</li>
+<li>10</li>
+</ul>
+</td>
 </tr>
-<tr class="row-odd"><td>&lt;surname&gt;&lt;given-names&gt;&lt;contrib&gt;&lt;contrib-id&gt;&lt;aff&gt;</td>
-<td><dl class="first last docutils">
-<dt>//mods/name[&#64;type=&#8221;personal&#8221;]/...</dt>
-<dd><ul class="first last simple">
+<tr class="row-odd"><td><p class="first"></p>
+<p class="last">&lt;surname&gt;&lt;given-names&gt;&lt;contrib&gt;&lt;contrib-id&gt;&lt;aff&gt;</p>
+</td>
+<td><p class="first">//mods/name[&#64;type=&#8221;personal&#8221;]/...</p>
+<blockquote class="last">
+<div><ul class="simple">
 <li>namePart[&#64;type=&#8221;family&#8221;]</li>
 <li>namePart[&#64;type=&#8221;given&#8221;]</li>
 <li>role/roleTerm[&#64;type=&#8221;text&#8221;]</li>
 <li>nameIdentifier[&#64;type=&#8221;orcid&#8221;]</li>
 <li>affiliation</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </td>
-<td>* Hoppenstedt
-* Dickie M.
-* author
-* 1111-1010-1111-0101
-* Zuse Institut Berlin</td>
+<td><p class="first"></p>
+<ul class="last simple">
+<li>Hoppenstedt</li>
+<li>Dickie M.</li>
+<li>author</li>
+<li>1111-1010-1111-0101</li>
+<li>Zuse Institut Berlin</li>
+</ul>
+</td>
 </tr>
 <tr class="row-even"><td>&lt;abstract&gt;</td>
 <td>//mods/abstract</td>
@@ -210,24 +220,29 @@ eintragt werden.</p>
 <td>//mods/subject/topic</td>
 <td>viscoelasticity</td>
 </tr>
-<tr class="row-even"><td>&lt;publisher-name&gt;&lt;publisher-place&gt;&lt;pub-date&gt;&lt;date&gt;&lt;date&gt;</td>
-<td><dl class="first last docutils">
-<dt>//mods/originInfo/...</dt>
-<dd><ul class="first last simple">
+<tr class="row-even"><td><p class="first"></p>
+<p class="last">&lt;publisher-name&gt;&lt;publisher-place&gt;&lt;pub-date&gt;&lt;date&gt;&lt;date&gt;</p>
+</td>
+<td><p class="first">//mods/originInfo/...</p>
+<blockquote class="last">
+<div><ul class="simple">
 <li>publisher</li>
 <li>place/placeTerm[&#64;type=&#8221;text&#8221;]</li>
 <li>dateIssued[&#64;encoding=&#8221;iso8601&#8221;]</li>
 <li>dateOther[&#64;type=&#8221;accepted&#8221;]</li>
 <li>dateOther[&#64;type=&#8221;received&#8221;]</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </td>
-<td>* MDPI
-* Basel
-* 2015-02-23
-* 2015-02-20
-* 2012-12-24</td>
+<td><p class="first"></p>
+<ul class="last simple">
+<li>MDPI</li>
+<li>Basel</li>
+<li>2015-02-23</li>
+<li>2015-02-20</li>
+<li>2012-12-24</li>
+</ul>
+</td>
 </tr>
 <tr class="row-odd"><td>&lt;article-id&gt;</td>
 <td>//mods/identifer[&#64;type=&#8221;doi&#8221;]</td>

@@ -55,6 +55,7 @@ NISO JATS zu METSMODS - Konkordanz
  | <article-title>   | //mods/titleInfo/title                     | A Short Discussion on ...   |
  +-------------------+--------------------------------------------+-----------------------------+
  | \                 | //mods/relatedItem[@type="host"]/...       | \                           |
+ |                   |                                            |                             |
  | <journal-title>\  |  * titleInfo/title                         | * Acta Numerica             |
  | <journal-id>\     |  * identifier[@type="publisher-id"]        | * Act. Num.                 |
  | <issn>\           |  * identifier[@type="eIssn"]               | * 1234-234X                 |
@@ -63,6 +64,7 @@ NISO JATS zu METSMODS - Konkordanz
  | <issue>           |  * part/detail[@type="issue"]/number       | * 10                        |
  +-------------------+--------------------------------------------+-----------------------------+
  | \                 | //mods/name[@type="personal"]/...          | \                           |
+ |                   |                                            |                             |
  | <surname>\        |  * namePart[@type="family"]                | * Hoppenstedt               |
  | <given-names>\    |  * namePart[@type="given"]                 | * Dickie M.                 |
  | <contrib>\        |  * role/roleTerm[@type="text"]             | * author                    |
@@ -74,6 +76,7 @@ NISO JATS zu METSMODS - Konkordanz
  | <kwd>             | //mods/subject/topic                       | viscoelasticity             |
  +-------------------+--------------------------------------------+-----------------------------+
  | \                 | //mods/originInfo/...                      | \                           |
+ |                   |                                            |                             |
  | <publisher-name>\ |  * publisher                               | * MDPI                      |
  | <publisher-place>\|  * place/placeTerm[@type="text"]           | * Basel                     |
  | <pub-date>\       |  * dateIssued[@encoding="iso8601"]         | * 2015-02-23                |
