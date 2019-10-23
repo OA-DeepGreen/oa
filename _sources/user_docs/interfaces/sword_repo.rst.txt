@@ -78,9 +78,9 @@ NISO JATS zu METSMODS - Konkordanz
  | <publisher-place>\|  * place/placeTerm[@type="text"]           | * Basel                     |
  | <pub-date>\       |  * dateIssued[@encoding="iso8601"]         | * 2015-02-23                |
  | <date>\           |  * dateOther[@type="accepted"]             | * 2015-02-20                |
- | <date>\           |  * dateOther[@type="received"]             | * 2012-12-24                |
+ | <date>            |  * dateOther[@type="received"]             | * 2012-12-24                |
  +-------------------+--------------------------------------------+-----------------------------+
- | <article-id>\     | //mods/identifer[@type="doi"]              | 10.1212/sjsdh45723dg        |
+ | <article-id>      | //mods/identifer[@type="doi"]              | 10.1212/sjsdh45723dg        |
  +-------------------+--------------------------------------------+-----------------------------+
- | <license>\        | //mods/accessCondition[@description="uri"] | http: //creativecomm.org/.. |
+ | <license>         | //mods/accessCondition[@description="uri"] | http: //creativecomm.org/.. |
  +-------------------+--------------------------------------------+-----------------------------+
