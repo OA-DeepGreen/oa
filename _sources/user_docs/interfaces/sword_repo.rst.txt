@@ -78,7 +78,7 @@ Konkordanz: NISO JATS zu METSMODS
  | \                  |                                            | \                           |
  |                    | //mods/originInfo/...                      |                             |
  | * <publisher-name> |  * publisher                               | * MDPI                      |
- | * <publisher-place>|  * place/placeTerm[@type="text"]           | * Basel                     |
+ | * <publisher-loc>  |  * place/placeTerm[@type="text"]           | * Basel                     |
  | * <pub-date>       |  * dateIssued[@encoding="iso8601"]         | * 2015-02-23                |
  | * <date>           |  * dateOther[@type="accepted"]             | * 2015-02-20                |
  | * <date>           |  * dateOther[@type="received"]             | * 2012-12-24                |
