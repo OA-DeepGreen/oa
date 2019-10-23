@@ -54,8 +54,8 @@ NISO JATS zu METSMODS - Konkordanz
  +--------------------+--------------------------------------------+-----------------------------+
  | <article-title>    | //mods/titleInfo/title                     | A Short Discussion on ...   |
  +--------------------+--------------------------------------------+-----------------------------+
- | \                  | //mods/relatedItem[@type="host"]/... \     | \                           |
- |                    |                                            |                             |
+ | \                  |                                            | \                           |
+ |                    | //mods/relatedItem[@type="host"]/...       |                             |
  | * <journal-title>  |  * titleInfo/title                         | * Acta Numerica             |
  | * <journal-id>     |  * identifier[@type="publisher-id"]        | * Act. Num.                 |
  | * <issn>           |  * identifier[@type="eIssn"]               | * 1234-234X                 |
@@ -75,8 +75,8 @@ NISO JATS zu METSMODS - Konkordanz
  +--------------------+--------------------------------------------+-----------------------------+
  | <kwd>              | //mods/subject/topic                       | viscoelasticity             |
  +--------------------+--------------------------------------------+-----------------------------+
- | \                  | //mods/originInfo/... \                    | \                           |
- |                    |                                            |                             |
+ | \                  |                                            | \                           |
+ |                    | //mods/originInfo/...                      |                             |
  | * <publisher-name> |  * publisher                               | * MDPI                      |
  | * <publisher-place>|  * place/placeTerm[@type="text"]           | * Basel                     |
  | * <pub-date>       |  * dateIssued[@encoding="iso8601"]         | * 2015-02-23                |
