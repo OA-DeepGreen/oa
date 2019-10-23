@@ -56,6 +56,7 @@ METSMODS - Konkordanz
  +-----------------+--------------------------------------------------+------------------------+
  |                 | //mods/relatedItem[@type="host"]/...             | *                      |
  |                 |  * titleInfo/title                               | * Acta Numerica        |
+ |                 |  * identifier[@type="publisher-id"]              | * Act. Num.            |
  |                 |  * identifier[@type="eIssn"]                     | * 1234-234X            |
  |                 |  * identifier[@type="pIssn"]                     | * 5432-9634            |
  |                 |  * part/detail[@type="volume"]/number            | * 7                    |
@@ -63,10 +64,12 @@ METSMODS - Konkordanz
  +-----------------+--------------------------------------------------+------------------------+
  |                 | //mods/name[@type="personal"]/...                | *                      |
  |                 |  * namePart[@type="family"]                      | * Hoppenstedt          |
- |                 |  * namePart[@type="given"]                       | * Dickie               |
+ |                 |  * namePart[@type="given"]                       | * Dickie M.            |
  |                 |  * role/roleTerm[@type="text"]                   | * author               |
  |                 |  * nameIdentifier[@type="orcid"]                 | * 0000-0000-0000-0000  |
  |                 |  * affiliation                                   | * Zuse Institut Berlin |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/abstract                                  | In this paper we ...   |
  +-----------------+--------------------------------------------------+------------------------+
  |                 | //mods/subject/topic                             | viscoelasticity        |
  +-----------------+--------------------------------------------------+------------------------+
@@ -75,9 +78,9 @@ METSMODS - Konkordanz
  |                 |  * place/placeTerm[@type="text"]                 | * Basel                |
  |                 |  * dateIssued[@encoding="iso8601"]               | * 2015-02-23           |
  |                 |  * dateOther[@type="accepted"]                   | * 2015-02-20           |
- |                 |  * dateOther[@type="submitted"]                  | * 2012-12-24           |
+ |                 |  * dateOther[@type="received"]                   | * 2012-12-24           |
  +-----------------+--------------------------------------------------+------------------------+
  |                 | //mods/identifer[@type="doi"]                    | 10.1212/sjsdh45723dg   |
  +-----------------+--------------------------------------------------+------------------------+
- |                 | //mods/accessCondition[@description="uri"]       | https://creat.org/...  |
+ |                 | //mods/accessCondition[@description="uri"]       | https://creative.org/..|
  +-----------------+--------------------------------------------------+------------------------+
