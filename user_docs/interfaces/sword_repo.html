@@ -135,9 +135,9 @@ eintragt werden.</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="18%" />
-<col width="57%" />
-<col width="25%" />
+<col width="19%" />
+<col width="56%" />
+<col width="26%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">NISO JATS (tag)</th>
@@ -170,6 +170,7 @@ eintragt werden.</p>
 <li>identifier[&#64;type=&#8221;eIssn&#8221;]</li>
 <li>identifier[&#64;type=&#8221;pIssn&#8221;]</li>
 <li>part/detail[&#64;type=&#8221;volume&#8221;]/number</li>
+<li>part/detail[&#64;type=&#8221;issue&#8221;]/number</li>
 </ul>
 </dd>
 </dl>
@@ -180,6 +181,57 @@ eintragt werden.</p>
 <li>1234-234X</li>
 <li>5432-9634</li>
 <li>7</li>
+<li>10</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><dl class="first last docutils">
+<dt>//mods/name[&#64;type=&#8221;personal&#8221;]/...</dt>
+<dd><ul class="first last simple">
+<li>namePart[&#64;type=&#8221;family&#8221;]</li>
+<li>namePart[&#64;type=&#8221;given&#8221;]</li>
+<li>role/roleTerm[&#64;type=&#8221;text&#8221;]</li>
+<li>nameIdentifier[&#64;type=&#8221;orcid&#8221;]</li>
+<li>affiliation</li>
+</ul>
+</dd>
+</dl>
+</td>
+<td><ul class="first last simple">
+<li></li>
+<li>Hoppenstedt</li>
+<li>Dickie</li>
+<li>author</li>
+<li>0000-0000-0000-0000</li>
+<li>Zuse Institut Berlin</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>//mods/subject/topic</td>
+<td>viscoelasticity</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><dl class="first last docutils">
+<dt>//mods/originInfo/...</dt>
+<dd><ul class="first last simple">
+<li>publisher</li>
+<li>place/placeTerm[&#64;type=&#8221;text&#8221;]</li>
+<li>dateIssued[&#64;encoding=&#8221;iso8601&#8221;]</li>
+<li>dateOther[&#64;type=&#8221;accepted&#8221;]</li>
+<li>dateOther[&#64;type=&#8221;summited&#8221;]</li>
+</ul>
+</dd>
+</dl>
+</td>
+<td><ul class="first last simple">
+<li></li>
+<li>MDPI</li>
+<li>Basel</li>
+<li>2015-02-23</li>
+<li>2015-02-20</li>
+<li>2012-12-24</li>
 </ul>
 </td>
 </tr>
