@@ -54,7 +54,7 @@ NISO JATS zu METSMODS - Konkordanz
  +--------------------+--------------------------------------------+-----------------------------+
  | <article-title>    | //mods/titleInfo/title                     | A Short Discussion on ...   |
  +--------------------+--------------------------------------------+-----------------------------+
- | \                  | //mods/relatedItem[@type="host"]/...       | \                           |
+ | \                  | //mods/relatedItem[@type="host"]/... \     | \                           |
  |                    |                                            |                             |
  | * <journal-title>  |  * titleInfo/title                         | * Acta Numerica             |
  | * <journal-id>     |  * identifier[@type="publisher-id"]        | * Act. Num.                 |
@@ -63,7 +63,7 @@ NISO JATS zu METSMODS - Konkordanz
  | * <volume>         |  * part/detail[@type="volume"]/number      | * 7                         |
  | * <issue>          |  * part/detail[@type="issue"]/number       | * 10                        |
  +--------------------+--------------------------------------------+-----------------------------+
- | \                  | //mods/name[@type="personal"]/...          | \                           |
+ | \                  | //mods/name[@type="personal"]/... \        | \                           |
  |                    |                                            |                             |
  | * <surname>        |  * namePart[@type="family"]                | * Hoppenstedt               |
  | * <given-names>    |  * namePart[@type="given"]                 | * Dickie M.                 |
@@ -75,7 +75,7 @@ NISO JATS zu METSMODS - Konkordanz
  +--------------------+--------------------------------------------+-----------------------------+
  | <kwd>              | //mods/subject/topic                       | viscoelasticity             |
  +--------------------+--------------------------------------------+-----------------------------+
- | \                  | //mods/originInfo/...                      | \                           |
+ | \                  | //mods/originInfo/... \                    | \                           |
  |                    |                                            |                             |
  | * <publisher-name> |  * publisher                               | * MDPI                      |
  | * <publisher-place>|  * place/placeTerm[@type="text"]           | * Basel                     |
