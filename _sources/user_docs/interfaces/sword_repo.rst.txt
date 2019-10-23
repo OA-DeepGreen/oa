@@ -43,37 +43,41 @@ eintragt werden.
 METSMODS - Konkordanz
 ---------------------
 
- +-----------------+--------------------------------------------------+-----------------------+
- | NISO JATS (tag) | METSMODS (xpath)                                 | Belegung in METSMODS  |
- +=================+==================================================+=======================+
- |                 | //mods/typeOfResource                            | text                  |
- +-----------------+--------------------------------------------------+-----------------------+
- |                 | //mods/genre                                     | journal article       |
- +-----------------+--------------------------------------------------+-----------------------+
- |                 | //mods/language/languageTerm                     | EN                    |
- +-----------------+--------------------------------------------------+-----------------------+
- |                 | //mods/titleInfo/title                           | A Discussion on ...   |
- +-----------------+--------------------------------------------------+-----------------------+
- |                 | //mods/relatedItem[@type="host"]/...             | *                     |
- |                 |  * titleInfo/title                               | * Acta Numerica       |
- |                 |  * identifier[@type="eIssn"]                     | * 1234-234X           |
- |                 |  * identifier[@type="pIssn"]                     | * 5432-9634           |
- |                 |  * part/detail[@type="volume"]/number            | * 7                   |
- |                 |  * part/detail[@type="issue"]/number             | * 10                  |
- +-----------------+--------------------------------------------------+-----------------------+
- |                 | //mods/name[@type="personal"]/...                | *                     |
- |                 |  * namePart[@type="family"]                      | * Hoppenstedt         |
- |                 |  * namePart[@type="given"]                       | * Dickie              |
- |                 |  * role/roleTerm[@type="text"]                   | * author              |
- |                 |  * nameIdentifier[@type="orcid"]                 | * 0000-0000-0000-0000 |
- |                 |  * affiliation                                   | * Zuse Institut Berlin|
- +-----------------+--------------------------------------------------+-----------------------+
- |                 | //mods/subject/topic                             | viscoelasticity       |
- +-----------------+--------------------------------------------------+-----------------------+
- |                 | //mods/originInfo/...                            | *                     |
- |                 |  * publisher                                     | * MDPI                |
- |                 |  * place/placeTerm[@type="text"]                 | * Basel               |
- |                 |  * dateIssued[@encoding="iso8601"]               | * 2015-02-23          |
- |                 |  * dateOther[@type="accepted"]                   | * 2015-02-20          |
- |                 |  * dateOther[@type="summited"]                   | * 2012-12-24          |
- +-----------------+--------------------------------------------------+-----------------------+
+ +-----------------+--------------------------------------------------+------------------------+
+ | NISO JATS (tag) | METSMODS (xpath)                                 | Belegung in METSMODS   |
+ +=================+==================================================+========================+
+ |                 | //mods/typeOfResource                            | text                   |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/genre                                     | journal article        |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/language/languageTerm                     | EN                     |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/titleInfo/title                           | A Discussion on ...    |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/relatedItem[@type="host"]/...             | *                      |
+ |                 |  * titleInfo/title                               | * Acta Numerica        |
+ |                 |  * identifier[@type="eIssn"]                     | * 1234-234X            |
+ |                 |  * identifier[@type="pIssn"]                     | * 5432-9634            |
+ |                 |  * part/detail[@type="volume"]/number            | * 7                    |
+ |                 |  * part/detail[@type="issue"]/number             | * 10                   |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/name[@type="personal"]/...                | *                      |
+ |                 |  * namePart[@type="family"]                      | * Hoppenstedt          |
+ |                 |  * namePart[@type="given"]                       | * Dickie               |
+ |                 |  * role/roleTerm[@type="text"]                   | * author               |
+ |                 |  * nameIdentifier[@type="orcid"]                 | * 0000-0000-0000-0000  |
+ |                 |  * affiliation                                   | * Zuse Institut Berlin |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/subject/topic                             | viscoelasticity        |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/originInfo/...                            | *                      |
+ |                 |  * publisher                                     | * MDPI                 |
+ |                 |  * place/placeTerm[@type="text"]                 | * Basel                |
+ |                 |  * dateIssued[@encoding="iso8601"]               | * 2015-02-23           |
+ |                 |  * dateOther[@type="accepted"]                   | * 2015-02-20           |
+ |                 |  * dateOther[@type="submitted"]                  | * 2012-12-24           |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/identifer[@type="doi"]                    | 10.1212/sjsdh45723dg   |
+ +-----------------+--------------------------------------------------+------------------------+
+ |                 | //mods/accessCondition[@description="uri"]       | https://creat.org/...  |
+ +-----------------+--------------------------------------------------+------------------------+
