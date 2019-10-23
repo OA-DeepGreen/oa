@@ -54,9 +54,9 @@ METSMODS - Konkordanz
  +-----------------+----------------------------------------------------+-----------------------+
  |                 | //mods/titleInfo/title                             | A Discussion on ...   |
  +-----------------+----------------------------------------------------+-----------------------+
- |                 | //mods/relatedItem[@type="host"]/...               |                       |
- |                 |  * titleInfo/title                                 | Acta Numerica         |
- |                 |  * identifier[@type="eIssn"]                       | 1234-234X             |
- |                 |  * identifier[@type="pIssn"]                       | 5432-9634             |
- |                 |  * part/detail[@type="volume"]/number              | 7                     |
+ |                 | //mods/relatedItem[@type="host"]/...               | *                     |
+ |                 |  * titleInfo/title                                 | * Acta Numerica       |
+ |                 |  * identifier[@type="eIssn"]                       | * 1234-234X           |
+ |                 |  * identifier[@type="pIssn"]                       | * 5432-9634           |
+ |                 |  * part/detail[@type="volume"]/number              | * 7                   |
  +-----------------+----------------------------------------------------+-----------------------+
