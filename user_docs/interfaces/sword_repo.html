@@ -135,34 +135,39 @@ eintragt werden.</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
-<col width="18%" />
-<col width="50%" />
+<col width="21%" />
+<col width="48%" />
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">NISO JATS (tag)</th>
 <th class="head">METSMODS (xpath)</th>
-<th class="head">Belegung in METSMODS</th>
+<th class="head">Belegung in METSMODS (Bsp)</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-even"><td>n/a</td>
 <td>//mods/typeOfResource</td>
 <td>text</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-odd"><td>n/a</td>
 <td>//mods/genre</td>
 <td>journal article</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-even"><td>&lt;article&gt;</td>
 <td>//mods/language/languageTerm</td>
 <td>EN</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-odd"><td>&lt;article-title&gt;</td>
 <td>//mods/titleInfo/title</td>
 <td>A Short Discussion on ...</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-even"><td>&lt;journal-title&gt;
+&lt;journal-id&gt;
+&lt;issn&gt;
+&lt;issn&gt;
+&lt;volume&gt;
+&lt;issue&gt;</td>
 <td><dl class="first last docutils">
 <dt>//mods/relatedItem[&#64;type=&#8221;host&#8221;]/...</dt>
 <dd><ul class="first last simple">
@@ -187,7 +192,11 @@ eintragt werden.</p>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-odd"><td>&lt;surname&gt;
+&lt;given-names&gt;
+&lt;contrib&gt;
+&lt;contrib-id&gt;
+&lt;aff&gt;</td>
 <td><dl class="first last docutils">
 <dt>//mods/name[&#64;type=&#8221;personal&#8221;]/...</dt>
 <dd><ul class="first last simple">
@@ -214,11 +223,15 @@ eintragt werden.</p>
 <td>//mods/abstract</td>
 <td>In this paper we will ...</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-odd"><td>&lt;kwd&gt;</td>
 <td>//mods/subject/topic</td>
 <td>viscoelasticity</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-even"><td>&lt;publisher-name&gt;
+&lt;publisher-place&gt;
+&lt;pub-date&gt;
+&lt;date&gt;
+&lt;date&gt;</td>
 <td><dl class="first last docutils">
 <dt>//mods/originInfo/...</dt>
 <dd><ul class="first last simple">
@@ -241,11 +254,11 @@ eintragt werden.</p>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
+<tr class="row-odd"><td>&lt;article-id&gt;</td>
 <td>//mods/identifer[&#64;type=&#8221;doi&#8221;]</td>
 <td>10.1212/sjsdh45723dg</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
+<tr class="row-even"><td>&lt;license&gt;</td>
 <td>//mods/accessCondition[&#64;description=&#8221;uri&#8221;]</td>
 <td>http: //creativecomm.org/..</td>
 </tr>
