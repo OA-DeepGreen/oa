@@ -63,8 +63,8 @@ NISO JATS zu METSMODS - Konkordanz
  | * <volume>         |  * part/detail[@type="volume"]/number      | * 7                         |
  | * <issue>          |  * part/detail[@type="issue"]/number       | * 10                        |
  +--------------------+--------------------------------------------+-----------------------------+
- | \                  | //mods/name[@type="personal"]/... \        | \                           |
- |                    |                                            |                             |
+ | \                  |                                            | \                           |
+ |                    | //mods/name[@type="personal"]/...          |                             |
  | * <surname>        |  * namePart[@type="family"]                | * Hoppenstedt               |
  | * <given-names>    |  * namePart[@type="given"]                 | * Dickie M.                 |
  | * <contrib>        |  * role/roleTerm[@type="text"]             | * author                    |
