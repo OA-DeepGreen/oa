@@ -62,6 +62,8 @@ Konkordanz: NISO JATS zu METSMODS
  | * <issn>           |  * identifier[@type="pIssn"]               | * 5432-9634                 |
  | * <volume>         |  * part/detail[@type="volume"]/number      | * 7                         |
  | * <issue>          |  * part/detail[@type="issue"]/number       | * 10                        |
+ | * <fpage>          |  * part/extent[@unit="pages"]/start        | * 521                       |
+ | * <lpage>          |  * part/extent[@unit="pages"]/end          | * 534                       |
  +--------------------+--------------------------------------------+-----------------------------+
  | \                  |                                            | \                           |
  |                    | //mods/name[@type="personal"]/...          |                             |
