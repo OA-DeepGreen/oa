@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>SWORD(v2) Repositorium &#8212; DeepGreen 1.2.1 Dokumentation</title>
-    
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
     <link rel="author" title="Über dieses Dokument" href="../../about.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
     <link rel="next" title="Anleitung und Hinweise für Verlage" href="../publisher.html" />
     <link rel="prev" title="OAI-PMH" href="oai_pmh.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -54,7 +41,7 @@
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="../../index.html">Inhalt</a></h3>
+  <h3><a href="../../index.html">Inhaltsverzeichnis</a></h3>
   <ul>
 <li><a class="reference internal" href="#">SWORD(v2) Repositorium</a><ul>
 <li><a class="reference internal" href="#dspace-6">DSpace 6</a></li>
@@ -77,13 +64,13 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Los" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -104,181 +91,177 @@ Je nach angegebenem Format (Packaging), muss dem hochzuladenden Paket entspreche
 erfolgreichen Deposit bereitgestellt werden.</p>
 <p>Wir hatte in Erwägung gezogen, einen NISO JATS Ingester für die SWORDV2-Schnittstelle in
 DSpace 6 zu implementieren, da unsere Tests-Deposits von Metadaten und deren Volltexten mit
-<code class="docutils literal"><span class="pre">SimpleZip</span> <span class="pre">Deposit</span></code>, <code class="docutils literal"><span class="pre">Binary</span> <span class="pre">Deposit</span> <span class="pre">via</span> <span class="pre">Atom</span> <span class="pre">entry</span></code> nicht wie gewünscht verliefen.
+<code class="docutils literal notranslate"><span class="pre">SimpleZip</span> <span class="pre">Deposit</span></code>, <code class="docutils literal notranslate"><span class="pre">Binary</span> <span class="pre">Deposit</span> <span class="pre">via</span> <span class="pre">Atom</span> <span class="pre">entry</span></code> nicht wie gewünscht verliefen.
 Was auf jeden Fall für die Übertragung von Metadaten und Volltextdatei(en) (oder sonstigen
-Binärformaten) nach DSpace via SWORDv2  funktionierte, war das <code class="docutils literal"><span class="pre">METSDSpaceSIP</span> <span class="pre">Deposit</span></code>.
+Binärformaten) nach DSpace via SWORDv2  funktionierte, war das <code class="docutils literal notranslate"><span class="pre">METSDSpaceSIP</span> <span class="pre">Deposit</span></code>.
 Also entschieden wir uns für diese Variante. Um möglichst viele Metadaten übernehmen zu können,
 fiel der Wahl auf das MODS Schema. Dafür wurde von DeepGreen und uns verschiedene XSLT-Dateien
 entwickelt für die Umwandlung der Metadaten und Volltextdatei(en) in dem METSMODS Packages.</p>
 <p>Für Sie relevante DSpace Konfiguration um METSMODS Packages via SWORDv2 zu erhalten:</p>
 <ul>
-<li><p class="first">Die SWORDV2 Schnittstelle muss freigeschaltet sein.
-Siehe <a class="reference external" href="https://wiki.duraspace.org/display/DSDOC5x/SWORDv2+Server">https://wiki.duraspace.org/display/DSDOC5x/SWORDv2+Server</a>.</p>
-</li>
-<li><p class="first">Um METSMODS Dateien einlesen zu können und so viel wie möglich DeepGreen-Metadaten zu
+<li><p>Die SWORDV2 Schnittstelle muss freigeschaltet sein.
+Siehe <a class="reference external" href="https://wiki.duraspace.org/display/DSDOC5x/SWORDv2+Server">https://wiki.duraspace.org/display/DSDOC5x/SWORDv2+Server</a>.</p></li>
+<li><p>Um METSMODS Dateien einlesen zu können und so viel wie möglich DeepGreen-Metadaten zu
 erhalten, haben wir eine XSLT-Datei implementiert, die das Mapping von METSMODS-Metadaten
 zu unsere DSpace-Metadaten durchführt. Die Datei finden Sie unter:</p>
 <p><a class="reference external" href="https://github.com/OA-DeepGreen/DSpace/blob/depositonce-6.3x/dspace/config/crosswalks/sword-mods-ingest.xsl">https://github.com/OA-DeepGreen/DSpace/blob/depositonce-6.3x/dspace/config/crosswalks/sword-mods-ingest.xsl</a>.</p>
-<p>Dabei müssen Sie folgenden Konfigurationen in der &#8220;dspace.cfg&#8221; bzw. &#8220;local.cfg&#8221; setzen:</p>
+<p>Dabei müssen Sie folgenden Konfigurationen in der „dspace.cfg“ bzw. „local.cfg“ setzen:</p>
 <ul class="simple">
-<li>mets.default.ingest.crosswalk.MODS = MODS</li>
-<li>crosswalk.submission.MODS.stylesheet= crosswalks/sword-mods-ingest.xsl</li>
+<li><p>mets.default.ingest.crosswalk.MODS = MODS</p></li>
+<li><p>crosswalk.submission.MODS.stylesheet= crosswalks/sword-mods-ingest.xsl</p></li>
 </ul>
 </li>
 </ul>
 <p>Wichtig: Für die SWORD-Konfiguration eines DeepGreen Repositorium-Kontos muss bei der
-SWORD-Konfiguration <code class="docutils literal"><span class="pre">packaging</span> <span class="pre">preference</span></code>, <a class="reference external" href="http://purl.org/net/sword/package/METSMODS">http://purl.org/net/sword/package/METSMODS</a>
+SWORD-Konfiguration <code class="docutils literal notranslate"><span class="pre">packaging</span> <span class="pre">preference</span></code>, <a class="reference external" href="http://purl.org/net/sword/package/METSMODS">http://purl.org/net/sword/package/METSMODS</a>
 eintragt werden.</p>
 </div>
 <div class="section" id="konkordanz-niso-jats-zu-metsmods">
 <h2>Konkordanz: NISO JATS zu METSMODS<a class="headerlink" href="#konkordanz-niso-jats-zu-metsmods" title="Link zu dieser Überschrift">¶</a></h2>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="22%" />
-<col width="47%" />
-<col width="31%" />
+<col style="width: 22%" />
+<col style="width: 47%" />
+<col style="width: 31%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">NISO JATS (tag)</th>
-<th class="head">METSMODS (xpath)</th>
-<th class="head">Belegung in METSMODS (Bsp)</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>NISO JATS (tag)</p></th>
+<th class="head"><p>METSMODS (xpath)</p></th>
+<th class="head"><p>Belegung in METSMODS (Bsp)</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>n/a</td>
-<td>//mods/typeOfResource</td>
-<td>text</td>
+<tbody>
+<tr class="row-even"><td><p>n/a</p></td>
+<td><p>//mods/typeOfResource</p></td>
+<td><p>text</p></td>
 </tr>
-<tr class="row-odd"><td>n/a</td>
-<td>//mods/genre</td>
-<td>journal article</td>
+<tr class="row-odd"><td><p>n/a</p></td>
+<td><p>//mods/genre</p></td>
+<td><p>journal article</p></td>
 </tr>
-<tr class="row-even"><td>&lt;article&gt;</td>
-<td>//mods/language/languageTerm</td>
-<td>EN</td>
+<tr class="row-even"><td><p>&lt;article&gt;</p></td>
+<td><p>//mods/language/languageTerm</p></td>
+<td><p>EN</p></td>
 </tr>
-<tr class="row-odd"><td>&lt;article-title&gt;</td>
-<td>//mods/titleInfo/title</td>
-<td>A Short Discussion on ...</td>
+<tr class="row-odd"><td><p>&lt;article-title&gt;</p></td>
+<td><p>//mods/titleInfo/title</p></td>
+<td><p>A Short Discussion on …</p></td>
 </tr>
-<tr class="row-even"><td><p class="first"></p>
-<ul class="last simple">
-<li>&lt;journal-title&gt;</li>
-<li>&lt;journal-id&gt;</li>
-<li>&lt;issn&gt;</li>
-<li>&lt;issn&gt;</li>
-<li>&lt;volume&gt;</li>
-<li>&lt;issue&gt;</li>
-<li>&lt;fpage&gt;</li>
-<li>&lt;lpage&gt;</li>
+<tr class="row-even"><td><p></p>
+<ul class="simple">
+<li><p>&lt;journal-title&gt;</p></li>
+<li><p>&lt;journal-id&gt;</p></li>
+<li><p>&lt;issn&gt;</p></li>
+<li><p>&lt;issn&gt;</p></li>
+<li><p>&lt;volume&gt;</p></li>
+<li><p>&lt;issue&gt;</p></li>
+<li><p>&lt;fpage&gt;</p></li>
+<li><p>&lt;lpage&gt;</p></li>
 </ul>
 </td>
-<td><dl class="first last docutils">
-<dt>//mods/relatedItem[&#64;type=&#8221;host&#8221;]/...</dt>
-<dd><ul class="first last simple">
-<li>titleInfo/title</li>
-<li>identifier[&#64;type=&#8221;publisher-id&#8221;]</li>
-<li>identifier[&#64;type=&#8221;eIssn&#8221;]</li>
-<li>identifier[&#64;type=&#8221;pIssn&#8221;]</li>
-<li>part/detail[&#64;type=&#8221;volume&#8221;]/number</li>
-<li>part/detail[&#64;type=&#8221;issue&#8221;]/number</li>
-<li>part/extent[&#64;unit=&#8221;pages&#8221;]/start</li>
-<li>part/extent[&#64;unit=&#8221;pages&#8221;]/end</li>
-</ul>
-</dd>
-</dl>
-</td>
-<td><p class="first"></p>
-<ul class="last simple">
-<li>Acta Numerica</li>
-<li>Act. Num.</li>
-<li>1234-234X</li>
-<li>5432-9634</li>
-<li>7</li>
-<li>10</li>
-<li>521</li>
-<li>534</li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p class="first"></p>
-<ul class="last simple">
-<li>&lt;surname&gt;</li>
-<li>&lt;given-names&gt;</li>
-<li>&lt;contrib&gt;</li>
-<li>&lt;contrib-id&gt;</li>
-<li>&lt;aff&gt;</li>
-</ul>
-</td>
-<td><dl class="first last docutils">
-<dt>//mods/name[&#64;type=&#8221;personal&#8221;]/...</dt>
-<dd><ul class="first last simple">
-<li>namePart[&#64;type=&#8221;family&#8221;]</li>
-<li>namePart[&#64;type=&#8221;given&#8221;]</li>
-<li>role/roleTerm[&#64;type=&#8221;text&#8221;]</li>
-<li>nameIdentifier[&#64;type=&#8221;orcid&#8221;]</li>
-<li>affiliation</li>
+<td><dl class="simple">
+<dt>//mods/relatedItem[&#64;type=“host“]/…</dt><dd><ul class="simple">
+<li><p>titleInfo/title</p></li>
+<li><p>identifier[&#64;type=“publisher-id“]</p></li>
+<li><p>identifier[&#64;type=“eIssn“]</p></li>
+<li><p>identifier[&#64;type=“pIssn“]</p></li>
+<li><p>part/detail[&#64;type=“volume“]/number</p></li>
+<li><p>part/detail[&#64;type=“issue“]/number</p></li>
+<li><p>part/extent[&#64;unit=“pages“]/start</p></li>
+<li><p>part/extent[&#64;unit=“pages“]/end</p></li>
 </ul>
 </dd>
 </dl>
 </td>
-<td><p class="first"></p>
-<ul class="last simple">
-<li>Hoppenstedt</li>
-<li>Dickie M.</li>
-<li>author</li>
-<li>1111-1010-1111-0101</li>
-<li>Zuse Institut Berlin</li>
+<td><p></p>
+<ul class="simple">
+<li><p>Acta Numerica</p></li>
+<li><p>Act. Num.</p></li>
+<li><p>1234-234X</p></li>
+<li><p>5432-9634</p></li>
+<li><p>7</p></li>
+<li><p>10</p></li>
+<li><p>521</p></li>
+<li><p>534</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td>&lt;abstract&gt;</td>
-<td>//mods/abstract</td>
-<td>In this paper we will ...</td>
-</tr>
-<tr class="row-odd"><td>&lt;kwd&gt;</td>
-<td>//mods/subject/topic</td>
-<td>viscoelasticity</td>
-</tr>
-<tr class="row-even"><td><p class="first"></p>
-<ul class="last simple">
-<li>&lt;publisher-name&gt;</li>
-<li>&lt;publisher-loc&gt;</li>
-<li>&lt;pub-date&gt;</li>
-<li>&lt;date&gt;</li>
-<li>&lt;date&gt;</li>
+<tr class="row-odd"><td><p></p>
+<ul class="simple">
+<li><p>&lt;surname&gt;</p></li>
+<li><p>&lt;given-names&gt;</p></li>
+<li><p>&lt;contrib&gt;</p></li>
+<li><p>&lt;contrib-id&gt;</p></li>
+<li><p>&lt;aff&gt;</p></li>
 </ul>
 </td>
-<td><dl class="first last docutils">
-<dt>//mods/originInfo/...</dt>
-<dd><ul class="first last simple">
-<li>publisher</li>
-<li>place/placeTerm[&#64;type=&#8221;text&#8221;]</li>
-<li>dateIssued[&#64;encoding=&#8221;iso8601&#8221;]</li>
-<li>dateOther[&#64;type=&#8221;accepted&#8221;]</li>
-<li>dateOther[&#64;type=&#8221;received&#8221;]</li>
+<td><dl class="simple">
+<dt>//mods/name[&#64;type=“personal“]/…</dt><dd><ul class="simple">
+<li><p>namePart[&#64;type=“family“]</p></li>
+<li><p>namePart[&#64;type=“given“]</p></li>
+<li><p>role/roleTerm[&#64;type=“text“]</p></li>
+<li><p>nameIdentifier[&#64;type=“orcid“]</p></li>
+<li><p>affiliation</p></li>
 </ul>
 </dd>
 </dl>
 </td>
-<td><p class="first"></p>
-<ul class="last simple">
-<li>MDPI</li>
-<li>Basel</li>
-<li>2015-02-23</li>
-<li>2015-02-20</li>
-<li>2012-12-24</li>
+<td><p></p>
+<ul class="simple">
+<li><p>Hoppenstedt</p></li>
+<li><p>Dickie M.</p></li>
+<li><p>author</p></li>
+<li><p>1111-1010-1111-0101</p></li>
+<li><p>Zuse Institut Berlin</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>&lt;article-id&gt;</td>
-<td>//mods/identifer[&#64;type=&#8221;doi&#8221;]</td>
-<td>10.1212/sjsdh45723dg</td>
+<tr class="row-even"><td><p>&lt;abstract&gt;</p></td>
+<td><p>//mods/abstract</p></td>
+<td><p>In this paper we will …</p></td>
 </tr>
-<tr class="row-even"><td>&lt;license&gt;</td>
-<td>//mods/accessCondition[&#64;description=&#8221;uri&#8221;]</td>
-<td>http: //creativecomm.org/..</td>
+<tr class="row-odd"><td><p>&lt;kwd&gt;</p></td>
+<td><p>//mods/subject/topic</p></td>
+<td><p>viscoelasticity</p></td>
+</tr>
+<tr class="row-even"><td><p></p>
+<ul class="simple">
+<li><p>&lt;publisher-name&gt;</p></li>
+<li><p>&lt;publisher-loc&gt;</p></li>
+<li><p>&lt;pub-date&gt;</p></li>
+<li><p>&lt;date&gt;</p></li>
+<li><p>&lt;date&gt;</p></li>
+</ul>
+</td>
+<td><dl class="simple">
+<dt>//mods/originInfo/…</dt><dd><ul class="simple">
+<li><p>publisher</p></li>
+<li><p>place/placeTerm[&#64;type=“text“]</p></li>
+<li><p>dateIssued[&#64;encoding=“iso8601“]</p></li>
+<li><p>dateOther[&#64;type=“accepted“]</p></li>
+<li><p>dateOther[&#64;type=“received“]</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+<td><p></p>
+<ul class="simple">
+<li><p>MDPI</p></li>
+<li><p>Basel</p></li>
+<li><p>2015-02-23</p></li>
+<li><p>2015-02-20</p></li>
+<li><p>2012-12-24</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>&lt;article-id&gt;</p></td>
+<td><p>//mods/identifer[&#64;type=“doi“]</p></td>
+<td><p>10.1212/sjsdh45723dg</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;license&gt;</p></td>
+<td><p>//mods/accessCondition[&#64;description=“uri“]</p></td>
+<td><p>http: //creativecomm.org/..</p></td>
 </tr>
 </tbody>
 </table>
@@ -311,7 +294,7 @@ eintragt werden.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, DeepGreen Konsortium.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 erstellt.
     </div>
   </body>
 </html>

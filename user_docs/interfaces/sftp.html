@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>sFTP &#8212; DeepGreen 1.2.1 Dokumentation</title>
-    
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
     <link rel="author" title="Über dieses Dokument" href="../../about.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
     <link rel="next" title="OAI-PMH" href="oai_pmh.html" />
     <link rel="prev" title="SWORD(v2)" href="sword_publisher.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -54,11 +41,11 @@
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="../../index.html">Inhalt</a></h3>
+  <h3><a href="../../index.html">Inhaltsverzeichnis</a></h3>
   <ul>
 <li><a class="reference internal" href="#">sFTP</a><ul>
 <li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a></li>
-<li><a class="reference internal" href="#aufbau-der-zip-dateien-der-artikeldaten">Aufbau der <code class="docutils literal"><span class="pre">.zip</span></code>-Dateien der Artikeldaten</a></li>
+<li><a class="reference internal" href="#aufbau-der-zip-dateien-der-artikeldaten">Aufbau der <code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Dateien der Artikeldaten</a></li>
 </ul>
 </li>
 </ul>
@@ -77,13 +64,13 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Los" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -96,54 +83,54 @@
             
   <div class="section" id="sftp">
 <h1>sFTP<a class="headerlink" href="#sftp" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Aus technischen Gründen wird die Datenablieferung via <code class="docutils literal"><span class="pre">sFTP</span></code> <strong>nicht</strong> über
-die gewohnte Basis-Adresse, sondern vielmehr über <code class="docutils literal"><span class="pre">sl61.kobv.de</span></code> abgewickelt.</p>
-<p>Der allgemeine Zugang, z.B. in einer Unix-Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.),
+<p>Aus technischen Gründen wird die Datenablieferung via <code class="docutils literal notranslate"><span class="pre">sFTP</span></code> <strong>nicht</strong> über
+die gewohnte Basis-Adresse, sondern vielmehr über <code class="docutils literal notranslate"><span class="pre">sl61.kobv.de</span></code> abgewickelt.</p>
+<p>Der allgemeine Zugang, z.B. in einer Unix-Shell (<code class="docutils literal notranslate"><span class="pre">bash</span></code>, <code class="docutils literal notranslate"><span class="pre">tcsh</span></code>, etc.),
 lautet wie folgt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ sftp [Account-ID]@sl61.kobv.de
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sftp [Account-ID]@sl61.kobv.de
 [Account-ID]@sl61.kobv.de&#39;s password: [API-Key]
 sftp&gt; pwd
 Remote working directory: /xfer
 sftp&gt; quit
 </pre></div>
 </div>
-<p>In diesem Beispiel liefert der <code class="docutils literal"><span class="pre">sFTP</span></code>-Befehl <code class="docutils literal"><span class="pre">pwd</span></code> das aktuelle Verzeichnis
-auf dem entfernten Rechner <code class="docutils literal"><span class="pre">sl61.kobv.de</span></code> nach dem Einloggen.  Das Verzeichnis
-ist das Standard-Verzeichnis für jeden <code class="docutils literal"><span class="pre">sFTP</span></code>-Benutzer von DeepGreen und darf
-unter <em>keinen Umständen</em> verändert werden!  Alle anderen, interaktiven <code class="docutils literal"><span class="pre">sFTP</span></code>-Befehle
-stehen ebenfalls zur Verfügung (s. dazu z.B. die entsprechenden <code class="docutils literal"><span class="pre">man-pages</span></code> auf
-Unix-Systemen: <code class="docutils literal"><span class="pre">man</span> <span class="pre">sftp</span></code>).  Darüberhinaus ist es natürlich möglich, mit den
-entsprechenden Zugangsangaben direkt (<code class="docutils literal"><span class="pre">.zip</span></code>-)Dateien über das <code class="docutils literal"><span class="pre">sFTP</span></code>-Protokoll
-einzuspielen.  Wichtig ist in beiden Fällen, dass pro Artikel nur eine <code class="docutils literal"><span class="pre">.zip</span></code>-Datei
+<p>In diesem Beispiel liefert der <code class="docutils literal notranslate"><span class="pre">sFTP</span></code>-Befehl <code class="docutils literal notranslate"><span class="pre">pwd</span></code> das aktuelle Verzeichnis
+auf dem entfernten Rechner <code class="docutils literal notranslate"><span class="pre">sl61.kobv.de</span></code> nach dem Einloggen.  Das Verzeichnis
+ist das Standard-Verzeichnis für jeden <code class="docutils literal notranslate"><span class="pre">sFTP</span></code>-Benutzer von DeepGreen und darf
+unter <em>keinen Umständen</em> verändert werden!  Alle anderen, interaktiven <code class="docutils literal notranslate"><span class="pre">sFTP</span></code>-Befehle
+stehen ebenfalls zur Verfügung (s. dazu z.B. die entsprechenden <code class="docutils literal notranslate"><span class="pre">man-pages</span></code> auf
+Unix-Systemen: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">sftp</span></code>).  Darüberhinaus ist es natürlich möglich, mit den
+entsprechenden Zugangsangaben direkt (<code class="docutils literal notranslate"><span class="pre">.zip</span></code>-)Dateien über das <code class="docutils literal notranslate"><span class="pre">sFTP</span></code>-Protokoll
+einzuspielen.  Wichtig ist in beiden Fällen, dass pro Artikel nur eine <code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Datei
 mit <strong>flacher</strong> Hierarchie verwendet werden, d.h. es dürfen keine verschachtelten
-Verzeichnisstrukturen in der <code class="docutils literal"><span class="pre">.zip</span></code>-Datei enthalten sein.</p>
+Verzeichnisstrukturen in der <code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Datei enthalten sein.</p>
 <p>Als Konto-Name für den Zugang ist die individuelle DeepGreen-Account-ID zu verwenden,
 zu finden auf der Webseite des DeepGreen-Kontos. Der zugehörige API-Schlüssel
-(<code class="docutils literal"><span class="pre">API-Key</span></code>) als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.</p>
-<p><strong>Bermerkung</strong> :  Der <code class="docutils literal"><span class="pre">sFTP</span></code>-Zugang ist ausschließlich <strong>nur</strong> für Verlagskonten
+(<code class="docutils literal notranslate"><span class="pre">API-Key</span></code>) als Passwort ist ebenfalls dort im DeepGreen-Konto angegeben.</p>
+<p><strong>Bermerkung</strong> :  Der <code class="docutils literal notranslate"><span class="pre">sFTP</span></code>-Zugang ist ausschließlich <strong>nur</strong> für Verlagskonten
 freigeschaltet.  Für Repositorienkonten würde dieser Zugang ohnehin wenig Sinn machen.</p>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Eine typische <code class="docutils literal"><span class="pre">sFTP</span></code>-Session zur Abliefieferung von Metadaten (und evtl. Volltext)
+<p>Eine typische <code class="docutils literal notranslate"><span class="pre">sFTP</span></code>-Session zur Abliefieferung von Metadaten (und evtl. Volltext)
 sieht folgendermaßen aus:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ echo &quot;put artikel.zip&quot; | sftp [Account-ID]@sl61.kobv.de
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;put artikel.zip&quot; | sftp [Account-ID]@sl61.kobv.de
 [Accout-ID]@sl61.kobv.de&#39;s password: [API-Key]
 sftp&gt; put article.zip
 </pre></div>
 </div>
-<p>Falls auf dem lokalen Unix-System <code class="docutils literal"><span class="pre">sshpass</span></code> installiert ist, kann auf die interaktive
+<p>Falls auf dem lokalen Unix-System <code class="docutils literal notranslate"><span class="pre">sshpass</span></code> installiert ist, kann auf die interaktive
 Eingabe des API-Schlüssels auch verzichtet werden:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ echo &quot;put artikel.zip&quot; | sshpass -p [API-Key] sftp [Accout-ID]@sl61.kobv.de
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;put artikel.zip&quot; | sshpass -p [API-Key] sftp [Accout-ID]@sl61.kobv.de
 sftp&gt; put artikel.zip
 </pre></div>
 </div>
-<p>In beiden Beispielen wird angenommen, dass sich die zu übertragene <code class="docutils literal"><span class="pre">.zip</span></code>-Datei
-<code class="docutils literal"><span class="pre">artikel.zip</span></code> im aktuellen Verzeichnis des lokalen Systems befindet.</p>
-<p>Die Variante mit <code class="docutils literal"><span class="pre">sshpass</span></code> ist u.U. in einem Skript sehr nützlich, wenn mehrere
-<code class="docutils literal"><span class="pre">.zip</span></code>-Dateien, wie hier in einer Schleife über den Pfad <code class="docutils literal"><span class="pre">some/path/*.zip</span></code>, auf
+<p>In beiden Beispielen wird angenommen, dass sich die zu übertragene <code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Datei
+<code class="docutils literal notranslate"><span class="pre">artikel.zip</span></code> im aktuellen Verzeichnis des lokalen Systems befindet.</p>
+<p>Die Variante mit <code class="docutils literal notranslate"><span class="pre">sshpass</span></code> ist u.U. in einem Skript sehr nützlich, wenn mehrere
+<code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Dateien, wie hier in einer Schleife über den Pfad <code class="docutils literal notranslate"><span class="pre">some/path/*.zip</span></code>, auf
 einmal gesendet werden sollen:</p>
 <blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 <span class="nb">export</span> <span class="nv">SSHPASS</span><span class="o">=</span><span class="s2">&quot;API-Key&quot;</span>
 <span class="k">for</span> f in some/path/*.zip <span class="p">;</span> <span class="k">do</span>
   <span class="nb">echo</span> put <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
@@ -154,9 +141,9 @@ einmal gesendet werden sollen:</p>
 </div></blockquote>
 </div>
 <div class="section" id="aufbau-der-zip-dateien-der-artikeldaten">
-<h2>Aufbau der <code class="docutils literal"><span class="pre">.zip</span></code>-Dateien der Artikeldaten<a class="headerlink" href="#aufbau-der-zip-dateien-der-artikeldaten" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Die <code class="docutils literal"><span class="pre">.zip</span></code>-Dateien, die DeepGreen verarbeiten kann, sollten folgenden Aufbau haben:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Archive</span><span class="p">:</span> <span class="n">pfad</span><span class="o">/</span><span class="n">artikel</span><span class="o">.</span><span class="n">zip</span>
+<h2>Aufbau der <code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Dateien der Artikeldaten<a class="headerlink" href="#aufbau-der-zip-dateien-der-artikeldaten" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die <code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Dateien, die DeepGreen verarbeiten kann, sollten folgenden Aufbau haben:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Archive</span><span class="p">:</span> <span class="n">pfad</span><span class="o">/</span><span class="n">artikel</span><span class="o">.</span><span class="n">zip</span>
   <span class="n">Length</span>      <span class="n">Date</span>    <span class="n">Time</span>    <span class="n">Name</span>
 <span class="o">---------</span>  <span class="o">----------</span> <span class="o">-----</span>   <span class="o">----</span>
     <span class="mi">62225</span>  <span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">08</span> <span class="mi">15</span><span class="p">:</span><span class="mi">58</span>   <span class="n">art123456789</span><span class="o">.</span><span class="n">xml</span>
@@ -165,15 +152,15 @@ einmal gesendet werden sollen:</p>
    <span class="mi">286127</span>                     <span class="mi">2</span> <span class="n">files</span>
 </pre></div>
 </div>
-<p>Dabei sollte die <code class="docutils literal"><span class="pre">.xml</span></code>-Datei im <code class="docutils literal"><span class="pre">NISO</span> <span class="pre">JATS</span></code>
-(<a class="reference external" href="https://en.wikipedia.org/wiki/Journal_Article_Tag_Suite">Journal Publishing-Variante (engl.)</a>)- oder <code class="docutils literal"><span class="pre">RSC</span> <span class="pre">DTD</span></code>
+<p>Dabei sollte die <code class="docutils literal notranslate"><span class="pre">.xml</span></code>-Datei im <code class="docutils literal notranslate"><span class="pre">NISO</span> <span class="pre">JATS</span></code>
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Journal_Article_Tag_Suite">Journal Publishing-Variante (engl.)</a>)- oder <code class="docutils literal notranslate"><span class="pre">RSC</span> <span class="pre">DTD</span></code>
 (<a class="reference external" href="http://www.rsc.org/dtds/desc36.htm">Guidelines on the capture of RSC journal articles (engl.)</a>)-
 Format vorliegen.  Darüberhinaus könnten noch weitere Binärdateien (Grafiken,
-Tabellen, usw.) im <code class="docutils literal"><span class="pre">.zip</span></code>-Archiv enthalten sein.  Die Dateinamen im Einzelnen sind
-dabei unwichtig. Im Wesentlichen kommt es auf die Endkürzel <code class="docutils literal"><span class="pre">.xml</span></code>, <code class="docutils literal"><span class="pre">.pdf</span></code>, usw. an
+Tabellen, usw.) im <code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Archiv enthalten sein.  Die Dateinamen im Einzelnen sind
+dabei unwichtig. Im Wesentlichen kommt es auf die Endkürzel <code class="docutils literal notranslate"><span class="pre">.xml</span></code>, <code class="docutils literal notranslate"><span class="pre">.pdf</span></code>, usw. an
 und die Verzeichnisstruktur im Archiv <strong>muss flach</strong> sein, d.h. es dürfen keine
-Unterverzeichnisse in der <code class="docutils literal"><span class="pre">.zip</span></code>-Datei enthalten sein.</p>
-<p><strong>Bemerkung</strong> : Genau(!) eine Datei in einer DeepGreen-<code class="docutils literal"><span class="pre">.zip</span></code>-Datei <strong>muss</strong> die Endung <code class="docutils literal"><span class="pre">.xml</span></code> tragen.</p>
+Unterverzeichnisse in der <code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Datei enthalten sein.</p>
+<p><strong>Bemerkung</strong> : Genau(!) eine Datei in einer DeepGreen-<code class="docutils literal notranslate"><span class="pre">.zip</span></code>-Datei <strong>muss</strong> die Endung <code class="docutils literal notranslate"><span class="pre">.xml</span></code> tragen.</p>
 </div>
 </div>
 
@@ -202,7 +189,7 @@ Unterverzeichnisse in der <code class="docutils literal"><span class="pre">.zip<
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, DeepGreen Konsortium.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 erstellt.
     </div>
   </body>
 </html>

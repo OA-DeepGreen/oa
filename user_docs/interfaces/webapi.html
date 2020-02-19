@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>Web-API (nativ) &#8212; DeepGreen 1.2.1 Dokumentation</title>
-    
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
     <link rel="author" title="Über dieses Dokument" href="../../about.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
     <link rel="next" title="SWORD(v2)" href="sword_publisher.html" />
     <link rel="prev" title="Benutzung der DG-Schnittstellen" href="../interfaces.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -54,16 +41,16 @@
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="../../index.html">Inhalt</a></h3>
+  <h3><a href="../../index.html">Inhaltsverzeichnis</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Web-API (nativ)</a><ul>
 <li><a class="reference internal" href="#artikeldaten-an-deepgreen-liefern">Artikeldaten an DeepGreen liefern</a><ul>
-<li><a class="reference internal" href="#ruckgabewerte-bei-validation-hier-am-beispiel-nur-metadaten-abliefern">Rückgabewerte bei <code class="docutils literal"><span class="pre">validation</span></code> (hier am Beispiel: Nur Metadaten abliefern)</a></li>
-<li><a class="reference internal" href="#ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern">Rückgabewerte bei <code class="docutils literal"><span class="pre">notification</span></code> (am Beispiel: Metadaten samt Volltext(e) abliefern)</a></li>
+<li><a class="reference internal" href="#ruckgabewerte-bei-validation-hier-am-beispiel-nur-metadaten-abliefern">Rückgabewerte bei <code class="docutils literal notranslate"><span class="pre">validation</span></code> (hier am Beispiel: Nur Metadaten abliefern)</a></li>
+<li><a class="reference internal" href="#ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern">Rückgabewerte bei <code class="docutils literal notranslate"><span class="pre">notification</span></code> (am Beispiel: Metadaten samt Volltext(e) abliefern)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#artikeldaten-von-deepgreen-erhalten">Artikeldaten von DeepGreen erhalten</a><ul>
-<li><a class="reference internal" href="#volles-json-schema-fur-outgoing-notification-alphabetisch-sortiert-nach-den-schlusseln">Volles JSON-Schema für <code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span></code> (alphabetisch sortiert nach den Schlüsseln)</a></li>
+<li><a class="reference internal" href="#volles-json-schema-fur-outgoing-notification-alphabetisch-sortiert-nach-den-schlusseln">Volles JSON-Schema für <code class="docutils literal notranslate"><span class="pre">Outgoing</span> <span class="pre">Notification</span></code> (alphabetisch sortiert nach den Schlüsseln)</a></li>
 <li><a class="reference internal" href="#liste-aller-erfolgreich-zugestellten-artikel">Liste aller erfolgreich zugestellten Artikel</a></li>
 <li><a class="reference internal" href="#liste-der-einer-einrichtung-zugestellten-artikel">Liste der einer Einrichtung zugestellten Artikel</a></li>
 <li><a class="reference internal" href="#abfrage-eines-bestimmten-artikels">Abfrage eines bestimmten Artikels</a><ul>
@@ -72,9 +59,9 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#abfrage-und-update-der-match-config-setzungen-bei-repositorien">Abfrage und Update der <code class="docutils literal"><span class="pre">match-config</span></code>-Setzungen bei Repositorien</a><ul>
-<li><a class="reference internal" href="#update-der-matching-kriterien-eines-repositorienkontos">Update der <code class="docutils literal"><span class="pre">matching</span></code>-Kriterien eines Repositorienkontos</a><ul>
-<li><a class="reference internal" href="#beispielhafte-korrekte-match-config-datei-im-internen-json-format">Beispielhafte, korrekte <code class="docutils literal"><span class="pre">match-config</span></code>-Datei im internen JSON-Format</a></li>
+<li><a class="reference internal" href="#abfrage-und-update-der-match-config-setzungen-bei-repositorien">Abfrage und Update der <code class="docutils literal notranslate"><span class="pre">match-config</span></code>-Setzungen bei Repositorien</a><ul>
+<li><a class="reference internal" href="#update-der-matching-kriterien-eines-repositorienkontos">Update der <code class="docutils literal notranslate"><span class="pre">matching</span></code>-Kriterien eines Repositorienkontos</a><ul>
+<li><a class="reference internal" href="#beispielhafte-korrekte-match-config-datei-im-internen-json-format">Beispielhafte, korrekte <code class="docutils literal notranslate"><span class="pre">match-config</span></code>-Datei im internen JSON-Format</a></li>
 </ul>
 </li>
 </ul>
@@ -97,13 +84,13 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Los" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -118,26 +105,26 @@
 <h1>Web-API (nativ)<a class="headerlink" href="#web-api-nativ" title="Link zu dieser Überschrift">¶</a></h1>
 <p>DeepGreen bietet eine (<em>rudimentäre</em>)
 <a class="reference external" href="https://de.wikipedia.org/wiki/Representational_State_Transfer">REST-Schnittstelle</a> an.
-Die aktuelle Version der DeepGreen REST API ist <code class="docutils literal"><span class="pre">v1</span></code>. Diese kann über die Web-Adresse
-<code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/api/v1</span></code> angesprochen werden, z.B. mit dem Kommando
-<a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell (<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.):</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -s <span class="o">[</span>-X GET<span class="p">|</span>POST<span class="p">|</span>PUT<span class="p">|</span>HEADER<span class="o">]</span> https://www.oa-deepgreen.de/api/v1/...
+Die aktuelle Version der DeepGreen REST API ist <code class="docutils literal notranslate"><span class="pre">v1</span></code>. Diese kann über die Web-Adresse
+<code class="docutils literal notranslate"><span class="pre">https://www.oa-deepgreen.de/api/v1</span></code> angesprochen werden, z.B. mit dem Kommando
+<a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell (<code class="docutils literal notranslate"><span class="pre">bash</span></code>, <code class="docutils literal notranslate"><span class="pre">tcsh</span></code>, etc.):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -s <span class="o">[</span>-X GET<span class="p">|</span>POST<span class="p">|</span>PUT<span class="p">|</span>HEADER<span class="o">]</span> https://www.oa-deepgreen.de/api/v1/...
 </pre></div>
 </div>
-<p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal"><span class="pre">...</span></code> ersetzt durch die konkreten
-REST-Resourcen <code class="docutils literal"><span class="pre">validate</span></code>, <code class="docutils literal"><span class="pre">notification</span></code> und <code class="docutils literal"><span class="pre">routed</span></code> der Web-API-Schnittstelle.
+<p>Dabei werden in den nun nachfolgende Beispielen die <code class="docutils literal notranslate"><span class="pre">...</span></code> ersetzt durch die konkreten
+REST-Resourcen <code class="docutils literal notranslate"><span class="pre">validate</span></code>, <code class="docutils literal notranslate"><span class="pre">notification</span></code> und <code class="docutils literal notranslate"><span class="pre">routed</span></code> der Web-API-Schnittstelle.
 Eine weitere, für die GUI-lose Bedienung von Repositorienkonten gedachte REST-Resource
-ist durch den Endpunkt <code class="docutils literal"><span class="pre">config</span></code> gegeben. Diese Resource ist insbesondere für
+ist durch den Endpunkt <code class="docutils literal notranslate"><span class="pre">config</span></code> gegeben. Diese Resource ist insbesondere für
 Repositorienbetreiber, die eigene Skripte zur Verwaltung ihrer Konten entwickeln
 möchten. Sie ist hier der Vollständigkeit halber mit aufgeführt.</p>
-<p>Im Folgenden soll der Übersichtlichkeit halber <code class="docutils literal"><span class="pre">GET</span></code>, <code class="docutils literal"><span class="pre">POST</span></code>, usw. für die gesamte,
-wie oben angegebene <code class="docutils literal"><span class="pre">curl</span></code>-Zeile geschrieben werden.  Hier ein kleiner Überblick der
+<p>Im Folgenden soll der Übersichtlichkeit halber <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, usw. für die gesamte,
+wie oben angegebene <code class="docutils literal notranslate"><span class="pre">curl</span></code>-Zeile geschrieben werden.  Hier ein kleiner Überblick der
 möglichen Aufrufe in dieser Kurzform:</p>
 <ul>
-<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/validate</span></code></p>
+<li><p><strong>Aufruf</strong> :  <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/validate</span></code></p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /validate?api_key=&lt;api_key&gt;
+<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch „<code class="docutils literal notranslate"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>“ (internes DeepGreen-Format)</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>POST /validate?api_key=&lt;api_key&gt;
 Content-Type: application/json
 
 [Incoming Notification JSON]
@@ -145,10 +132,10 @@ Content-Type: application/json
 </div>
 </div>
 </li>
-<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/notification</span></code></p>
+<li><p><strong>Aufruf</strong> :  <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/notification</span></code></p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch &#8220;<code class="docutils literal"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>&#8220;</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
+<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch „<code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>“</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
 Content-Type: multipart/form-data; boundary=FulltextBoundary
 
 --FulltextBoundary
@@ -170,28 +157,28 @@ Content-Type: application/zip
 </div>
 </div>
 </li>
-<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/routed</span></code></p>
+<li><p><strong>Aufruf</strong> :  <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/routed</span></code></p>
 <ol class="loweralpha">
-<li><div class="literal-block-wrapper first docutils container" id="id3">
+<li><div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Liste <strong>aller</strong> erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed[?&lt;params&gt;]
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /routed[?&lt;params&gt;]
 </pre></div>
 </div>
 </div>
 </li>
-<li><div class="literal-block-wrapper first docutils container" id="id4">
+<li><div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;[?&lt;params&gt;]
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;[?&lt;params&gt;]
 </pre></div>
 </div>
 </div>
 </li>
 </ol>
 </li>
-<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/notification</span></code></p>
+<li><p><strong>Aufruf</strong> :  <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/notification</span></code></p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Eine bestimmte Notification, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
+<div class="code-block-caption"><span class="caption-text">Eine bestimmte Notification, geliefert im Format „<code class="docutils literal notranslate"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>“ (internes DeepGreen-Format)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
 </pre></div>
 </div>
 </div>
@@ -200,10 +187,10 @@ Content-Type: application/zip
 <p>Daneben gibt es, wie eingangs schon erwähnt, einen weiteren Aufruf ausschließlich für
 Repositorienbetreiber gedacht:</p>
 <ul>
-<li><p class="first"><strong>Aufruf</strong>: <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/config</span></code></p>
+<li><p><strong>Aufruf</strong>: <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/config</span></code></p>
 <div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Eine neue &#8220;<code class="docutils literal"><span class="pre">match-config</span></code>&#8220;-Datei für das eigene Konto installieren (JSON-Format)</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /config?api_key=&lt;api_key&gt;
+<div class="code-block-caption"><span class="caption-text">Eine neue „<code class="docutils literal notranslate"><span class="pre">match-config</span></code>“-Datei für das eigene Konto installieren (JSON-Format)</span><a class="headerlink" href="#id6" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>POST /config?api_key=&lt;api_key&gt;
 Content-Type: application/json; charset=utf-8
 
 [New (overwriting!) match config settings JSON]
@@ -211,32 +198,32 @@ Content-Type: application/json; charset=utf-8
 </div>
 </div>
 </li>
-<li><p class="first"><strong>Aufruf</strong>: <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/config</span></code></p>
+<li><p><strong>Aufruf</strong>: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/config</span></code></p>
 <div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Die aktuellen &#8220;<code class="docutils literal"><span class="pre">match-config</span></code>&#8220;-Setzungen des eigenen Kontos abfragen (JSON-Format)</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /config?api_key=&lt;api_key&gt;
+<div class="code-block-caption"><span class="caption-text">Die aktuellen „<code class="docutils literal notranslate"><span class="pre">match-config</span></code>“-Setzungen des eigenen Kontos abfragen (JSON-Format)</span><a class="headerlink" href="#id7" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /config?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
 </div>
 </li>
 </ul>
-<p>All diese Aufrufmöglichkeiten der <code class="docutils literal"><span class="pre">Web-API</span></code> sollen nun im Folgenden näher erläutert werden.</p>
+<p>All diese Aufrufmöglichkeiten der <code class="docutils literal notranslate"><span class="pre">Web-API</span></code> sollen nun im Folgenden näher erläutert werden.</p>
 <div class="section" id="artikeldaten-an-deepgreen-liefern">
 <h2>Artikeldaten an DeepGreen liefern<a class="headerlink" href="#artikeldaten-an-deepgreen-liefern" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Vor der Übertragung eines Datenpakets einer Publikation zu DeepGreen kann das Paket von
 der Datendrehscheibe überprüft werden. Es sind also zwei REST-Resourcen des Web-APIs verfügbar,</p>
 <ol class="arabic simple">
-<li>Validierung eines Datenpakets (<code class="docutils literal"><span class="pre">validation</span></code>),</li>
-<li>Übertragung eines Datenpakets (<code class="docutils literal"><span class="pre">notification</span></code>).</li>
+<li><p>Validierung eines Datenpakets (<code class="docutils literal notranslate"><span class="pre">validation</span></code>),</p></li>
+<li><p>Übertragung eines Datenpakets (<code class="docutils literal notranslate"><span class="pre">notification</span></code>).</p></li>
 </ol>
-<p>Für ganz ungeduldige Leser hier zwei (funktionierende!) <code class="docutils literal"><span class="pre">bash</span></code>-Beispielskripte, die
-<code class="docutils literal"><span class="pre">zip</span></code>-Pakete mit einem <code class="docutils literal"><span class="pre">api_key</span></code> an DeepGreen liefert bzw. validiert.  Die Skripte
-analysieren zunächst jeweils die angegeben <code class="docutils literal"><span class="pre">zip</span></code>-Datei, welches Metadatenschema im
-Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">JATS</span></code>,
-<code class="docutils literal"><span class="pre">DTD</span> <span class="pre">Journal</span></code> (dies ist eine Variante des <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">JATS</span></code>-Schema) und <code class="docutils literal"><span class="pre">DTD</span> <span class="pre">RSC</span></code>.</p>
+<p>Für ganz ungeduldige Leser hier zwei (funktionierende!) <code class="docutils literal notranslate"><span class="pre">bash</span></code>-Beispielskripte, die
+<code class="docutils literal notranslate"><span class="pre">zip</span></code>-Pakete mit einem <code class="docutils literal notranslate"><span class="pre">api_key</span></code> an DeepGreen liefert bzw. validiert.  Die Skripte
+analysieren zunächst jeweils die angegeben <code class="docutils literal notranslate"><span class="pre">zip</span></code>-Datei, welches Metadatenschema im
+Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <code class="docutils literal notranslate"><span class="pre">DTD</span> <span class="pre">JATS</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DTD</span> <span class="pre">Journal</span></code> (dies ist eine Variante des <code class="docutils literal notranslate"><span class="pre">DTD</span> <span class="pre">JATS</span></code>-Schema) und <code class="docutils literal notranslate"><span class="pre">DTD</span> <span class="pre">RSC</span></code>.</p>
 <div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-text">bash-Skript zur Validierung</span><a class="headerlink" href="#id8" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
 <span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://www.oa-deepgreen.de&quot;</span>
 
@@ -291,7 +278,7 @@ Datenpaket vorliegt.  Momentan werden von DeepGreen drei Schemata verarbeitet, <
 </div>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text">bash-Skript zur Datenpaketübertragung</span><a class="headerlink" href="#id9" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
 <span class="nv">host_url</span><span class="o">=</span><span class="s2">&quot;https://www.oa-deepgreen.de&quot;</span>
 
@@ -353,15 +340,15 @@ lassen, ebenso nur Metadaten abzuliefern.  Zu beachten bleibt dabei, dass jeweil
 immer nur <strong>ein Artikel</strong> (!) pro Datenpaket verwendet wird.  Nun die Erklärung
 der Rückgabewerte im Einzelnen:</p>
 <div class="section" id="ruckgabewerte-bei-validation-hier-am-beispiel-nur-metadaten-abliefern">
-<h3>Rückgabewerte bei <code class="docutils literal"><span class="pre">validation</span></code> (hier am Beispiel: Nur Metadaten abliefern)<a class="headerlink" href="#ruckgabewerte-bei-validation-hier-am-beispiel-nur-metadaten-abliefern" title="Link zu dieser Überschrift">¶</a></h3>
+<h3>Rückgabewerte bei <code class="docutils literal notranslate"><span class="pre">validation</span></code> (hier am Beispiel: Nur Metadaten abliefern)<a class="headerlink" href="#ruckgabewerte-bei-validation-hier-am-beispiel-nur-metadaten-abliefern" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Für die Verifikation einer Datenlieferung macht es durchaus Sinn, nur die Metadaten der
-Lieferung zu schicken.  Dazu wird das <code class="docutils literal"><span class="pre">json</span></code>-Format &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221;
+Lieferung zu schicken.  Dazu wird das <code class="docutils literal notranslate"><span class="pre">json</span></code>-Format „<code class="docutils literal notranslate"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>“
 zur Beschreibung der zu überprüfenden Metadaten verwendet.  Mit Binärdaten gebündelte
 Lieferungen können natürlich ebenso geprüft werden.  Dies funktioniert genau wie im
-Beispiel <code class="docutils literal"><span class="pre">notification</span></code> unten angegeben.</p>
+Beispiel <code class="docutils literal notranslate"><span class="pre">notification</span></code> unten angegeben.</p>
 <div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch &#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id10" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /validate?api_key=&lt;api_key&gt;
+<div class="code-block-caption"><span class="caption-text">Angabe von Metadaten durch „<code class="docutils literal notranslate"><span class="pre">Incoming</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>“ (internes DeepGreen-Format)</span><a class="headerlink" href="#id10" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>POST /validate?api_key=&lt;api_key&gt;
 Content-Type: application/json
 
 [Incoming Notification JSON]
@@ -369,30 +356,30 @@ Content-Type: application/json
 </div>
 </div>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<li><p><strong>http-Header Rückgabewerte</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>204</strong> No Content</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>204</strong> No Content</p>
 </td>
-<td><p class="first"></p>
-<p class="last">Datenpaket ok!</p>
+<td><p></p>
+<p>Datenpaket ok!</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>400</strong> Bad Request</p>
+<tr class="row-odd"><td><p></p>
+<p><strong>400</strong> Bad Request</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
 Content-Type: application/json
 
 {
@@ -402,11 +389,11 @@ Content-Type: application/json
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>401</strong> Unauthorised</p>
+<tr class="row-even"><td><p></p>
+<p><strong>401</strong> Unauthorised</p>
 </td>
-<td><p class="first"></p>
-<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falsche Benutzertyp</p>
+<td><p></p>
+<p>z.B. ungültiger <code class="docutils literal notranslate"><span class="pre">api_key</span></code>, falsche Benutzertyp</p>
 </td>
 </tr>
 </tbody>
@@ -414,18 +401,18 @@ Content-Type: application/json
 </div></blockquote>
 </li>
 </ul>
-<p>Soweit die Dokumentation der http-Rückgabewerte der Funktion <code class="docutils literal"><span class="pre">validation</span></code>.  Nun folgt die
-Beschreibung der Rückgabewerte bei der Verwendung der Funktion <code class="docutils literal"><span class="pre">notification</span></code>.</p>
+<p>Soweit die Dokumentation der http-Rückgabewerte der Funktion <code class="docutils literal notranslate"><span class="pre">validation</span></code>.  Nun folgt die
+Beschreibung der Rückgabewerte bei der Verwendung der Funktion <code class="docutils literal notranslate"><span class="pre">notification</span></code>.</p>
 </div>
 <div class="section" id="ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern">
-<h3>Rückgabewerte bei <code class="docutils literal"><span class="pre">notification</span></code> (am Beispiel: Metadaten samt Volltext(e) abliefern)<a class="headerlink" href="#ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Artikellieferungen, die binären Inhalt enthalten sollen (z.B. der Volltext als <code class="docutils literal"><span class="pre">pdf</span></code>),
-werden durch die Kennzeichnung &#8220;<code class="docutils literal"><span class="pre">multipart/form-data</span></code>&#8221; im http-Header gebündelt.  Dabei
-<strong>muss</strong> im <code class="docutils literal"><span class="pre">json</span></code> des Metadatenteil (&#8220;<code class="docutils literal"><span class="pre">Incoming</span> <span class="pre">Notifikation</span> <span class="pre">JSON</span></code>&#8221;) das Feld
+<h3>Rückgabewerte bei <code class="docutils literal notranslate"><span class="pre">notification</span></code> (am Beispiel: Metadaten samt Volltext(e) abliefern)<a class="headerlink" href="#ruckgabewerte-bei-notification-am-beispiel-metadaten-samt-volltext-e-abliefern" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Artikellieferungen, die binären Inhalt enthalten sollen (z.B. der Volltext als <code class="docutils literal notranslate"><span class="pre">pdf</span></code>),
+werden durch die Kennzeichnung „<code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code>“ im http-Header gebündelt.  Dabei
+<strong>muss</strong> im <code class="docutils literal notranslate"><span class="pre">json</span></code> des Metadatenteil („<code class="docutils literal notranslate"><span class="pre">Incoming</span> <span class="pre">Notifikation</span> <span class="pre">JSON</span></code>“) das Feld
 <strong>content.packaging_format</strong> zwingend vorhanden sein.</p>
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch &#8220;<code class="docutils literal"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>&#8220;</span><a class="headerlink" href="#id11" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
+<div class="code-block-caption"><span class="caption-text">http-POST: Bündelung durch „<code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">multipart/form-data;</span> <span class="pre">...</span></code>“</span><a class="headerlink" href="#id11" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
 Content-Type: multipart/form-data; boundary=FulltextBoundary
 
 --FulltextBoundary
@@ -447,8 +434,8 @@ Content-Type: application/zip
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">Minimale Angabe der Metadaten durch &#8220;<code class="docutils literal"><span class="pre">packaging_format</span></code>&#8220;</span><a class="headerlink" href="#id12" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
+<div class="code-block-caption"><span class="caption-text">Minimale Angabe der Metadaten durch „<code class="docutils literal notranslate"><span class="pre">packaging_format</span></code>“</span><a class="headerlink" href="#id12" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>POST /notification?api_key=&lt;api_key&gt;
 Content-Type: multipart/form-data; boundary=FulltextBoundary
 
 --FulltextBoundary
@@ -474,23 +461,23 @@ Content-Type: application/zip
 </div>
 </div>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<li><p><strong>http-Header Rückgabewerte</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>202</strong> Accepted</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>202</strong> Accepted</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  202 Accepted
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  202 Accepted
 Content-Type: application/json
 Location: &lt;URL des api-Endpunkts der akzeptierten Lieferung&gt;
 
@@ -503,10 +490,10 @@ Location: &lt;URL des api-Endpunkts der akzeptierten Lieferung&gt;
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>400</strong> Bad Request</p>
+<tr class="row-odd"><td><p></p>
+<p><strong>400</strong> Bad Request</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
 Content-Type: application/json
 
 {
@@ -516,11 +503,11 @@ Content-Type: application/json
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>401</strong> Unauthorised</p>
+<tr class="row-even"><td><p></p>
+<p><strong>401</strong> Unauthorised</p>
 </td>
-<td><p class="first"></p>
-<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falscher Benutzertyp</p>
+<td><p></p>
+<p>z.B. ungültiger <code class="docutils literal notranslate"><span class="pre">api_key</span></code>, falscher Benutzertyp</p>
 </td>
 </tr>
 </tbody>
@@ -538,7 +525,7 @@ Aufrufe, aber auch durch bestimmte Parameter festgelegt und gesteuert.  Als
 Parameter für die http-Adressen sind vorgesehen:</p>
 <div class="literal-block-wrapper docutils container" id="id13">
 <div class="code-block-caption"><span class="caption-text">Mögliche <strong>Parameter</strong> bei GET-Funktionen von DeepGreen</span><a class="headerlink" href="#id13" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;http-Adresse/...&gt;?since=&lt;YYYY-MM-DD&gt;
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET &lt;http-Adresse/...&gt;?since=&lt;YYYY-MM-DD&gt;
 <span class="gh">#</span>
 <span class="gh"># Angabe erforderlich; bestimmt, von wann ab die Notifikationen gelistet werden</span>
 <span class="gh">#</span>
@@ -560,13 +547,13 @@ GET &lt;http-Adresse/...&gt;?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
 </div>
-<p>Mehrere Parameterangaben hintereinander können mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen verbunden werden.</p>
+<p>Mehrere Parameterangaben hintereinander können mit dem <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>-Zeichen verbunden werden.</p>
 <p>Die Notifikationlisten der zugestellten Artikel, die von DeepGreen innerhalb eines gewissen
 Zeitfensters (typischerweise drei Monate) bereitgestellt werden, sind JSON-Listen des
-DeepGreen-spezifischen Schemas &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span></code>&#8221;.</p>
+DeepGreen-spezifischen Schemas „<code class="docutils literal notranslate"><span class="pre">Outgoing</span> <span class="pre">Notification</span></code>“.</p>
 <div class="section" id="volles-json-schema-fur-outgoing-notification-alphabetisch-sortiert-nach-den-schlusseln">
-<h3>Volles JSON-Schema für <code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span></code> (alphabetisch sortiert nach den Schlüsseln)<a class="headerlink" href="#volles-json-schema-fur-outgoing-notification-alphabetisch-sortiert-nach-den-schlusseln" title="Link zu dieser Überschrift">¶</a></h3>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<h3>Volles JSON-Schema für <code class="docutils literal notranslate"><span class="pre">Outgoing</span> <span class="pre">Notification</span></code> (alphabetisch sortiert nach den Schlüsseln)<a class="headerlink" href="#volles-json-schema-fur-outgoing-notification-alphabetisch-sortiert-nach-den-schlusseln" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;analysis_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-08-09T14:22:11Z&quot;</span><span class="p">,</span>
   <span class="nt">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;packaging_format&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
@@ -602,18 +589,22 @@ DeepGreen-spezifischen Schemas &#8220;<code class="docutils literal"><span class
     <span class="p">],</span>
     <span class="nt">&quot;date_accepted&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-08-09T14:22:11Z&quot;</span><span class="p">,</span>
     <span class="nt">&quot;date_submitted&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-08-09T14:22:11Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fpage&quot;</span><span class="p">,</span> <span class="nt">&quot;string&quot;</span><span class="p">,</span>
     <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
         <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
       <span class="p">}</span>
     <span class="p">],</span>
+    <span class="nt">&quot;issue&quot;</span><span class="p">,</span> <span class="nt">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;journal&quot;</span><span class="p">,</span> <span class="nt">&quot;string&quot;</span><span class="p">,</span>
     <span class="nt">&quot;license_ref&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
       <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
       <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
       <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;lpage&quot;</span><span class="p">,</span> <span class="nt">&quot;string&quot;</span><span class="p">,</span>
     <span class="nt">&quot;project&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
         <span class="nt">&quot;grant_number&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
@@ -640,7 +631,8 @@ DeepGreen-spezifischen Schemas &#8220;<code class="docutils literal"><span class
     <span class="nt">&quot;subject&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="s2">&quot;string&quot;</span>
     <span class="p">],</span>
-    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;volume&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -651,114 +643,129 @@ noch die Feldbeschreibungen in der Tabelle unter Umständen vollständig sind.  
 einer weiteren Version von DeepGreen durchaus weitere Felder hinzutreten oder einzelne
 Felder gelöscht werden.</p>
 <ul>
-<li><p class="first"><strong>Feldbeschreibung für ausgehende Benachrichtungen</strong> (in alphabetischer Reihenfolge)</p>
+<li><p><strong>Feldbeschreibung für ausgehende Benachrichtungen</strong> (in alphabetischer Reihenfolge)</p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="44%" />
-<col width="56%" />
+<col style="width: 44%" />
+<col style="width: 56%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Feldbezeichner</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feldbezeichner</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>analysis_date</td>
-<td>Zeitpunkt der Zustellanalyse</td>
+<tbody>
+<tr class="row-even"><td><p>analysis_date</p></td>
+<td><p>Zeitpunkt der Zustellanalyse</p></td>
 </tr>
-<tr class="row-odd"><td>content.packaging_format</td>
-<td>Format der zugehörigen Binärpakets (meist .zip)</td>
+<tr class="row-odd"><td><p>content.packaging_format</p></td>
+<td><p>Format der zugehörigen Binärpakets (meist .zip)</p></td>
 </tr>
-<tr class="row-even"><td>created_date</td>
-<td>Zeitpunkt, wann die Notifikation angelegt wurde</td>
+<tr class="row-even"><td><p>created_date</p></td>
+<td><p>Zeitpunkt, wann die Notifikation angelegt wurde</p></td>
 </tr>
-<tr class="row-odd"><td>embargo.duration</td>
-<td>Sperrzeit (Embargo; angegeben in Monaten)</td>
+<tr class="row-odd"><td><p>embargo.duration</p></td>
+<td><p>Sperrzeit (Embargo; angegeben in Monaten)</p></td>
 </tr>
-<tr class="row-even"><td>id</td>
-<td>Persistenter System-ID für diese Notifikation</td>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>Persistenter System-ID für diese Notifikation</p></td>
 </tr>
-<tr class="row-odd"><td>links.format</td>
-<td>MIME-Typ der Quelle</td>
+<tr class="row-odd"><td><p>links.format</p></td>
+<td><p>MIME-Typ der Quelle</p></td>
 </tr>
-<tr class="row-even"><td>links.packaging</td>
-<td>Paketformat der Quelle</td>
+<tr class="row-even"><td><p>links.packaging</p></td>
+<td><p>Paketformat der Quelle</p></td>
 </tr>
-<tr class="row-odd"><td>links.type</td>
-<td>Schlagwort für den Typ der Quelle (z.B. package)</td>
+<tr class="row-odd"><td><p>links.type</p></td>
+<td><p>Schlagwort für den Typ der Quelle (z.B. package)</p></td>
 </tr>
-<tr class="row-even"><td>links.url</td>
-<td>URL für die Quelle (verlags- oder systemseitig)</td>
+<tr class="row-even"><td><p>links.url</p></td>
+<td><p>URL für die Quelle (verlags- oder systemseitig)</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.author.affiliation</td>
-<td>Affiliationsangabe, ermittelt aus den Metadaten</td>
+<tr class="row-odd"><td><p>metadata.author.affiliation</p></td>
+<td><p>Affiliationsangabe, ermittelt aus den Metadaten</p></td>
 </tr>
-<tr class="row-even"><td>metadata.author.firstname</td>
-<td>Vorname eines Autors/Urhebers</td>
+<tr class="row-even"><td><p>metadata.author.firstname</p></td>
+<td><p>Vorname eines Autors/Urhebers</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.author.lastname</td>
-<td>Nachname eines Autors/Urhebers</td>
+<tr class="row-odd"><td><p>metadata.author.lastname</p></td>
+<td><p>Nachname eines Autors/Urhebers</p></td>
 </tr>
-<tr class="row-even"><td>metadata.author.name</td>
-<td>Zusammengesetzter Name eines Autors/Urhebers</td>
+<tr class="row-even"><td><p>metadata.author.name</p></td>
+<td><p>Zusammengesetzter Name eines Autors/Urhebers</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.date_accepted</td>
-<td>Datum, wann die Publikation akzeptiert wurde</td>
+<tr class="row-odd"><td><p>metadata.date_accepted</p></td>
+<td><p>Datum, wann die Publikation akzeptiert wurde</p></td>
 </tr>
-<tr class="row-even"><td>metadata.date_submitted</td>
-<td>Datum, wann die Publikation eingereicht wurde</td>
+<tr class="row-even"><td><p>metadata.date_submitted</p></td>
+<td><p>Datum, wann die Publikation eingereicht wurde</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.identifier.id</td>
-<td>ID für die Publikation (z.B. DOI)</td>
+<tr class="row-odd"><td><p>metadata.fpage</p></td>
+<td><p>Erste Seitenzahl der Publikation</p></td>
 </tr>
-<tr class="row-even"><td>metadata.identifier.type</td>
-<td>ID-Typ (z.B. &#8220;doi&#8221;; allerdings kein Vokabular)</td>
+<tr class="row-even"><td><p>metadata.identifier.id</p></td>
+<td><p>ID für die Publikation (z.B. DOI)</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.license_ref.title</td>
-<td>Name einer Lizenz (Freifeldtext)</td>
+<tr class="row-odd"><td><p>metadata.identifier.type</p></td>
+<td><p>ID-Typ (z.B. „doi“; allerdings kein Vokabular)</p></td>
 </tr>
-<tr class="row-even"><td>metadata.license_ref.type</td>
-<td>Lizenz-Typ (Freifeldtext)</td>
+<tr class="row-even"><td><p>metadata.issue</p></td>
+<td><p>Heftzählung (Journalheft)</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.license_ref.url</td>
-<td>URL, die zu weiteren Lizenzinformationen führt</td>
+<tr class="row-odd"><td><p>metadata.journal</p></td>
+<td><p>Name des Journals der Publikation (Journaltitel)</p></td>
 </tr>
-<tr class="row-even"><td>metadata.license_ref.version</td>
-<td>Version einer Lizenz</td>
+<tr class="row-even"><td><p>metadata.license_ref.title</p></td>
+<td><p>Name einer Lizenz (Freifeldtext)</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.project.grant_number</td>
-<td>Förderkürzel, sofern in den Metadaten angeführt</td>
+<tr class="row-odd"><td><p>metadata.license_ref.type</p></td>
+<td><p>Lizenz-Typ (Freifeldtext)</p></td>
 </tr>
-<tr class="row-even"><td>metadata.project.identifier.id</td>
-<td>ID einer Förderung (z.B. Ringold)</td>
+<tr class="row-even"><td><p>metadata.license_ref.url</p></td>
+<td><p>URL, die zu weiteren Lizenzinformationen führt</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.project.identifier.type</td>
-<td>ID-Typ in Bezug auf die Förder-ID</td>
+<tr class="row-odd"><td><p>metadata.license_ref.version</p></td>
+<td><p>Version einer Lizenz</p></td>
 </tr>
-<tr class="row-even"><td>metadata.project.name</td>
-<td>Name eines Förders / einer Förderinstitution</td>
+<tr class="row-even"><td><p>metadata.lpage</p></td>
+<td><p>Letzte Seitenzahl der Publikation</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.publication_date</td>
-<td>Publikationsdatum</td>
+<tr class="row-odd"><td><p>metadata.project.grant_number</p></td>
+<td><p>Förderkürzel, sofern in den Metadaten angeführt</p></td>
 </tr>
-<tr class="row-even"><td>metadata.publisher</td>
-<td>Verlagsname bzw. Verlag</td>
+<tr class="row-even"><td><p>metadata.project.identifier.id</p></td>
+<td><p>ID einer Förderung (z.B. Ringold)</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.source.identifier.id</td>
-<td>ID der Veröffentlichungsquelle (z.B. ISSN)</td>
+<tr class="row-odd"><td><p>metadata.project.identifier.type</p></td>
+<td><p>ID-Typ in Bezug auf die Förder-ID</p></td>
 </tr>
-<tr class="row-even"><td>metadata.source.identifier.type</td>
-<td>ID-Typ der Veröffentlichungsquelle</td>
+<tr class="row-even"><td><p>metadata.project.name</p></td>
+<td><p>Name eines Förders / einer Förderinstitution</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.source.name</td>
-<td>Name der Veröffentlichungsquelle (Journaltitel)</td>
+<tr class="row-odd"><td><p>metadata.publication_date</p></td>
+<td><p>Publikationsdatum</p></td>
 </tr>
-<tr class="row-even"><td>metadata.subject</td>
-<td>Schlagwort</td>
+<tr class="row-even"><td><p>metadata.publisher</p></td>
+<td><p>Verlagsname bzw. Verlag</p></td>
 </tr>
-<tr class="row-odd"><td>metadata.title</td>
-<td>Titel der Veröffentlichung</td>
+<tr class="row-odd"><td><p>metadata.source.identifier.id</p></td>
+<td><p>ID der Veröffentlichungsquelle (z.B. ISSN)</p></td>
+</tr>
+<tr class="row-even"><td><p>metadata.source.identifier.type</p></td>
+<td><p>ID-Typ der Veröffentlichungsquelle</p></td>
+</tr>
+<tr class="row-odd"><td><p>metadata.source.name</p></td>
+<td><p>Name der Veröffentlichungsquelle (Journaltitel)</p></td>
+</tr>
+<tr class="row-even"><td><p>metadata.subject</p></td>
+<td><p>Schlagwort</p></td>
+</tr>
+<tr class="row-odd"><td><p>metadata.title</p></td>
+<td><p>Titel der Veröffentlichung</p></td>
+</tr>
+<tr class="row-even"><td><p>metadata.volume</p></td>
+<td><p>Bandzählung (Journalband)</p></td>
 </tr>
 </tbody>
 </table>
@@ -770,28 +777,28 @@ Felder gelöscht werden.</p>
 <h3>Liste aller erfolgreich zugestellten Artikel<a class="headerlink" href="#liste-aller-erfolgreich-zugestellten-artikel" title="Link zu dieser Überschrift">¶</a></h3>
 <div class="literal-block-wrapper docutils container" id="id14">
 <div class="code-block-caption"><span class="caption-text">Liste aller erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id14" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed?since=&lt;YYYY-MM-DD&gt;[&amp;&lt;other params&gt;]
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /routed?since=&lt;YYYY-MM-DD&gt;[&amp;&lt;other params&gt;]
 </pre></div>
 </div>
 </div>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<li><p><strong>http-Header Rückgabewerte</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>200</strong> OK</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>200</strong> OK</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
 Content-Type: application/json
 
 {
@@ -808,10 +815,10 @@ Content-Type: application/json
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>400</strong> Bad Request</p>
+<tr class="row-odd"><td><p></p>
+<p><strong>400</strong> Bad Request</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
 Content-Type: application/json
 
 {
@@ -831,28 +838,28 @@ Content-Type: application/json
 <h3>Liste der einer Einrichtung zugestellten Artikel<a class="headerlink" href="#liste-der-einer-einrichtung-zugestellten-artikel" title="Link zu dieser Überschrift">¶</a></h3>
 <div class="literal-block-wrapper docutils container" id="id15">
 <div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id15" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;?since=&lt;YYYY-MM-DD&gt;[&amp;&lt;other params&gt;]
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /routed/&lt;repo_id&gt;?since=&lt;YYYY-MM-DD&gt;[&amp;&lt;other params&gt;]
 </pre></div>
 </div>
 </div>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<li><p><strong>http-Header Rückgabewerte</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>200</strong> OK</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>200</strong> OK</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
 Content-Type: application/json
 
 {
@@ -869,10 +876,10 @@ Content-Type: application/json
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>400</strong> Bad Request</p>
+<tr class="row-odd"><td><p></p>
+<p><strong>400</strong> Bad Request</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  400 Bad Request
 Content-Type: application/json
 
 {
@@ -893,31 +900,31 @@ Content-Type: application/json
 <p>Jede Notifikation zu einem Artikel, der von DeepGreen erfolgreich zugestellt werden konnte,
 ist mit einer eindeutigen ID, der sogenannten Notifikations-ID, gekennzeichnet.  Diese ID
 ist in den Ausgabelisten der vorherigen Abfragen zu finden.  Mit der folgenden Anfarge
-erhält man den individuellen <code class="docutils literal"><span class="pre">JSON</span></code> Datensatz einer bestimmten Notifikations-ID.</p>
+erhält man den individuellen <code class="docutils literal notranslate"><span class="pre">JSON</span></code> Datensatz einer bestimmten Notifikations-ID.</p>
 <div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-text">Abfrage einer bestimmten Notifikation, geliefert im Format &#8220;<code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>&#8221; (internes DeepGreen-Format)</span><a class="headerlink" href="#id16" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
+<div class="code-block-caption"><span class="caption-text">Abfrage einer bestimmten Notifikation, geliefert im Format „<code class="docutils literal notranslate"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>“ (internes DeepGreen-Format)</span><a class="headerlink" href="#id16" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /notification/&lt;notification_id&gt;
 </pre></div>
 </div>
 </div>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<li><p><strong>http-Header Rückgabewerte</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>200</strong> OK</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>200</strong> OK</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
 Content-Type: application/json
 
 [Outgoing Notification JSON]
@@ -925,14 +932,14 @@ Content-Type: application/json
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>404</strong> Not Found</p>
+<tr class="row-odd"><td><p></p>
+<p><strong>404</strong> Not Found</p>
 </td>
-<td><p class="first"></p>
-<p class="last">z.B. die <code class="docutils literal"><span class="pre">notification_id</span></code> existiert nicht, oder die
+<td><p></p>
+<p>z.B. die <code class="docutils literal notranslate"><span class="pre">notification_id</span></code> existiert nicht, oder die
 Notifikation konnte (noch) nicht zugestellt werden und
 man ist nicht der Verfasser (d.h. Verlag) der Notifikation
-(authentifiziert via <code class="docutils literal"><span class="pre">api_key</span></code>)</p>
+(authentifiziert via <code class="docutils literal notranslate"><span class="pre">api_key</span></code>)</p>
 </td>
 </tr>
 </tbody>
@@ -942,10 +949,10 @@ man ist nicht der Verfasser (d.h. Verlag) der Notifikation
 </ul>
 <div class="section" id="abruf-der-binardaten-einer-notifikation">
 <h4>Abruf der Binärdaten einer Notifikation<a class="headerlink" href="#abruf-der-binardaten-einer-notifikation" title="Link zu dieser Überschrift">¶</a></h4>
-<p>Über ein spezielles <code class="docutils literal"><span class="pre">links</span></code>-Feld im <code class="docutils literal"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>, wenn es gesetzt ist,
+<p>Über ein spezielles <code class="docutils literal notranslate"><span class="pre">links</span></code>-Feld im <code class="docutils literal notranslate"><span class="pre">Outgoing</span> <span class="pre">Notification</span> <span class="pre">JSON</span></code>, wenn es gesetzt ist,
 kann dann der entsprechende Volltext bezogen werden, sofern man dazu berechtigt ist.
 Angenommen, die Notifikation enthielte den JSON-Abschnitt</p>
-<div class="highlight-json"><div class="highlight"><pre><span></span>&quot;links&quot; : [
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;links&quot; : [
    {
      &quot;type&quot; : &quot;package&quot;,
      &quot;format&quot; : &quot;application/zip&quot;,
@@ -964,28 +971,28 @@ Angenommen, die Notifikation enthielte den JSON-Abschnitt</p>
 <p>dann lautete der Abruf des Volltextes wie folgt:</p>
 <div class="literal-block-wrapper docutils container" id="id17">
 <div class="code-block-caption"><span class="caption-text">Abfrage der Binärdaten eines Datenpakets, i.d.R. eine .zip-Datei mit dem/den Volltext(en)</span><a class="headerlink" href="#id17" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;links url&gt;?api_key=&lt;api_key&gt;
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET &lt;links url&gt;?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
 </div>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<li><p><strong>http-Header Rückgabewerte</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>200</strong> OK</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>200</strong> OK</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
 Content-Type: application/zip
 
 [(binäres) Paket]
@@ -993,19 +1000,19 @@ Content-Type: application/zip
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>401</strong> Unauthorised</p>
+<tr class="row-odd"><td><p></p>
+<p><strong>401</strong> Unauthorised</p>
 </td>
-<td><p class="first"></p>
-<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code>, falsche Benutzertyp oder die
+<td><p></p>
+<p>z.B. ungültiger <code class="docutils literal notranslate"><span class="pre">api_key</span></code>, falsche Benutzertyp oder die
 entsprechende Notifikation wurde (noch) nicht zugestellt</p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>404</strong> Not Found</p>
+<tr class="row-even"><td><p></p>
+<p><strong>404</strong> Not Found</p>
 </td>
-<td><p class="first"></p>
-<p class="last">unter der angegebenen URL gibt es keinen Inhalt bzw.
+<td><p></p>
+<p>unter der angegebenen URL gibt es keinen Inhalt bzw.
 die URL ist schlicht nicht existent</p>
 </td>
 </tr>
@@ -1018,33 +1025,33 @@ die URL ist schlicht nicht existent</p>
 </div>
 </div>
 <div class="section" id="abfrage-und-update-der-match-config-setzungen-bei-repositorien">
-<h2>Abfrage und Update der <code class="docutils literal"><span class="pre">match-config</span></code>-Setzungen bei Repositorien<a class="headerlink" href="#abfrage-und-update-der-match-config-setzungen-bei-repositorien" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Abfrage und Update der <code class="docutils literal notranslate"><span class="pre">match-config</span></code>-Setzungen bei Repositorien<a class="headerlink" href="#abfrage-und-update-der-match-config-setzungen-bei-repositorien" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Zur Abfrage der aktuellen Affiliations- und weiteren Treffer-Einstellungen eines
-Repositorienkontos benötigt man natürlich einen gültigen <code class="docutils literal"><span class="pre">api_key</span></code>:</p>
+Repositorienkontos benötigt man natürlich einen gültigen <code class="docutils literal notranslate"><span class="pre">api_key</span></code>:</p>
 <div class="literal-block-wrapper docutils container" id="id18">
 <div class="code-block-caption"><span class="caption-text">Abfrage der aktuellen matching-Kriterien</span><a class="headerlink" href="#id18" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /config?api_key=&lt;api_key&gt;
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /config?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
 </div>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<li><p><strong>http-Header Rückgabewerte</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>200</strong> OK</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>200</strong> OK</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
 Content-Type: application/json
 
 [matching Kriterien JSON]
@@ -1052,19 +1059,19 @@ Content-Type: application/json
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>401</strong> Unauthorised</p>
+<tr class="row-odd"><td><p></p>
+<p><strong>401</strong> Unauthorised</p>
 </td>
-<td><p class="first"></p>
-<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code></p>
+<td><p></p>
+<p>z.B. ungültiger <code class="docutils literal notranslate"><span class="pre">api_key</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>404</strong> Not Found</p>
+<tr class="row-even"><td><p></p>
+<p><strong>404</strong> Not Found</p>
 </td>
-<td><p class="first"></p>
-<p class="last">unter der angegebenen URL gibt es keinen Inhalt bzw.
-die URL ist schlicht nicht existent (z.B. durch <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/config/</span></code>)</p>
+<td><p></p>
+<p>unter der angegebenen URL gibt es keinen Inhalt bzw.
+die URL ist schlicht nicht existent (z.B. durch <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/config/</span></code>)</p>
 </td>
 </tr>
 </tbody>
@@ -1074,12 +1081,12 @@ die URL ist schlicht nicht existent (z.B. durch <code class="docutils literal"><
 </li>
 </ul>
 <div class="section" id="update-der-matching-kriterien-eines-repositorienkontos">
-<h3>Update der <code class="docutils literal"><span class="pre">matching</span></code>-Kriterien eines Repositorienkontos<a class="headerlink" href="#update-der-matching-kriterien-eines-repositorienkontos" title="Link zu dieser Überschrift">¶</a></h3>
+<h3>Update der <code class="docutils literal notranslate"><span class="pre">matching</span></code>-Kriterien eines Repositorienkontos<a class="headerlink" href="#update-der-matching-kriterien-eines-repositorienkontos" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Um neue Affiliations- und Treffer-Angaben für ein Repositorium in das zugehörige Konto
-laden zu können, benötigt man (wie gewohnt) einen gültigen <code class="docutils literal"><span class="pre">api_key</span></code>:</p>
+laden zu können, benötigt man (wie gewohnt) einen gültigen <code class="docutils literal notranslate"><span class="pre">api_key</span></code>:</p>
 <div class="literal-block-wrapper docutils container" id="id19">
 <div class="code-block-caption"><span class="caption-text">Überschreiben der matching-Kriterien mit neuen Werten</span><a class="headerlink" href="#id19" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>POST /config?api_key=&lt;api_key&gt;
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>POST /config?api_key=&lt;api_key&gt;
 Content-Type: application/json; charset=utf-8
 
 [Overwriting new match config settings JSON]
@@ -1087,40 +1094,40 @@ Content-Type: application/json; charset=utf-8
 </div>
 </div>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewerte</strong></p>
+<li><p><strong>http-Header Rückgabewerte</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>200</strong> OK</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>200</strong> OK</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
 Content-Length: 0
 </pre></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"></p>
-<p class="last"><strong>401</strong> Unauthorised</p>
+<tr class="row-odd"><td><p></p>
+<p><strong>401</strong> Unauthorised</p>
 </td>
-<td><p class="first"></p>
-<p class="last">z.B. ungültiger <code class="docutils literal"><span class="pre">api_key</span></code></p>
+<td><p></p>
+<p>z.B. ungültiger <code class="docutils literal notranslate"><span class="pre">api_key</span></code></p>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>400</strong> Bad Request</p>
+<tr class="row-even"><td><p></p>
+<p><strong>400</strong> Bad Request</p>
 </td>
-<td><p class="first"></p>
-<p class="last">Im JSON-Format, das hochgeladen wurde, ist ein Syntax-Fehler
+<td><p></p>
+<p>Im JSON-Format, das hochgeladen wurde, ist ein Syntax-Fehler
 festgestellt worden (z.B. ein fehlendes Komma in Aufzählungen)</p>
 </td>
 </tr>
@@ -1130,8 +1137,8 @@ festgestellt worden (z.B. ein fehlendes Komma in Aufzählungen)</p>
 </li>
 </ul>
 <div class="section" id="beispielhafte-korrekte-match-config-datei-im-internen-json-format">
-<h4>Beispielhafte, korrekte <code class="docutils literal"><span class="pre">match-config</span></code>-Datei im internen JSON-Format<a class="headerlink" href="#beispielhafte-korrekte-match-config-datei-im-internen-json-format" title="Link zu dieser Überschrift">¶</a></h4>
-<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<h4>Beispielhafte, korrekte <code class="docutils literal notranslate"><span class="pre">match-config</span></code>-Datei im internen JSON-Format<a class="headerlink" href="#beispielhafte-korrekte-match-config-datei-im-internen-json-format" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name_variants&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="s2">&quot;Academia Fridericiana Erlangensis&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Academia Friderico Alexandrina Erlangen-Nürnberg&quot;</span><span class="p">,</span>
@@ -1184,7 +1191,7 @@ festgestellt worden (z.B. ein fehlendes Komma in Aufzählungen)</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, DeepGreen Konsortium.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 erstellt.
     </div>
   </body>
 </html>

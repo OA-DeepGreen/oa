@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>OAI-PMH &#8212; DeepGreen 1.2.1 Dokumentation</title>
-    
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
     <link rel="author" title="Über dieses Dokument" href="../../about.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
     <link rel="next" title="SWORD(v2) Repositorium" href="sword_repo.html" />
     <link rel="prev" title="sFTP" href="sftp.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -54,7 +41,7 @@
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="../../index.html">Inhalt</a></h3>
+  <h3><a href="../../index.html">Inhaltsverzeichnis</a></h3>
   <ul>
 <li><a class="reference internal" href="#">OAI-PMH</a><ul>
 <li><a class="reference internal" href="#metadaten-von-deepgreen-erhalten">Metadaten von DeepGreen erhalten</a><ul>
@@ -79,13 +66,13 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Los" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -99,38 +86,38 @@
   <div class="section" id="oai-pmh">
 <h1>OAI-PMH<a class="headerlink" href="#oai-pmh" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Eine weitere Schnittstelle, die insbesondere für <em>metadata harvesting</em>-Prozesse geeignet ist,
-stellt DeepGreen mit einer <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-konformen An-/Abfragemöglichkeit zur Verfügung (siehe
+stellt DeepGreen mit einer <code class="docutils literal notranslate"><span class="pre">OAI-PMH</span></code>-konformen An-/Abfragemöglichkeit zur Verfügung (siehe
 <a class="reference external" href="https://de.wikipedia.org/wiki/Open_Archives_Initiative">Open Archives Initiative (dt.)</a>).
-Diese Art der Metadaten-Abfrage kann über die Web-Adresse <code class="docutils literal"><span class="pre">https://www.oa-deepgreen.de/oaipmh/</span></code>
+Diese Art der Metadaten-Abfrage kann über die Web-Adresse <code class="docutils literal notranslate"><span class="pre">https://www.oa-deepgreen.de/oaipmh/</span></code>
 angesprochen werden, z.B. mit dem Kommando <a class="reference external" href="https://curl.haxx.se">curl</a> in einer Shell
-(<code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">tcsh</span></code>, etc.):</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -s https://www.oa-deepgreen.de/oaipmh/...
+(<code class="docutils literal notranslate"><span class="pre">bash</span></code>, <code class="docutils literal notranslate"><span class="pre">tcsh</span></code>, etc.):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -s https://www.oa-deepgreen.de/oaipmh/...
 </pre></div>
 </div>
-<p>Dabei können (<em>müssen</em>!) die <code class="docutils literal"><span class="pre">...</span></code> noch ersetzt werden durch die zwei möglichen
-Aufrufvarianten <code class="docutils literal"><span class="pre">all</span></code> oder <code class="docutils literal"><span class="pre">repo</span></code> der DeepGreen-<code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Schnittstelle. Wie üblich,
-seien im Folgenden mit <code class="docutils literal"><span class="pre">GET</span></code> stets die oben angegebene, komplette <code class="docutils literal"><span class="pre">curl</span></code>-Zeile gemeint:</p>
+<p>Dabei können (<em>müssen</em>!) die <code class="docutils literal notranslate"><span class="pre">...</span></code> noch ersetzt werden durch die zwei möglichen
+Aufrufvarianten <code class="docutils literal notranslate"><span class="pre">all</span></code> oder <code class="docutils literal notranslate"><span class="pre">repo</span></code> der DeepGreen-<code class="docutils literal notranslate"><span class="pre">OAI-PMH</span></code>-Schnittstelle. Wie üblich,
+seien im Folgenden mit <code class="docutils literal notranslate"><span class="pre">GET</span></code> stets die oben angegebene, komplette <code class="docutils literal notranslate"><span class="pre">curl</span></code>-Zeile gemeint:</p>
 <ul>
-<li><p class="first"><strong>Aufruf</strong> :  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/all</span></code></p>
+<li><p><strong>Aufruf</strong> :  <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/all</span></code></p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Liste <strong>aller</strong> erfolgreich zugestellten Notifikationen</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /all[?&lt;params (i.e. oai_verb + params)&gt;]
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /all[?&lt;params (i.e. oai_verb + params)&gt;]
 </pre></div>
 </div>
 </div>
 </li>
-<li><p class="first"><strong>Aufruf</strong>:  <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/repo</span></code></p>
+<li><p><strong>Aufruf</strong>:  <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/repo</span></code></p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Liste der zugestellten Notifikationen <strong>einer</strong> Einrichtung</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET /repo/&lt;repo_id&gt;[?&lt;params (i.e. oai_verb + params)&gt;]
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET /repo/&lt;repo_id&gt;[?&lt;params (i.e. oai_verb + params)&gt;]
 </pre></div>
 </div>
 </div>
 </li>
 </ul>
-<p>Als illustratives Beispiel sei die Identifikation der DeepGreen-<code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Schnittstelle
+<p>Als illustratives Beispiel sei die Identifikation der DeepGreen-<code class="docutils literal notranslate"><span class="pre">OAI-PMH</span></code>-Schnittstelle
 wiedergegeben:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -k -s https://www.oa-deepgreen.de/oaipmh/all?verb<span class="o">=</span>Identify <span class="p">|</span> xml_pp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -k -s https://www.oa-deepgreen.de/oaipmh/all?verb<span class="o">=</span>Identify <span class="p">|</span> xml_pp
 &lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>?&gt;
 &lt;OAI-PMH <span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/&quot;</span> xmlns:xsi<span class="o">=</span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> xsi:schemaLocation<span class="o">=</span><span class="s2">&quot;http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd&quot;</span>&gt;
   &lt;responseDate&gt;2018-08-17T10:47:33Z&lt;/responseDate&gt;
@@ -147,19 +134,19 @@ wiedergegeben:</p>
 &lt;/OAI-PMH&gt;
 </pre></div>
 </div>
-<p>Hierbei ist zu beachten, dass der frühstmögliche Zeitstempel (<code class="docutils literal"><span class="pre">earlierstDatestamp</span></code>) immer
-in etwa &#8220;-3 Monate&#8221; vom Aufrufdatum (<code class="docutils literal"><span class="pre">responseDate</span></code>) beträgt, da DeepGreen Artikeldaten
+<p>Hierbei ist zu beachten, dass der frühstmögliche Zeitstempel (<code class="docutils literal notranslate"><span class="pre">earlierstDatestamp</span></code>) immer
+in etwa „-3 Monate“ vom Aufrufdatum (<code class="docutils literal notranslate"><span class="pre">responseDate</span></code>) beträgt, da DeepGreen Artikeldaten
 stets nur solange aktuell und somit vorrätig hält (<em>moving wall</em>-Prinzip).</p>
 <div class="section" id="metadaten-von-deepgreen-erhalten">
 <h2>Metadaten von DeepGreen erhalten<a class="headerlink" href="#metadaten-von-deepgreen-erhalten" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Es sei hier noch einmal ausdrücklich darauf hingewiesen, dass die <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Schnittstelle
+<p>Es sei hier noch einmal ausdrücklich darauf hingewiesen, dass die <code class="docutils literal notranslate"><span class="pre">OAI-PMH</span></code>-Schnittstelle
 von DeepGreen <strong>ausschließlich</strong> nur Metadaten anbietet. Die Auslieferung von Volltexten
-über <code class="docutils literal"><span class="pre">OAI-PMH</span></code> ist (und wird auch zukünftig!) <strong>nicht</strong> vorgesehen.</p>
+über <code class="docutils literal notranslate"><span class="pre">OAI-PMH</span></code> ist (und wird auch zukünftig!) <strong>nicht</strong> vorgesehen.</p>
 <p>Der übersichlichkeithalber seien nun kurz die gebäuchlichsten OAI-Verben, die von DeepGreen
 unterstützt werden, gelistet:</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Mögliche <strong>Parameter</strong> bei OAI-Verben von DeepGreen</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-rest"><div class="highlight"><pre><span></span>GET &lt;hhtp-Adresse/...&gt;?verb=Identify
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>GET &lt;hhtp-Adresse/...&gt;?verb=Identify
 <span class="gh">#</span>
 <span class="gh"># Dieses OAI-Verb hat keine weiteren Parameter</span>
 <span class="gh">#</span>
@@ -182,28 +169,28 @@ GET &lt;http-Adresse/...&gt;?verb=GetRecord?identifier=&lt;oai_id&gt;
 </div>
 </div>
 <p>Bei allen OAI-Verben, die einen oder mehrere Datensätze zurückliefern, <strong>muss</strong> zusätzlich
-der Parameter <code class="docutils literal"><span class="pre">...&amp;metadataPrefix=oai_dc</span></code> angehängt werden. Sofern es also für ein OAI-Verb
-sinnvoll (oder vorgeschrieben) ist, werden mit dem <code class="docutils literal"><span class="pre">&amp;</span></code>-Zeichen mehrere Parameter verbunden.</p>
-<p>Der <code class="docutils literal"><span class="pre">http-Header</span></code> Rückgabewert ist bei allen OAI-Anfragen (gemäß der <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Spezifikation)
-stets <code class="docutils literal"><span class="pre">200</span> <span class="pre">OK</span></code>:</p>
+der Parameter <code class="docutils literal notranslate"><span class="pre">...&amp;metadataPrefix=oai_dc</span></code> angehängt werden. Sofern es also für ein OAI-Verb
+sinnvoll (oder vorgeschrieben) ist, werden mit dem <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>-Zeichen mehrere Parameter verbunden.</p>
+<p>Der <code class="docutils literal notranslate"><span class="pre">http-Header</span></code> Rückgabewert ist bei allen OAI-Anfragen (gemäß der <code class="docutils literal notranslate"><span class="pre">OAI-PMH</span></code>-Spezifikation)
+stets <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>:</p>
 <ul>
-<li><p class="first"><strong>http-Header Rückgabewert</strong></p>
+<li><p><strong>http-Header Rückgabewert</strong></p>
 <blockquote>
-<div><table border="1" class="docutils">
+<div><table class="docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Beschreibung</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><p class="first"></p>
-<p class="last"><strong>200</strong> OK</p>
+<tbody>
+<tr class="row-even"><td><p></p>
+<p><strong>200</strong> OK</p>
 </td>
-<td><div class="first last highlight-rest"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
+<td><div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>HTTP 1.1  200 OK
 Content-Type: text/xml; charset=utf-8
 
 [XML response to OAI-PMH request;
@@ -219,9 +206,9 @@ Content-Type: text/xml; charset=utf-8
 </ul>
 <div class="section" id="beispiele-fur-die-benutzung-der-oai-pmh-schnittstelle">
 <h3>Beispiele für die Benutzung der OAI-PMH-Schnittstelle<a class="headerlink" href="#beispiele-fur-die-benutzung-der-oai-pmh-schnittstelle" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Exemplarisches Ergebnis eines <code class="docutils literal"><span class="pre">OAI-PMH</span></code>-Aufrufs (mit fiktiver Konto-Nummer 1234567890 ;
+<p>Exemplarisches Ergebnis eines <code class="docutils literal notranslate"><span class="pre">OAI-PMH</span></code>-Aufrufs (mit fiktiver Konto-Nummer 1234567890 ;
 die Notifikations-IDs sind ausgesternt):</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="c1">#  ListIdentifiers</span>
 <span class="c1">#</span>
 $ curl -k -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListIdentifiers&amp;metadataPrefix=oai_dc&quot;</span> <span class="p">|</span> xml_pp
@@ -248,7 +235,7 @@ $ curl -k -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234
 </div>
 <p>Ein weiteres Beispiel mit konkreten Datensätzen. Anhand der Notifikations-IDs (hier ausgesternt)
 könnten die berechtigten Repositorien die Artikel ggf. über die Web-API von DeepGreen beziehen:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 <span class="c1">#  ListRecords</span>
 <span class="c1">#</span>
 $ curl -k -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234567890?verb=ListRecords&amp;metadataPrefix=oai_dc&quot;</span> <span class="p">|</span> xml_pp
@@ -365,7 +352,7 @@ $ curl -k -s <span class="s2">&quot;https://www.oa-deepgreen.de/oaipmh/repo/1234
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, DeepGreen Konsortium.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 erstellt.
     </div>
   </body>
 </html>

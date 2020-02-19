@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>Wie-geht-was? Tipps, Tricks, und Skripte für DeepGreen &#8212; DeepGreen 1.2.1 Dokumentation</title>
-    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="author" title="Über dieses Dokument" href="../about.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Aufsetzen einer neuen DeepGreen-Instanz" href="installation.html" />
     <link rel="prev" title="DeepGreen: Programmierung und Installation" href="index.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -53,7 +40,7 @@
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="../index.html">Inhalt</a></h3>
+  <h3><a href="../index.html">Inhaltsverzeichnis</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Wie-geht-was? Tipps, Tricks, und Skripte für DeepGreen</a><ul>
 <li><a class="reference internal" href="#sammelsurium-kleinerer-skripte-fur-deepgreen-elasticsearch">Sammelsurium kleinerer Skripte für DeepGreen / Elasticsearch</a></li>
@@ -75,13 +62,13 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Los" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -98,19 +85,19 @@
 <h2>Sammelsurium kleinerer Skripte für DeepGreen / Elasticsearch<a class="headerlink" href="#sammelsurium-kleinerer-skripte-fur-deepgreen-elasticsearch" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text"><strong>bash-Skript</strong>: Ein leerer Block</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text"><strong>bash-Skript</strong>: Ein leerer Block</span><a class="headerlink" href="#id2" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text"><strong>bash-Skript</strong> grand_total_of_routed_and_failed.sh : Liste alle bisherigen Notifikationen auf (<code class="docutils literal"><span class="pre">jper/failed</span></code> &amp; <code class="docutils literal"><span class="pre">jper/routed20xxxx</span></code>) (von remote)</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
+<div class="code-block-caption"><span class="caption-text"><strong>bash-Skript</strong> grand_total_of_routed_and_failed.sh : Liste alle bisherigen Notifikationen auf (<code class="docutils literal notranslate"><span class="pre">jper/failed</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">jper/routed20xxxx</span></code>) (von remote)</span><a class="headerlink" href="#id3" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 
 <span class="nv">dginst</span><span class="o">=</span><span class="s2">&quot;www.oa-deepgreen.de&quot;</span>
 
@@ -169,11 +156,11 @@ mkdir -p <span class="s2">&quot;</span><span class="si">${</span><span class="nv
 </div>
 </div>
 <p>Der Inhalt der CSV-Dateien ist ebenfalls chronologisch angeordnet. Anhand der letzten CSV-Spalte
-(<code class="docutils literal"><span class="pre">Elastic-ID</span></code>) können alle Datensätze eines Verlages aus der ES-Datenbank gelöscht werden.</p>
+(<code class="docutils literal notranslate"><span class="pre">Elastic-ID</span></code>) können alle Datensätze eines Verlages aus der ES-Datenbank gelöscht werden.</p>
 <hr class="docutils" />
 <div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text"><strong>bash-Skript</strong>: Ergebnismenge der Benutzer, die unter <code class="docutils literal"><span class="pre">jper/contentlog</span></code> verzeichnet sind (von remote)</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
+<div class="code-block-caption"><span class="caption-text"><strong>bash-Skript</strong>: Ergebnismenge der Benutzer, die unter <code class="docutils literal notranslate"><span class="pre">jper/contentlog</span></code> verzeichnet sind (von remote)</span><a class="headerlink" href="#id4" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 ssh -n <span class="s2">&quot;green@sl64.kobv.de&quot;</span> <span class="s2">&quot;curl -s &#39;localhost:9200/jper/contentlog/_search?pretty&amp;size=1000&#39;&quot;</span> <span class="p">|</span><span class="se">\</span>
 jq -rc <span class="s1">&#39;.hits.hits[]._source.user&#39;</span> <span class="p">|</span> sort -u <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> user<span class="p">;</span> <span class="k">do</span>
    <span class="nb">printf</span> <span class="s2">&quot;%s\t&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -188,8 +175,8 @@ jq -rc <span class="s1">&#39;.hits.hits[]._source.user&#39;</span> <span class="
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text"><strong>bash-Skript</strong>: Anzahl der zu Testkonten gerouteter Artikel (<code class="docutils literal"><span class="pre">jper/routed20190[1-6]</span></code> (von remote)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
+<div class="code-block-caption"><span class="caption-text"><strong>bash-Skript</strong>: Anzahl der zu Testkonten gerouteter Artikel (<code class="docutils literal notranslate"><span class="pre">jper/routed20190[1-6]</span></code> (von remote)</span><a class="headerlink" href="#id5" title="Link zu diesem Quellcode">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env bash</span>
 grep <span class="s2">&quot;id=&quot;</span> Work/Data/Util/api_keys_deepgreen_prototyp.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> line<span class="p">;</span> <span class="k">do</span>
    <span class="nv">rid</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">line</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">|</span>grep -o <span class="s2">&quot;[0-9a-f]\{32\}&quot;</span><span class="k">)</span>
    <span class="nv">url</span><span class="o">=</span><span class="s2">&quot;localhost:9200/jper/routed201901,routed201902,routed201903,routed201904,routed201905,routed201906/_count?q=</span><span class="si">${</span><span class="nv">rid</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -253,7 +240,7 @@ grep <span class="s2">&quot;id=&quot;</span> Work/Data/Util/api_keys_deepgreen_p
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, DeepGreen Konsortium.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 erstellt.
     </div>
   </body>
 </html>

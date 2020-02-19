@@ -462,18 +462,22 @@ Volles JSON-Schema für ``Outgoing Notification`` (alphabetisch sortiert nach de
        ], 
        "date_accepted": "2016-08-09T14:22:11Z", 
        "date_submitted": "2016-08-09T14:22:11Z", 
+       "fpage", "string",
        "identifier": [
          {
            "id": "string", 
            "type": "string"
          }
-       ], 
+       ],
+       "issue", "string", 
+       "journal", "string",
        "license_ref": {
          "title": "string", 
          "type": "string", 
          "url": "string", 
          "version": "string"
-       }, 
+       },
+       "lpage", "string", 
        "project": [
          {
            "grant_number": "string", 
@@ -500,7 +504,8 @@ Volles JSON-Schema für ``Outgoing Notification`` (alphabetisch sortiert nach de
        "subject": [
          "string"
        ], 
-       "title": "string" 
+       "title": "string",
+       "volume": "string" 
      }
    }
 
@@ -547,9 +552,15 @@ Felder gelöscht werden.
    +---------------------------------------+--------------------------------------------------+
    | metadata.date_submitted               | Datum, wann die Publikation eingereicht wurde    |
    +---------------------------------------+--------------------------------------------------+
+   | metadata.fpage                        | Erste Seitenzahl der Publikation                 |
+   +---------------------------------------+--------------------------------------------------+
    | metadata.identifier.id                | ID für die Publikation (z.B. DOI)                |
    +---------------------------------------+--------------------------------------------------+
    | metadata.identifier.type              | ID-Typ (z.B. "doi"; allerdings kein Vokabular)   |
+   +---------------------------------------+--------------------------------------------------+
+   | metadata.issue                        | Heftzählung (Journalheft)                        |
+   +---------------------------------------+--------------------------------------------------+
+   | metadata.journal                      | Name des Journals der Publikation (Journaltitel) |
    +---------------------------------------+--------------------------------------------------+
    | metadata.license_ref.title            | Name einer Lizenz (Freifeldtext)                 |
    +---------------------------------------+--------------------------------------------------+
@@ -558,6 +569,8 @@ Felder gelöscht werden.
    | metadata.license_ref.url              | URL, die zu weiteren Lizenzinformationen führt   |
    +---------------------------------------+--------------------------------------------------+
    | metadata.license_ref.version          | Version einer Lizenz                             |
+   +---------------------------------------+--------------------------------------------------+
+   | metadata.lpage                        | Letzte Seitenzahl der Publikation                |
    +---------------------------------------+--------------------------------------------------+
    | metadata.project.grant_number         | Förderkürzel, sofern in den Metadaten angeführt  |
    +---------------------------------------+--------------------------------------------------+
@@ -580,6 +593,8 @@ Felder gelöscht werden.
    | metadata.subject                      | Schlagwort                                       |
    +---------------------------------------+--------------------------------------------------+
    | metadata.title                        | Titel der Veröffentlichung                       |
+   +---------------------------------------+--------------------------------------------------+
+   | metadata.volume                       | Bandzählung (Journalband)                        |
    +---------------------------------------+--------------------------------------------------+
 
 

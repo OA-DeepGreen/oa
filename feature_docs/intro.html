@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>Übersicht &#8212; DeepGreen 1.2.1 Dokumentation</title>
-    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="author" title="Über dieses Dokument" href="../about.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="&lt;no title&gt;" href="deliver.html" />
     <link rel="prev" title="DeepGreen: Funktionsbeschreibung" href="index.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -53,12 +40,12 @@
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="../index.html">Inhalt</a></h3>
+  <h3><a href="../index.html">Inhaltsverzeichnis</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Übersicht</a><ul>
-<li><a class="reference internal" href="#daten-ubernahme-notification">Daten-Übernahme (<code class="docutils literal"><span class="pre">notification</span></code>)</a></li>
-<li><a class="reference internal" href="#daten-zuordnung-match-route">Daten-Zuordnung (<code class="docutils literal"><span class="pre">match</span> <span class="pre">&amp;</span> <span class="pre">route</span></code>)</a></li>
-<li><a class="reference internal" href="#daten-loschung-delete">Daten-Löschung (<code class="docutils literal"><span class="pre">delete</span></code>)</a></li>
+<li><a class="reference internal" href="#daten-ubernahme-notification">Daten-Übernahme (<code class="docutils literal notranslate"><span class="pre">notification</span></code>)</a></li>
+<li><a class="reference internal" href="#daten-zuordnung-match-route">Daten-Zuordnung (<code class="docutils literal notranslate"><span class="pre">match</span> <span class="pre">&amp;</span> <span class="pre">route</span></code>)</a></li>
+<li><a class="reference internal" href="#daten-loschung-delete">Daten-Löschung (<code class="docutils literal notranslate"><span class="pre">delete</span></code>)</a></li>
 </ul>
 </li>
 </ul>
@@ -77,13 +64,13 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Los" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -96,24 +83,21 @@
             
   <div class="section" id="ubersicht">
 <h1>Übersicht<a class="headerlink" href="#ubersicht" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Der <code class="docutils literal"><span class="pre">DeepGreen</span> <span class="pre">Prototyp</span></code> ist grundsätzlich als push-forward-System konzipiert.
+<p>Der <code class="docutils literal notranslate"><span class="pre">DeepGreen</span> <span class="pre">Prototyp</span></code> ist grundsätzlich als push-forward-System konzipiert.
 Es werden von Daten-Lieferanten Inhalte in Form von Metadaten und Volltexten
 an das System geliefert, diese dann von DeepGreen aufgenommen, analysiert,
 zugeordnet, und schließlich bereitgestellt und nach einer einstellbaren
 Karenzzeit aus dem system wieder gelöscht.  Die Schritte im Einzelnen genauer
 erklärt:</p>
 <div class="section" id="daten-ubernahme-notification">
-<h2>Daten-Übernahme (<code class="docutils literal"><span class="pre">notification</span></code>)<a class="headerlink" href="#daten-ubernahme-notification" title="Link zu dieser Überschrift">¶</a></h2>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Quellcode:</th><td class="field-body"><code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/views/webapi.py</span></code>, <code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/api.py</span></code></td>
-</tr>
-</tbody>
-</table>
+<h2>Daten-Übernahme (<code class="docutils literal notranslate"><span class="pre">notification</span></code>)<a class="headerlink" href="#daten-ubernahme-notification" title="Link zu dieser Überschrift">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Quellcode</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/views/webapi.py</span></code>, <code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/api.py</span></code></p>
+</dd>
+</dl>
 <p>Die Daten-Übernahme erfolgt primär über die Web-API-Schnittstelle:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span> $ curl -i -k -s -XPOST <span class="s2">&quot;https://www.oa-deepgreen.de/api/v1/notification?api_key=***&quot;</span> <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> $ curl -i -k -s -XPOST <span class="s2">&quot;https://www.oa-deepgreen.de/api/v1/notification?api_key=***&quot;</span> <span class="se">\</span>
         -F <span class="s2">&quot;content=article.zip; type=application/zip&quot;</span> <span class="se">\</span>
         -F <span class="s2">&quot;metadata=metafile.json; type=application/json&quot;</span>
  HTTP/1.1 <span class="m">202</span> ACCEPTED
@@ -130,46 +114,40 @@ erklärt:</p>
 <span class="s2">&quot;location&quot;</span>: <span class="s2">&quot;http://www.oa-deepgreen.de/api/v1/notification/a2121f6647534dd19e91479838b5a5e7&quot;</span><span class="o">}</span>
 </pre></div>
 </div>
-<p>In diesem Beispiel ist die Übertragung der <code class="docutils literal"><span class="pre">zip</span></code>-Datei und der <code class="docutils literal"><span class="pre">json</span></code>-Datei
-(mit einer Format-Angabe über das <code class="docutils literal"><span class="pre">xml</span></code> in der <code class="docutils literal"><span class="pre">zip</span></code>-Datei) an DeepGreen
-erfolgreich.  Die <code class="docutils literal"><span class="pre">zip</span></code>-Datei liegt jetzt zusammen mit der extrahierten
-<code class="docutils literal"><span class="pre">xml</span></code>-Datei im Zwischenspeicher (<code class="docutils literal"><span class="pre">storage</span></code>) für die Weiterverarbeitung
-bereit.  Die Notifikation zu dieser Datenlieferung ist unter der als <code class="docutils literal"><span class="pre">location</span></code>
-bezeichneten Adresse abrufbar und einsehbar, und als <code class="docutils literal"><span class="pre">unrouted</span></code> gekennzeichnet.</p>
+<p>In diesem Beispiel ist die Übertragung der <code class="docutils literal notranslate"><span class="pre">zip</span></code>-Datei und der <code class="docutils literal notranslate"><span class="pre">json</span></code>-Datei
+(mit einer Format-Angabe über das <code class="docutils literal notranslate"><span class="pre">xml</span></code> in der <code class="docutils literal notranslate"><span class="pre">zip</span></code>-Datei) an DeepGreen
+erfolgreich.  Die <code class="docutils literal notranslate"><span class="pre">zip</span></code>-Datei liegt jetzt zusammen mit der extrahierten
+<code class="docutils literal notranslate"><span class="pre">xml</span></code>-Datei im Zwischenspeicher (<code class="docutils literal notranslate"><span class="pre">storage</span></code>) für die Weiterverarbeitung
+bereit.  Die Notifikation zu dieser Datenlieferung ist unter der als <code class="docutils literal notranslate"><span class="pre">location</span></code>
+bezeichneten Adresse abrufbar und einsehbar, und als <code class="docutils literal notranslate"><span class="pre">unrouted</span></code> gekennzeichnet.</p>
 <p>Falls ein Übertragungs- oder ein interner Konvertierungsfehler in dieser Prozedur
 auftritt, wird nichts gespeichert und auch nichts markiert.  Für DeepGreen hat
-es somit nie eine <code class="docutils literal"><span class="pre">zip</span></code>-Datei gegeben.  Der <code class="docutils literal"><span class="pre">http</span></code>-Rückgabecode ist in diesem
-Fall: <code class="docutils literal"><span class="pre">HTTP/1.1</span> <span class="pre">400</span> <span class="pre">BAD</span> <span class="pre">REQUEST</span></code> .  Zusätzlich liefert der DeepGreen-Server noch
-eine genauere Fehlermeldung <code class="docutils literal"><span class="pre">{&quot;error&quot;:</span> <span class="pre">&quot;&lt;kurze</span> <span class="pre">Fehlerbeschreibung&gt;&quot;}</span></code> zurück.</p>
+es somit nie eine <code class="docutils literal notranslate"><span class="pre">zip</span></code>-Datei gegeben.  Der <code class="docutils literal notranslate"><span class="pre">http</span></code>-Rückgabecode ist in diesem
+Fall: <code class="docutils literal notranslate"><span class="pre">HTTP/1.1</span> <span class="pre">400</span> <span class="pre">BAD</span> <span class="pre">REQUEST</span></code> .  Zusätzlich liefert der DeepGreen-Server noch
+eine genauere Fehlermeldung <code class="docutils literal notranslate"><span class="pre">{&quot;error&quot;:</span> <span class="pre">&quot;&lt;kurze</span> <span class="pre">Fehlerbeschreibung&gt;&quot;}</span></code> zurück.</p>
 <hr class="docutils" />
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Quellcode:</th><td class="field-body"><code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/scheduler.py</span></code>, <code class="docutils literal"><span class="pre">jper-sword-in:</span> <span class="pre">service/sword.py</span></code></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Quellcode</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/scheduler.py</span></code>, <code class="docutils literal notranslate"><span class="pre">jper-sword-in:</span> <span class="pre">service/sword.py</span></code></p>
+</dd>
+</dl>
 <p>Sowohl die sFTP-Schnittstelle, als auch die annehmende SWORDv2-Schnittstelle
 von DeepGreen setzen auch genau auf diesen dargestellten Übernahmemechanismus
 mit dem Unterschied, dass der obige curl-Befehl <strong>automatisch</strong> umgesetzt und
 ausgelöst wird.</p>
 </div>
 <div class="section" id="daten-zuordnung-match-route">
-<h2>Daten-Zuordnung (<code class="docutils literal"><span class="pre">match</span> <span class="pre">&amp;</span> <span class="pre">route</span></code>)<a class="headerlink" href="#daten-zuordnung-match-route" title="Link zu dieser Überschrift">¶</a></h2>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Quellcode:</th><td class="field-body"><code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/routing_deepgreen.py</span></code>, <code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/scheduler.py</span></code>, <code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/packages.py</span></code></td>
-</tr>
-</tbody>
-</table>
+<h2>Daten-Zuordnung (<code class="docutils literal notranslate"><span class="pre">match</span> <span class="pre">&amp;</span> <span class="pre">route</span></code>)<a class="headerlink" href="#daten-zuordnung-match-route" title="Link zu dieser Überschrift">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Quellcode</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/routing_deepgreen.py</span></code>, <code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/scheduler.py</span></code>, <code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/packages.py</span></code></p>
+</dd>
+</dl>
 <p>Die Zuordnung der abgelieferten Verlagsdaten zu berechtigten Abnehmern verläuft über mehere
-Stufen &#8212; mit Hilfe der in der Notifikation gespeicherten Metadaten.</p>
-<p>In periodischen Abständen prüft DeepGreen, ob als <code class="docutils literal"><span class="pre">unrouted</span></code> gekennzeichnete Notifikationen
-im Volltextindex (<code class="docutils literal"><span class="pre">elasticsearch</span></code>) vorliegen. Wenn dies der Fall ist, wird für jede dieser
-<code class="docutils literal"><span class="pre">unrouted</span></code> Notifikation zunächst über die enthaltene ISSN und das Publikationsdatum bestimmt,
+Stufen — mit Hilfe der in der Notifikation gespeicherten Metadaten.</p>
+<p>In periodischen Abständen prüft DeepGreen, ob als <code class="docutils literal notranslate"><span class="pre">unrouted</span></code> gekennzeichnete Notifikationen
+im Volltextindex (<code class="docutils literal notranslate"><span class="pre">elasticsearch</span></code>) vorliegen. Wenn dies der Fall ist, wird für jede dieser
+<code class="docutils literal notranslate"><span class="pre">unrouted</span></code> Notifikation zunächst über die enthaltene ISSN und das Publikationsdatum bestimmt,
 ob der zugehörige Artikel zu einer Allianz-Lizenz gehört.  Falls ja, werden alle teilnehmenden
 Einrichtungen der gefundenen Allianz-Lizenz mit ihrer EZB-Id bestimmt.  Diese Information wird
 regelmäßig (etwa jeden Monat einmal) über die EZB in Regensburg aktuallisiert.</p>
@@ -179,53 +157,47 @@ berechtigt sind, den vorliegenden Artikel in ihr Repositorium einzustellen.</p>
 <p>Die Liste der potentiellen Empfänger wird nun anhand gewisser Trefferkriterien mit den
 vorliegenden Artikel-Metadaten abgeglichen.  Insbesondere die Affliliationsangaben im Artikel
 werden hierzu herangezogen, aber auch E-Mailadressen oder andere identifizierbare Angaben
-(<code class="docutils literal"><span class="pre">orcid</span></code>, <code class="docutils literal"><span class="pre">ringgold</span></code>, <code class="docutils literal"><span class="pre">grant</span> <span class="pre">id</span></code>, etc.), sofern in den Metadaten des Artikels vorhanden.
+(<code class="docutils literal notranslate"><span class="pre">orcid</span></code>, <code class="docutils literal notranslate"><span class="pre">ringgold</span></code>, <code class="docutils literal notranslate"><span class="pre">grant</span> <span class="pre">id</span></code>, etc.), sofern in den Metadaten des Artikels vorhanden.
 Die zu prüfenden Angaben <strong>muss</strong> jedes Repositorien-Konto eigenständig in DeepGreen anlegen
 und pflegen.</p>
 <p>Falls nun <strong>eines</strong> der Trefferkriterien eines Repositorien-Kontos mit den vorliegenden
 Metadaten des Artikels übereinstimmt, wird dies von DeepGreen protokolliert (im Volltextindex
-als <code class="docutils literal"><span class="pre">match_prov</span></code>) und eines neue Notifikation <code class="docutils literal"><span class="pre">routed</span></code> angelegt.  In diesem Schritt wird
-ggf. auch die <code class="docutils literal"><span class="pre">zip</span></code>-Datei im Zwischenspeicher (<code class="docutils literal"><span class="pre">storage</span></code>) umgepackt, falls dies laut der
+als <code class="docutils literal notranslate"><span class="pre">match_prov</span></code>) und eines neue Notifikation <code class="docutils literal notranslate"><span class="pre">routed</span></code> angelegt.  In diesem Schritt wird
+ggf. auch die <code class="docutils literal notranslate"><span class="pre">zip</span></code>-Datei im Zwischenspeicher (<code class="docutils literal notranslate"><span class="pre">storage</span></code>) umgepackt, falls dies laut der
 Konto-Konfiguration der Empfänger nötig ist bzw. gewünscht wird.  Die neue Notifikation erhält
-somit <em>alle</em> internen Link-Angaben zu sämtlichen benötigten <code class="docutils literal"><span class="pre">zip</span></code>-Formate, die dann im
+somit <em>alle</em> internen Link-Angaben zu sämtlichen benötigten <code class="docutils literal notranslate"><span class="pre">zip</span></code>-Formate, die dann im
 Zwischenspeicher zu diesem Artikel vorhanden sind.</p>
 <p>Falls in diesem ganzen Prozess aber keine erfolgreiche Zuordnung vorgenommen werden konnte, wird
-eine Notifikation <code class="docutils literal"><span class="pre">failed</span></code> erzeugt.</p>
+eine Notifikation <code class="docutils literal notranslate"><span class="pre">failed</span></code> erzeugt.</p>
 </div>
 <div class="section" id="daten-loschung-delete">
-<h2>Daten-Löschung (<code class="docutils literal"><span class="pre">delete</span></code>)<a class="headerlink" href="#daten-loschung-delete" title="Link zu dieser Überschrift">¶</a></h2>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Quellcode:</th><td class="field-body"><code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/scheduler.py</span></code>, <code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/models/notification.py</span></code>, <code class="docutils literal"><span class="pre">jper:</span> <span class="pre">service/packages.py</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Es werden (überraschenderweise!) nur Notifikationen gelöscht.  Der Zwischenspeicher (<code class="docutils literal"><span class="pre">storage</span></code>)
+<h2>Daten-Löschung (<code class="docutils literal notranslate"><span class="pre">delete</span></code>)<a class="headerlink" href="#daten-loschung-delete" title="Link zu dieser Überschrift">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Quellcode</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/scheduler.py</span></code>, <code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/models/notification.py</span></code>, <code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">service/packages.py</span></code></p>
+</dd>
+</dl>
+<p>Es werden (überraschenderweise!) nur Notifikationen gelöscht.  Der Zwischenspeicher (<code class="docutils literal notranslate"><span class="pre">storage</span></code>)
 wird von DeepGreen <strong>nicht</strong> gelöscht, sondern, wenn überhaupt, händisch vom Administrator
 gepflegt.</p>
-<p>Abhängig davon, wie es in der Konfigurationsdatei (lokal <code class="docutils literal"><span class="pre">jper:</span> <span class="pre">./local.cfg</span></code> bzw. defaultmäßig
-<code class="docutils literal"><span class="pre">jper:</span> <span class="pre">config/service.py</span></code>) angegeben ist, werden <code class="docutils literal"><span class="pre">unrouted</span></code> Notifikationen gelöscht, falls
-der Zuordungsversuch erfolgreich war (<code class="docutils literal"><span class="pre">DETETE_ROUTED=True</span></code>) oder falls der Zuordungsversuch
-nicht erfolgreich war (<code class="docutils literal"><span class="pre">DELETE_UNROUTED=True</span></code>).  Bei den entsprechend anderen Setzungen der
-beiden Schalter (<code class="docutils literal"><span class="pre">DELETE_ROUTED</span></code>, <code class="docutils literal"><span class="pre">DELETE_UNROUTED</span></code>) wird entsprechend nicht <em>sofort</em> nach
+<p>Abhängig davon, wie es in der Konfigurationsdatei (lokal <code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">./local.cfg</span></code> bzw. defaultmäßig
+<code class="docutils literal notranslate"><span class="pre">jper:</span> <span class="pre">config/service.py</span></code>) angegeben ist, werden <code class="docutils literal notranslate"><span class="pre">unrouted</span></code> Notifikationen gelöscht, falls
+der Zuordungsversuch erfolgreich war (<code class="docutils literal notranslate"><span class="pre">DETETE_ROUTED=True</span></code>) oder falls der Zuordungsversuch
+nicht erfolgreich war (<code class="docutils literal notranslate"><span class="pre">DELETE_UNROUTED=True</span></code>).  Bei den entsprechend anderen Setzungen der
+beiden Schalter (<code class="docutils literal notranslate"><span class="pre">DELETE_ROUTED</span></code>, <code class="docutils literal notranslate"><span class="pre">DELETE_UNROUTED</span></code>) wird entsprechend nicht <em>sofort</em> nach
 dem Zuordnungsversuch die Notifikation gelöscht.</p>
-<p>Darüberhinaus gibt es noch einen Löschmechanismus für <code class="docutils literal"><span class="pre">routed</span></code> Notifikationen, die eine
-eine festgelegte Verweildauer (<code class="docutils literal"><span class="pre">SCHEDULE_KEEP_ROUTED_MONTHS=&lt;integer&gt;</span></code>) überschritten haben.
-Auch diese Notifikationen werden aus dem Volltextindex (<code class="docutils literal"><span class="pre">elasticsearch</span></code>) von DeepGreen
+<p>Darüberhinaus gibt es noch einen Löschmechanismus für <code class="docutils literal notranslate"><span class="pre">routed</span></code> Notifikationen, die eine
+eine festgelegte Verweildauer (<code class="docutils literal notranslate"><span class="pre">SCHEDULE_KEEP_ROUTED_MONTHS=&lt;integer&gt;</span></code>) überschritten haben.
+Auch diese Notifikationen werden aus dem Volltextindex (<code class="docutils literal notranslate"><span class="pre">elasticsearch</span></code>) von DeepGreen
 entfernt.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Bemerkung:</th><td class="field-body">Somit bestände, zumindest theoretisch, die Möglichkeit, ein <em>dark archive</em> zu betreiben:
-<code class="docutils literal"><span class="pre">DELETE_UNROUTED=False</span></code> zur immerwährenden Vorlage für die periodische Zuordnnug,
-<code class="docutils literal"><span class="pre">DELETE_ROUTED=False</span></code> für Repositorien-Konten, die erst später zu DeepGreen hinzukommen,
-und <code class="docutils literal"><span class="pre">SCHEDULE_KEEP_ROUTED_MONTHS=1000</span></code> zur gut 83jährigen Aufbewahrung, zum Beispiel.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Bemerkung</dt>
+<dd class="field-odd"><p>Somit bestände, zumindest theoretisch, die Möglichkeit, ein <em>dark archive</em> zu betreiben:
+<code class="docutils literal notranslate"><span class="pre">DELETE_UNROUTED=False</span></code> zur immerwährenden Vorlage für die periodische Zuordnnug,
+<code class="docutils literal notranslate"><span class="pre">DELETE_ROUTED=False</span></code> für Repositorien-Konten, die erst später zu DeepGreen hinzukommen,
+und <code class="docutils literal notranslate"><span class="pre">SCHEDULE_KEEP_ROUTED_MONTHS=1000</span></code> zur gut 83jährigen Aufbewahrung, zum Beispiel.</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -253,7 +225,7 @@ und <code class="docutils literal"><span class="pre">SCHEDULE_KEEP_ROUTED_MONTHS
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, DeepGreen Konsortium.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 erstellt.
     </div>
   </body>
 </html>

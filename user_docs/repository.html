@@ -1,37 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
     <title>Anleitung und Hinweise für Repositorienbetreiber &#8212; DeepGreen 1.2.1 Dokumentation</title>
-    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="author" title="Über dieses Dokument" href="../about.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="DeepGreen: Funktionsbeschreibung" href="../feature_docs/index.html" />
     <link rel="prev" title="Anleitung und Hinweise für Verlage" href="publisher.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -53,7 +40,7 @@
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/deepgreen_logo.svg" alt="Logo"/>
             </a></p>
-  <h3><a href="../index.html">Inhalt</a></h3>
+  <h3><a href="../index.html">Inhaltsverzeichnis</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Anleitung und Hinweise für Repositorienbetreiber</a><ul>
 <li><a class="reference internal" href="#vorteile-von-deepgreen">Vorteile von DeepGreen</a></li>
@@ -78,13 +65,13 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Los" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -105,19 +92,19 @@ Sicht eines solchen Repositorienbetreibers.</p>
 <p>In Bezug auf die implementierten Lizenzmodelle (momentan: Allianz-Lizenzen) bietet
 die DeepGreen-Datendrehscheibe folgende Vorteile:</p>
 <ul class="simple">
-<li>DeepGreen ermöglicht eine automatisierte Ablieferung von Metadaten und
-Volltexten von lizenzierten Werken an das institutionelle Repositorium.</li>
-<li>Die manuelle Recherche von lizenzierten Publikationen der eigenen Institution entfällt.</li>
-<li>Ist eine Institution berechtigt, eine Publikation frei verfügbar zu machen, wird dies
+<li><p>DeepGreen ermöglicht eine automatisierte Ablieferung von Metadaten und
+Volltexten von lizenzierten Werken an das institutionelle Repositorium.</p></li>
+<li><p>Die manuelle Recherche von lizenzierten Publikationen der eigenen Institution entfällt.</p></li>
+<li><p>Ist eine Institution berechtigt, eine Publikation frei verfügbar zu machen, wird dies
 durch eine Benachrichtigung an die Institution (über ein zugehöriges DeepGreen-Konto ;
 siehe unten!) signalisiert.  Sofern spezielle Embargo-Fristen einzuhalten sind, sind
-die Repositorienbetreiber dafür verantwortlich.</li>
-<li>Liegen neben den Metadaten auch der Volltext der Publikation vor, können diese (innerhalb
+die Repositorienbetreiber dafür verantwortlich.</p></li>
+<li><p>Liegen neben den Metadaten auch der Volltext der Publikation vor, können diese (innerhalb
 eines bestimmten Zeitfensters ; in DeepGreen sind momentan 3 Monate eingestellt) von den
 berechtigten Institutionen bezogen werden oder ggf. automatisiert in die jeweiligen
-institutionelles Repositorien übersendet werden.</li>
-<li>Sind keine Volltexte vorhanden, so werden nur die Metadaten der entsprechenden Publikationen
-bereitgestellt.</li>
+institutionelles Repositorien übersendet werden.</p></li>
+<li><p>Sind keine Volltexte vorhanden, so werden nur die Metadaten der entsprechenden Publikationen
+bereitgestellt.</p></li>
 </ul>
 </div>
 <div class="section" id="bedienung-eines-repositorium-kontos">
@@ -130,35 +117,36 @@ werden eine (eindeutige) 32-stellige ID und ein sogenannter API-Schlüssel erzeu
 der für den Zugriff auf die zu erwartenden Volltexte benötigt wird.</p>
 <p>Über dieses Konto wählt man sich als Repositorienbetreiber bei DeepGreen ein, um</p>
 <ul class="simple">
-<li>die eigene ID und den API-Schlüssel herauszufinden (bzw. nachzuschlagen),</li>
-<li>die aktuellen Benachrichtigungen aufzulisten und herunterzuladen,</li>
-<li>die aktuellen Einstellung der <code class="docutils literal"><span class="pre">match-config</span></code>-Datei einzusehen, herunterzuladen
-oder ggf. eine neue <code class="docutils literal"><span class="pre">match-config</span></code>-Datei hochzuladen,</li>
-<li>die Einstellungen des DeepGreen-Kontos allgemein zu überprüfen und anzupassen
-(Passwort, ggf. SWORD-Einstellungen für die automatisierte Artikeldaten-Zustellung).</li>
+<li><p>die eigene ID und den API-Schlüssel herauszufinden (bzw. nachzuschlagen),</p></li>
+<li><p>die aktuellen Benachrichtigungen aufzulisten und herunterzuladen,</p></li>
+<li><p>die aktuellen Einstellung der <code class="docutils literal notranslate"><span class="pre">match-config</span></code>-Datei einzusehen, herunterzuladen
+oder ggf. eine neue <code class="docutils literal notranslate"><span class="pre">match-config</span></code>-Datei hochzuladen,</p></li>
+<li><p>die Einstellungen des DeepGreen-Kontos allgemein zu überprüfen und anzupassen
+(Passwort, ggf. SWORD-Einstellungen für die automatisierte Artikeldaten-Zustellung).</p></li>
 </ul>
 </div>
 <div class="section" id="bedeutung-der-match-config-datei">
 <h2>Bedeutung der <em>match-config</em> - Datei<a class="headerlink" href="#bedeutung-der-match-config-datei" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Mit dieser besonderen Datei (einer <code class="docutils literal"><span class="pre">.csv</span></code>-Datei mit <strong>genau</strong> sechs Spalten:
-<code class="docutils literal"><span class="pre">Name</span> <span class="pre">Variants</span></code>, <code class="docutils literal"><span class="pre">Domains</span></code>, <code class="docutils literal"><span class="pre">Grant</span> <span class="pre">Numbers</span></code>, <code class="docutils literal"><span class="pre">Dummy1</span></code>, <code class="docutils literal"><span class="pre">Dummy2</span></code> und
-<code class="docutils literal"><span class="pre">Keywords</span></code>) gibt eine Institution an, mit welchen (Namens-)Ansetzungen sie
+<p>Mit dieser besonderen Datei (einer <code class="docutils literal notranslate"><span class="pre">.csv</span></code>-Datei mit <strong>genau</strong> sechs Spalten:
+<code class="docutils literal notranslate"><span class="pre">Name</span> <span class="pre">Variants</span></code>, <code class="docutils literal notranslate"><span class="pre">Domains</span></code>, <code class="docutils literal notranslate"><span class="pre">Grant</span> <span class="pre">Numbers</span></code>, <code class="docutils literal notranslate"><span class="pre">Dummy1</span></code>, <code class="docutils literal notranslate"><span class="pre">Dummy2</span></code> und
+<code class="docutils literal notranslate"><span class="pre">Keywords</span></code>) gibt eine Institution an, mit welchen (Namens-)Ansetzungen sie
 Publikationen zugeordnet bekommen möchte.</p>
 <ul class="simple">
-<li><em>Bemerkungen:</em><ul>
-<li>Die Spalten <code class="docutils literal"><span class="pre">Dummy1</span></code> und <code class="docutils literal"><span class="pre">Dummy2</span></code> haben bisher keinerlei Funktion in DeepGreen
+<li><p><em>Bemerkungen:</em></p>
+<ul>
+<li><p>Die Spalten <code class="docutils literal notranslate"><span class="pre">Dummy1</span></code> und <code class="docutils literal notranslate"><span class="pre">Dummy2</span></code> haben bisher keinerlei Funktion in DeepGreen
 und sollte daher <strong>stets leer</strong> bleiben.  Diese Spalten sind für zukünftige
-Erweiterungen frei gelassen.</li>
-<li>Pro Zeile <strong>müssen</strong> auf alle Fälle genau <strong>fünf Kommata</strong> gegeben sein.</li>
-<li><strong>Alle</strong> Spalten werden als <code class="docutils literal"><span class="pre">unicode</span></code>-Zeichenketten eingelesen und interpretiert.
-Für die interne Verarbeitung innerhalb DeepGreens wird die <code class="docutils literal"><span class="pre">nfd</span></code>-Normalisierung
-von <code class="docutils literal"><span class="pre">unicode</span></code> verwendet.</li>
+Erweiterungen frei gelassen.</p></li>
+<li><p>Pro Zeile <strong>müssen</strong> auf alle Fälle genau <strong>fünf Kommata</strong> gegeben sein.</p></li>
+<li><p><strong>Alle</strong> Spalten werden als <code class="docutils literal notranslate"><span class="pre">unicode</span></code>-Zeichenketten eingelesen und interpretiert.
+Für die interne Verarbeitung innerhalb DeepGreens wird die <code class="docutils literal notranslate"><span class="pre">nfd</span></code>-Normalisierung
+von <code class="docutils literal notranslate"><span class="pre">unicode</span></code> verwendet.</p></li>
 </ul>
 </li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Beispiel einer <strong>match-config</strong> - Datei.  Die erste Zeile (<em>header</em>) ist unveränderlich und muss stets so lauten.</span><a class="headerlink" href="#id1" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-text"><div class="highlight"><pre><span></span>Name Variants,Domains,Grant Numbers,Dummy1,Dummy2,Keywords
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Name Variants,Domains,Grant Numbers,Dummy1,Dummy2,Keywords
 Academia Fridericiana Erlangensis,,,,,
 Academia Friderico Alexandrina Erlangen-Nürnberg,,,,,
 Academia Friderico-Alexandrina,,,,,
@@ -202,38 +190,41 @@ herausfinden, ob die fragliche Publikationen einer Institution zuzuordnen ist od
 <p>Vorhandene Artikeldaten können auf mehrere Arten von DeepGreen abgerufen werden. Momentan
 sind drei Varianten dazu vorgesehen.</p>
 <ul class="simple">
-<li><strong>Variante 1: Manuelle Abfrage der Daten über eine (native) Web-API (ReSTful Interface)</strong><ul>
-<li>Es besteht die Möglichkeit, die Metadaten <em>aller</em> zugeordneten Publikationen der letzten
+<li><p><strong>Variante 1: Manuelle Abfrage der Daten über eine (native) Web-API (ReSTful Interface)</strong></p>
+<ul>
+<li><p>Es besteht die Möglichkeit, die Metadaten <em>aller</em> zugeordneten Publikationen der letzten
 drei Monate abzufragen oder nur die einer einzigen Institution betreffend.  Dies wird
-über die Betreiberkonto-ID selektiert.</li>
-<li>Ein Zugriff auf eventuell vorhandene Volltexte geschieht bei Berechtigung nur in
-Kombination mit Konto-ID <strong>und</strong> API-Schüssel, die (natürlich) zueinander passen müssen.</li>
-<li>Für alle syntaktischen und technischen Einzelheiten siehe die detaillierte Beschreibung
-der Web-API. (<em>LINK</em> einfügen!)</li>
+über die Betreiberkonto-ID selektiert.</p></li>
+<li><p>Ein Zugriff auf eventuell vorhandene Volltexte geschieht bei Berechtigung nur in
+Kombination mit Konto-ID <strong>und</strong> API-Schüssel, die (natürlich) zueinander passen müssen.</p></li>
+<li><p>Für alle syntaktischen und technischen Einzelheiten siehe die detaillierte Beschreibung
+der Web-API. (<em>LINK</em> einfügen!)</p></li>
 </ul>
 </li>
-<li><strong>Variante 2: Abfrage von Metadaten über eine OAI-PMH-konforme Schnittstelle</strong><ul>
-<li>Wie in Variante 1 besteht auch hier die Möglichkeit, eine Metadatenliste <em>aller</em>
+<li><p><strong>Variante 2: Abfrage von Metadaten über eine OAI-PMH-konforme Schnittstelle</strong></p>
+<ul>
+<li><p>Wie in Variante 1 besteht auch hier die Möglichkeit, eine Metadatenliste <em>aller</em>
 zugeordneten Publikationen der letzten drei Monate abzurufen oder nur die Liste für
 eine einzige Institution.  Dazu wird hier ebenfalls die Repositorien-Konto-ID
-herangezogen.</li>
-<li>Über die OAI-PMH-Schnittstelle werden die Publikationsmetadaten in einem
-(rudimentären) <code class="docutils literal"><span class="pre">Dublin</span> <span class="pre">Core</span></code>-Format ausgegeben.</li>
-<li>Für die technischen Einzelheiten und die genaue Syntax der OAI-PMH-Abfragen siehe
-die Beschreibung der OAI-PMH-Schnittstelle von DeepGreen. (<em>LINK</em> einfügen!)</li>
+herangezogen.</p></li>
+<li><p>Über die OAI-PMH-Schnittstelle werden die Publikationsmetadaten in einem
+(rudimentären) <code class="docutils literal notranslate"><span class="pre">Dublin</span> <span class="pre">Core</span></code>-Format ausgegeben.</p></li>
+<li><p>Für die technischen Einzelheiten und die genaue Syntax der OAI-PMH-Abfragen siehe
+die Beschreibung der OAI-PMH-Schnittstelle von DeepGreen. (<em>LINK</em> einfügen!)</p></li>
 </ul>
 </li>
-<li><strong>Variante 3: Automatisierte Lieferung der Daten via SWORD-Schnittstelle</strong><ul>
-<li>Bei dieser Variante werden die Metadaten und die ggf. vorhandenen Volltexte über
+<li><p><strong>Variante 3: Automatisierte Lieferung der Daten via SWORD-Schnittstelle</strong></p>
+<ul>
+<li><p>Bei dieser Variante werden die Metadaten und die ggf. vorhandenen Volltexte über
 eine SWORD(v2)-Schnittstelle an berechtigte Repositorien ausgespielt.  Dazu muss
-eine kompatible SWORD-Schnittstelle auf der Seite des Repositoriums vorliegen.</li>
-<li>DeepGreen kann auch SWORD(v1)-Schnittstellen bedienen (Abwärtskompatibilität).</li>
-<li>DeepGreen kann momentan über die SWORD-Schnittstelle an Repositorien liefern,
-die auf Basis von <code class="docutils literal"><span class="pre">OPUS</span> <span class="pre">4</span></code> (<em>OPUS4-Import-XML</em>), <code class="docutils literal"><span class="pre">DSpace</span></code> (<em>METS-MODS</em>),
-<code class="docutils literal"><span class="pre">PubMan</span></code> (<em>ESciDoc</em>) oder <code class="docutils literal"><span class="pre">EPrints</span></code> laufen.</li>
-<li>Für alle technischen Einzelheit siehe die ausführliche Beschreibung der
-DeepGreen-SWORD-Schnittstelle. (<em>LINK</em> einfügen!)</li>
-<li>Diese Variante ist für Repositorienbetreiber <strong>optional</strong>.</li>
+eine kompatible SWORD-Schnittstelle auf der Seite des Repositoriums vorliegen.</p></li>
+<li><p>DeepGreen kann auch SWORD(v1)-Schnittstellen bedienen (Abwärtskompatibilität).</p></li>
+<li><p>DeepGreen kann momentan über die SWORD-Schnittstelle an Repositorien liefern,
+die auf Basis von <code class="docutils literal notranslate"><span class="pre">OPUS</span> <span class="pre">4</span></code> (<em>OPUS4-Import-XML</em>), <code class="docutils literal notranslate"><span class="pre">DSpace</span></code> (<em>METS-MODS</em>),
+<code class="docutils literal notranslate"><span class="pre">PubMan</span></code> (<em>ESciDoc</em>) oder <code class="docutils literal notranslate"><span class="pre">EPrints</span></code> laufen.</p></li>
+<li><p>Für alle technischen Einzelheit siehe die ausführliche Beschreibung der
+DeepGreen-SWORD-Schnittstelle. (<em>LINK</em> einfügen!)</p></li>
+<li><p>Diese Variante ist für Repositorienbetreiber <strong>optional</strong>.</p></li>
 </ul>
 </li>
 </ul>
@@ -264,7 +255,7 @@ DeepGreen-SWORD-Schnittstelle. (<em>LINK</em> einfügen!)</li>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, DeepGreen Konsortium.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.0 erstellt.
     </div>
   </body>
 </html>
